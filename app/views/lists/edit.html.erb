@@ -1,0 +1,18 @@
+<h1>編集</h1>
+
+<%= form_with model: @list, local: true do |f| %>
+
+  <div>
+  <%= f.label :リスト名 %><br />
+  <%= f.text_field :list_name, autofocus: true, autocomplete: "list_name" %>
+  </div>
+
+  <div>
+    <%= f.label :コメント %><br />
+    <%= f.text_field :list_comment %>
+  </div>
+
+  <div>
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>

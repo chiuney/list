@@ -1,0 +1,19 @@
+<h1>リスト登録</h1>
+
+<%= form_with model: @list, local: true do |f| %>
+
+  <div>
+    <%= f.label :リスト名 %><br />
+    <%= f.text_field :list_name, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :リストコメント %><br />
+    <%= f.text_field :list_comment %>
+  </div>
+
+  <div>
+  <%= f.submit "リストを追加" %>
+  </div>
+
+<% end %>
