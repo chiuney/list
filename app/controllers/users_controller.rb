@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @list = List.all
+    @list = FavoriteList.all
   end
 
   def destroy

@@ -2,7 +2,7 @@
 <p>ユーザーネーム <%= @user.user_name %></p>
 <p>メールアドレス <%= @user.email %></p>
 
-<%= link_to 'リストを追加', new_lists_path %>
+<%= link_to 'リストを追加', new_list_path %>
 
 <%= link_to 'プロフィールを編集', edit_user_registration_path %>
 
@@ -20,10 +20,11 @@
 
 <p>リスト一覧</p>
 <div>
-  <h3>eachdoのやつ</h3>
-    <p>写真(リスト詳細へのリンク)</p>
-    <p>リストタイトル</p>
-    <p>リストコメント(文字数制限あり)</p>
+  <% @list.each do |l|%>
+    <%= l.list_name %>
+    <%= l.list_comment%>
     <p>編集</p>
+    <p>削除</p>
+  <% end %>
 </div>
 

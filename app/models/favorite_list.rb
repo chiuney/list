@@ -1,3 +1,6 @@
 class FavoriteList < ApplicationRecord
-  belong_to :user
+  belongs_to :user
+
+  validates :list_name,    presence: true
+  validates :list_comment, presence: true
 end

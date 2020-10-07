@@ -1,42 +1,39 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    
-  end
-
   def new
-    @list = List.new
+    @list = FavoriteList.new
   end
 
   def create
-    @list = current_user.lists.build(list_params)
-    if @list.save
-      redirect_to @list
+    @list = FavoriteList.new(list_params)
+    @list.user_id = current_user.id
+    if @list.save!
+      redirect_to list_path
     else
       render new_lists_path
     end
   end
 
   def show
-    @list = List.find(params[:id])
+    @list = FavoriteList.find_by(id: params[:id])
   end
 
   def edit
-    @list = List.find(params[:id])
+    @list = FavoriteList.find(params[:id])
   end
 
   def update
-    @list = List.find(params[:id])
+    @list = FavoriteList.find(params[:id])
     if @list.update(list_params)
-      redirect_to @list
+      redirect_to list_path
     else
-      render edit_lists_path
+      render edit_list_path
     end
   end
 
   private
     def list_params
-      params.require(:list).permit(:list_name, :list_comment)
+      params.permit(:list_name, :list_comment)
     end
 end
