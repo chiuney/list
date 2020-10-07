@@ -21,9 +21,10 @@
 <p>リスト一覧</p>
 <div>
   <% @list.each do |l|%>
-    <%= l.list_name %>
+    <%= link_to l.list_name, list_path %>
     <%= l.list_comment%>
     <p>編集</p>
+    <%= link_to "編集", edit_list_path  %>
     <p>削除</p>
   <% end %>
 </div>

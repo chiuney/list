@@ -8,15 +8,15 @@ class ListsController < ApplicationController
   def create
     @list = FavoriteList.new(list_params)
     @list.user_id = current_user.id
-    if @list.save!
-      redirect_to list_path
+    if @list.save
+      redirect_to list_path(id: @list.id)
     else
       render new_lists_path
     end
   end
 
   def show
-    @list = FavoriteList.find_by(id: params[:id])
+    @list = FavoriteList.find(params[:id])
   end
 
   def edit
@@ -26,7 +26,7 @@ class ListsController < ApplicationController
   def update
     @list = FavoriteList.find(params[:id])
     if @list.update(list_params)
-      redirect_to list_path
+      redirect_to list_path(id: @list.id)
     else
       render edit_list_path
     end
