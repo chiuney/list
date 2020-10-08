@@ -7,7 +7,6 @@
 .mypage-container {
   width: 100vw;
   height: 100vh;
-  border: 1px solid black;
 
   &__mypage-profile {
     height: 30%;
@@ -16,7 +15,7 @@
     text-align: center;
     align-items: center;
     width: 80%;
-    background: skyblue;
+    // background: skyblue;
     margin: 0 auto;
     padding: 0 10%;
   }
@@ -24,7 +23,6 @@
 
 // left
 .mypage-left {
-  border: 1px solid black;
   height: 100%;
   width: 30%;
   position: relative;
@@ -44,7 +42,6 @@
 
 // center
 .mypage-center {
-  border: 1px solid black;
   height: 100%;
   width: 30%;
   position: relative;
@@ -56,40 +53,44 @@
   left: 50%;
   transform: translate(-50%,-50%);
   width: 100%;
+  // display: table;
+  text-align: center;
+  margin: 0 auto;
 
   &__mypage-username {
-    border: 1px solid black;
-    padding: 10px;
     font-size: 36px;
     max-width: 200px;
     margin: 0 auto;
     margin-top: 30px;
+    // display: table-cell;
+    // vertical-align: middle;
   }
 
   &__maypage-follow {
     margin: 10% 0%;
+    line-height: 50px;
   }
 }
 
  
 .follow-btn {
-  border: 1px solid black;
   display: inline-block;
   color: 	#333300;
-  padding: 18px 5px;
+  // padding: 18px 5px;
   width: 100px;
+  height: 50px;
 
   &__follow-link {
     color: 	#333300;
     display: block;
     width: 100%;
     height: 100%;
+    line-height: 50px;
   }
 }
 
 // right
 .mypage-right {
-  border: 1px solid black;
   height: 100%;
   width: 30%;
 
@@ -100,6 +101,7 @@
     padding: 16px;
     width: 70%;
     margin: 0 auto;
+    height: 50px;
   }
 
   &__mypage-edit:nth-child(1){
@@ -111,4 +113,41 @@
     margin-bottom: 30%;
   }
 
+}
+
+// リスト
+.list-container {
+  border: 1px solid black;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.list-wrap {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap:wrap;
+  justify-content: center;
+  margin: 10px 0px;
+
+  &__list-item {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+
+    &--img {
+      height: 200px;
+      width: 200px;
+    }
+
+    &--link {
+
+    }
+
+    &--name {
+      
+    }
+    &--edit {
+      
+    }
+  }
 }

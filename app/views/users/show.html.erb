@@ -25,25 +25,22 @@
       <%= link_to 'プロフィールを編集', edit_user_registration_path, class:"mypage-right__mypage-edit" %>
     </div>
   </section>
-  <section class="mypage-list">
-  <p>全てのお店</p>
-  <div>
-  <p>最新の写真(最後に登録した写真)</p>
-  <p>登録したお店一覧</p>
-  </div>
-
-<p>リスト一覧</p>
-
-<div>
-  <% @lists.each do |l|%>
-    <%= link_to l.list_name, list_path %>
-    <%= l.list_comment%>
-    <%= link_to "編集", edit_list_path  %>
-    <p>削除</p>
-  <% end %>
-</div>
+  
+  <section class="list-container">
+    <div class="list-wrap" >
+        <% @lists.each do |l|%>
+          <div class="list-wrap__list-item">
+          <%= link_to image_tag("kaisen.jpeg",class:"list-wrap__list-item--img"), list_path, class:"list-wrap__list-item--link" %>
+          <%= link_to l.list_name, list_path, class:"list-wrap__list-item--name" %>
+          <%= link_to "編集", edit_list_path, class:"list-wrap__list-item--edit"  %>
+          </div>
+        <% end %>
+    </div>
   </section>
 <main>
 
-<h2>リストたち</h2>
-
+<p>全てのお店</p>
+<div>
+<p>最新の写真(最後に登録した写真)</p>
+<p>登録したお店一覧</p>
+</div>
