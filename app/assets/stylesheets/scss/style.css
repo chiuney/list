@@ -270,3 +270,8 @@ input, select {
   height: 200px;
   width: 200px;
 }
+
+.list-wrap__list-item--name {
+  border: 1px solid black;
+  margin: 0 auto;
+}
