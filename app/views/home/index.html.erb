@@ -1,15 +1,15 @@
-<header>
-  <h1>リストアプリ</h1>
-  <nav>
-    <ul>
-      <li><%= link_to '新規登録', new_user_registration_path  %></li>
-      <li><%= link_to 'ログイン', new_user_session_path  %></li>
+<header class="header-container">
+  <h1 class="header-container__header-title"><%= link_to "リストアプリ", "/" ,class:"header-container__header-title--link"%></h1>
+  <nav class="header-container__header-nav">
+    <ul class="header_ul">
+      <li class="header-ul__header-list"><%= link_to '新規登録', new_user_registration_path, class:"header-ul__header-list--link" %></li><li class="header-ul__header-list"><%= link_to 'ログイン', new_user_session_path, class:"header-ul__header-list--link"  %></li>
     </ul>
   </nav>
 </header>
-<main>
-  <ul>
-    <li><%= link_to '新規登録', new_user_registration_path  %></li>
-    <li><%= link_to 'ログイン', new_user_session_path  %></li>
+<main class="top-container">
+  <p class="top-container__top-text">リストアプリで見つけよう<br>お気に入りのお店</p>
+  <ul class="top-ul">
+    <li class="top-ul__top-list"><%= link_to '新規登録', new_user_registration_path, class:"top-ul__top-list--link" %></li>
+    <li class="top-ul__top-list"><%= link_to 'ログイン', new_user_session_path, class:"top-ul__top-list--link" %></li>
   </ul>
 </main>
