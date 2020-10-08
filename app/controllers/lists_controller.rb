@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_list, only: [:edit, :update, :show]
 
   def new
     @list = FavoriteList.new
@@ -16,20 +17,21 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = FavoriteList.find(params[:id])
   end
 
   def edit
-    @list = FavoriteList.find(params[:id])
   end
 
   def update
-    @list = FavoriteList.find(params[:id])
     if @list.update(list_params)
       redirect_to list_path(id: @list.id)
     else
       render edit_list_path
     end
+  end
+
+  def set_list
+    @list = FavoriteList.find(params[:id])
   end
 
   private
