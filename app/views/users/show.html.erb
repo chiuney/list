@@ -1,18 +1,32 @@
-<h1>マイページ</h1>
-<p>ユーザーネーム <%= @user.user_name %></p>
-<p>メールアドレス <%= @user.email %></p>
-
-<%= link_to 'リストを追加', new_list_path %>
-
-<%= link_to 'プロフィールを編集', edit_user_registration_path %>
-
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-
-<%= link_to 'アカウントを削除', destroy_user_account_path, method: :delete, data: { confirm: '削除しますか？' } %>
-
-<h2>リストたち</h2>
-
-<p>全てのお店</p>
+<header class="logedin-header">
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <%= link_to 'アカウントを削除', destroy_user_account_path, method: :delete, data: { confirm: '削除しますか？' } %>
+</header>
+<main class="mypage-container">
+  <section class="mypage-container__mypage-profile">
+    <div class="mypage-left">
+      <%= image_tag 'no-image.png', class:"mypage-left__mypage-icon" %>
+    </div>
+    <div class="mypage-center">
+      <div class="mypage-content">
+        <p class="mypage-content__mypage-username"><%= @user.user_name %></p>
+        <div class="mypage-content__maypage-follow">
+          <p class="follow-btn">
+            <%= link_to "フォロー", "#", class:"follow-btn__follow-link" %>
+          </p>
+          <p class="follow-btn">
+            <%= link_to "フォロワー", "#", class:"follow-btn__follow-link" %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="mypage-right">
+      <%= link_to 'リストを追加', new_list_path, class:"mypage-right__mypage-edit" %>
+      <%= link_to 'プロフィールを編集', edit_user_registration_path, class:"mypage-right__mypage-edit" %>
+    </div>
+  </section>
+  <section class="mypage-list">
+  <p>全てのお店</p>
   <div>
   <p>最新の写真(最後に登録した写真)</p>
   <p>登録したお店一覧</p>
@@ -28,4 +42,8 @@
     <p>削除</p>
   <% end %>
 </div>
+  </section>
+<main>
+
+<h2>リストたち</h2>
 
