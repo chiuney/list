@@ -12,9 +12,12 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render 'layouts/header' %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/header_signed_in' %>
+    <% else %>
+      <%= render 'layouts/header_no_sign_in' %>
+    <% end %>
     <%= yield %>
-    <%= render 'layouts/header' %>
   </body>
   
 </html>
