@@ -24,7 +24,7 @@
   
   <section class="list-container">
     <div class="list-wrap" >
-        <% @lists.each do |l|%>
+        <% @lists.each do |l| %>
           <div class="list-wrap__list-item">
             <%= link_to image_tag("kaisen.jpeg",class:"list-wrap__list-item--img"), list_path(l.id), class:"list-wrap__list-item--link" %>
             <%= link_to l.list_name, list_path, class:"list-wrap__list-item--name" %>

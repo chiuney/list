@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user!
+
   before_action :set_list, only: [:edit, :update, :show]
 
   def new
@@ -17,6 +17,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @shops = Shop.find_by(list_id: @list.id)
   end
 
   def edit
