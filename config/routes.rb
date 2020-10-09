@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'shops/new'
   root to: "home#index"
   devise_for :users
   delete '/users/:id', to: 'users#destroy', as: 'destroy_user_account'
