@@ -1,2 +1,20 @@
-<h1>Shops#new</h1>
-<p>Find me in app/views/shops/new.html.erb</p>
+
+<h1>店追加</h1>
+
+<%= form_with model: @shop,local: true do |f| %>
+
+  <div>
+    <%= f.label :店名 %><br />
+    <%= f.text_field :shop_name, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :店コメント %><br />
+    <%= f.text_field :shop_comment %>
+  </div>
+
+  <div>
+  <%= f.submit "店を追加" %>
+  </div>
+
+<% end %>
