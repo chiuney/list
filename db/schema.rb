@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_060406) do
+ActiveRecord::Schema.define(version: 2020_10_09_024725) do
 
   create_table "favorite_lists", force: :cascade do |t|
     t.string "list_name"
     t.text "list_comment"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "shop_name", default: "", null: false
+    t.text "shop_comment", default: "", null: false
+    t.string "ure_id"
+    t.string "list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

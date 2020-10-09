@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shop_name: MyString
+  shop_comment: MyText
+  ure_id: MyString
+  list_id: MyString
+
+two:
+  shop_name: MyString
+  shop_comment: MyText
+  ure_id: MyString
+  list_id: MyString
