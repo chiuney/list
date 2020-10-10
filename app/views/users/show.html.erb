@@ -24,20 +24,18 @@
   
   <section class="list-container">
     <div class="list-wrap" >
-        <% @lists.each do |l| %>
-          <div class="list-wrap__list-item">
-            <%= link_to image_tag("kaisen.jpeg",class:"list-wrap__list-item--img"), list_path(l.id), class:"list-wrap__list-item--link" %>
-            <%= link_to l.list_name, list_path, class:"list-wrap__list-item--name" %>
-          </div>
-        <% end %>
+      <div class="list-wrap__list-all">
+        <%= link_to image_tag("no-image.png", class:"list-wrap__list-all--img"), shops_path %>
+        <%= link_to "全てのお店", shops_path, class:"list-wrap__list-all--title" %>
+      </div>
+      <% @lists.each do |l| %>
+        <div class="list-wrap__list-item">
+          <%= link_to image_tag("kaisen.jpeg",class:"list-wrap__list-item--img"), list_path(l.id) %>
+          <%= link_to l.list_name, list_path, class:"list-wrap__list-item--name" %>
+        </div>
+      <% end %>
     </div>
   </section>
 <main>
 
 <%= link_to 'アカウントを削除', destroy_user_account_path, method: :delete, data: { confirm: '削除しますか？' } %>
-
-<p>全てのお店</p>
-<div>
-<p>最新の写真(最後に登録した写真)</p>
-<p>登録したお店一覧</p>
-</div>
