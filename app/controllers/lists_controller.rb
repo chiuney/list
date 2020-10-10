@@ -32,6 +32,12 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list = FavoriteList.find(params[:id])
+    @list.destroy
+    redirect_to current_user
+  end
+
   def set_list
     @list = FavoriteList.find(params[:id])
   end
