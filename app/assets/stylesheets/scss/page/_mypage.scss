@@ -106,7 +106,7 @@
   display: flex;
   align-items: flex-start;
   flex-wrap:wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 10px 0px;
   width: 100%;
 
@@ -116,6 +116,7 @@
     flex-direction: column;
     margin: 10px;
     align-items: flex-start;
+    justify-content: flex-start;
 
     &--img {
       border: 1px solid black;
@@ -139,7 +140,7 @@
     margin: 10px;
     align-items: flex-start;
     flex-wrap:wrap;
-    justify-content: center;
+    // justify-content: center;
 
     &--img {
       border: 1px solid black;

@@ -17,7 +17,6 @@ class ListsController < ApplicationController
   end
 
   def show
-    session[:list_id] = @list.id
     @shops = Shop.where(list_id: @list.id)
   end
 

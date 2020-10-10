@@ -101,7 +101,7 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 10px 0px;
   width: 100%;
 }
@@ -112,6 +112,7 @@
   flex-direction: column;
   margin: 10px;
   align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .list-wrap__list-all--img {
@@ -135,7 +136,6 @@
   margin: 10px;
   align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .list-wrap__list-item--img {

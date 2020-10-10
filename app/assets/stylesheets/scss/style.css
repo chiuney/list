@@ -248,9 +248,32 @@ input, select {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 10px 0px;
   width: 100%;
+}
+
+.list-wrap__list-all {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.list-wrap__list-all--img {
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+}
+
+.list-wrap__list-all--title {
+  border: 1px solid black;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.1;
 }
 
 .list-wrap__list-item {
@@ -258,6 +281,8 @@ input, select {
   display: flex;
   flex-direction: row;
   margin: 10px;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .list-wrap__list-item--img {
@@ -272,4 +297,57 @@ input, select {
   text-align: center;
   font-size: 20px;
   line-height: 1.1;
+}
+
+header {
+  display: none;
+}
+
+.signup-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-container__signup-title {
+  font-size: 30px;
+  margin: 20px;
+}
+
+.signup-container__signup-subtitle {
+  font-size: 18px;
+  margin: 10px;
+}
+
+.signup-form {
+  width: 30%;
+  min-width: 250px;
+}
+
+.signup-form__signup-item {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.signup-form__signup-item--form {
+  width: 100%;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 2px solid #a9a9a9;
+  border-radius: 10px;
+  height: 40px;
+  font-size: 24px;
+  outline: none;
+}
+
+.signup-form__signup-item--submit {
+  margin: 0 auto;
+  background: #ffebcd;
+  width: 80%;
+  border-radius: 6px;
+  height: 34px;
 }
