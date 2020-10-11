@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_10_10_070719) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.integer "list_id"
     t.integer "favorite_list_id"
   end
 

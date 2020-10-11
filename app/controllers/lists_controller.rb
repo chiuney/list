@@ -17,7 +17,8 @@ class ListsController < ApplicationController
   end
 
   def show
-    @shops = Shop.where(list_id: @list.id)
+    session[:favorite_list_id] = @list.id
+
   end
 
   def edit
