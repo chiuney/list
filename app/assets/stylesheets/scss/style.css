@@ -141,12 +141,12 @@ input, select {
 }
 
 .logedin-header {
-  background: gray;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2%;
+  border-bottom: 1px solid black;
 }
 
 .logedin-header__header-title {
