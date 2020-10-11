@@ -1,5 +1,5 @@
 <header class="logedin-header">
-  <h1 class="logedin-header__header-title"><%= link_to "リストアプリ", "/", class:"logedin-header__header-title--link" %></h1>
+  <h1 class="logedin-header__header-title"><%= link_to "リストアプリ", user_path(current_user.id) , class:"logedin-header__header-title--link" %></h1>
 
   <p class="logedin-header__header-search">検索窓</p>
   <div class="logedin-header__header-link">
