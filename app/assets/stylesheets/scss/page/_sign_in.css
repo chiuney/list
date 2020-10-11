@@ -1,23 +1,19 @@
-.signup-container {
+.signin-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 }
 
-.signup-container__signup-title {
+.signin-container__signin-title {
   font-size: 30px;
   margin: 20px;
   padding-top: 30px;
 }
 
-.signup-container__signup-subtitle {
-  font-size: 18px;
-  margin: 10px;
-}
-
-.signup-container__signup-rules {
+.signin-container__signin-rules {
   width: 25%;
   min-width: 200px;
   font-size: 12px;
@@ -25,19 +21,18 @@
   margin-bottom: 20px;
 }
 
-.signup-form {
+.signin-form {
   width: 30%;
   min-width: 250px;
 }
 
-.signup-form__signup-item {
-  position: relative;
+.signin-form__signin-item {
   width: 80%;
   margin: 20px auto;
   text-align: center;
 }
 
-.signup-form__signup-item--form {
+.signin-form__signin-item--form {
   width: 100%;
   padding: 0.3em;
   transition: 0.3s;
@@ -48,10 +43,19 @@
   outline: none;
 }
 
-.signup-form__signup-item--submit {
+.signin-form__signin-item--submit {
   margin: 0 auto;
   background: #ffebcd;
   width: 80%;
   border-radius: 6px;
   height: 34px;
+}
+
+.signin-form__signin-condition {
+  text-align: center;
+}
+
+.signin-form__forget-password {
+  text-align: center;
+  margin: 5px;
 }

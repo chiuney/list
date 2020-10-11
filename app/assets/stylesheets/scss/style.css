@@ -310,6 +310,7 @@ input, select {
 .signup-container__signup-title {
   font-size: 30px;
   margin: 20px;
+  padding-top: 30px;
 }
 
 .signup-container__signup-subtitle {

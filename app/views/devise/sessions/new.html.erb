@@ -1,26 +1,34 @@
-<h2>Log in</h2>
+<section class="signin-container">
+  <h1 class="signin-container__signin-title">リストアプリへようこそ！</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div>
-    <%= f.label :ユーザーネーム %><br />
-    <%= f.text_field :user_name, autofocus: true %>
-  </div>
+  <div class="signin-form">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div>
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div>
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="signin-form__signin-item">
+    <%= f.text_field :user_name, placeholder: "ユーザーネーム", autofocus: true, class:"signin-form__signin-item--form" %>
     </div>
-  <% end %>
-
-  <div>
-    <%= f.submit "ログイン" %>
+    
+    <div class="signin-form__signin-item">
+    <%= f.password_field :password, placeholder: "パスワード", autocomplete: "current-password", class:"signin-form__signin-item--form" %>
+    </div>
+    
+    <% if devise_mapping.rememberable? %>
+    <div class="signin-form__signin-condition">
+    <%= f.check_box :remember_me, class:"signin-form____signin-condition--check" %>
+    <%= f.label :remember_me, class:"signin-form____signin-condition--remember" %>
+    </div>
+    <% end %>
+    
+    <div class="signin-form__forget-password">
+    <%= link_to "パスワードを忘れた場合" , "#", class:"signin-form__forget-password--link" %>
+    </div>
+    
+    <div class="signin-form__signin-item">
+    <%= f.submit "ログイン", class:"signin-form__signin-item--submit" %>
+    </div>
+    <% end %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    
+  <p class="signin-container__signin-rules">続行すると、リストアップの<%= link_to "利用規約", "#" %>と<%= link_to "プライバシーポリシー", "#" %>に同意したものとみなされます。</p>
+  <p class="signin-container__move-signup">リストアップを初めて利用する場合：<%= link_to "新規登録",  new_user_registration_path %><p>
+</section>
