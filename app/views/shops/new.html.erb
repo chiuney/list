@@ -13,7 +13,7 @@
     <%= f.text_field :shop_comment %>
   </div>
 
-  <% f.hidden_field :favorite_list_id , value: session[:favorite_list_id] %>
+  <% f.hidden_field :favorite_list_id , value: session[:list_id] %>
 
   <div>
     <%= f.submit "店を追加" %>

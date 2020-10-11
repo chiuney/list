@@ -17,7 +17,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    session[:favorite_list_id] = @list.id
+    session[:list_id] = @list.id
 
   end
 
@@ -39,7 +39,7 @@ class ListsController < ApplicationController
   end
 
   def set_list
-    @list = FavoriteList.find(params[:id])
+    @list = FavoriteList.find(params[:id)
   end
 
   private

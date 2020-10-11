@@ -469,3 +469,47 @@ input, select {
   width: 100vw;
   min-height: 400px;
 }
+
+.useredit-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.useredit-container__useredit-title {
+  font-size: 30px;
+  margin: 20px;
+  padding-top: 30px;
+}
+
+.useredit-form {
+  border: 1px solid black;
+  width: 30%;
+  min-width: 250px;
+}
+
+.useredit-form__useredit-item {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.useredit-form__useredit-item--image {
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+}
+
+.useredit-form__useredit-item--form {
+  width: 100%;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 2px solid #a9a9a9;
+  border-radius: 10px;
+  height: 40px;
+  font-size: 24px;
+  outline: none;
+}
