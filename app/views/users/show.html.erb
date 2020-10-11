@@ -30,7 +30,7 @@
       </div>
       <% @lists.each do |l| %>
         <div class="list-wrap__list-item">
-          <%= link_to image_tag("kaisen.jpeg",class:"list-wrap__list-item--img"), list_path %>
+          <%= link_to image_tag("kaisen.jpeg",class:"list-wrap__list-item--img"), list_path(l.id) %>
           <%= link_to l.list_name, list_path, class:"list-wrap__list-item--name" %>
         </div>
       <% end %>

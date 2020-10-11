@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 
-  before_action :set_list, only: [:edit, :update, :show]
+  before_action :set_list, only: [:edit, :update]
 
   def new
     @list = FavoriteList.new
@@ -17,8 +17,8 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list = FavoriteList.find(params[:id])
     session[:list_id] = @list.id
-
   end
 
   def edit
@@ -39,7 +39,7 @@ class ListsController < ApplicationController
   end
 
   def set_list
-    @list = FavoriteList.find(params[:id)
+    @list = FavoriteList.find(params[:id])
   end
 
   private
