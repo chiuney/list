@@ -356,3 +356,115 @@ input, select {
   border-radius: 6px;
   height: 34px;
 }
+
+.signin-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.signin-container__signin-title {
+  font-size: 30px;
+  margin: 20px;
+  padding-top: 30px;
+}
+
+.signin-container__signin-rules {
+  width: 25%;
+  min-width: 200px;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signin-form {
+  width: 30%;
+  min-width: 250px;
+}
+
+.signin-form__signin-item {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.signin-form__signin-item--form {
+  width: 100%;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 2px solid #a9a9a9;
+  border-radius: 10px;
+  height: 40px;
+  font-size: 24px;
+  outline: none;
+}
+
+.signin-form__signin-item--submit {
+  margin: 0 auto;
+  background: #ffebcd;
+  width: 80%;
+  border-radius: 6px;
+  height: 34px;
+}
+
+.signin-form__signin-condition {
+  text-align: center;
+}
+
+.signin-form__forget-password {
+  text-align: center;
+  margin: 5px;
+}
+
+.listdetail-container {
+  height: 100vh;
+  weight: 100vw;
+}
+
+.list-info {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.list-info__list-name {
+  border: 1px solid black;
+  margin: 10px 5px;
+  padding: 20px;
+  min-width: 200px;
+}
+
+.list-info__list-comment {
+  border: 1px solid black;
+  margin: 10px 5px;
+  padding: 20px;
+  min-width: 320px;
+}
+
+.list-info__list-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 70px;
+  margin: 5px;
+}
+
+.list-info__list-edit--form {
+  border: 1px solid black;
+  margin: 5px 5px;
+  padding: 10px 10px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.googlemaps {
+  border: 1px solid black;
+  width: 100vw;
+  min-height: 400px;
+}

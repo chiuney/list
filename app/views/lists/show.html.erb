@@ -1,17 +1,32 @@
-<h1>リスト詳細</h1>
+<main class="listdetail-container">
+  <div class="list-info">
 
-<h2>リスト名</h2>
-<%= @list.list_name %>
+    <div class="list-info__list-name">
+      <span class="list-info__list_name--form">
+      <%= @list.list_name %>
+      </span>
+    </div>
 
-<h2>コメント</h2>
-<%= @list.list_comment %>
+    <div class="list-info__list-comment">
+    <span class="list-info__list-comment--form" >
+      <%= @list.list_comment %>
+    </span>
+    </div>
 
-<%= link_to "店を追加", new_shop_path %>
-<%= link_to "編集",  edit_list_path %>
-<%= link_to '削除', destroy_lists_path , method: :delete, data: { confirm: '削除しますか？' } %>
+    <div class="list-info__list-edit">
+      <%= link_to "店を追加", new_shop_path,      class:"list-info__list-edit--form" %>
+      <%= link_to '削除',     destroy_lists_path, class:"list-info__list-edit--form",
+                              method: :delete, data: { confirm: '削除しますか？' } %>
+    </div>
+  </div>
 
-<% @shops.each do |s| %>
-<%= s.shop_name %>
-<%= s.shop_comment %>
-<p>編集</p><p>削除</p>
-<% end %>
+  <p class="googlemaps">googlemaps</p>
+
+  <% @shops.each do |s| %>
+    <%= s.shop_name %>
+    <%= s.shop_comment %>
+    <p>編集</p><p>削除</p>
+    <% end %>
+  
+    <%= link_to "編集", edit_list_path%>
+</main>

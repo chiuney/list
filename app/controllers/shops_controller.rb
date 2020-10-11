@@ -9,7 +9,6 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
-      session.delete(:list_id)
       redirect_to list_path
     else
       render new_shop_path
