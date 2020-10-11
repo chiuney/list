@@ -246,7 +246,6 @@ input, select {
 
 .list-wrap {
   display: flex;
-  align-items: flex-start;
   flex-wrap: wrap;
   justify-content: flex-start;
   margin: 10px 0px;
@@ -444,6 +443,7 @@ input, select {
   margin: 10px 5px;
   padding: 20px;
   min-width: 320px;
+  flex-grow: 2;
 }
 
 .list-info__list-edit {

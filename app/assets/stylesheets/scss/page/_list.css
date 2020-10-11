@@ -23,6 +23,7 @@
   margin: 10px 5px;
   padding: 20px;
   min-width: 320px;
+  flex-grow: 2;
 }
 
 .list-info__list-edit {
