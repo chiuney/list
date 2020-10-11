@@ -13,8 +13,7 @@
 }
 
 .useredit-form {
-  border: 1px solid black;
-  width: 30%;
+  width: 50%;
   min-width: 250px;
 }
 
@@ -31,6 +30,11 @@
   width: 200px;
 }
 
+.useredit-form__useredit-item--text {
+  font-size: 20px;
+  line-height: 40px;
+}
+
 .useredit-form__useredit-item--form {
   width: 100%;
   padding: 0.3em;
@@ -40,6 +44,7 @@
   height: 40px;
   font-size: 24px;
   outline: none;
+  max-width: 300px;
 }
 
 .useredit-form__useredit-item--submit {
@@ -48,10 +53,10 @@
   width: 80%;
   border-radius: 6px;
   height: 34px;
+  max-width: 250px;
 }
 
 .useredit-delete {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
