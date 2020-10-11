@@ -1,1 +1,1 @@
-.logedin-header{background:gray;height:50px}
+.logedin-header{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 2%;border-bottom:1px solid black}.logedin-header__header-title{font-size:24px}.logedin-header__header-title--link{color:black}.logedin-header__header-link--logout{color:black}

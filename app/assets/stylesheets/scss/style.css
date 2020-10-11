@@ -143,6 +143,22 @@ input, select {
 .logedin-header {
   background: gray;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2%;
+}
+
+.logedin-header__header-title {
+  font-size: 24px;
+}
+
+.logedin-header__header-title--link {
+  color: black;
+}
+
+.logedin-header__header-link--logout {
+  color: black;
 }
 
 .mypage-container {
