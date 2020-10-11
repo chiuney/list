@@ -513,3 +513,16 @@ input, select {
   font-size: 24px;
   outline: none;
 }
+
+.useredit-form__useredit-item--submit {
+  margin: 0 auto;
+  background: #ffebcd;
+  width: 80%;
+  border-radius: 6px;
+  height: 34px;
+}
+
+.useredit-delete__useredit-subtitle {
+  font-size: 18px;
+  margin: 10px;
+}

@@ -10,10 +10,6 @@
     margin: 20px;
     padding-top: 30px;
   }
-
-  &__useredit-delete{
-    
-  }
 }
 
 .useredit-form {
@@ -50,6 +46,29 @@
       width: 80%;
       border-radius: 6px;
       height: 34px;
+    }
+  }
+}
+
+.useredit-delete {
+
+  &__useredit-subtitle{
+
+    
+  }
+  
+  &__useredit-confirm {
+
+    &__link {
+
+    }
+  }
+
+  &____useredit-btn {
+
+
+    &--back {
+
     }
   }
 }
