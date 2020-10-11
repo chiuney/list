@@ -26,7 +26,7 @@
   <div class="useredit-delete">
     <h2 class="useredit-delete__useredit-subtitle">アカウント削除</h2>
     
-    <p class="useredit-delete__useredit-confirm">アカウントを削除しますか？ <%= button_to "削除する", registration_path(resource_name), data: { confirm: "削除しますか？" }, method: :delete, class:"useredit-delete__useredit-confirm--link" %></p>
+    <p class="useredit-delete__useredit-confirm">アカウントを削除しますか？ <%= link_to "削除する", registration_path(resource_name), data: { confirm: "削除しますか？" }, method: :delete,  class:"useredit-delete__useredit-confirm--deletebtn" %></p>
     
     <div class="useredit-delete__useredit-btn">
     <%= link_to "戻る", :back , class:"useredit-delete__useredit-btn--back" %>
