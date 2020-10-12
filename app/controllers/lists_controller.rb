@@ -18,6 +18,7 @@ class ListsController < ApplicationController
 
   def show
     @list = FavoriteList.find(params[:id])
+    @shops = Shop.where(list_id: @list.id)
   end
 
   def edit

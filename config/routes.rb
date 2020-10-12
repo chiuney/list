@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   delete "/users/:user_id/lists/:id", to: "lists#destroy", as: "destroy_lists"
 
   resources :users do
-    resources :lists, only: [:create, :new, :show ,:edit, :update]
+    resources :lists, only: [:create, :new, :show ,:edit, :update] do
+    end
   end
 
   resources :lists do

@@ -3,6 +3,7 @@ class ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
+    @shop.user_id = current_user.id
   end
 
   def create
