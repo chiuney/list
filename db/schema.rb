@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_10_09_052330) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_name"
-    t.integer "shop_id"
     t.integer "list_id"
+    t.integer "shop_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="mypage-right">
-      <%= link_to 'リストを追加', new_user_list_path(@user), class:"mypage-right__mypage-edit" %>
+      <%= link_to 'リストを追加', new_list_path, class:"mypage-right__mypage-edit" %>
       <%= link_to 'プロフィールを編集', edit_user_registration_path, class:"mypage-right__mypage-edit" %>
     </div>
   </section>
@@ -27,7 +27,7 @@
       <% @lists.each do |l| %>
         <div class="list-wrap__list-item">
           <%= link_to image_tag("kaisen.jpeg",class:"list-wrap__list-item--img"), list_path(l.id) %>
-          <%= link_to l.list_name, list_path, class:"list-wrap__list-item--name" %>
+          <%= link_to l.list_name, list_path(l.id), class:"list-wrap__list-item--name" %>
         </div>
       <% end %>
     </div>
