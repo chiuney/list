@@ -9,11 +9,14 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
-      session.delete(:list_id)
-      redirect_to current_user
+      redirect_to list_shop_path
     else
-      render new_shop_path
+      render "shops/new"
     end
+  end
+
+  def show
+    @shop = Shop.find_by(id: params[:id])
   end
 
   def index

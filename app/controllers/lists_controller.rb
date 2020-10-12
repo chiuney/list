@@ -12,13 +12,12 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(id: @list.id)
     else
-      render new_lists_path
+      render new_list_path
     end
   end
 
   def show
     @list = FavoriteList.find(params[:id])
-    session[:list_id] = @list.id
   end
 
   def edit
