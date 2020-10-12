@@ -10,9 +10,9 @@ class ListsController < ApplicationController
     @list = FavoriteList.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      redirect_to list_path(id: @list.id)
+      redirect_to list_path(@list.id)
     else
-      render new_list_path
+      render :new
     end
   end
 
@@ -38,9 +38,9 @@ class ListsController < ApplicationController
     redirect_to current_user
   end
 
-  def set_list
-    @list = FavoriteList.find(params[:id])
-  end
+  # def set_list
+  #   @list = FavoriteList.find(params[:id])
+  # end
 
   private
     def list_params

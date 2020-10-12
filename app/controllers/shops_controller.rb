@@ -3,12 +3,15 @@ class ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
-    @shop.user_id = current_user.id
+    @list = FavoriteList.find_by(id: params[:id])
   end
 
   def create
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
+    
+    binding.pry
+    
     if @shop.save
       redirect_to list_shop_path
     else
@@ -26,6 +29,6 @@ class ShopsController < ApplicationController
 
   private
     def shop_params
-      params.require(:shop).permit(:shop_name, :shop_comment)
+      params.require(:shop).permit(:shop_name, :shop_comment, :list_id)
     end
 end
