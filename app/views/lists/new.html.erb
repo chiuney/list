@@ -1,19 +1,19 @@
-<h1>リスト登録</h1>
+<main class="listnew-container">
+  <%= form_with( model: @Favoritelist ,local: true) do |f| %>
+    <div class="listnew-info">
+      <div class="listnew-info__list-name">
+        <%= f.text_field :list_name, autofocus: true, placeholder: "リストネーム", class:"listnew-info__list-name--form" %>
+      </div>   
+      <div class="listnew-info__list-comment">
+        <%= f.text_field :list_comment, placeholder: "リストコメント", class:"listnew-info__list-comment--form" %>
+      </div>
+      <div class="listnew-info__list-submit">
+        <%= f.submit "リストを追加", class:"listnew-info__list-submit--form" %>
+      </div>
+    </div>
+  <% end %>
+</main>
 
-<%= form_with( model: @Favoritelist ,local: true) do |f| %>
+<p class="googlemaps">googlemaps</p>
 
-  <div>
-    <%= f.label :リスト名 %><br />
-    <%= f.text_field :list_name, autofocus: true %>
-  </div>
-
-  <div>
-    <%= f.label :リストコメント %><br />
-    <%= f.text_field :list_comment %>
-  </div>
-
-  <div>
-  <%= f.submit "リストを追加" %>
-  </div>
-
-<% end %>
+<p>店の情報とか</p>
