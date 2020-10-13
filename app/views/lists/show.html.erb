@@ -30,8 +30,8 @@
       </div>
       <% @shops.each do |s| %>
         <div class="shop-wrap__shop-item">
-          <%= link_to image_tag("kaisen.jpeg", class:"shop-wrap__shop-item--img"), "#" %>
-          <%= link_to s.shop_name, "#" , class:"shop-wrap__shop-item--name" %>
+          <%= link_to image_tag("kaisen.jpeg", class:"shop-wrap__shop-item--img"), shop_path(s.id) %>
+          <%= link_to s.shop_name, shop_path(s.id) , class:"shop-wrap__shop-item--name" %>
         </div>
       <% end %>
     </div>
