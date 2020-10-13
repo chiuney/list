@@ -1,0 +1,17 @@
+<h1>編集</h1>
+
+<%= form_with model: @shop, method: :patch, local: true do |f| %>
+
+  <div>
+  <%= f.text_field :shop_name, autofocus: true, autocomplete: "list_name" %>
+  </div>
+
+  <div>
+    <%= f.text_field :shop_comment %>
+  </div>
+
+  <div>
+    <%= f.submit "更新する" %>
+  </div>
+  
+<% end %>

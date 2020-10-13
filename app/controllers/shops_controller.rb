@@ -30,6 +30,19 @@ class ShopsController < ApplicationController
     redirect_to list_path(@shop.list_id)
   end
 
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      redirect_to shop_path(@shop)
+    else
+      render edit_shop_path
+    end
+  end
+
   private
     def shop_params
       params.require(:shop).permit(:shop_name, :shop_comment, :list_id)
