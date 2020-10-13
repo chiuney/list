@@ -1,7 +1,7 @@
 
 <h1>店追加</h1>
 
-<%= form_with model: @shop, url: new_shop_path, local: true do |f| %>
+<%= form_with model: @shop, url: new_shop_path(@list.id), local: true do |f| %>
 
   <div>
     <%= f.label :店名 %><br />
