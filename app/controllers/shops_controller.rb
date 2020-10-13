@@ -10,7 +10,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
-      redirect_to list_path(current_user.id)
+      redirect_to list_path(id: @shop.list_id)
     else
       render "shops/new"
     end
