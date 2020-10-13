@@ -60,3 +60,100 @@
   min-height: 400px;
   // margin: 10px;
 }
+
+.shop-wrap {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+  margin: 10px 0px;
+  width: 100%;
+
+  &__shop-all {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &--img {
+      border: 1px solid black;
+      height: 200px;
+      width: 200px;
+
+    }
+
+    &--title {
+      border: 1px solid black;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+  }
+}
+
+
+
+//  ショップ
+.shop-container {
+  border: 1px solid black;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.shop-wrap {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap:wrap;
+  justify-content: center;
+  margin: 10px 0px;
+  width: 100%;
+
+  &__shop-all {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &--img {
+      border: 1px solid black;
+      height: 200px;
+      width: 200px;
+    }
+
+    &--title {
+      border: 1px solid black;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+  }
+
+  &__shop-item {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    align-items: flex-start;
+    flex-wrap:wrap;
+    
+    &--img {
+      border: 1px solid black;
+      height: 200px;
+      width: 200px;
+    }
+
+    &--name {
+      border: 1px solid black;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+  }
+}
