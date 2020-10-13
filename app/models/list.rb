@@ -1,4 +1,4 @@
-class FavoriteList < ApplicationRecord
+class List < ApplicationRecord
   belongs_to :user
   has_many :shops, dependent: :destroy
 

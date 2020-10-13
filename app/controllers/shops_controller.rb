@@ -3,7 +3,7 @@ class ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
-    @list = FavoriteList.find_by(id: params[:id])
+    @list = List.find_by(id: params[:id])
   end
 
   def create
