@@ -9,18 +9,15 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
-    
-    binding.pry
-    
     if @shop.save
-      redirect_to list_shop_path
+      redirect_to list_path(current_user.id)
     else
       render "shops/new"
     end
   end
 
   def show
-    @shop = Shop.find_by(id: params[:id])
+    @shop = Shop.find(params[:id])
   end
 
   def index

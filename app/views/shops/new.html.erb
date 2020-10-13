@@ -12,7 +12,9 @@
     <%= f.label :店コメント %><br />
     <%= f.text_field :shop_comment %>
   </div>
+
   <%= f.hidden_field :list_id, value: @list.id%>
+  
   <div>
     <%= f.submit "店を追加" %>
   </div>
