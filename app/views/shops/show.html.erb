@@ -1,2 +1,4 @@
 <p>店名：<%= @shop.shop_name %></p><br>
 <p>コメント：<%= @shop.shop_comment %></p>
+<%= link_to '削除', destroy_shops_path , class:"#",
+method: :delete %>

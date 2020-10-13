@@ -24,6 +24,12 @@ class ShopsController < ApplicationController
     @shops = Shop.all
   end
 
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    redirect_to list_path(@shop.list_id)
+  end
+
   private
     def shop_params
       params.require(:shop).permit(:shop_name, :shop_comment, :list_id)
