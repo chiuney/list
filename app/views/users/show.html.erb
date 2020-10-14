@@ -8,10 +8,10 @@
         <p class="mypage-content__mypage-username"><%= @user.user_name %></p>
         <div class="mypage-content__maypage-follow">
           <p class="follow-btn">
-            <%= link_to "フォロー", "#", class:"follow-btn__follow-link" %>
+            <%= link_to "フォロー数: #{@user.follower.count}", "#", class:"follow-btn__follow-link" %>
           </p>
           <p class="follow-btn">
-            <%= link_to "フォロワー", "#", class:"follow-btn__follow-link" %>
+            <%= link_to "フォロワー数: #{@user.follower.count}", "#", class:"follow-btn__follow-link" %>
           </p>
         </div>
       </div>
@@ -41,8 +41,8 @@
 <%= link_to 'アカウントを削除', destroy_user_account_path, method: :delete, data: { confirm: '削除しますか？' } %>
 
 <h2>ユーザー詳細ページ</h2>
-<p><%= "フォロー数: #{@user.follower.count}" %></p>
-<p><%= "フォロワー数: #{@user.followed.count}" %></p>
+<%= link_to "フォロー数: #{@user.follower.count}", "#" %>
+<%= link_to "フォロワー数: #{@user.follower.count}", "#" %>
 <% unless @user == current_user %>
   <% if current_user.following?(@user) %>
     <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
