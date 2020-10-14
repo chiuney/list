@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   resources :shops
   post "/shops/new", to:"shops#create", as:"create_shops"
 
+  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
 
-  delete "/users/:user_id/lists/:id", to: "lists#destroy", as: "destroy_lists"
+  # delete "/users/:user_id/lists/:id", to: "lists#destroy", as: "destroy_lists"
 
 
 
