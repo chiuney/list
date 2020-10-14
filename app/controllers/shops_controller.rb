@@ -21,6 +21,8 @@ class ShopsController < ApplicationController
   end
 
   def index
+    # @shop = Shop.find(params[:id]) 
+    # @shops = Shop.where(shop_id: @shop.id)
     @shops = Shop.all
   end
 
