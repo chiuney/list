@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   resources :shops
   post "/shops/new", to:"shops#create", as:"create_shops"
 
-  post 'follow/:id' => 'relationships#follow', as: 'follow'
-  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+  post "follow/:id", to: "relationships#follow", as: "follow"
+  post "unfollow/:id", to: "relationships#unfollow", as: "unfollow"
 
+  get "following/:id", to: "users#following", as: "following"
+  get "followers/:id", to: "users#followers", as: "followers"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

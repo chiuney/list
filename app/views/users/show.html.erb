@@ -8,10 +8,10 @@
         <p class="mypage-content__mypage-username"><%= @user.user_name %></p>
         <div class="mypage-content__maypage-follow">
           <p class="follow-btn">
-            <%= link_to "フォロー数: #{@user.follower.count}", users_path(id: @user.id), class:"follow-btn__follow-link" %>
+            <%= link_to "フォロー数: #{@user.follower.count}", following_path(id: @user.id), class:"follow-btn__follow-link" %>
           </p>
           <p class="follow-btn">
-            <%= link_to "フォロワー数: #{@user.follower.count}", "#", class:"follow-btn__follow-link" %>
+            <%= link_to "フォロワー数: #{@user.follower.count}", followers_path(id: @user.id), class:"follow-btn__follow-link" %>
           </p>
         </div>
       </div>
