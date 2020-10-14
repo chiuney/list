@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user  = User.find(params[:id])
     @lists = List.where(user_id: @user.id)
+    # @users = User.all
   end
 
   def destroy
@@ -11,5 +12,4 @@ class UsersController < ApplicationController
     flash[:success] = "User deleted"
     redirect_to root_path
   end
-
 end
