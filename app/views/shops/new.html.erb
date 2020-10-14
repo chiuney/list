@@ -1,22 +1,20 @@
+<main class="shopnew-container">
+  <%= form_with model: @shop, url: new_shop_path(@list.id), local: true do |f| %>
+    <div class="shopnew-info">
+      <div class="shopnew-info__shop-name">
+        <%= f.text_field :shop_name, autofocus: true, placeholder: "店名", class:"shopnew-info__shop-name--form" %>
+      </div>
+      <div class="shopnew-info__shop-comment">
+        <%= f.text_field :shop_comment, placeholder: "店コメント", class:"shopnew-info__shop-comment--form" %>
+      </div>
+        <%= f.hidden_field :list_id, value: @list.id%>
+      <div class="shopnew-info__shop-submit">
+        <%= f.submit "店を追加",  class:"shopnew-info__shop-submit--form" %>
+      </div>
+    </div>
+  <% end %>
 
-<h1>店追加</h1>
+  <p class="googlemaps">googlemaps</p>
 
-<%= form_with model: @shop, url: new_shop_path(@list.id), local: true do |f| %>
-
-  <div>
-    <%= f.label :店名 %><br />
-    <%= f.text_field :shop_name, autofocus: true %>
-  </div>
-
-  <div>
-    <%= f.label :店コメント %><br />
-    <%= f.text_field :shop_comment %>
-  </div>
-
-  <%= f.hidden_field :list_id, value: @list.id%>
-  
-  <div>
-    <%= f.submit "店を追加" %>
-  </div>
-
-<% end %>
+  <p>店の情報とか</p>
+</main>

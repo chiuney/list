@@ -1,0 +1,57 @@
+.shopnew-container {
+  height: 14vh;
+  width: 100vw;
+}
+
+.shopnew-info {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 100%;
+
+  &__shop-name {
+    // border: 1px solid black;
+    min-width: 200px;
+    margin: 10px 5px;
+    height: 100%;
+
+    &--form {
+      height: 40px;
+      font-size: 20px;
+      outline: none;
+    }
+  }
+
+  &__shop-comment {
+    // border: 1px solid black;
+    min-width: 320px;
+    flex-grow: 2;
+    margin: 10px 5px;
+    height: 100%;
+
+    &--form {
+      height: 40px;
+      font-size: 20px;
+      outline: none;
+      width: 100%;
+    }
+  }
+
+  &__shop-submit {
+    displashopy: flex;
+    align-items: center;
+    min-width: 70px;
+    height: 100%;
+    
+    &--form {
+      // border: 1px solid black;
+      margin: 5px 5px;
+      padding: 10px 10px;
+      text-align: center;
+      min-width: 100px;
+      height: 50%;
+
+    }
+  }
+}
