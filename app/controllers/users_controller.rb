@@ -12,4 +12,17 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def index
+    @user  = User.find(params[:id])
+  end
+
+  def following
+    @user  = User.find(params[:id])
+    render "following"
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    render 'followers'
+  end
 end

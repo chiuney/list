@@ -1,0 +1,11 @@
+<% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+  <p>
+    <%= "ユーザーネーム: #{user.user_name}" %>
+    <% if current_user.following?(user) %>
+      <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+    <% else %>
+      <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+    <% end %>
+    <%= link_to "show", user_path(user) %>
+  </p>
+<% end %>

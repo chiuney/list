@@ -38,7 +38,7 @@
 }
 
 .shopnew-info__shop-submit {
-  displashopy: flex;
+  display: flex;
   align-items: center;
   min-width: 70px;
   height: 100%;
