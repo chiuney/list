@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_10_14_055442) do
 
   create_table "lists", force: :cascade do |t|
-    t.string "list_name"
+    t.string "c"
     t.text "list_comment"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

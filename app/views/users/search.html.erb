@@ -1,27 +1,12 @@
 <% if @user_or_list == "1"%>
-    <h1>User</h1>
-    <table>
-        <% @users.each do |user| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= user.user_name %> </th>
-            </tr>
-        </thead>
-        <% end %>
-    </table>
-
-<% elsif @user_or_list == "2" %>
-    <h2>List</h2>
-    <table>
-    <% @lists.each do |list| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= list.list_name %></th>
-            </tr>
-        </thead>
+  <h1>User</h1>
+    <% @users.each do |u| %>
+      <%= u.user_name %>
     <% end %>
-    </table>
+
 <% else %>
+  <h2>List</h2>
+    <% @lists.each do |l| %>
+      <%= l.list_name %>
+    <% end %>
 <% end %>

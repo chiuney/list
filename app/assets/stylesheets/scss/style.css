@@ -186,6 +186,7 @@ input, select {
   height: 2.0em;
   background-color: #CCCCCC;
   width: 75%;
+  padding-left: 1%;
 }
 
 .logedin-header__header-search--form:focus {
