@@ -1,10 +1,12 @@
 <header class="logedin-header">
   <h1 class="logedin-header__header-title"><%= link_to "リストアプリ", user_path(current_user.id) , class:"logedin-header__header-title--link" %></h1>
 
-  <section class="logedin-header__header-search">
+  <section>
     <%= form_with url:search_path, local: true, method: :get do |f| %>
+      <div class="logedin-header__header-search">
       <%= f.select(:option, options_for_select([["ユーザー", "1"],["リスト","2"]]),{}, class:"logedin-header__header-search--select") %>
-      <%= f.text_field :search, class:"logedin-header__header-search--form", placeholder: "ユーザー・リスト検索"  %>
+      <%= f.text_field :search, class:"logedin-header__header-search--form"  %>
+      </div>
     <% end %>
   </section>
 

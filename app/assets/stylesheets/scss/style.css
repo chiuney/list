@@ -160,14 +160,12 @@ input, select {
 }
 
 .logedin-header__header-search {
-  box-sizing: border-box;
-  position: relative;
   border: 1px solid #999;
   padding: 3px 10px;
   border-radius: 20px;
   height: 2.3em;
   min-width: 260px;
-  width: 40%;
+  width: 50vw;
   overflow: hidden;
 }
 
@@ -175,7 +173,8 @@ input, select {
   height: 2.3em;
   background-color: #CCCCCC;
   border: none;
-  border-right: 1px solid #333300;
+  border-right: 1px solid #999;
+  width: 75px;
 }
 
 .logedin-header__header-search--select:focus {
@@ -186,6 +185,7 @@ input, select {
   border: none;
   height: 2.0em;
   background-color: #CCCCCC;
+  width: 65%;
 }
 
 .logedin-header__header-search--form:focus {
