@@ -11,7 +11,7 @@
             <%= link_to "フォロー数: #{@user.follower.count}", following_path(id: @user.id), class:"follow-btn__follow-link" %>
           </p>
           <p class="follow-btn">
-            <%= link_to "フォロワー数: #{@user.follower.count}", followers_path(id: @user.id), class:"follow-btn__follow-link" %>
+            <%= link_to "フォロワー数: #{@user.followed.count}", followers_path(id: @user.id), class:"follow-btn__follow-link" %>
           </p>
         </div>
       </div>

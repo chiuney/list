@@ -3,7 +3,13 @@
     <section class="search-container__search-section">
       <% @users.each do |u| %>
         <%= link_to u.user_name , user_path(u.id), class:"search-container__search-section--item" %>
-        
+        <% unless u == current_user %>
+          <% if current_user.following?(u) %>
+            <%= link_to 'フォロー外す', unfollow_path(u.id), method: :POST %>
+          <% else %>
+            <%= link_to 'フォローする', follow_path(u.id), method: :POST %>
+          <% end %>
+        <% end %>
       <% end %>
     <section>
   <% else %>
