@@ -1,12 +1,17 @@
-<% if @user_or_list == "1"%>
-  <h1>User</h1>
-    <% @users.each do |u| %>
-      <%= u.user_name %>
-    <% end %>
+<main class="search-container">
+  <% if @user_or_list == "1"%>
+    <section class="search-container__search-section">
+      <% @users.each do |u| %>
+        <%= link_to u.user_name , user_path(u.id), class:"search-container__search-section--item" %>
+        
+      <% end %>
+    <section>
+  <% else %>
+    <section class="search-container__search-section">
+      <% @lists.each do |l| %>
+        <%= link_to l.list_name , list_path(l.id) %>
+      <% end %>
+    <section>
+  <% end %>
 
-<% else %>
-  <h2>List</h2>
-    <% @lists.each do |l| %>
-      <%= l.list_name %>
-    <% end %>
-<% end %>
+</mian>
