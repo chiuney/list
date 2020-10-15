@@ -39,3 +39,38 @@
 <main>
 
 <%= link_to 'アカウントを削除', destroy_user_account_path, method: :delete, data: { confirm: '削除しますか？' } %>
+
+<%= form_tag(search_path, :method => 'get') do %>
+  <%= select_tag(:option, options_for_select([["ユーザー", "1"],["リスト","2"]]))%>
+  <%= text_field_tag :search %>
+  <%= submit_tag search_path %>
+<% end %>
+
+
+<% if @user_or_list == "1"%>
+    <h1>User</h1>
+    <table>
+        <% @users.each do |user| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%= user.user_name %> </th>
+            </tr>
+        </thead>
+        <% end %>
+    </table>
+
+<% elsif @user_or_list == "2" %>
+    <h2>List</h2>
+    <table>
+    <% @lists.each do |list| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%= list.list_name %></th>
+            </tr>
+        </thead>
+    <% end %>
+    </table>
+<% else %>
+<% end %>

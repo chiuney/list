@@ -2,6 +2,8 @@
   <h1 class="logedin-header__header-title"><%= link_to "リストアプリ", user_path(current_user.id) , class:"logedin-header__header-title--link" %></h1>
 
   <p class="logedin-header__header-search">検索窓</p>
+
+  
   <div class="logedin-header__header-link">
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logedin-header__header-link--logout" %>
   </div>

@@ -25,4 +25,13 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     render 'followers'
   end
+
+  def search
+    @user_or_list = params[:option]
+    if @user_or_list == "1"
+      @users = User.search(params[:search], @user_or_list)
+    else
+      @lists = List.search(params[:search], @user_or_list)
+    end
+  end
 end
