@@ -6,7 +6,7 @@
           <%= image_tag 'ramen.jpeg', class:"follow-item__follow-image--icon" %>
         </div>
         <div class="follow-item__follow-user">
-          <%= link_to u.user_name , user_path(u.id) %>
+          <%= link_to u.user_name , user_path(u.id), class:"follow-item__follow-user--link" %>
         </div>
           <% unless u == current_user %>
             <div class="follow-item__follow-btn">

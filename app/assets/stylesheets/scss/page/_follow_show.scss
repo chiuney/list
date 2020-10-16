@@ -29,6 +29,10 @@
   &__follow-user {
     margin: 0 1%;
     margin-right: auto;
+
+    &--link {
+      color: black;
+    }
   }
 
   &__follow-btn {
@@ -48,12 +52,12 @@
 
     &--unfollow {
       width: 120px;
-
+      color: black;
     }
 
     &--following {
       width: 98px;
-
+      color: black;
     }
 
   }

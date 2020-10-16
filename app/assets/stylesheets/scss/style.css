@@ -881,6 +881,10 @@ input, select {
   margin-right: auto;
 }
 
+.follow-item__follow-user--link {
+  color: black;
+}
+
 .follow-item__follow-btn {
   border: 1px solid black;
   margin: 0.2% 1%;
@@ -897,8 +901,10 @@ input, select {
 
 .follow-item__follow-btn--unfollow {
   width: 120px;
+  color: black;
 }
 
 .follow-item__follow-btn--following {
   width: 98px;
+  color: black;
 }

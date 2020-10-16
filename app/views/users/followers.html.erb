@@ -6,13 +6,13 @@
       <%= image_tag 'ramen.jpeg', class:"follow-item__follow-image--icon" %>
       </div>
       <div class="follow-item__follow-user">
-        <%= link_to user.user_name, user_path(user.id) %>
+        <%= link_to user.user_name, user_path(user.id), class:"follow-item__follow-user--link" %>
       </div>
       <div class="follow-item__follow-btn">
         <% if current_user.following?(user) %>
-          <%= link_to 'フォローをやめる', unfollow_path(user.id), method: :POST,  class:"follow-item__follow-btn--unfollow" %>
+          <%= link_to 'フォローをやめる', unfollow_path(user.id), method: :POST, class:"follow-item__follow-btn--unfollow" %>
         <% else %>
-          <%= link_to 'フォローする', follow_path(user.id), method: :POST,  class:"follow-item__follow-btn--following" %>
+          <%= link_to 'フォローする', follow_path(user.id), method: :POST, class:"follow-item__follow-btn--following" %>
         <% end %>
       </div>
     </section>

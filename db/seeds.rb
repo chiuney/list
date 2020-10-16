@@ -6,12 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do |n| #100件シードデータを作成するということ。
+100.times do |n|
   name = Faker::Movies::HarryPotter.character
+  email = Faker::Internet.email
   password = "password"
   User.create!(user_name: name,
-               email: "test#{n + 1}@example.com",
+               email: email,
                password: password,
                password_confirmation: password,
                )
+end
+
+User.all.each do |user|
+  list_name = Faker::Color.color_name
+  list_comment = Faker::Color.hex_color
+  user.lists.create!(list_name: list_name,
+                     list_comment: list_comment,
+                    )
+end
+
+List.all.each do |list|
+  shop_name = Faker::Restaurant.name
+  shop_comment = Faker::Restaurant.description
+  list.shops.create!(shop_name: shop_name,
+                     shop_comment: shop_comment,
+                    )
 end
