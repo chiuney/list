@@ -1,0 +1,53 @@
+.listedit-container {
+  height: 14vh;
+  width: 100vw;
+}
+
+.listedit-info {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.listedit-info__list-name {
+  min-width: 200px;
+  margin: 10px 5px;
+  height: 100%;
+}
+
+.listedit-info__list-name--form {
+  height: 40px;
+  font-size: 20px;
+  outline: none;
+}
+
+.listedit-info__list-comment {
+  min-width: 320px;
+  flex-grow: 2;
+  margin: 10px 5px;
+  height: 100%;
+}
+
+.listedit-info__list-comment--form {
+  height: 40px;
+  font-size: 20px;
+  outline: none;
+  width: 100%;
+}
+
+.listedit-info__list-update {
+  display: flex;
+  align-items: center;
+  min-width: 70px;
+  height: 100%;
+}
+
+.listedit-info__list-update--btn {
+  margin: 5px 5px;
+  padding: 10px 10px;
+  text-align: center;
+  min-width: 100px;
+  height: 50%;
+}

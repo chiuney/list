@@ -1,18 +1,18 @@
-<h1>編集</h1>
+<main class="listedit-container">
 
-<%= form_with model: @list, url:update_lists_path(@list) ,method: :patch, local: true do |f| %>
+    <%= form_with model: @list, url:update_lists_path(@list) ,method: :patch, local: true do |f| %>
+      <div class="listedit-info">
+        <div class="listedit-info__list-name">
+          <%= f.text_field :list_name, autofocus: true, autocomplete: "list_name", class:"listedit-info__list-name--form" %>
+        </div>
 
-  <div>
-  <%= f.label :リスト名 %><br />
-  <%= f.text_field :list_name, autofocus: true, autocomplete: "list_name" %>
-  </div>
+        <div class="listedit-info__list-comment">
+          <%= f.text_field :list_comment ,class:"listedit-info__list-comment--form" %>
+        </div>
 
-  <div>
-    <%= f.label :コメント %><br />
-    <%= f.text_field :list_comment %>
-  </div>
-
-  <div>
-    <%= f.submit "更新する" %>
-  </div>
-<% end %>
+        <div class="listedit-info__list-update">
+          <%= f.submit "更新する", class:"listedit-info__list-update--btn" %>
+        </div>
+      </div>
+    <% end %>
+</main>
