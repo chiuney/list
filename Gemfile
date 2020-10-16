@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
+# seedsにuserデータ挿入
+gem 'faker'
 #アプリ名変更
 gem 'rename'
 # Add signup,login
