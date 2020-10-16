@@ -9,11 +9,13 @@
       <span class="shop-info__shop-comment--form"><%= @shop.shop_comment %></span>
     </div>
 
-    <div class="shop-info__shop-edit">
-      <%= link_to '編集', edit_shop_path , class:"shop-info__shop-edit--form" %>
-      <%= link_to '削除', destroy_shops_path , class:"shop-info__shop-edit--form",
-    method: :delete, data: { confirm: '削除しますか？' } %>
-    </div>
+    <% if user_signed_in? && current_user.id == @shop.user_id %>
+      <div class="shop-info__shop-edit">
+        <%= link_to '編集', edit_shop_path , class:"shop-info__shop-edit--form" %>
+        <%= link_to '削除', destroy_shops_path , class:"shop-info__shop-edit--form",
+      method: :delete, data: { confirm: '削除しますか？' } %>
+      </div>
+    <% end %>
   </div>
 
   <p class="googlemaps">googlemaps</p>
