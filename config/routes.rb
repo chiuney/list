@@ -7,14 +7,15 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy', as: 'destroy_user_account'
 
   # LIST
-  resources :lists
+  patch "/lists/:id", to:"lists#update", as:"update_lists"
   delete "/users/:user_id/lists/:id", to: "lists#destroy", as: "destroy_lists"
   post "/lists/new", to:"lists#create", as:"create_lists"
+  resources :lists
 
   # SHOP
   delete "/shops/:id", to: "shops#destroy", as: "destroy_shops"
-  resources :shops
   post "/shops/new", to:"shops#create", as:"create_shops"
+  resources :shops
 
   # FOLLOW
   post "follow/:id", to: "relationships#follow", as: "follow"

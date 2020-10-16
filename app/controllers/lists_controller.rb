@@ -1,7 +1,5 @@
 class ListsController < ApplicationController
 
-  before_action :set_list, only: [:edit, :update]
-
   def new
     @list = List.new
   end
@@ -40,12 +38,8 @@ class ListsController < ApplicationController
     redirect_to current_user
   end
 
-  # def set_list
-  #   @list = List.find(params[:id])
-  # end
-
   private
     def list_params
-      params.permit(:list_name, :list_comment)
+      params.require(:list).permit(:list_name, :list_comment)
     end
 end
