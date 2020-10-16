@@ -8,16 +8,18 @@
     </div>
 
     <div class="list-info__list-comment">
-    <span class="list-info__list-comment--form" >
-      <%= @list.list_comment %>
-    </span>
+      <span class="list-info__list-comment--form" >
+        <%= @list.list_comment %>
+      </span>
     </div>
 
     <div class="list-info__list-edit">
-      <%= link_to "店を追加", new_shop_path(id: @list.id),      class:"list-info__list-edit--form" %>
-      <%= link_to '削除',     destroy_lists_path(current_user) , class:"list-info__list-edit--form",
-                              method: :delete, data: { confirm: '削除しますか？' } %>
+      <%= link_to "店を追加",   new_shop_path(id: @list.id),      class:"list-info__list-edit--form" %>
+      <%= link_to "リスト編集", edit_list_path,                   class:"list-info__list-edit--form" %>
+      <%= link_to "リスト削除", destroy_lists_path(current_user), class:"list-info__list-edit--form",
+                                method: :delete, data: { confirm: '削除しますか？' } %>
     </div>
+
   </div>
 
   <p class="googlemaps">googlemaps</p>
@@ -36,6 +38,4 @@
       <% end %>
     </div>
   </section>
-  
-  <%= link_to "編集", edit_list_path%>
 </main>
