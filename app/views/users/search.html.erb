@@ -20,13 +20,15 @@
       </section>
     <% end %>
 
-
   <% else %>
-    <section class="search-container__search-section">
       <% @lists.each do |l| %>
-        <%= link_to l.list_name , list_path(l.id) %>
+        <section class="search-list">
+          <%= image_tag 'kaisen.jpeg', class:"search-list__list-image" %>
+          <%= link_to l.list_name, list_path(l.id),  class:"search-list__list-name" %>
+          <%= link_to l.list_comment, list_path(l.id), class:"search-list__list-comment"%>
+          <p class="search-list__list-user">listed by<%= l.user_id %></p>
+        </section>
       <% end %>
-    <section>
   <% end %>
 
 </mian>
