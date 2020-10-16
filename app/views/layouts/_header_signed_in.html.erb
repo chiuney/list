@@ -1,11 +1,14 @@
 <header class="logedin-header">
-  <h1 class="logedin-header__header-title"><%= link_to "リストアプリ", user_path(current_user.id) , class:"logedin-header__header-title--link" %></h1>
+  <section class="logedin-header__header-icon">
+    <%= link_to image_tag("no-image.png", class:"logedin-header__header-icon--link"), user_path(current_user.id) %>
+  </section>
+  
 
   <section>
     <%= form_with url:search_path, local: true, method: :get do |f| %>
       <div class="logedin-header__header-search">
-      <%= f.select(:option, options_for_select([["ユーザー", "1"],["リスト","2"]]),{}, class:"logedin-header__header-search--select") %>
-      <%= f.text_field :search, class:"logedin-header__header-search--form", autocomplete: 'off',placeholder: "ユーザー・リスト検索" %>
+        <%= f.select(:option, options_for_select([["ユーザー", "1"],["リスト","2"]]),{}, class:"logedin-header__header-search--select") %>
+        <%= f.text_field :search, class:"logedin-header__header-search--form", autocomplete: 'off',placeholder: "ユーザー・リスト検索" %>
       </div>
     <% end %>
   </section>
