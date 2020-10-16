@@ -1,11 +1,19 @@
-<% @user.following_user.where.not(id: current_user.id).each do |user| %>
-  <p>
-    <%= "ユーザーネーム: #{user.user_name}" %>
-    <% if current_user.following?(user) %>
-      <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-    <% else %>
-      <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
-    <% end %>
-    <%= link_to "show", user_path(user) %>
-  </p>
-<% end %>
+<main class="follow-container">
+  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+  <section class="follow-item">
+      <div class="follow-item__follow-image">
+      <%= image_tag 'ramen.jpeg', class:"follow-item__follow-image--icon" %>
+      </div>
+      <div class="follow-item__follow-user">
+        <%= link_to user.user_name, user_path(user.id) %>
+      </div>
+      <div class="follow-item__follow-btn">
+        <% if current_user.following?(user) %>
+          <%= link_to 'フォローをやめる', unfollow_path(user.id), method: :POST,  class:"follow-item__follow-btn--unfollow" %>
+        <% else %>
+          <%= link_to 'フォローする', follow_path(user.id), method: :POST,  class:"follow-item__follow-btn--following" %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+</mian>
