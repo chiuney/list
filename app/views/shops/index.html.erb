@@ -2,12 +2,12 @@
 
   <p class="googlemaps">googlemaps</p>
 
-  <sction class="shop-container">
-    <div class="shop-wrap">
+  <sction class="item-display">
+    <div class="item-array">
       <% @shops.each do |s| %>
-        <div class="shop-wrap__shop-item">
-          <%= link_to image_tag("kaisen.jpeg", class:"shop-wrap__shop-item--img"), shop_path(s.id) %>
-          <%= link_to s.shop_name, shop_path(s.id) , class:"shop-wrap__shop-item--name" %>
+        <div class="item-array__item-detail">
+          <%= link_to image_tag("kaisen.jpeg", class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <%= link_to s.shop_name, shop_path(s.id) , class:"item-array__item-detail--name" %>
         </div>
       <% end %>
     </div>

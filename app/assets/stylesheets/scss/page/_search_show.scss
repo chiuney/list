@@ -1,4 +1,4 @@
-.search-list {
+.search-item {
   border: 1px solid black;
   height: 80px;
   width: 50%;
@@ -7,7 +7,7 @@
   justify-content: start;
   margin: 0 auto;
 
-  &__list-image {
+  &__item-image {
     border: 1px solid black;
     height: 60px;
     width: 60px;
@@ -15,19 +15,19 @@
     margin: 0 1%;
   }
 
-  &__list-name {
+  &__item-name {
     color: black;
     min-width: 100px;
     margin: 0 1%;
   }
 
-  &__list-comment {
+  &__item-comment {
     color: black;
     margin: 0 1%;
 
   }
 
-  &__list-user {
+  &__item-user {
     margin-left: auto;
     font-size: 12px;
     margin-right: 1%;
