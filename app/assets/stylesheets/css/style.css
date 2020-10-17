@@ -252,6 +252,51 @@ input, select {
   height: 50%;
 }
 
+.item-show {
+  height: 100vh;
+  width: 100vw;
+}
+
+.item-data {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.item-data__item-name {
+  border: 1px solid black;
+  margin: 10px 5px;
+  padding: 20px;
+  min-width: 200px;
+}
+
+.item-data__item-comment {
+  border: 1px solid black;
+  margin: 10px 5px;
+  padding: 20px;
+  min-width: 320px;
+  flex-grow: 2;
+}
+
+.item-data__item-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 70px;
+  margin: 5px;
+}
+
+.item-data__item-edit--form {
+  border: 1px solid black;
+  margin: 5px 5px;
+  padding: 10px 10px;
+  text-align: center;
+  min-width: 100px;
+}
+
 .mypage-container {
   width: 100vw;
   height: 100vh;

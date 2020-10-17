@@ -1,0 +1,25 @@
+// mypage下部のリスト一覧、list下部のショップ一覧
+
+@import '../mixin/array';
+
+.item-display {
+  border: 1px solid black;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.item-array {
+  @include item-wrap;
+
+  &__item-detail {
+    @include item;
+
+    &--img {
+      @include item-image;
+    }
+
+    &--name {
+      @include item-name;
+    }
+  }
+}

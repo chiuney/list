@@ -6,38 +6,3 @@
   min-height: 400px;
   // margin: 10px;
 }
-
-//  ショップ
-.shop-container {
-  border: 1px solid black;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.shop-wrap {
-  @include item-wrap;
-
-  &__shop-all {
-    @include item;
-
-    &--img {
-      @include item-image;
-    }
-
-    &--title {
-      @include item-name;
-    }
-  }
-
-  &__shop-item {
-    @include item;
-
-    &--img {
-      @include item-image;
-    }
-
-    &--name {
-      @include item-name;
-    }
-  }
-}
