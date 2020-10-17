@@ -1,3 +1,5 @@
+@import '../mixin/array';
+
 .listdetail-container {
   height: 100vh;
   width: 100vw;
@@ -12,10 +14,7 @@
   margin: 10px;
 
   &__list-name {
-    border: 1px solid black;
-    margin: 10px 5px;
-    padding: 20px;
-    min-width: 200px;
+    @include main-name;
 
     &--form {
 
@@ -23,11 +22,7 @@
   }
 
   &__list-comment {
-    border: 1px solid black;
-    margin: 10px 5px;
-    padding: 20px;
-    min-width: 320px;
-    flex-grow: 2;
+    @include main-comment;
 
     &--form {
 
@@ -35,12 +30,10 @@
   }
 
   &__list-edit {
-    // border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    // padding: 20px;
     min-width: 70px;
     margin: 5px;
     
@@ -61,41 +54,6 @@
   // margin: 10px;
 }
 
-.shop-wrap {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap:wrap;
-  justify-content: flex-start;
-  margin: 10px 0px;
-  width: 100%;
-
-  &__shop-all {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    &--img {
-      border: 1px solid black;
-      height: 200px;
-      width: 200px;
-
-    }
-
-    &--title {
-      border: 1px solid black;
-      width: 100%;
-      text-align: center;
-      font-size: 20px;
-      line-height: 1.1;
-    }
-  }
-}
-
-
-
 //  ショップ
 .shop-container {
   border: 1px solid black;
@@ -104,56 +62,29 @@
 }
 
 .shop-wrap {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap:wrap;
-  justify-content: center;
-  margin: 10px 0px;
-  width: 100%;
+  @include item-wrap;
 
   &__shop-all {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    align-items: flex-start;
-    justify-content: flex-start;
+    @include item;
 
     &--img {
-      border: 1px solid black;
-      height: 200px;
-      width: 200px;
+      @include item-image;
     }
 
     &--title {
-      border: 1px solid black;
-      width: 100%;
-      text-align: center;
-      font-size: 20px;
-      line-height: 1.1;
+      @include item-name;
     }
   }
 
   &__shop-item {
-    width: 200px;
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-    align-items: flex-start;
-    flex-wrap:wrap;
-    
+    @include item;
+
     &--img {
-      border: 1px solid black;
-      height: 200px;
-      width: 200px;
+      @include item-image;
     }
 
     &--name {
-      border: 1px solid black;
-      width: 100%;
-      text-align: center;
-      font-size: 20px;
-      line-height: 1.1;
+      @include item-name;
     }
   }
 }

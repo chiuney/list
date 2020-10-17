@@ -1,3 +1,5 @@
+@import '../mixin/array';
+
 .shopdetail-container {
   height: 100vh;
   width: 100vw;
@@ -8,14 +10,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
   margin: 10px;
 
   &__shop-name {
-    border: 1px solid black;
-    margin: 10px 5px;
-    padding: 20px;
-    min-width: 200px;
+  @include main-name;
 
     &--form {
 
@@ -23,11 +21,7 @@
   }
 
   &__shop-comment {
-    border: 1px solid black;
-    margin: 10px 5px;
-    padding: 20px;
-    min-width: 320px;
-    flex-grow: 2;
+    @include main-comment;
 
     &--form {
 
