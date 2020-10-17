@@ -4,7 +4,6 @@
 
 // mixin
 @import './mixin/btn';
-@import './mixin/array';
 @import './mixin/form';
 @import './mixin/icon';
 
@@ -13,6 +12,7 @@
 @import './module/header_signed_in'; 
 @import './module/item_input'; 
 @import './module/item_show'; 
+@import './module/googlemaps';
 
 // page
 @import './page/mypage'; 
