@@ -1,0 +1,4 @@
+{
+  "easysass.excludeRegex": "^_+",
+  "easysass.targetDir": "app/assets/stylesheets/css"
+}

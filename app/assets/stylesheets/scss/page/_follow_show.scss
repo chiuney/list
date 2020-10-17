@@ -36,19 +36,7 @@
   }
 
   &__follow-btn {
-    border: 1px solid black;
-    margin: 0.2% 1%;
-    padding: 3px 10px;
-    border-radius: 20px;
-    height: 30px;
-    overflow: hidden;
-    text-align: center;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 14px;
+    @include btn ;
 
     &--unfollow {
       width: 120px;

@@ -3,7 +3,7 @@
 @import './base/base';
 
 // mixin
-@import './mixin/form'; 
+@import './mixin/btn';
 
 // module
 @import './module/header_no_sign_in'; 
@@ -13,8 +13,7 @@
 @import './page/mypage'; 
 @import './page/sign_up'; 
 @import './page/sign_in'; 
-@import './page/list_edit'; 
-@import './page/list_show'; 
+@import './page/list_edit';  
 @import './page/list_new'; 
 @import './page/user_edit';
 @import './page/shop_new';
