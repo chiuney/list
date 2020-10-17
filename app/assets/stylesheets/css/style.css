@@ -302,7 +302,8 @@ input, select {
   flex-wrap: wrap;
   justify-content: flex-start;
   margin: 10px 0px;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .list-wrap__list-all {
@@ -331,10 +332,10 @@ input, select {
 .list-wrap__list-item {
   width: 200px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 10px;
   align-items: flex-start;
-  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .list-wrap__list-item--img {
@@ -394,7 +395,7 @@ input, select {
   width: 100%;
   padding: 0.3em;
   transition: 0.3s;
-  border: 2px solid #a9a9a9;
+  border: 1px solid #a9a9a9;
   border-radius: 10px;
   height: 40px;
   font-size: 24px;
@@ -402,11 +403,19 @@ input, select {
 }
 
 .signup-form__signup-item--submit {
-  margin: 0 auto;
-  background: #ffebcd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 0.2% 1%;
+  padding: 3px 10px;
+  height: 40px;
   width: 80%;
-  border-radius: 6px;
-  height: 34px;
+  font-size: 14px;
+  background: #ffebcd;
+  outline: none;
+  margin: 0 auto;
 }
 
 .signin-container {
@@ -447,7 +456,7 @@ input, select {
   width: 100%;
   padding: 0.3em;
   transition: 0.3s;
-  border: 2px solid #a9a9a9;
+  border: 1px solid #a9a9a9;
   border-radius: 10px;
   height: 40px;
   font-size: 24px;
@@ -455,11 +464,19 @@ input, select {
 }
 
 .signin-form__signin-item--submit {
-  margin: 0 auto;
-  background: #ffebcd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 0.2% 1%;
+  padding: 3px 10px;
+  height: 40px;
   width: 80%;
-  border-radius: 6px;
-  height: 34px;
+  font-size: 14px;
+  background: #ffebcd;
+  outline: none;
+  margin: 0 auto;
 }
 
 .signin-form__signin-condition {
@@ -620,7 +637,7 @@ input, select {
   width: 100%;
   padding: 0.3em;
   transition: 0.3s;
-  border: 2px solid #a9a9a9;
+  border: 1px solid #a9a9a9;
   border-radius: 10px;
   height: 40px;
   font-size: 24px;
@@ -629,11 +646,19 @@ input, select {
 }
 
 .useredit-form__useredit-item--submit {
-  margin: 0 auto;
-  background: #ffebcd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 0.2% 1%;
+  padding: 3px 10px;
+  height: 30px;
   width: 80%;
-  border-radius: 6px;
-  height: 34px;
+  font-size: 14px;
+  background: #ffebcd;
+  outline: none;
+  margin: 0 auto;
   max-width: 250px;
 }
 
@@ -659,15 +684,19 @@ input, select {
 }
 
 .useredit-delete__useredit-confirm--deletebtn {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 0.2% 1%;
+  padding: 3px 10px;
+  height: 16px;
+  width: 90px;
+  font-size: 14px;
   background: #ffebcd;
-  width: 80%;
-  border-radius: 6px;
-  height: 34px;
-  color: black;
-  border: 1px solid #a9a9a9;
-  border-radius: 4px;
-  padding: 2px;
+  outline: none;
+  margin: 0 auto;
 }
 
 .useredit-delete__useredit-btn {
@@ -809,17 +838,18 @@ input, select {
 }
 
 .follow-item__follow-btn {
-  border: 1px solid black;
-  margin: 0.2% 1%;
-  padding: 3px 10px;
-  border-radius: 20px;
-  height: 30px;
-  overflow: hidden;
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 0.2% 1%;
+  padding: 3px 10px;
+  height: 30px;
+  width: auto;
   font-size: 14px;
+  background: #fff;
+  outline: none;
 }
 
 .follow-item__follow-btn--unfollow {

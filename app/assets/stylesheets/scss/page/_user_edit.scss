@@ -1,3 +1,6 @@
+@import '../mixin/form';
+@import '../mixin/btn';
+
 .useredit-container {
   width: 100vw;
   height: 100vh;
@@ -34,23 +37,14 @@
     }
 
     &--form {
-      width: 100%;
-      padding: 0.3em;
-      transition: 0.3s;
-      border: 2px solid #a9a9a9;
-      border-radius: 10px;
-      height: 40px;
-      font-size: 24px;
-      outline: none;
+      @include sign;
       max-width: 300px;
     }
 
     &--submit {
+      @include btn($background:#ffebcd,$width:80%);
       margin: 0 auto;
-      background: #ffebcd;
-      width: 80%;
-      border-radius: 6px;
-      height: 34px;
+      // height: 34px;
       max-width: 250px;
     }
   }
@@ -77,26 +71,19 @@
     margin: 10px;
 
     &--deletebtn {
+      @include btn($background:#ffebcd,$height:16px,$width:78px);
       margin: 0 auto;
-      background: #ffebcd;
-      width: 80%;
-      border-radius: 6px;
-      height: 34px;
-      color: black;
-      border: 1px solid #a9a9a9;
-      border-radius: 4px;
-      padding: 2px;
     }
 
   }
 
   &__useredit-btn {
-    border: 1px solid black;
+    @include btn($background:#fff,$height:26px,$width:40px);
     margin: 10px;
     padding: 5px;
 
     &--back {
-      color: black;
+      // color: black;
       font-size: 12px;
     }
   }
