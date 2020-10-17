@@ -1,19 +1,18 @@
-<main class="shopdetail-container">
-  <div class="shop-info">
+<main class="item-show">
+  <div class="item-data">
 
-    <div class="shop-info__shop-name">
-      <span class="shop-info__shop-name--form"><%= @shop.shop_name %></span>
+    <div class="item-data__item-name">
+      <%= @shop.shop_name %>
     </div>
 
-    <div class="shop-info__shop-comment">
-      <span class="shop-info__shop-comment--form"><%= @shop.shop_comment %></span>
+    <div class="item-data__item-comment">
+      <%= @shop.shop_comment %>
     </div>
 
     <% if user_signed_in? && current_user.id == @shop.user_id %>
-      <div class="shop-info__shop-edit">
-        <%= link_to '編集', edit_shop_path , class:"shop-info__shop-edit--form" %>
-        <%= link_to '削除', destroy_shops_path , class:"shop-info__shop-edit--form",
-      method: :delete, data: { confirm: '削除しますか？' } %>
+      <div class="item-data__item-edit">
+        <%= link_to '編集', edit_shop_path, class:"item-data__item-edit--form" %>
+        <%= link_to '削除', destroy_shops_path, class:"item-data__item-edit--form", method: :delete, data: { confirm: '削除しますか？' } %>
       </div>
     <% end %>
   </div>

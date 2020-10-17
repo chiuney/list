@@ -1,40 +1,33 @@
+// list,shop_show の _name, _comment の部分
+
 @import '../mixin/array';
 
-.shopdetail-container {
+.item-show {
   height: 100vh;
   width: 100vw;
 }
 
-.shop-info {
+.item-data {
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
   margin: 10px;
 
-  &__shop-name {
-  @include main-name;
-
-    &--form {
-
-    }
+  &__item-name {
+    @include main-name;
   }
 
-  &__shop-comment {
+  &__item-comment {
     @include main-comment;
-
-    &--form {
-
-    }
   }
 
-  &__shop-edit {
-    // border: 1px solid black;
+  &__item-edit {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    // padding: 20px;
     min-width: 70px;
     margin: 5px;
     

@@ -1,52 +1,5 @@
 @import '../mixin/array';
 
-.listdetail-container {
-  height: 100vh;
-  width: 100vw;
-}
-
-.list-info {
-  border: 1px solid black;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  margin: 10px;
-
-  &__list-name {
-    @include main-name;
-
-    &--form {
-
-    }
-  }
-
-  &__list-comment {
-    @include main-comment;
-
-    &--form {
-
-    }
-  }
-
-  &__list-edit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-width: 70px;
-    margin: 5px;
-    
-    &--form {
-      border: 1px solid black;
-      margin: 5px 5px;
-      padding: 10px 10px;
-      text-align: center;
-      min-width: 100px;
-    }
-  }
-}
-
 .googlemaps {
   border: 1px solid black;
   width: 100vw;
