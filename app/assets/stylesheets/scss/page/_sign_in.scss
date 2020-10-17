@@ -39,19 +39,12 @@
     text-align: center;
 
     &--form {
-      width: 100%;
-      padding: 0.3em;
-      transition: 0.3s;
-      border: 2px solid #a9a9a9;
-      border-radius: 10px;
-      height: 40px;
-      font-size: 24px;
-      outline: none;
+      @include sign($width:100%);
     }
 
     &--submit {
       @include btn($background:#ffebcd,$height:40px,$width:80%);
-      
+
       margin: 0 auto;
     }
   }
