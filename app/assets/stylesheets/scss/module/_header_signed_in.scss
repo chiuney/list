@@ -1,3 +1,5 @@
+@import '../mixin/icon';
+
 .logedin-header {
   height: 60px;
   width: 100vw;
@@ -9,12 +11,10 @@
   background-color: #CCCCCC	;
 
   &__header-icon {
+    @include  icon($height:50px,$width:50px);
 
     &--link {
-      border: 1px solid black;
-      height: 50px;
-      width: 50px;
-      border-radius: 100px;
+      
     }
   }
 

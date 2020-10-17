@@ -1,4 +1,5 @@
 @import '../mixin/btn';
+@import '../mixin/icon';
 
 .follow-container {
   width: 100vw;
@@ -19,12 +20,7 @@
     margin: 0 1%;
 
     &--icon {
-      border: 1px solid black;
-      height: 30px;
-      width: 30px;
-      border-radius: 100px;
-      align-items: center;
-      vertical-align: middle;
+      @include  icon;
     }
   }
 
