@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_10_15_141544) do
 
-  create_table "lists", force: :cascade do |t|
+  create_table "favorite_lists", force: :cascade do |t|
     t.string "list_name"
     t.text "list_comment"
     t.integer "user_id"
