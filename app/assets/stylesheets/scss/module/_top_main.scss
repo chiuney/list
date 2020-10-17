@@ -1,3 +1,5 @@
+@import '../mixin/btn';
+
 .top-container {
   height: 60vh;
 
@@ -11,7 +13,6 @@
   display:flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
 
   &__top-text {
     font-size: 30px;
@@ -24,14 +25,12 @@
 
 .top-ul {
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__top-list {
-    list-style: none;
-    display: inline;
-    padding: 16px;
-    background-color: #ffa07a;
-    margin-left: 20px;
+    @include btn($background:#ece5db,$height:40px,$width:140px);
 
     &:hover{
       opacity: 0.9 ;
@@ -40,8 +39,6 @@
     &--link {
       color: 	#333300;
       padding: 16px;
-      // display: block
-
     }
   }
 }

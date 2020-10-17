@@ -1,3 +1,6 @@
+@import '../mixin/btn';
+@import '../mixin/form';
+
 .signup-container {
   width: 100vw;
   height: 100vh;
@@ -51,11 +54,9 @@
     }
 
     &--submit {
+      @include btn($background:#ffebcd,$height:40px,$width:80%);
+      // width: 80%;
       margin: 0 auto;
-      background: #ffebcd;
-      width: 80%;
-      border-radius: 6px;
-      height: 34px;
     }
   }
 }

@@ -1,15 +1,16 @@
-@mixin btn {
-  border: 1px solid black;
-  margin: 0.2% 1%;
-  padding: 3px 10px;
-  border-radius: 20px;
-  height: 30px;
-  overflow: hidden;
-  text-align: center;
-
+@mixin btn($background:#fff,$height:30px,$width:auto) {
   display: flex;
   justify-content: center;
   align-items: center;
 
+  border: 1px solid black;
+  border-radius: 20px;
+
+  margin: 0.2% 1%;
+  padding: 3px 10px;
+
+  height: $height;
+  width: $width;
   font-size: 14px;
+  background: $background;
 }
