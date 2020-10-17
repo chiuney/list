@@ -151,11 +151,13 @@ input, select {
   background-color: #CCCCCC;
 }
 
-.logedin-header__header-icon--link {
+.logedin-header__header-icon {
   border: 1px solid black;
+  border-radius: 100px;
+  align-items: center;
+  vertical-align: middle;
   height: 50px;
   width: 50px;
-  border-radius: 100px;
 }
 
 .logedin-header__header-search {
@@ -196,6 +198,60 @@ input, select {
   color: black;
 }
 
+.item-input {
+  height: 14vh;
+  width: 100vw;
+}
+
+.item-info {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.item-info__item-name {
+  min-width: 200px;
+  margin: 10px 5px;
+  height: 100%;
+}
+
+.item-info__item-name--form {
+  height: 40px;
+  font-size: 20px;
+  outline: none;
+}
+
+.item-info__item-comment {
+  min-width: 320px;
+  flex-grow: 2;
+  margin: 10px 5px;
+  height: 100%;
+}
+
+.item-info__item-comment--form {
+  height: 40px;
+  font-size: 20px;
+  outline: none;
+  width: 100%;
+}
+
+.item-info__item-submit {
+  display: flex;
+  align-items: center;
+  min-width: 70px;
+  height: 100%;
+}
+
+.item-info__item-submit--btn {
+  margin: 5px 5px;
+  padding: 10px 10px;
+  text-align: center;
+  min-width: 100px;
+  height: 50%;
+}
+
 .mypage-container {
   width: 100vw;
   height: 100vh;
@@ -222,11 +278,14 @@ input, select {
 }
 
 .mypage-left__mypage-icon {
-  width: 100%;
+  border: 1px solid black;
+  border-radius: 100px;
+  align-items: center;
+  vertical-align: middle;
   height: auto;
+  width: 100%;
   max-width: 200px;
   max-height: 200px;
-  border: 1px solid black;
 }
 
 .mypage-center {
@@ -624,6 +683,9 @@ input, select {
 
 .useredit-form__useredit-item--image {
   border: 1px solid black;
+  border-radius: 100px;
+  align-items: center;
+  vertical-align: middle;
   height: 200px;
   width: 200px;
 }
@@ -692,7 +754,7 @@ input, select {
   margin: 0.2% 1%;
   padding: 3px 10px;
   height: 16px;
-  width: 90px;
+  width: 78px;
   font-size: 14px;
   background: #ffebcd;
   outline: none;
@@ -700,13 +762,23 @@ input, select {
 }
 
 .useredit-delete__useredit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
+  border-radius: 20px;
+  margin: 0.2% 1%;
+  padding: 3px 10px;
+  height: 26px;
+  width: 40px;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
   margin: 10px;
   padding: 5px;
 }
 
 .useredit-delete__useredit-btn--back {
-  color: black;
   font-size: 12px;
 }
 
@@ -821,11 +893,11 @@ input, select {
 
 .follow-item__follow-image--icon {
   border: 1px solid black;
-  height: 30px;
-  width: 30px;
   border-radius: 100px;
   align-items: center;
   vertical-align: middle;
+  height: 30px;
+  width: 30px;
 }
 
 .follow-item__follow-user {

@@ -1,17 +1,17 @@
-<main class="shopnew-container">
+<main class="item-input">
 
 <%= form_with model: @shop, method: :patch, local: true do |f| %>
-  <div class="shopnew-info">
-    <div class="shopnew-info__shop-name">
-      <%= f.text_field :shop_name, autofocus: true, autocomplete: "list_name", class:"shopnew-info__shop-name--form" %>
+  <div class="item-info">
+    <div class="item-info__item-name">
+      <%= f.text_field :shop_name, autofocus: true, autocomplete: "list_name", class:"item-info__item-name--form" %>
     </div>
 
-    <div class="shopnew-info__shop-comment">
-      <%= f.text_field :shop_comment, class:"shopnew-info__shop-comment--form"%>
+    <div class="item-info__item-comment">
+      <%= f.text_field :shop_comment, class:"item-info__item-comment--form"%>
     </div>
 
-    <div class="shopnew-info__shop-submit">
-      <%= f.submit "更新する",  class:"shopnew-info__shop-submit--form" %>
+    <div class="item-info__item-submit">
+      <%= f.submit "更新する",  class:"item-info__item-submit--btn" %>
     </div>
   
   </div>

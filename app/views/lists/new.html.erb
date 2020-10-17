@@ -1,14 +1,14 @@
-<main class="listnew-container">
+<main class="item-input">
   <%= form_with( model: @Favoritelist ,local: true) do |f| %>
-    <div class="listnew-info">
-      <div class="listnew-info__list-name">
-        <%= f.text_field :list_name, autofocus: true, placeholder: "リストネーム", class:"listnew-info__list-name--form" %>
+    <div class="item-info">
+      <div class="item-info__item-name">
+        <%= f.text_field :list_name, autofocus: true, placeholder: "リストネーム", class:"item-info__item-name--form" %>
       </div>   
-      <div class="listnew-info__list-comment">
-        <%= f.text_field :list_comment, placeholder: "リストコメント", class:"listnew-info__list-comment--form" %>
+      <div class="item-info__item-comment">
+        <%= f.text_field :list_comment, placeholder: "リストコメント", class:"item-info__item-comment--form" %>
       </div>
-      <div class="listnew-info__list-submit">
-        <%= f.submit "リストを追加", class:"listnew-info__list-submit--form" %>
+      <div class="item-info__item-submit">
+        <%= f.submit "リストを追加", class:"item-info__item-submit--btn" %>
       </div>
     </div>
   <% end %>

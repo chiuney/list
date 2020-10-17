@@ -1,17 +1,17 @@
-<main class="listedit-container">
+<main class="item-input">
 
     <%= form_with model: @list, url:update_lists_path(@list) ,method: :patch, local: true do |f| %>
-      <div class="listedit-info">
-        <div class="listedit-info__list-name">
-          <%= f.text_field :list_name, autofocus: true, autocomplete: "list_name", class:"listedit-info__list-name--form" %>
+      <div class="item-info">
+        <div class="item-info__item-name">
+          <%= f.text_field :list_name, autofocus: true, autocomplete: "item_name", class:"item-info__item-name--form" %>
         </div>
 
-        <div class="listedit-info__list-comment">
-          <%= f.text_field :list_comment ,class:"listedit-info__list-comment--form" %>
+        <div class="item-info__item-comment">
+          <%= f.text_field :list_comment ,class:"item-info__item-comment--form" %>
         </div>
 
-        <div class="listedit-info__list-update">
-          <%= f.submit "更新する", class:"listedit-info__list-update--btn" %>
+        <div class="item-info__item-submit">
+          <%= f.submit "更新する", class:"item-info__item-submit--btn" %>
         </div>
       </div>
     <% end %>

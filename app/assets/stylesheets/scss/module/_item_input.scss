@@ -1,16 +1,19 @@
-.listedit-container {
+// リスト・ショップの新規登録・編集画面
+// _name, _comment, submit btn の部分
+
+.item-input {
   height: 14vh;
   width: 100vw;
 }
 
-.listedit-info {
+.item-info {
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   height: 100%;
 
-  &__list-name {
+  &__item-name {
     min-width: 200px;
     margin: 10px 5px;
     height: 100%;
@@ -22,7 +25,7 @@
     }
   }
 
-  &__list-comment {
+  &__item-comment {
     min-width: 320px;
     flex-grow: 2;
     margin: 10px 5px;
@@ -36,14 +39,13 @@
     }
   }
 
-  &__list-update {
+  &__item-submit {
     display: flex;
     align-items: center;
     min-width: 70px;
     height: 100%;
 
     &--btn {
-            // border: 1px solid black;
       margin: 5px 5px;
       padding: 10px 10px;
       text-align: center;
