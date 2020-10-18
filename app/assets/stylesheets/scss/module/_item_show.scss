@@ -6,26 +6,23 @@
 }
 
 .item-data {
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   margin: 10px;
 
   &__item-name {
-    border: 1px solid black;
-    margin: 10px 5px;
-    padding: 20px;
-    min-width: 200px;
+    font-size: 24px;
+    margin: 20px auto 10px;
   }
 
   &__item-comment {
-    border: 1px solid black;
-    margin: 10px 5px;
-    padding: 20px;
-    min-width: 320px;
-    flex-grow: 2;
+    font-size: 16px;
+    margin: 10px auto 20px;
   }
 
   &__item-edit {

@@ -262,26 +262,22 @@ input, select {
 }
 
 .item-data {
-  border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: 10px;
 }
 
 .item-data__item-name {
-  border: 1px solid black;
-  margin: 10px 5px;
-  padding: 20px;
-  min-width: 200px;
+  font-size: 24px;
+  margin: 20px auto 10px;
 }
 
 .item-data__item-comment {
-  border: 1px solid black;
-  margin: 10px 5px;
-  padding: 20px;
-  min-width: 320px;
-  flex-grow: 2;
+  font-size: 16px;
+  margin: 10px auto 20px;
 }
 
 .item-data__item-edit {
@@ -527,13 +523,12 @@ input, select {
   border-radius: 20px;
   margin: 0.2% 1%;
   padding: 3px 10px;
-  height: 30px;
-  width: 80%;
+  height: 32px;
+  width: 120px;
   font-size: 14px;
   background: #ffebcd;
   outline: none;
   margin: 0 auto;
-  max-width: 250px;
 }
 
 .useredit-contents {
@@ -564,7 +559,7 @@ input, select {
   height: 30px;
   font-size: 20px;
   outline: none;
-  width: 200px;
+  width: 300px;
 }
 
 .useredit-delete {
