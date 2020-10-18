@@ -27,7 +27,7 @@
     text-align: center;
 
     &--image {
-      @include icon($height:200px,$width:200px);
+      @include icon($height:100px,$width:100px);
     }
 
     &--text {

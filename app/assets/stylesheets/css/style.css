@@ -151,7 +151,7 @@ input, select {
   background-color: #CCCCCC;
 }
 
-.logedin-header__header-icon {
+.logedin-header__header-icon--link {
   border: 1px solid black;
   border-radius: 100px;
   align-items: center;
@@ -167,7 +167,6 @@ input, select {
   height: 2.3em;
   min-width: 260px;
   width: 50vw;
-  overflow: hidden;
 }
 
 .logedin-header__header-search--select {
@@ -194,8 +193,13 @@ input, select {
   outline: 0;
 }
 
-.logedin-header__header-link--logout {
+.logedin-header__header-link {
+  display: flex;
+}
+
+.logedin-header__header-link--btn {
   color: black;
+  font-size: 10px;
 }
 
 .item-input {
@@ -327,7 +331,22 @@ input, select {
 
 .mypage-content__mypage-name {
   font-size: 24px;
-  margin: 30px auto 0px;
+  margin: 20px auto 0px;
+}
+
+.mypage-content__maypage-follow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333300;
+  margin: 0;
+}
+
+.mypage-content__maypage-follow--link {
+  color: #333300;
+  width: 150px;
+  margin: 5px 0px;
+  font-size: 14px;
 }
 
 .signup-container {
@@ -497,8 +516,8 @@ input, select {
   border-radius: 100px;
   align-items: center;
   vertical-align: middle;
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
 }
 
 .useredit-form__useredit-item--text {

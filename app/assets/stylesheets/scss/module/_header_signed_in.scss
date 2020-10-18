@@ -11,10 +11,9 @@
   background-color: #CCCCCC	;
 
   &__header-icon {
-    @include  icon($height:50px,$width:50px);
 
     &--link {
-      
+      @include  icon($height:50px,$width:50px);
     }
   }
 
