@@ -1,27 +1,13 @@
 <main class="mypage-container">
-  <section class="mypage-container__mypage-profile">
-    <div class="mypage-left">
-      <%= image_tag 'no-image.png', class:"mypage-left__mypage-icon" %>
-    </div>
-    <div class="mypage-center">
-      <div class="mypage-content">
-        <p class="mypage-content__mypage-username"><%= @user.user_name %></p>
-        <div class="mypage-content__maypage-follow">
-          <p class="follow-btn">
-            <%= link_to "フォロー数: #{@user.follower.count}", following_path(id: @user.id), class:"follow-btn__follow-link" %>
-          </p>
-          <p class="follow-btn">
-            <%= link_to "フォロワー数: #{@user.followed.count}", followers_path(id: @user.id), class:"follow-btn__follow-link" %>
-          </p>
-        </div>
+  <section class="mypage-content">
+      <div class="mypage-content__mypage-icon">
+        <%= image_tag 'no-image.png', class:"mypage-content__mypage-icon--image" %>
       </div>
-    </div>
-    <div class="mypage-right">
-      <% if user_signed_in? && current_user.id == @user.id %>
-      <%= link_to 'リストを追加', new_list_path, class:"mypage-right__mypage-edit" %>
-      <%= link_to 'プロフィールを編集', edit_user_registration_path, class:"mypage-right__mypage-edit" %>
-      <% end %>
-    </div>
+      <p class="mypage-content__mypage-name"><%= @user.user_name %></p>
+      <div class="mypage-content__maypage-follow" >
+        <%= link_to "フォロー数: #{@user.follower.count}",   following_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
+        <%= link_to "フォロワー数: #{@user.followed.count}", followers_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
+      </div>
   </section>
   
   <section class="item-display">
