@@ -391,11 +391,10 @@ input, select {
 .signup-form__signup-item--form {
   width: 100%;
   padding: 0.3em;
-  transition: 0.3s;
   border: 1px solid #a9a9a9;
-  border-radius: 10px;
-  height: 40px;
-  font-size: 24px;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 20px;
   outline: none;
 }
 
@@ -452,11 +451,10 @@ input, select {
 .signin-form__signin-item--form {
   width: 100%;
   padding: 0.3em;
-  transition: 0.3s;
   border: 1px solid #a9a9a9;
-  border-radius: 10px;
-  height: 40px;
-  font-size: 24px;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 20px;
   outline: none;
 }
 
@@ -505,10 +503,11 @@ input, select {
 }
 
 .useredit-form__useredit-item {
-  position: relative;
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
   margin: 20px auto;
-  text-align: center;
 }
 
 .useredit-form__useredit-item--image {
@@ -518,23 +517,6 @@ input, select {
   vertical-align: middle;
   height: 100px;
   width: 100px;
-}
-
-.useredit-form__useredit-item--text {
-  font-size: 20px;
-  line-height: 40px;
-}
-
-.useredit-form__useredit-item--form {
-  width: 100%;
-  padding: 0.3em;
-  transition: 0.3s;
-  border: 1px solid #a9a9a9;
-  border-radius: 10px;
-  height: 40px;
-  font-size: 24px;
-  outline: none;
-  max-width: 300px;
 }
 
 .useredit-form__useredit-item--submit {
@@ -552,6 +534,37 @@ input, select {
   outline: none;
   margin: 0 auto;
   max-width: 250px;
+}
+
+.useredit-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.useredit-contents__useredit-title {
+  width: 200px;
+}
+
+.useredit-contents__useredit-title--name {
+  font-size: 20px;
+}
+
+.useredit-contents__useredit-input {
+  margin: 10px;
+  width: 70%;
+}
+
+.useredit-contents__useredit-input--form {
+  width: 100%;
+  padding: 0.3em;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 20px;
+  outline: none;
+  width: 200px;
 }
 
 .useredit-delete {

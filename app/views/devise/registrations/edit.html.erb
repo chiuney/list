@@ -7,22 +7,32 @@
       <div class="useredit-form__useredit-item">
         <%= link_to image_tag("no-image.png", class:"useredit-form__useredit-item--image"), "#" %>
       </div>
-      
-      <div class="useredit-form__useredit-item">
-        <%= f.label :ユーザーネーム, class:"useredit-form__useredit-item--text" %>
-        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" ,class:"useredit-form__useredit-item--form"%>
-      </div>
-      
-      <div class="useredit-form__useredit-item">
-        <%= f.label :メールアドレス, class:"useredit-form__useredit-item--text" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"useredit-form__useredit-item--form" %>
-      </div>
+
+      <dl class="useredit-form__useredit-item">
+        <div class="useredit-contents">
+          <dt class="useredit-contents__useredit-title">
+            <%= f.label :ユーザーネーム, class:"useredit-contents__useredit-title--name" %>
+          </dt>
+          <dd class="useredit-contents__useredit-input">
+            <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class:"useredit-contents__useredit-input--form"%>
+          </dd>
+        </div>
+        <div class="useredit-contents">
+          <dt class="useredit-contents__useredit-title">
+            <%= f.label :メールアドレス, class:"useredit-contents__useredit-title--name" %>
+          </dt>
+          <dd class="useredit-contents__useredit-input">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"useredit-contents__useredit-input--form" %>
+          </dd>
+        </div>
+      </dl>
       
       <div class="useredit-form__useredit-item">
       <%= f.submit "更新する",class:"useredit-form__useredit-item--submit" %>
       </div>
     <% end %>
   </div>
+
   <div class="useredit-delete">
     <h2 class="useredit-delete__useredit-subtitle">アカウント削除</h2>
     

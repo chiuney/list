@@ -16,39 +16,57 @@
   }
 }
 
+// 入力フォーム
 .useredit-form {
   width: 50%;
   min-width: 250px ;
 
   &__useredit-item {
-    position: relative;
-    width: 80%;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
     margin: 20px auto;
-    text-align: center;
 
     &--image {
       @include icon($height:100px,$width:100px);
     }
 
-    &--text {
-      font-size: 20px;
-      line-height: 40px;
-    }
-
-    &--form {
-      @include sign;
-      max-width: 300px;
-    }
-
     &--submit {
-      @include btn($background:#ffebcd,$width:80%);
+      @include btn($background:#ffebcd,$height:32px,$width:120px);
       margin: 0 auto;
-      // height: 34px;
-      max-width: 250px;
     }
   }
 }
 
+.useredit-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  &__useredit-title {
+    width: 200px;
+    
+  
+    &--name {
+      font-size: 20px;
+    } 
+  }
+  
+  &__useredit-input {
+    margin: 10px;
+    width: 70%;
+  
+    &--form {
+      @include sign;
+      width: 300px;
+    }
+  }
+}
+
+
+// アカウント削除
 .useredit-delete {
   display: flex;
   flex-direction: column;
@@ -82,7 +100,6 @@
     padding: 5px;
 
     &--back {
-      // color: black;
       font-size: 12px;
     }
   }
