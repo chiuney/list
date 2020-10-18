@@ -1,41 +1,44 @@
 // list,shopの新規登録・編集画面
 // _name, _comment, submit btn の部分
 
+@import '../mixin/btn';
+@import '../mixin/form';
+
 .item-input {
   height: 14vh;
   width: 100vw;
 }
 
 .item-info {
-  border: 1px solid black;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
 
   &__item-name {
-    min-width: 200px;
-    margin: 10px 5px;
-    height: 100%;
+    font-size: 24px;
+    margin: 20px auto 10px;
 
     &--form {
-      height: 40px;
-      font-size: 20px;
-      outline: none;
+      @include sign($width:300px);
     }
   }
 
   &__item-comment {
-    min-width: 320px;
-    flex-grow: 2;
-    margin: 10px 5px;
-    height: 100%;
+    font-size: 16px;
+    margin: 10px auto 20px;
+    width: 100%;
+    min-width: 280px;
+    margin: 0 auto;
 
     &--form {
-      height: 40px;
-      font-size: 20px;
-      outline: none;
-      width: 100%;
+      @include sign($width:80%);
+      height: 30px;
+      font-size: 16px;
+      margin: 0 auto;
     }
   }
 
@@ -43,14 +46,10 @@
     display: flex;
     align-items: center;
     min-width: 70px;
-    height: 100%;
 
     &--btn {
-      margin: 5px 5px;
-      padding: 10px 10px;
-      text-align: center;
-      min-width: 100px;
-      height: 50%;
+      @include btn($background:#fff,$height:30px,$width:auto);
+      margin: 10px 5px;
     }
   }
 }
