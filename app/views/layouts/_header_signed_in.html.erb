@@ -1,7 +1,7 @@
 <header class="logedin-header">
   <section class="logedin-header__header-icon">
     <% if current_user.persisted? && current_user.image? %>
-      <%= link_to image_tag(@user.image.thumb30.url, class:"logedin-header__header-icon--link"), user_path(current_user.id) %>
+      <%= link_to image_tag(current_user.image.thumb30.url, class:"logedin-header__header-icon--link"), user_path(current_user.id) %>
     <% else %>
       <%= image_tag 'no-image.png', class:"logedin-header__header-icon--link" %>
     <% end %>
