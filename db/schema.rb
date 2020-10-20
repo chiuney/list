@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_141544) do
+ActiveRecord::Schema.define(version: 2020_10_20_083130) do
 
   create_table "lists", force: :cascade do |t|
     t.string "list_name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_141544) do
     t.string "user_name"
     t.integer "list_id"
     t.integer "shop_id"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

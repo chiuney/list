@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+# 画像アップロード機能
+gem 'carrierwave'
+#画像のリサイズ
+gem 'mini_magick'
 # seedsにuserデータ挿入
 gem 'faker'
 #アプリ名変更

@@ -1,7 +1,11 @@
 <main class="mypage-container">
   <section class="mypage-content">
       <div class="mypage-content__mypage-icon">
-        <%= image_tag 'no-image.png', class:"mypage-content__mypage-icon--image" %>
+        <% if current_user.persisted? && current_user.image? %>
+          <%= image_tag @user.image.thumb100.url, class:"mypage-content__mypage-icon--image" %>
+        <% else %>
+          <%= image_tag 'no-image.png',class:"mypage-content__mypage-icon--image" %>
+        <% end %>
       </div>
       <p class="mypage-content__mypage-name"><%= @user.user_name %></p>
       <div class="mypage-content__maypage-follow" >

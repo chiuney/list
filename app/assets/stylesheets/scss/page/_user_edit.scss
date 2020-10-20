@@ -22,16 +22,24 @@
   min-width: 250px ;
 
   &__useredit-item {
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
+    // display:flex;
+    // justify-content: center;
+    // flex-direction: column;
     width: 100%;
     margin: 20px auto;
 
     &--image {
       @include icon($height:100px,$width:100px);
+      margin: 0 auto;
     }
 
+    // 画像選択
+    &--select {
+      margin: 10px auto 0px;
+      // @include btn($background:#ffebcd,$height:32px,$width:300px);
+    }
+
+    // プロフィール更新
     &--submit {
       @include btn($background:#ffebcd,$height:32px,$width:120px);
       margin: 0 auto;
