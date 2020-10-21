@@ -13,7 +13,7 @@
         <%= @list.list_comment %>
       </span>
     </div>
-
+    
     <% if user_signed_in? && current_user.id == @list.user_id %>
     <div class="item-data__item-edit">
       <%= link_to "店を追加",   new_shop_path(id: @list.id),      class:"item-data__item-edit--form" %>
