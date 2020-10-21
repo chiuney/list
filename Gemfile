@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+# 環境変数を読み取り
+gem 'dotenv'
+gem 'dotenv-rails'
 # 画像アップロード機能
 gem 'carrierwave'
 #画像のリサイズ
