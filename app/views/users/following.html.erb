@@ -2,7 +2,11 @@
   <% @user.following_user.where.not(id: current_user.id).each do |user| %>
   <section class="follow-item">
       <div class="follow-item__follow-image">
-      <%= image_tag 'ramen.jpeg', class:"follow-item__follow-image--icon" %>
+        <% if user.persisted? && user.image? %>
+          <%= image_tag user.image.url, class:"mypage-content__mypage-icon--image" %>
+        <% else %>
+          <%= image_tag 'no-image.png',class:"mypage-content__mypage-icon--image" %>
+        <% end %>
       </div>
       <div class="follow-item__follow-user">
         <%= link_to user.user_name, user_path(user.id), class:"follow-item__follow-user--link" %>
