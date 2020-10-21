@@ -4,9 +4,9 @@
       <section class="follow-item">
         <div class="follow-item__follow-image">
           <% if u.persisted? && u.image? %>
-            <%= image_tag u.image.url, class:"mypage-content__mypage-icon--image" %>
+            <%= image_tag u.image.url, class:"follow-item__follow-image--icon" %>
           <% else %>
-            <%= image_tag 'no-image.png',class:"mypage-content__mypage-icon--image" %>
+            <%= image_tag 'no-image.png',class:"follow-item__follow-image--icon" %>
           <% end %>
         </div>
         <div class="follow-item__follow-user">
