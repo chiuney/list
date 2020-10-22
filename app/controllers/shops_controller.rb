@@ -22,6 +22,7 @@ class ShopsController < ApplicationController
 
   def index
     @user = User.find(params[:id])
+    @shop = Shop.where(user_id: @user.id)
     @shops = Shop.where(user_id: @user.id)
   end
 
@@ -46,6 +47,6 @@ class ShopsController < ApplicationController
 
   private
     def shop_params
-      params.require(:shop).permit(:shop_name, :shop_comment, :list_id)
+      params.require(:shop).permit(:shop_name, :shop_comment, :list_id, :photo)
     end
 end

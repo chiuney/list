@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_083130) do
+ActiveRecord::Schema.define(version: 2020_10_22_032243) do
 
   create_table "lists", force: :cascade do |t|
     t.string "list_name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_083130) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "list_id"
+    t.string "photo"
   end
 
   create_table "users", force: :cascade do |t|

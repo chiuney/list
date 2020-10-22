@@ -25,6 +25,21 @@
     margin: 10px auto 20px;
   }
 
+  &__item-photo {
+
+
+    &--photo {
+      border: 1px solid black;
+      width: 200px;
+      height: 140px;
+      border-radius: 20px;
+      // 外接リサイズ
+      object-fit: cover;
+  
+      margin: 10px auto;
+    }
+  }
+
   &__item-edit {
     display: flex;
     align-items: center;

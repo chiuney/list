@@ -49,6 +49,25 @@
     }
   }
 
+  &__item-photo {
+
+    &--photo {
+      border: 1px solid black;
+      width: 200px;
+      height: 140px;
+      border-radius: 20px;
+      // 外接リサイズ
+      object-fit: cover;
+  
+      margin: 10px auto;
+    }
+
+    &--select {
+      margin: 10px auto 0px;
+      display: none;
+    }
+  }
+
   &__item-submit {
     display: flex;
     align-items: center;

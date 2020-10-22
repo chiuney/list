@@ -9,6 +9,14 @@
       <%= @shop.shop_comment %>
     </div>
 
+    <div class="item-data__item-photo">
+      <% if @shop.photo? %>
+        <%= image_tag @shop.photo.url,class:"item-data__item-photo--photo"  %>
+      <% else %>
+        <%= image_tag "no-image.png",class:"item-data__item-photo--photo" %>
+      <% end %>
+    </div>
+
     <% if user_signed_in? && current_user.id == @shop.user_id %>
       <div class="item-data__item-edit">
         <%= link_to '編集', edit_shop_path, class:"item-data__item-edit--form" %>

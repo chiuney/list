@@ -4,4 +4,6 @@ class Shop < ApplicationRecord
 
   validates :shop_name,    presence: true
   validates :shop_comment, presence: true
+
+  mount_uploader :photo, ImageUploader
 end

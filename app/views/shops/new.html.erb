@@ -11,6 +11,7 @@
 
   <%= form_with model: @shop, url: new_shop_path(@list.id), local: true do |f| %>
     <div class="item-info">
+
       <div class="item-info__item-name">
         <%= f.text_field :shop_name, autofocus: true, placeholder: "店名", class:"item-info__item-name--form" %>
       </div>
@@ -19,6 +20,19 @@
         <%= f.text_field :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
       </div>
         <%= f.hidden_field :list_id, value: @list.id%>
+
+      <div class="item-info__item-photo">
+        <% if @shop.photo? %>
+          <%= image_tag @shop.photo.thumb.url , class:"uitem-info__item-photo--photo" %>
+        <% else %>
+          <label>
+            <div><%= image_tag 'no-image.png',class:"item-info__item-photo--photo" %></div>
+            <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
+          </label>
+          <%= f.hidden_field :photo_cache %>
+        <% end %>
+      </div>
+
       <div class="item-info__item-submit">
         <%= f.submit "店を追加",  class:"item-info__item-submit--btn" %>
       </div>
