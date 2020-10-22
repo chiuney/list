@@ -39,8 +39,14 @@
       </div>
       <% @shops.each do |s| %>
         <div class="item-array__item-detail">
-          <%= link_to image_tag("kaisen.jpeg", class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% if s.photo? %>
+          <%= link_to image_tag( s.photo.url, class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% else %>
+          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% end %>
+
           <%= link_to s.shop_name, shop_path(s.id) , class:"item-array__item-detail--name" %>
+
         </div>
       <% end %>
     </div>
