@@ -13,7 +13,7 @@
         <%= @list.list_comment %>
       </span>
     </div>
-    
+
     <% if user_signed_in? && current_user.id == @list.user_id %>
     <div class="item-data__item-edit">
       <%= link_to "店を追加",   new_shop_path(id: @list.id),      class:"item-data__item-edit--form" %>
@@ -26,17 +26,11 @@
 
   <div class="googlemaps">
     <h2>googolemap</h2>
-    <div id='map'></div>
+    <div id='map', style="width: 500px;height: 350px;"></div>
     
-    <input id="address" type="textbox" value="#">
-    <input type="button" value="Encode" onclick="codeAddress()">
+    <input id="address" type="textbox">
+    <input type="button" value="検索" onclick="codeAddress()">
 
-    <style>
-    #map {
-      height: 600px;
-      width: 600px;
-    }
-  </style>
   
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLEMAPS_API_KEY"]%>&callback=initMap" async defer></script>
   <%= javascript_pack_tag 'googlemaps/application' %>

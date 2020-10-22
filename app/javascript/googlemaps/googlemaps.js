@@ -1,4 +1,8 @@
+
 let map
+
+window.initMap = initMap;
+window.codeAddress = codeAddress;
     
 function initMap(){
   geocoder = new google.maps.Geocoder()
@@ -31,4 +35,3 @@ if (status == 'OK') {
 }
 });   
 }
-getMap.getAddress();
