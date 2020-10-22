@@ -10,6 +10,18 @@
       <%= f.text_field :shop_comment, class:"item-info__item-comment--form"%>
     </div>
 
+    <div class="item-info__item-photo">
+    <% if @shop.photo? %>
+      <%= image_tag @shop.photo.thumb.url , class:"uitem-info__item-photo--photo" %>
+    <% else %>
+      <label>
+        <div><%= image_tag 'no-image.png',class:"item-info__item-photo--photo" %></div>
+        <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
+      </label>
+      <%= f.hidden_field :photo_cache %>
+    <% end %>
+    </div>
+
     <div class="item-info__item-submit">
       <%= f.submit "更新する",  class:"item-info__item-submit--btn" %>
     </div>
