@@ -312,10 +312,9 @@ input, select {
 }
 
 .googlemaps {
-  border: 1px solid black;
   width: 70vw;
-  min-height: 400px;
-  margin: 0 auto 10px;
+  height: 400px;
+  margin: 10px auto;
 }
 
 .mypage-container {
@@ -514,9 +513,6 @@ input, select {
 }
 
 .useredit-form__useredit-item {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   width: 100%;
   margin: 20px auto;
 }
@@ -528,6 +524,11 @@ input, select {
   vertical-align: middle;
   height: 100px;
   width: 100px;
+  margin: 0 auto;
+}
+
+.useredit-form__useredit-item--select {
+  margin: 10px auto 0px;
 }
 
 .useredit-form__useredit-item--submit {
