@@ -26,6 +26,7 @@
         <div class="item-array__item-detail">
           <%= link_to image_tag("kaisen.jpeg",class:"item-array__item-detail--img"), list_path(l.id) %>
           <%= link_to l.list_name, list_path(l.id), class:"item-array__item-detail--name" %>
+          <%= link_to "店舗 : #{l.shops.size}件", list_path(l.id), class:"item-array__item-detail--size" %>
         </div>
       <% end %>
     </div>

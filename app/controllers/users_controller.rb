@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user  = User.find(params[:id])
-    @lists = List.where(user_id: @user.id)
+    @lists = List.preload(:shops).where(user_id: @user.id)
   end
 
   def destroy
