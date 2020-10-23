@@ -23,7 +23,7 @@
 
       <div class="item-info__item-photo">
         <% if @shop.photo? %>
-          <%= image_tag @shop.photo.thumb.url , class:"uitem-info__item-photo--photo" %>
+          <%= image_tag @shop.photo.thumb.url , class:"item-info__item-photo--photo" %>
         <% else %>
           <label>
             <div><%= image_tag 'no-image.png',class:"item-info__item-photo--photo" %></div>
