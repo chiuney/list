@@ -13,9 +13,9 @@
     <div class="item-info__item-photo">
     <% if @shop.photo? %>
       <label>
-      <div><%= image_tag @shop.photo.thumb.url , class:"item-info__item-photo--photo" %></div>
-      <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
-    </label>
+        <div><%= image_tag @shop.photo.thumb.url , class:"item-info__item-photo--photo" %></div>
+        <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
+      </label>
     <% else %>
       <label>
         <div><%= image_tag 'no-image.png',class:"item-info__item-photo--photo" %></div>
