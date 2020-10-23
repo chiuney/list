@@ -1,3 +1,5 @@
+<% provide(:title, "Following") %>
+
 <main class="follow-container">
   <% @user.following_user.where.not(id: current_user.id).each do |user| %>
   <section class="follow-item">
