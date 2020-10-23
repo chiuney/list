@@ -16,7 +16,6 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @shop = Shop.find_by(id: params[:id])
     @shops = Shop.where(list_id: @list.id)
   end
 
