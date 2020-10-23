@@ -10,9 +10,6 @@
 
   &__item-search {
     display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // flex-direction: row;
   }
 }
 
@@ -50,6 +47,7 @@
   }
 
   &__item-photo {
+    position: relative;
 
     &--photo {
       border: 1px solid black;
@@ -60,6 +58,15 @@
       object-fit: cover;
   
       margin: 10px auto;
+
+      opacity: 0.7;
+    }
+
+    &--mark {
+      position: absolute;
+      top: 45%;
+      left: 49%;
+      z-index: 1;
     }
 
     &--select {

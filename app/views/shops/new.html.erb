@@ -31,13 +31,17 @@
 
       <div class="item-info__item-photo">
         <% if @shop.photo? %>
-          <%= image_tag @shop.photo.thumb.url , class:"item-info__item-photo--photo" %>
+          <label>
+            <%= image_tag @shop.photo.thumb.url , class:"item-info__item-photo--photo" %>
+            <i class="far fa-edit item-info__item-photo--mark"></i>
+            <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
+          </label>
         <% else %>
           <label>
             <div><%= image_tag 'no-image.png',class:"item-info__item-photo--photo" %></div>
+            <i class="far fa-edit item-info__item-photo--mark"></i>
             <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
           </label>
-          <%= f.hidden_field :photo_cache %>
         <% end %>
       </div>
 
