@@ -1,5 +1,7 @@
 // list,shop_show の _name, _comment の部分
 
+@import '../mixin/btn';
+
 .item-show {
   height: 100vh;
   width: 100vw;
@@ -14,6 +16,12 @@
   flex-direction: column;
 
   margin: 10px;
+
+  position: relative;
+
+  &__back-page {
+    @include back;
+  }
 
   &__item-name {
     font-size: 24px;

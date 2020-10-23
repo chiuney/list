@@ -207,6 +207,10 @@ input, select {
   width: 100vw;
 }
 
+.item-input__item-search {
+  display: flex;
+}
+
 .item-info {
   display: flex;
   justify-content: center;
@@ -253,6 +257,20 @@ input, select {
   margin: 0 auto;
 }
 
+.item-info__item-photo--photo {
+  border: 1px solid black;
+  width: 200px;
+  height: 140px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin: 10px auto;
+}
+
+.item-info__item-photo--select {
+  margin: 10px auto 0px;
+  display: none;
+}
+
 .item-info__item-submit {
   display: flex;
   align-items: center;
@@ -287,6 +305,14 @@ input, select {
   align-items: center;
   flex-direction: column;
   margin: 10px;
+  position: relative;
+}
+
+.item-data__back-page {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  color: black;
 }
 
 .item-data__item-name {
@@ -297,6 +323,15 @@ input, select {
 .item-data__item-comment {
   font-size: 16px;
   margin: 10px auto 20px;
+}
+
+.item-data__item-photo--photo {
+  border: 1px solid black;
+  width: 200px;
+  height: 140px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin: 10px auto;
 }
 
 .item-data__item-edit {
@@ -529,6 +564,7 @@ input, select {
 
 .useredit-form__useredit-item--select {
   margin: 10px auto 0px;
+  display: none;
 }
 
 .useredit-form__useredit-item--submit {

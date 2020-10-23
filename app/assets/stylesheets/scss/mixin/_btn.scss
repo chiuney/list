@@ -17,3 +17,11 @@
 
   outline: none;
 }
+
+// 前のページに戻るボタン
+@mixin back {
+  position: absolute;
+  top: 30px;
+  left: 15%;
+  color: black;
+}

@@ -2,6 +2,10 @@
 
 <main class="item-show">
   <div class="item-data">
+    <%= link_to "javascript:history.back()", method: :get do %>
+      <i class="fas fa-arrow-left item-data__back-page"></i>
+    <% end %>
+
     <div class="item-data__item-name">
       <span class="item-data__item_name--form">
       <%= @list.list_name %>
