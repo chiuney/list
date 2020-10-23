@@ -2,6 +2,12 @@
 
 <main class="item-input">
 
+  <div class="item-data">
+    <%= link_to "javascript:history.back()", method: :get do %>
+      <i class="fas fa-arrow-left item-data__back-page"></i>
+    <% end %>
+  </div>
+
   <div class="item-input__item-search">
     <div class="item-info__item-name">
       <input id="address" type="textbox" class="item-info__item-name--form">
