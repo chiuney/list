@@ -17,11 +17,13 @@
         <% if current_user.persisted? && current_user.image? %>
           <label>
             <div><%= image_tag @user.image.thumb.url , class:"useredit-form__useredit-item--image" %></div>
+            <i class="far fa-edit useredit-form__useredit-item--mark"></i>
             <%= f.file_field :image ,class:"useredit-form__useredit-item--select" %>
           </label>
         <% else %>
           <label>
             <div><%= image_tag 'no-image.png',class:"useredit-form__useredit-item--image" %>
+            <i class="far fa-edit useredit-form__useredit-item--mark"></i>
             <%= f.hidden_field :image_cache %></div>
             <%= f.file_field :image ,class:"useredit-form__useredit-item--select" %>
           </label>
