@@ -32,7 +32,7 @@
           <%= image_tag 'kaisen.jpeg', class:"search-item__item-image" %>
           <%= link_to l.list_name, list_path(l.id),  class:"search-item__item-name" %>
           <%= link_to l.list_comment, list_path(l.id), class:"search-item__item-comment"%>
-          <p class="search-item__item-user">listed by<%= link_to l.user_id, user_path(l.user_id) %></p>
+          <%= link_to "Listed by#{l.user_id}", user_path(l.user_id),class:"search-item__item-user" %>
         </section>
       <% end %>
   <% end %>
