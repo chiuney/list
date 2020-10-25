@@ -17,6 +17,9 @@
         <%= @list.list_comment %>
       </span>
     </div>
+    <div class="item-data__item-user">
+      <%= link_to "Listed by #{@user.user_name}", user_path(@user), class:"item-data__item-user--link" %>
+    </div>
 
     <% if user_signed_in? && current_user.id == @list.user_id %>
     <div class="item-data__item-edit">

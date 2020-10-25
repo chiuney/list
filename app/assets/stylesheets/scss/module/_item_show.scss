@@ -33,8 +33,16 @@
     margin: 10px auto 20px;
   }
 
-  &__item-photo {
+  &__item-user {
+    font-size: 12px;
+    margin: 10px auto 20px;
 
+    &--link {
+      color: black;
+    }
+  }
+
+  &__item-photo {
 
     &--photo {
       border: 1px solid black;

@@ -17,6 +17,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @shops = Shop.where(list_id: @list.id)
+    @user = User.find_by(id: @list.user_id)
   end
 
   def edit
