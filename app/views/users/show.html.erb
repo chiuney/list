@@ -10,6 +10,17 @@
         <% end %>
       </div>
       <p class="mypage-content__mypage-name"><%= @user.user_name %></p>
+
+      <% unless @user == current_user %>
+        <div class="follow-item__follow-btn">
+          <% if current_user.following?(@user) %>
+            <%= link_to 'フォローをやめる', unfollow_path(@user.id), method: :POST,  class:"follow-item__follow-btn--unfollow" %>
+          <% else %>
+            <%= link_to 'フォローする', follow_path(@user.id), method: :POST,class:"follow-item__follow-btn--following" %>
+          <% end %>
+        </div>
+      <% end %>
+      
       <div class="mypage-content__maypage-follow" >
         <%= link_to "フォロー数: #{@user.follower.count}",   following_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
         <%= link_to "フォロワー数: #{@user.followed.count}", followers_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
