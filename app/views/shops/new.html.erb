@@ -10,10 +10,7 @@
 
   <div class="item-input__item-search">
     <div class="item-info__item-name">
-      <input id="address" type="textbox" class="item-info__item-name--form">
-    </div>
-    <div class="item-info__item-submit">
-      <input type="button" value="検索" onclick="codeAddress()" class="item-info__item-submit--btn" %>
+      <input id="pac-input" class="controls" type="text" placeholder="検索..." class="item-info__item-name--form"/>
     </div>
   </div>
 
@@ -52,11 +49,9 @@
   <% end %>
 
   <div class="googlemaps">
-    <div id='map', style="width: 70vw; height: 400px;"></div>
-  
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLEMAPS_API_KEY"]%>&callback=initMap" async defer></script>
-  <%= javascript_pack_tag 'googlemaps/application' %>
+    <%= render 'shared/googlemaps' %>
   </div>
 
   <p>店の情報とか</p>
+
 </main>

@@ -11,10 +11,7 @@
   <h2 class="shopall-title">登録済み店一覧</h2>
 
   <div class="googlemaps">
-  <div id='map', style="width: 70vw; height: 400px;"></div>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLEMAPS_API_KEY"]%>&callback=initMap" async defer></script>
-  <%= javascript_pack_tag 'googlemaps/application' %>
+    <%= render 'shared/googlemaps' %>
   </div>
 
   <sction class="item-display">
