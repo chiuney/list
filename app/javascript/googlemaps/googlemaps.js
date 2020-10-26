@@ -77,4 +77,5 @@ function initAutocomplete() {
 }
 // [END maps_places_searchbox]
 
+
 window.initAutocomplete = initAutocomplete;
