@@ -2,11 +2,7 @@
 
 <main class="shopall-container">
 
-<div class="item-data">
-  <%= link_to "javascript:history.back()", method: :get do %>
-    <i class="fas fa-arrow-left item-data__back-page"></i>
-  <% end %>
-</div>
+  <%= render 'shared/back' %>
 
   <h2 class="shopall-title">登録済み店一覧</h2>
 

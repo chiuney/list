@@ -2,11 +2,7 @@
 
 <main class="item-input">
 
-  <div class="item-data">
-    <%= link_to "javascript:history.back()", method: :get do %>
-      <i class="fas fa-arrow-left item-data__back-page"></i>
-    <% end %>
-  </div>
+  <%= render 'shared/back' %>
 
     <%= form_with model: @list, url:update_lists_path(@list) ,method: :patch, local: true do |f| %>
       <div class="item-info">
@@ -24,10 +20,7 @@
       </div>
     <% end %>
 
-    <div class="googlemaps">
-    <div id='map', style="width: 70vw; height: 400px;"></div>
-  
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLEMAPS_API_KEY"]%>&callback=initMap" async defer></script>
-  <%= javascript_pack_tag 'googlemaps/application' %>
+  <div class="googlemaps">
+    <%= render 'shared/googlemaps' %>
   </div>
 </main>

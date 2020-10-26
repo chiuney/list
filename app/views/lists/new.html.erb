@@ -1,6 +1,9 @@
 <% provide(:title, "Add List") %>
 
 <main class="item-input">
+
+  <%= render 'shared/back' %>
+
   <%= form_with( model: @Favoritelist ,local: true) do |f| %>
     <div class="item-info">
       <div class="item-info__item-name">
@@ -16,10 +19,7 @@
   <% end %>
 
   <div class="googlemaps">
-    <div id='map', style="width: 70vw; height: 400px;"></div>
-  
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLEMAPS_API_KEY"]%>&callback=initMap" async defer></script>
-  <%= javascript_pack_tag 'googlemaps/application' %>
+    <%= render 'shared/googlemaps' %>
   </div>
 
 <p>店の情報とか</p>
