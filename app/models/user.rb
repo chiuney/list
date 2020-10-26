@@ -28,8 +28,8 @@ class User < ApplicationRecord
   end
 
   # ユーザー検索
-  def User.search(search, user_or_list)
-    if user_or_list == "1"
+  def User.search(search, user_or_list_or_shop)
+    if user_or_list_or_shop == "1"
        User.where(['user_name LIKE ?', "%#{search}%"])
     else
        User.all

@@ -28,11 +28,13 @@ class UsersController < ApplicationController
   end
 
   def search
-    @user_or_list = params[:option]
-    if @user_or_list == "1"
-      @users = User.search(params[:search], @user_or_list)
+    @user_or_list_or_shop = params[:option]
+    if @user_or_list_or_shop == "1"
+      @users = User.search(params[:search], @user_or_list_or_shop)
+    elsif @user_or_list_or_shop == "2"
+      @lists = List.search(params[:search], @user_or_list_or_shop)
     else
-      @lists = List.search(params[:search], @user_or_list)
+      @shops = Shop.search(params[:search], @user_or_list_or_shop)
     end
   end
 end

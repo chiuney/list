@@ -6,8 +6,8 @@ class List < ApplicationRecord
   validates :list_comment, presence: true
 
   # リスト検索（曖昧）
-  def List.search(search, user_or_list)
-    if user_or_list == "2"
+  def List.search(search, user_or_list_or_shop)
+    if user_or_list_or_shop == "2"
       List.where(['list_name LIKE ?', "%#{search}%"])
     else
       List.all
