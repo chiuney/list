@@ -32,7 +32,7 @@
         <section class="item-array__item-detail">
           <%= image_tag 'kaisen.jpeg', class:"item-array__item-detail--img" %>
           <%= link_to l.list_name, list_path(l.id),  class:"item-array__item-detail--name" %>
-          <%= link_to "Listed by#{l.user_id}", user_path(l.user_id),class:"search-item__item-user" %>
+          <%= link_to "Listed by#{l.user.user_name}", user_path(l.user_id),class:"search-item__item-user" %>
         </section>
       <% end %>
       </div>
@@ -47,7 +47,7 @@
           <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
         <% end %>
         <%= link_to s.shop_name, shop_path(s.id) , class:"item-array__item-detail--name" %>
-        <%= link_to "Add by#{s.user_id}", shop_path(s.id),class:"search-item__item-user" %>
+        <%= link_to "Add by#{s.user.user_name}", shop_path(s.id),class:"search-item__item-user" %>
         </section>
       <% end %>
       </div>
