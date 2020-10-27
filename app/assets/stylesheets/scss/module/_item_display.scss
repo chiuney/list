@@ -52,6 +52,17 @@
       white-space: nowrap;
     }
 
+    &--user {
+      width: 200px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      color: gray;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     &--size {
       width: 200px;
       text-align: center;
