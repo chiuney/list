@@ -33,6 +33,7 @@ class UsersController < ApplicationController
       @users = User.search(params[:search], @user_or_list_or_shop)
     elsif @user_or_list_or_shop == "2"
       @lists = List.search(params[:search], @user_or_list_or_shop)
+      @list = List.all
     else
       @shops = Shop.search(params[:search], @user_or_list_or_shop)
     end
