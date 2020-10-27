@@ -15,19 +15,18 @@
     </div>
 
     <div class="item-info__item-photo">
-    <% if @shop.photo? %>
-      <label>
-        <%= image_tag @shop.photo.thumb.url , class:"item-info__item-photo--photo" %>
-        <i class="far fa-edit item-info__item-photo--mark"></i>
-        <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
-      </label>
-    <% else %>
-      <label>
-        <div><%= image_tag 'no-image.png',class:"item-info__item-photo--photo" %></div>
-        <i class="far fa-edit item-info__item-photo--mark"></i>
-        <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
-      </label>
+    <label>
+      <%= f.file_field :photos, multiple: true %>
+    </label>
+
+    <% if @shop.photos.present? %>
+    <p>現在登録されている画像（削除するものはチェックしてください）</p>
+    <% @shop.photos.each do |p| %>
+      <%= f.check_box :photo_ids, {multiple: true}, p.id, false %>
+      <%= image_tag p, size:"100x100" %> <br>
     <% end %>
+  <% end %>
+
   </div>
 
     <div class="item-info__item-submit">

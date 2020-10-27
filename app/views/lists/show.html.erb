@@ -15,7 +15,7 @@
         <%= @list.list_comment %>
       </span>
     </div>
-    
+
     <div class="item-data__item-user">
       <%= link_to "Listed by #{@user.user_name}", user_path(@user), class:"item-data__item-user--link" %>
     </div>
@@ -42,12 +42,11 @@
       </div>
       <% @shops.each do |s| %>
         <div class="item-array__item-detail">
-          <% if s.photo? %>
-          <%= link_to image_tag( s.photo.url, class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% if s.photos.present?%>
+            <%= link_to image_tag(s.photos[0], class:"item-array__item-detail--img"), shop_path(s.id) %>
           <% else %>
-          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
+            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
           <% end %>
-
           <%= link_to s.shop_name, shop_path(s.id) , class:"item-array__item-detail--name" %>
 
         </div>

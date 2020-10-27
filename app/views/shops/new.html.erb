@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <%= form_with model: @shop, url: new_shop_path(@list.id), local: true do |f| %>
+  <%= form_with model: @shop, local: true do |f| %>
     <div class="item-info">
 
       <div class="item-info__item-name">
@@ -23,18 +23,11 @@
         <%= f.hidden_field :list_id, value: @list.id%>
 
       <div class="item-info__item-photo">
-        <% if @shop.photo? %>
           <label>
-            <%= image_tag @shop.photo.thumb.url , class:"item-info__item-photo--photo" %>
             <i class="far fa-images item-info__item-photo--mark"></i>
-            <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
+            <%= f.file_field :photos, multiple: true,class:"item-info__item-photo--select" %>
           </label>
-        <% else %>
-          <label>
-            <i class="far fa-images fa-2x item-info__item-photo--markonly"></i>
-            <%= f.file_field :photo ,class:"item-info__item-photo--select" %>
-          </label>
-        <% end %>
+
       </div>
 
       <div class="item-info__item-submit">

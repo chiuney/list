@@ -4,23 +4,24 @@
 
   <%= render 'shared/back' %>
 
-    <%= form_with model: @list, url:update_lists_path(@list) ,method: :patch, local: true do |f| %>
-      <div class="item-info">
-        <div class="item-info__item-name">
-          <%= f.text_field :list_name, autofocus: true, autocomplete: "item_name", class:"item-info__item-name--form" %>
-        </div>
-
-        <div class="item-info__item-comment">
-          <%= f.text_field :list_comment ,class:"item-info__item-comment--form" %>
-        </div>
-
-        <div class="item-info__item-submit">
-          <%= f.submit "更新する", class:"item-info__item-submit--btn" %>
-        </div>
+  <%= form_with model: @list ,method: :patch, local: true do |f| %>
+    <div class="item-info">
+      <div class="item-info__item-name">
+        <%= f.text_field :list_name, autofocus: true, class:"item-info__item-name--form" %>
       </div>
-    <% end %>
+
+      <div class="item-info__item-comment">
+        <%= f.text_field :list_comment ,class:"item-info__item-comment--form" %>
+      </div>
+
+      <div class="item-info__item-submit">
+        <%= f.submit "更新する", class:"item-info__item-submit--btn" %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="googlemaps">
     <%= render 'shared/googlemaps' %>
   </div>
+
 </main>

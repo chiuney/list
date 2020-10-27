@@ -5,7 +5,8 @@ class Shop < ApplicationRecord
   validates :shop_name,    presence: true
   validates :shop_comment, presence: true
 
-  mount_uploader :photo, ImageUploader
+  # mount_uploader :photo, ImageUploader
+  has_many_attached :photos, dependent: :destroy
 
     # ショップ検索（曖昧）
     def Shop.search(search, user_or_list_or_shop)

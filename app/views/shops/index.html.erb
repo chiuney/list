@@ -15,8 +15,8 @@
       <% @shops.each do |s| %>
         <div class="item-array__item-detail">
 
-          <% if s.photo? %>
-            <%= link_to image_tag(s.photo.url,  class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% if s.photos.present? %>
+            <%= link_to image_tag(s.photos[0],class:"item-array__item-detail--img"), shop_path(s.id)%>
           <% else %>
             <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
           <% end %>

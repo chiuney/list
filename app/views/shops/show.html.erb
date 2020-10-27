@@ -23,10 +23,8 @@
     </div>
 
     <div class="item-data__item-photo">
-      <% if @shop.photo? %>
-        <%= image_tag @shop.photo.url,class:"item-data__item-photo--photo"  %>
-      <% else %>
-        <%= image_tag "no-image.png",class:"item-data__item-photo--photo" %>
+      <% @shop.photos.each do |p| %>
+        <%= image_tag(p,class:"item-data__item-photo--photo")%>
       <% end %>
     </div>
 

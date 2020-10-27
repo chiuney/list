@@ -24,7 +24,6 @@ class ShopsController < ApplicationController
 
   def index
     @user = User.find(params[:id])
-    @shop = Shop.where(user_id: @user.id)
     @shops = Shop.where(user_id: @user.id)
   end
 
@@ -40,6 +39,14 @@ class ShopsController < ApplicationController
 
   def update
     @shop = Shop.find(params[:id])
+
+    if params[:shop][:photo_ids]
+      params[:shop][:photo_ids].each do |photo_id|
+        photo = @shop.photos.find(photo_id)
+        photo.purge
+      end
+    end
+    
     if @shop.update(shop_params)
       redirect_to shop_path(@shop)
     else
@@ -49,6 +56,6 @@ class ShopsController < ApplicationController
 
   private
     def shop_params
-      params.require(:shop).permit(:shop_name, :shop_comment, :list_id, :photo)
+      params.require(:shop).permit(:shop_name, :shop_comment, :list_id,photos: [])
     end
 end

@@ -30,7 +30,13 @@
   <div class="item-array">
       <% @lists.each do |l| %>
         <section class="item-array__item-detail">
-          <%= image_tag 'kaisen.jpeg', class:"item-array__item-detail--img" %>
+        <% if l.shops.present? %>
+
+          <%= link_to image_tag(l.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(l.id) %>
+        <% else %>
+          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(l.id) %>
+
+      <% end %>
           <%= link_to l.list_name, list_path(l.id),  class:"item-array__item-detail--name" %>
           <%= link_to "Listed by#{l.user.user_name}", user_path(l.user_id),class:"search-item__item-user" %>
         </section>
@@ -41,11 +47,11 @@
     <div class="item-array">
         <% @shops.each do |s| %>
           <section class="item-array__item-detail">
-          <% if s.photo? %>
-          <%= link_to image_tag(s.photo.url,  class:"item-array__item-detail--img"), shop_path(s.id) %>
-        <% else %>
-          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
-        <% end %>
+          <% if s.photos.present?%>
+            <%= link_to image_tag(s.photos[0], class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% else %>
+            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% end %>
         <%= link_to s.shop_name, shop_path(s.id) , class:"item-array__item-detail--name" %>
         <%= link_to "Add by#{s.user.user_name}", shop_path(s.id),class:"search-item__item-user" %>
         </section>
