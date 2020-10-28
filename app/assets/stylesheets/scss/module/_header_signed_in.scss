@@ -59,7 +59,14 @@
 
     &--btn {
       color: black;
-      font-size: 10px;
+      font-size: 20px;
+    }
+
+    &--plus {
+      display: inline-block;
+      color: black;
+      font-size: 30px;
+      line-height: 60px;
     }
   }
 }
