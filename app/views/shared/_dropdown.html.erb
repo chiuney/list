@@ -1,5 +1,5 @@
 <div class="dropdown-btn">
-  <button class="dropdown-btn__dropdown-icon" id="dropdown__btn">
+  <button class="dropdown-btn__dropdown-icon" id="dropdown-btn">
     <i class="fas fa-angle-down fa-2x dropdown-btn__dropdown-icon--fontawesome"></i>
   </button>
  <div class="dropdown-menu">
@@ -8,13 +8,13 @@
         <%= link_to 'プロフィールを編集', edit_user_registration_path, class:"dropdown-list__dropdown-item--link" %>
       </li>
       <li class="dropdown-list__dropdown-item">
-        <%= link_to 'ログアウト', destroy_user_session_path,   class:"dropdown-list__dropdown-item--link" ,method: :delete %>
+        <%= link_to 'ログアウト', destroy_user_session_path, class:"dropdown-list__dropdown-item--link" ,method: :delete %>
       </li>
       <li class="dropdown-list__dropdown-item">
         <%= link_to 'アカウントを削除', destroy_user_account_path(current_user.id), class:"dropdown-list__dropdown-item--link", method: :delete, data: { confirm: '削除しますか？' } %>
       </li>
       <li class="dropdown-list__dropdown-item">
-      <%= link_to 'リストを追加', new_list_path,               class:"dropdown-list__dropdown-item--link" %>
+        <%= link_to 'リストを追加', new_list_path, class:"dropdown-list__dropdown-item--link" %>
       </li>
     </ul>
   </div>
