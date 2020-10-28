@@ -36,10 +36,6 @@
 
   <sction class="item-display">
     <div class="item-array">
-      <div class="item-array__item-detail">
-        <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), new_shop_path(id: @list.id) %>
-        <%= link_to "店を追加", new_shop_path(id: @list.id), class:"item-array__item-detail--name" %>
-      </div>
       <% @shops.each do |s| %>
         <div class="item-array__item-detail">
           <% if s.photos.present?%>
