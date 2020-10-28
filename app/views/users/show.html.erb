@@ -10,6 +10,7 @@
         <% end %>
       </div>
       <p class="mypage-content__mypage-name"><%= @user.user_name %></p>
+      <p class="mypage-content__mypage-comment"><%= @user.user_comment %></p>
 
       <% unless @user == current_user %>
         <div class="follow-item__follow-btn">

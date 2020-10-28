@@ -19,8 +19,13 @@
   }
 
   &__mypage-name {
-    font-size: 24px;
-    margin: 20px auto 0px;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 20px auto 10px;
+  }
+
+  &__mypage-comment {
+    font-size: 14px;
   }
 
   &__maypage-follow {
@@ -28,13 +33,12 @@
     align-items: center;
     justify-content: center;
     color: 	#333300;
-    margin: 0;
   
     &--link {
       color: 	#333300;
-      width: 150px;
-      margin: 5px 0px;
+      width: 110px;
       font-size: 14px;
+      line-height: 30px;
     }
   }
 }

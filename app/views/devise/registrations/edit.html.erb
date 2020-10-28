@@ -44,7 +44,15 @@
             <%= f.label :メールアドレス, class:"useredit-contents__useredit-title--name" %>
           </dt>
           <dd class="useredit-contents__useredit-input">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"useredit-contents__useredit-input--form" %>
+            <%= f.email_field :email, autocomplete: "email",class:"useredit-contents__useredit-input--form" %>
+          </dd>
+        </div>
+        <div class="useredit-contents">
+          <dt class="useredit-contents__useredit-title">
+            <%= f.label :ひとこと, class:"useredit-contents__useredit-title--name" %>
+          </dt>
+          <dd class="useredit-contents__useredit-input">
+            <%= f.text_area :user_comment, autocomplete: "user_comment", class:"useredit-contents__useredit-input--profile" %>
           </dd>
         </div>
       </dl>

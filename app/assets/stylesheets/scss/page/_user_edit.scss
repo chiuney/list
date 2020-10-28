@@ -72,9 +72,18 @@
     margin: 10px;
     width: 70%;
   
+    // user_name,emal
     &--form {
       @include sign;
       width: 300px;
+    }
+
+    // user_coment(profile)
+    &--profile {
+      @include sign;
+      height: 70px;
+      width: 300px;
+      // font-weight: normal;
     }
   }
 }
