@@ -2,30 +2,33 @@
 
 <main class="mypage-container">
   <section class="mypage-content">
-      <div class="mypage-content__mypage-icon">
-        <% if @user.persisted? && @user.image? %>
-          <%= image_tag @user.image.thumb.url, class:"mypage-content__mypage-icon--image" %>
+
+    <%= render partial: 'shared/flash' %>
+
+    <div class="mypage-content__mypage-icon">
+      <% if @user.persisted? && @user.image? %>
+        <%= image_tag @user.image.thumb.url, class:"mypage-content__mypage-icon--image" %>
+      <% else %>
+        <%= image_tag 'no-image.png',class:"mypage-content__mypage-icon--image" %>
+      <% end %>
+    </div>
+    <p class="mypage-content__mypage-name"><%= @user.user_name %></p>
+    <p class="mypage-content__mypage-comment"><%= @user.user_comment %></p>
+
+    <% unless @user == current_user %>
+      <div class="follow-item__follow-btn">
+        <% if current_user.following?(@user) %>
+          <%= link_to 'フォローをやめる', unfollow_pat(@user.id), method: :POST, class:"follow-item__follow-btn--unfollow" %>
         <% else %>
-          <%= image_tag 'no-image.png',class:"mypage-content__mypage-icon--image" %>
+          <%= link_to 'フォローする', follow_path(@user.id), method: :POST,class:"follow-item__follow-btn--following" %>
         <% end %>
       </div>
-      <p class="mypage-content__mypage-name"><%= @user.user_name %></p>
-      <p class="mypage-content__mypage-comment"><%= @user.user_comment %></p>
-
-      <% unless @user == current_user %>
-        <div class="follow-item__follow-btn">
-          <% if current_user.following?(@user) %>
-            <%= link_to 'フォローをやめる', unfollow_path(@user.id), method: :POST,  class:"follow-item__follow-btn--unfollow" %>
-          <% else %>
-            <%= link_to 'フォローする', follow_path(@user.id), method: :POST,class:"follow-item__follow-btn--following" %>
-          <% end %>
-        </div>
-      <% end %>
-      
-      <div class="mypage-content__maypage-follow" >
-        <%= link_to "フォロー数: #{@user.follower.count}",   following_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
-        <%= link_to "フォロワー数: #{@user.followed.count}", followers_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
-      </div>
+    <% end %>
+    
+    <div class="mypage-content__maypage-follow" >
+      <%= link_to "フォロー数: #{@user.follower.count}",   following_path(id: @user.id),class:"mypage-content__maypage-follow--link" %>
+      <%= link_to "フォロワー数: #{@user.followed.count}", followers_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
+    </div>
   </section>
   
   <section class="item-display">

@@ -1,0 +1,15 @@
+<% if @user.errors.any? %>
+  <section class="error-container">
+      <div class="error-container__error-count">
+        <span class="error-container__error-count--title"><%= "エラー" %></span>
+      </div>
+      <ul class="error-container__error-each">
+        <% @user.errors.full_messages.each do |message| %>
+          <li class="error-container__error-each--list">
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+<% end %>

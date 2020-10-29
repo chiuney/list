@@ -1,0 +1,14 @@
+.flash-container {
+  margin: 0 auto;
+  text-align: center;
+  width: 25%;
+  min-width: 300px;
+  border-radius: 4px;
+  background:	#99CCFF;
+  padding: 10px 0px;
+
+  &__flash-success {
+    color: #fff;
+    font-weight: 600;
+  }
+}

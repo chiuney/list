@@ -1,0 +1,32 @@
+.error-container {
+  margin: 0 auto;
+  text-align: center;
+  width: 25%;
+  min-width: 300px;
+  border-radius: 4px;
+  background:	#FFCC99;
+  padding: 10px 0px;
+
+  &__error-count {
+    // border: 1px solid red;
+    // border-radius: 4px;
+    // background:	#FFCC33;
+
+    &--title {
+      font-size: 20px;
+      color: 	#CC0066;
+      font-weight: 600;
+    }
+  }
+
+  &__error-each {
+
+    &--list {
+      font-size: 14px;
+      text-decoration: none;
+      list-style-position: inside;
+      text-align: left;
+      margin: 0.5em 20px;
+    }
+  }
+}

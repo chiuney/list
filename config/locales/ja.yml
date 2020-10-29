@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      list: リスト
+      shop: ショップ
+    attributes:
+      user:
+        user_name: ユーザー名
+        user_comment: プロフィール 
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+      list:
+        list_name: リスト名
+        list_comment: リストコメント
+      shop:
+        shop_name: ショップ名
+        shop_comment: ショップコメント  

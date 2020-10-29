@@ -8,9 +8,10 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user_id = current_user.id
     if @list.save
+      flash[:success] = "リストを追加しました。"
       redirect_to list_path(@list.id)
     else
-      render :new
+      render new_list_path
     end
   end
 

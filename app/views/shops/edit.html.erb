@@ -5,6 +5,8 @@
 <%= render 'shared/back' %>
 
 <%= form_with model: @shop, method: :patch, local: true do |f| %>
+  <%= render 'shared/error_shop' %>
+  
   <div class="item-info">
     <div class="item-info__item-name">
       <%= @shop.shop_name %>
@@ -27,12 +29,8 @@
     <% end %>
   <% end %>
 
-  </div>
-
-    <div class="item-info__item-submit">
-      <%= f.submit "更新する",  class:"item-info__item-submit--btn" %>
-    </div>
-  
+  <div class="item-info__item-submit">
+    <%= f.submit "更新する",  class:"item-info__item-submit--btn" %>
   </div>
   
 <% end %>

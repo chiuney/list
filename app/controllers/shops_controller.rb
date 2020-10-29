@@ -3,7 +3,7 @@ class ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
-    @list = List.find_by(id: params[:id])
+    @list = List.find(params[:id])
   end
 
   def create
@@ -50,7 +50,7 @@ class ShopsController < ApplicationController
     if @shop.update(shop_params)
       redirect_to shop_path(@shop)
     else
-      render edit_shop_path
+      render "shops/edit"
     end
   end
 

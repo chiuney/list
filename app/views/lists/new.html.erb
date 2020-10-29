@@ -5,6 +5,8 @@
   <%= render 'shared/back' %>
 
   <%= form_with model: @list ,local: true do |f| %>
+    <%= render 'shared/error_list' %>
+
     <div class="item-info">
       <div class="item-info__item-name">
         <%= f.text_field :list_name, autofocus: true, placeholder: "リストネーム", class:"item-info__item-name--form" %>

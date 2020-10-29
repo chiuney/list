@@ -5,6 +5,7 @@
 
   <div class="signin-form">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="signin-form__signin-item">
     <%= f.text_field :user_name, placeholder: "ユーザーネーム", autofocus: true, class:"signin-form__signin-item--form" %>

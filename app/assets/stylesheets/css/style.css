@@ -461,8 +461,13 @@ input, select {
 }
 
 .mypage-content__mypage-name {
-  font-size: 24px;
-  margin: 20px auto 0px;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 20px auto 10px;
+}
+
+.mypage-content__mypage-comment {
+  font-size: 14px;
 }
 
 .mypage-content__maypage-follow {
@@ -470,14 +475,13 @@ input, select {
   align-items: center;
   justify-content: center;
   color: #333300;
-  margin: 0;
 }
 
 .mypage-content__maypage-follow--link {
   color: #333300;
-  width: 150px;
-  margin: 5px 0px;
+  width: 110px;
   font-size: 14px;
+  line-height: 30px;
 }
 
 .signup-container {
@@ -703,6 +707,18 @@ input, select {
   height: 30px;
   font-size: 20px;
   outline: none;
+  width: 300px;
+}
+
+.useredit-contents__useredit-input--profile {
+  width: 100%;
+  padding: 0.3em;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 20px;
+  outline: none;
+  height: 70px;
   width: 300px;
 }
 

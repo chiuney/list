@@ -3,6 +3,7 @@
 <main class="item-input">
 
   <%= render 'shared/back' %>
+  <%= render 'shared/error_list' %>
 
   <%= form_with model: @list ,method: :patch, local: true do |f| %>
     <div class="item-info">

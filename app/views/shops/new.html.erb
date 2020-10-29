@@ -11,8 +11,9 @@
   </div>
 
   <%= form_with model: @shop, local: true do |f| %>
-    <div class="item-info">
+    <%= render 'shared/error_shop' %>
 
+    <div class="item-info">
       <div class="item-info__item-name">
         <%= f.text_field :shop_name, autofocus: true, placeholder: "店名", class:"item-info__item-name--form" %>
       </div>
@@ -20,14 +21,12 @@
       <div class="item-info__item-comment">
         <%= f.text_field :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
       </div>
-        <%= f.hidden_field :list_id, value: @list.id%>
-
+      
       <div class="item-info__item-photo">
           <label>
             <i class="far fa-images item-info__item-photo--mark"></i>
             <%= f.file_field :photos, multiple: true,class:"item-info__item-photo--select" %>
           </label>
-
       </div>
 
       <div class="item-info__item-submit">

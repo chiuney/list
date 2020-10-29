@@ -2,8 +2,8 @@ class Shop < ApplicationRecord
   belongs_to :user
   belongs_to :list
 
-  validates :shop_name,    presence: true
-  validates :shop_comment, presence: true
+  validates :shop_name,    length: { maximum: 50 }, presence: true
+  validates :shop_comment, length: { maximum: 500 }
 
   # mount_uploader :photo, ImageUploader
   has_many_attached :photos, dependent: :destroy
