@@ -1,6 +1,7 @@
 <% provide(:title, "Home") %>
 
 <main class="top-container">
+<%= render partial: 'shared/flash' %>
 <p class="top-container__top-text">リストアプリで見つけよう<br>お気に入りのお店</p>
 <ul class="top-ul">
   <li class="top-ul__top-list"><%= link_to '新規登録', new_user_registration_path, class:"top-ul__top-list--link" %></li>
