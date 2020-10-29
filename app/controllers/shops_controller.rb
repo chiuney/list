@@ -12,6 +12,7 @@ class ShopsController < ApplicationController
     if @shop.save
       redirect_to list_path(id: @shop.list_id)
     else
+      logger.debug @shop.errors.inspect
       render "shops/new"
     end
   end

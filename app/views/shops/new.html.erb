@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <%= form_with model: @shop, local: true do |f| %>
+  <%= form_with model: @shop, url: create_shops_path(@list) , local: true do |f| %>
     <%= render 'shared/error_shop' %>
 
     <div class="item-info">
