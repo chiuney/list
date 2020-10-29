@@ -1,6 +1,8 @@
 class Shop < ApplicationRecord
   belongs_to :user
-  belongs_to :list
+  has_many :list_shops
+  has_many :lists, through: :list_shops
+  accepts_nested_attributes_for :list_shops
 
   validates :shop_name,    length: { maximum: 50 }, presence: true
   validates :shop_comment, length: { maximum: 500 }

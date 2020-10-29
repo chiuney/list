@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <%= form_with model: @shop, url: create_shops_path(@list) , local: true do |f| %>
+  <%= form_with model: @shop, local: true do |f| %>
     <%= render 'shared/error_shop' %>
 
     <div class="item-info">
@@ -22,6 +22,8 @@
         <%= f.text_field :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
       </div>
       
+        <%= f.hidden_field :list_ids, value: session[:list_id] %>
+
       <div class="item-info__item-photo">
           <label>
             <i class="far fa-images item-info__item-photo--mark"></i>

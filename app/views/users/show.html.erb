@@ -18,7 +18,7 @@
     <% unless @user == current_user %>
       <div class="follow-item__follow-btn">
         <% if current_user.following?(@user) %>
-          <%= link_to 'フォローをやめる', unfollow_pat(@user.id), method: :POST, class:"follow-item__follow-btn--unfollow" %>
+          <%= link_to 'フォローをやめる', unfollow_path(@user.id), method: :POST, class:"follow-item__follow-btn--unfollow" %>
         <% else %>
           <%= link_to 'フォローする', follow_path(@user.id), method: :POST,class:"follow-item__follow-btn--following" %>
         <% end %>
@@ -38,19 +38,20 @@
         <%= link_to "全てのお店", shops_path(id: @user.id), class:"item-array__item-detail--name" %>
         <%= link_to "店舗 : #{@shops.size}件", shops_path(id: @user.id), class:"item-array__item-detail--size" %>
       </div>
+
       <% @lists.each do |l| %>
         <div class="item-array__item-detail">
 
-        <% if l.shops.present? %>
-        <% if l.shops[0].photos[0].present? %>
-          <%= link_to image_tag(l.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(l.id) %>
-        <% else %>
-          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(l.id) %>
-        <% end %>
-        <% end %>
+          <% if l.shops.present? %>
+            <% if l.shops[0].photos[0].present? %>
+              <%= link_to image_tag(l.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(l.id) %>
+            <% end %>
+          <% else %>
+            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(l.id) %>
+          <% end %>
 
-        <%= link_to l.list_name, list_path(l.id), class:"item-array__item-detail--name" %>
-        <%= link_to "店舗 : #{l.shops.size}件", list_path(l.id), class:"item-array__item-detail--size" %>
+          <%= link_to l.list_name, list_path(l.id), class:"item-array__item-detail--name" %>
+          <%= link_to "店舗 : #{l.shops.size}件", list_path(l.id), class:"item-array__item-detail--size" %>
         </div>
       <% end %>
     </div>

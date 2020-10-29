@@ -10,9 +10,9 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
-      redirect_to list_path(id: @shop.list_id)
+      session.delete(:list_id)
+      redirect_to shop_path(@shop.id)
     else
-      logger.debug @shop.errors.inspect
       render "shops/new"
     end
   end
@@ -57,6 +57,6 @@ class ShopsController < ApplicationController
 
   private
     def shop_params
-      params.require(:shop).permit(:shop_name, :shop_comment, :list_id,photos: [])
+      params.require(:shop).permit(:shop_name, :shop_comment, list_ids: [],photos: [])
     end
 end

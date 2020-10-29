@@ -19,6 +19,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @shops = Shop.where(list_id: @list.id)
     @user = User.find_by(id: @list.user_id)
+    session[:list_id] = @list.id
   end
 
   def edit
