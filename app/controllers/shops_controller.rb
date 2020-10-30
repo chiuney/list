@@ -18,7 +18,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @list_shops = ListShop.find(params[:id])
+    @shop = Shop.find(params[:id])
   end
 
   def index

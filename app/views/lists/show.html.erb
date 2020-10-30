@@ -38,7 +38,7 @@
 
   <sction class="item-display">
     <div class="item-array">
-      <% @list_shops.each do |s| %>
+      <% shop.lists.each do |s| %>
         <div class="item-array__item-detail">
           <% if s[0].present?%>
             <%= link_to image_tag(s.photos[0], class:"item-array__item-detail--img"), shop_path(s.id) %>
