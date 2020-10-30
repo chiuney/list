@@ -18,9 +18,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
-    @user = User.find_by(id: @shop.user_id)
-    @list = List.find_by(id: @shop.list_id)
+    @list_shops = ListShop.find(params[:id])
   end
 
   def index

@@ -22,7 +22,7 @@
         <%= f.text_field :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
       </div>
       
-        <%= f.hidden_field :list_ids, value: session[:list_id] %>
+      <%= hidden_field_tag "shop[list_ids][]", session[:list_id] %>
 
       <div class="item-info__item-photo">
           <label>

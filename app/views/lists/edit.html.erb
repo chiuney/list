@@ -15,6 +15,16 @@
         <%= f.text_field :list_comment ,class:"item-info__item-comment--form" %>
       </div>
 
+
+      <% if @photos.present? %>
+        <% @photos.each do |p| %>
+          <%= f.check_box :photo_ids, {multiple: true}, p.id, false %>
+          <%= image_tag p, size:"100x100" %> <br>
+        <% end %>
+      <% else %>
+      <%= image_tag("no-image.png", class:"item-array__item-detail--img") %>
+    <% end %>
+
       <div class="item-info__item-submit">
         <%= f.submit "更新する", class:"item-info__item-submit--btn" %>
       </div>

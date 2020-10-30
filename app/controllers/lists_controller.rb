@@ -19,11 +19,13 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @shops = Shop.where(list_id: @list.id)
     @user = User.find_by(id: @list.user_id)
+    @list_shops = ListShop.where(list_id: @list.id)
     session[:list_id] = @list.id
   end
 
   def edit
     @list = List.find(params[:id])
+    @photos = Shop.where(list_id: @list.id)
   end
 
   def update

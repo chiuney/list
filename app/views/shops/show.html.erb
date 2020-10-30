@@ -7,31 +7,31 @@
   <%= render partial: 'shared/flash' %>
 
     <div class="item-data__item-name">
-      <%= @shop.shop_name %>
+      <%= @list_shops.shop.shop_name %>
     </div>
 
     <div class="item-data__item-comment">
-      <%= @shop.shop_comment %>
+      <%= @list_shops.shop.shop_comment %>
     </div>
 
     <div class="item-data__item-user">
-      <%= link_to "Belong to #{@list.list_name}", list_path(@list), class:"item-data__item-user--link" %>
+      <%= link_to "Belong to #{@list_shops.list.list_name}", list_path(@list_shops.list), class:"item-data__item-user--link" %>
     </div>
 
     <div class="item-data__item-user">
-      <%= link_to "Listed by #{@user.user_name}", user_path(@user), class:"item-data__item-user--link" %>
+      <%= link_to "Listed by #{@list_shops.list.user.user_name}", user_path(@list_shops.list.user), class:"item-data__item-user--link" %>
     </div>
 
     <div class="item-data__item-photo">
-      <% @shop.photos.each do |p| %>
+      <% @list_shops.shop.photos.each do |p| %>
         <%= image_tag(p,class:"item-data__item-photo--photo")%>
       <% end %>
     </div>
 
-    <% if user_signed_in? && current_user.id == @shop.user_id %>
+    <% if user_signed_in? && current_user.id == @list_shops.shop.user_id %>
       <div class="item-data__item-edit">
-        <%= link_to '編集', edit_shop_path, class:"item-data__item-edit--form" %>
-        <%= link_to '削除', destroy_shops_path, class:"item-data__item-edit--form", method: :delete, data: { confirm: '削除しますか？' } %>
+        <%= link_to '編集', edit_shop_path(@list_shops.shop), class:"item-data__item-edit--form" %>
+        <%= link_to '削除', destroy_shops_path(@list_shops.shop), class:"item-data__item-edit--form", method: :delete, data: { confirm: '削除しますか？' } %>
       </div>
     <% end %>
   </div>

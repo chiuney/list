@@ -45,6 +45,8 @@
           <% if l.shops.present? %>
             <% if l.shops[0].photos[0].present? %>
               <%= link_to image_tag(l.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(l.id) %>
+              <% else %>
+              <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(l.id) %>
             <% end %>
           <% else %>
             <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(l.id) %>
