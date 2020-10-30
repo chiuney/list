@@ -23,7 +23,7 @@ class ShopsController < ApplicationController
 
   def index
     @user = User.find(params[:id])
-    @shops = Shop.where(user_id: @user.id)
+    @shops = Shop.preload(:list_shops).where(user_id: @user.id)
   end
 
   def destroy

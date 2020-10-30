@@ -11,19 +11,19 @@
   </div>
 
   <sction class="item-display">
-    <div class="item-array">
-      <% @user.each do |s| %>
-        <div class="item-array__item-detail">
+  <div class="item-array">
+    <% @shops.each do |s| %>
+      <div class="item-array__item-detail">
 
-          <% if s.list.present? %>
-            <%= link_to image_tag(s.photos[0],class:"item-array__item-detail--img"), "/"%>
-          <% else %>
-            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), "/" %>
-          <% end %>
+        <% if s.photos.present? %>
+          <%= link_to image_tag(s.photos,class:"item-array__item-detail--img"), shop_path(s.id)%>
+        <% else %>
+          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
+        <% end %>
 
-          <%= link_to s.shop_name, "/" , class:"item-array__item-detail--name" %>
-        </div>
-      <% end %>
-    </div>
-  </section>
+        <%= link_to s.shop_name, shop_path(s.id) , class:"item-array__item-detail--name" %>
+      </div>
+    <% end %>
+  </div>
+</section>
 </main>

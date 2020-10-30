@@ -1,6 +1,6 @@
 class List < ApplicationRecord
   belongs_to :user
-  has_many :list_shops
+  has_many :list_shops, dependent: :destroy
   has_many :shops, dependent: :destroy, through: :list_shops
 
   validates :list_name,    length: { maximum: 50 }, presence: true
