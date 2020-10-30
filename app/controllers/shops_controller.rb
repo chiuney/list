@@ -29,7 +29,7 @@ class ShopsController < ApplicationController
   def destroy
     @shop = Shop.find(params[:id])
     @shop.destroy
-    redirect_to list_path(@shop.list_id)
+    redirect_to current_user
   end
 
   def edit

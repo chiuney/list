@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :lists, dependent: :destroy
-  has_many :shops
+  has_many :shops, dependent: :destroy
 
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy   
