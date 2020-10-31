@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": ";AAAA,OAAO,CAAP,0KAAO;AAAkB,6DAA6D;ACAtF,AAAA,gBAAgB,CAAC;EACf,MAAM,EAAE,GAAG;CACZ;;ADDmB,mEAAmE",
+    "sources": [
+        "../vender/bundle/ruby/2.6.0/gems/sassc-rails-2.1.2/test/dummy/app/assets/stylesheets/subfolder/second_level.scss",
+        "../vender/bundle/ruby/2.6.0/gems/sassc-rails-2.1.2/test/dummy/app/assets/stylesheets/subfolder/_defaults.scss"
+    ],
+    "names": [],
+    "file": "second_level.css"
+}
