@@ -13,8 +13,10 @@
 @import './module/header_signed_in'; 
 @import './module/item_input'; 
 @import './module/item_show'; 
+@import './module/item_display'; 
 @import './module/googlemaps';
 @import './module/error';
+@import './module/flash_scsses';
 
 // page
 @import './page/mypage'; 
@@ -23,3 +25,4 @@
 @import './page/user_edit';
 @import './page/search_show';
 @import './page/follow_show';
+@import './page/top_main';
