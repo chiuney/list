@@ -23,9 +23,9 @@
 
     <% if @shop.photos.present? %>
     <p>現在登録されている画像（削除するものはチェックしてください）</p>
-    <% @shop.photos.each do |p| %>
-      <%= f.check_box :photo_ids, {multiple: true}, p.id, false %>
-      <%= image_tag p, size:"100x100" %> <br>
+    <% @shop.photos.each do |photo| %>
+      <%= f.check_box :photo_ids, {multiple: true}, photo.id, false %>
+      <%= image_tag photo, size:"100x100" %> <br>
     <% end %>
   <% end %>
 

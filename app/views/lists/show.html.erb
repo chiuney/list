@@ -19,7 +19,7 @@
     </div>
 
     <div class="item-data__item-user">
-      <%= link_to "Listed by #{@user.user_name}", user_path(@user), class:"item-data__item-user--link" %>
+      <%= link_to "Listed by #{@list.user.user_name}", user_path(@list.user), class:"item-data__item-user--link" %>
     </div>
 
     <% if user_signed_in? && current_user.id == @list.user_id %>
@@ -38,14 +38,14 @@
 
   <sction class="item-display">
     <div class="item-array">
-      <% @list.shops.each do |s| %>
+      <% @list.shops.each do |shops| %>
         <div class="item-array__item-detail">
-          <% if s[0].present?%>
-            <%= link_to image_tag(s.photos[0], class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% if shops.photos.present? %>
+            <%= link_to image_tag(shops.photos[0], class:"item-array__item-detail--img"), shop_path(shops.id) %>
           <% else %>
-            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
+            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(shops.id) %>
           <% end %>
-          <%= link_to s.shop_name, shop_path(s.id) , class:"item-array__item-detail--name" %>
+          <%= link_to shops.shop_name, shop_path(shops.id) , class:"item-array__item-detail--name" %>
 
         </div>
       <% end %>

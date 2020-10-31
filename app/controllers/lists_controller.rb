@@ -17,9 +17,9 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @shops = Shop.where(list_id: @list.id)
-    @user = User.find_by(id: @list.user_id)
-    @list_shops = ListShop.where(list_id: @list.id)
+    # @shops = Shop.where(list_id: @list.id)
+    # @user = User.find_by(id: @list.user_id)
+    # @list_shops = ListShop.where(list_id: @list.id)
     session[:list_id] = @list.id
   end
 
