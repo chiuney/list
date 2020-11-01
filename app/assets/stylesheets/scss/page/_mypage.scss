@@ -3,7 +3,7 @@
 .mypage-container {
   width: 100vw;
   height: 100vh;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .mypage-content {
@@ -14,13 +14,17 @@
 
   &__mypage-icon {
     &--image {
-      @include icon($height:100px,$width:100px);
+      @include icon($height:120px,$width:120px);
     }
+  }
+
+  &__mypage-info {
+    margin: 20px 0 10px 20px;
   }
 
   &__mypage-name {
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 600;
     margin: 20px auto 10px;
   }
 
@@ -40,4 +44,8 @@
       line-height: 30px;
     }
   }
+}
+
+.test {
+  display: flex;
 }

@@ -148,7 +148,6 @@ input, select {
   justify-content: space-between;
   padding: 0 2%;
   border-bottom: 1px solid black;
-  background-color: #CCCCCC;
 }
 
 .logedin-header__header-icon--link {
@@ -170,7 +169,6 @@ input, select {
 
 .logedin-header__header-search--select {
   height: 2.3em;
-  background-color: #CCCCCC;
   border: none;
   border-right: 1px solid #999;
   width: 75px;
@@ -183,7 +181,6 @@ input, select {
 .logedin-header__header-search--form {
   border: none;
   height: 2.0em;
-  background-color: #CCCCCC;
   width: 75%;
   padding-left: 1%;
 }

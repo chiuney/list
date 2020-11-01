@@ -1,8 +1,10 @@
 @mixin icon($height:30px,$width:30px) {
-  border: 1px solid black;
   border-radius: 100px;
   align-items: center;
   vertical-align: middle;
   height: $height;
   width: $width;
+  padding: 2px;
+
+  border: none;
 }

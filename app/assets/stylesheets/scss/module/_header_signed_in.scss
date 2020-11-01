@@ -7,28 +7,22 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2%;
-  border-bottom: 1px solid black;
-  background-color: #CCCCCC	;
+  background: #fff;
+  border: none;
 
-  &__header-icon {
-
-    &--link {
-      @include  icon($height:50px,$width:50px);
-    }
-  }
 
   // 検索ボックス　ここから
   &__header-search {
-    border: 1px solid #999;
     padding: 3px 10px;
     border-radius: 20px;
     height: 2.3em;
-    min-width: 260px;
+    min-width: 200px;
     width: 50vw;
+    background:#eeeae4;
 
     &--select {
       height: 2.3em;
-      background-color: #CCCCCC	;
+      background:#eeeae4;
       border: none;
       border-right: 1px solid #999;
       width: 75px;
@@ -41,7 +35,7 @@
     &--form {
       border: none;
       height: 2.0em;
-      background-color: #CCCCCC	;
+      background:#eeeae4;
       width: 75%;
       padding-left: 1% ;
 
@@ -56,6 +50,16 @@
 
   &__header-link {
     display: flex;
+
+    &--title {
+      color: black;
+      font-size: 20px;
+    }
+
+    &--mypage {
+      @include  icon;
+      border: 1px solid black;
+    }
 
     &--btn {
       color: black;

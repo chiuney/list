@@ -15,12 +15,14 @@
   align-items: center;
   justify-content: center;
   padding: 0 2%;
+  height: 40px;
 
   &__follow-image {
     margin: 0 1%;
 
     &--icon {
       @include  icon;
+      border: 1px solid black;
     }
   }
 
@@ -30,6 +32,15 @@
 
     &--link {
       color: black;
+    }
+  }
+
+  &__follow-comment {
+    margin: 0 auto;
+    
+    &--profile {
+      font-size: 16px;
+      color: #999;
     }
   }
 

@@ -42,7 +42,12 @@
   position: absolute;
   top: 46px;
   right: 0;
+
+  &:focus {
+    outline: 0;
+  }
 }
+
 .dropdown-list {
 
   &__dropdown-item {

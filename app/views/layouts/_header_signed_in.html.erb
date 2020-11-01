@@ -1,11 +1,11 @@
 <header class="logedin-header">
-  <section class="logedin-header__header-icon">
-    <% if current_user.persisted? && current_user.image? %>
-      <%= link_to image_tag(current_user.image.thumb.url, class:"logedin-header__header-icon--link"), user_path(current_user.id) %>
-    <% else %>
-      <%= link_to image_tag('no-image.png', class:"logedin-header__header-icon--link"), user_path(current_user.id) %>
+
+  <section class="logedin-header__header-link">
+    <% if current_user.persisted? %>
+      <%= link_to "Listing App", user_path(current_user.id),class:"logedin-header__header-link--title" %>
     <% end %>
   </section>
+
   <section>
     <%= form_with url:search_path, local: true, method: :get do |f| %>
       <div class="logedin-header__header-search">
@@ -17,6 +17,14 @@
 
   
   <section class="logedin-header__header-link">
+
+    <div class="logedin-header__header-link">
+      <% if current_user.persisted? && current_user.image? %>
+        <%= link_to image_tag(current_user.image.thumb.url, class:"logedin-header__header-link--mypage"), user_path(current_user.id) %>
+      <% else %>
+        <%= link_to image_tag('no-image.png', class:"logedin-header__header-link--mypage"), user_path(current_user.id) %>
+      <% end %>
+    </div>
 
     <%= render 'shared/dropdown' %>
 

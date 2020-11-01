@@ -2,24 +2,28 @@
 
 <main class="follow-container">
   <% if @user_or_list_or_shop == "1"%>
-    <% @users.each do |u| %>
+    <% @users.each do |user| %>
       <section class="follow-item">
         <div class="follow-item__follow-image">
-          <% if u.persisted? && u.image? %>
-            <%= image_tag u.image.url, class:"follow-item__follow-image--icon" %>
+          <% if user.persisted? && user.image? %>
+            <%= image_tag user.image.url, class:"follow-item__follow-image--icon" %>
           <% else %>
             <%= image_tag 'no-image.png',class:"follow-item__follow-image--icon" %>
           <% end %>
         </div>
         <div class="follow-item__follow-user">
-          <%= link_to u.user_name , user_path(u.id), class:"follow-item__follow-user--link" %>
+          <%= link_to user.user_name , user_path(user.id), class:"follow-item__follow-user--link" %>
         </div>
-          <% unless u == current_user %>
+        <div class="follow-item__follow-comment">
+          <span class="follow-item__follow-comment--profile"><%= user.user_comment %></span>
+        </div>
+
+          <% unless user == current_user %>
             <div class="follow-item__follow-btn">
-              <% if current_user.following?(u) %>
-                <%= link_to 'フォローをやめる', unfollow_path(u.id), method: :POST,  class:"follow-item__follow-btn--unfollow" %>
+              <% if current_user.following?(user) %>
+                <%= link_to 'フォローをやめる', unfollow_path(user.id), method: :POST,  class:"follow-item__follow-btn--unfollow" %>
               <% else %>
-                <%= link_to 'フォローする', follow_path(u.id), method: :POST,class:"follow-item__follow-btn--following" %>
+                <%= link_to 'フォローする', follow_path(user.id), method: :POST,class:"follow-item__follow-btn--following" %>
               <% end %>
             </div>
           <% end %>

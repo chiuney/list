@@ -14,6 +14,10 @@
       <div class="follow-item__follow-user">
         <%= link_to user.user_name, user_path(user.id), class:"follow-item__follow-user--link" %>
       </div>
+      <div class="follow-item__follow-comment">
+      <span class="follow-item__follow-comment--profile"><%= user.user_comment %></span>
+    </div>
+
       <div class="follow-item__follow-btn">
         <% if current_user.following?(user) %>
           <%= link_to 'フォローをやめる', unfollow_path(user.id), method: :POST, class:"follow-item__follow-btn--unfollow" %>
