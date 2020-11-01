@@ -39,9 +39,9 @@
   <section class="item-display">
     <div class="item-array" >
       <div class="item-array__item-detail">
-        <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shops_path(id: @user.id) %>
-        <%= link_to "全てのお店", shops_path(id: @user.id), class:"item-array__item-detail--name" %>
-        <%= link_to "店舗 : #{@shops.size}件", shops_path(id: @user.id), class:"item-array__item-detail--size" %>
+        <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), add_shops_index_path %>
+        <%= link_to "全てのお店", add_shops_index_path, class:"item-array__item-detail--name" %>
+        <%= link_to "店舗 : #{@add_shops.size}件", add_shops_index_path, class:"item-array__item-detail--size" %>
       </div>
 
       <% @lists.each do |l| %>

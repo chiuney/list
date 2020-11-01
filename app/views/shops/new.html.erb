@@ -14,9 +14,9 @@
     <%= render 'shared/error_shop' %>
 
     <div class="item-info">
-      <div class="item-info__item-name">
-        <%= f.text_field :shop_name, autofocus: true, placeholder: "店名", class:"item-info__item-name--form" %>
-      </div>
+    <div class="item-data__item-name">
+      <%= @shop.shop_name %>
+    </div>
 
       <div class="item-info__item-comment">
         <%= f.text_field :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>

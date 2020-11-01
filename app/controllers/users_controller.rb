@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @lists = List.preload(:shops).where(user_id: @user.id)
     @shops = Shop.preload(:shops).where(user_id: @user.id)
+    @add_shops = AddShop.where(user_id: @user.id)
   end
 
   def destroy

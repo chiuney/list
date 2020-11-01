@@ -32,30 +32,29 @@
 
   <% elsif @user_or_list_or_shop == "2" %>
   <div class="item-array">
-      <% @lists.each do |l| %>
+      <% @lists.each do |list| %>
         <section class="item-array__item-detail">
-        <% if l.photos.present?%>
-          <%= link_to image_tag(l.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(l.id) %>
+        <% if list.photos.present?%>
+          <%= link_to image_tag(list.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(list.id) %>
         <% else %>
-          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(l.id) %>
+          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(list.id) %>
         <% end %>
-          <%= link_to l.list_name, list_path(l.id),  class:"item-array__item-detail--name" %>
-          <%= link_to "Listed by : #{l.user.user_name}", user_path(l.user_id),class:"item-array__item-detail--user" %>
+          <%= link_to list.list_name, list_path(list.id),  class:"item-array__item-detail--name" %>
+          <%= link_to "Listed by : #{list.user.user_name}", user_path(list.user_id),class:"item-array__item-detail--user" %>
         </section>
       <% end %>
       </div>
 
     <% else %>
     <div class="item-array">
-        <% @shops.each do |s| %>
+        <% @shops.each do |shop| %>
           <section class="item-array__item-detail">
-          <% if s.photos.present?%>
-            <%= link_to image_tag(s.photos[0], class:"item-array__item-detail--img"), shop_path(s.id) %>
+          <% if shop.photos.present?%>
+            <%= link_to image_tag(shop.photos[0], class:"item-array__item-detail--img"), shop_path(shop.id) %>
           <% else %>
-            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(s.id) %>
+            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(shop.id) %>
           <% end %>
-        <%= link_to s.shop_name, shop_path(s.id) , class:"item-array__item-detail--name" %>
-        <%= link_to "Add by : #{s.user.user_name}", shop_path(s.id),class:"item-array__item-detail--user" %>
+        <%= link_to shop.shop_name, shop_path(shop.id) , class:"item-array__item-detail--name" %>
         </section>
       <% end %>
       </div>

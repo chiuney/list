@@ -1,0 +1,29 @@
+<% provide(:title, "Shops") %>
+
+<main class="shopall-container">
+
+  <%= render 'shared/back' %>
+
+  <h2 class="shopall-title">登録済み店一覧</h2>
+
+  <div class="googlemaps">
+    <%= render 'shared/googlemaps' %>
+  </div>
+
+  <sction class="item-display">
+  <div class="item-array">
+    <% @add_shops.each do |add_shop| %>
+      <div class="item-array__item-detail">
+
+        <% if add_shop.shop.photos.present? %>
+          <%= link_to image_tag(add_shop.photos[0],class:"item-array__item-detail--img"), shop_path(id: add_shop.shop.id) %>
+        <% else %>
+          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(id: add_shop.shop.id) %>
+        <% end %>
+
+        <%= link_to add_shop.shop.shop_name, shop_path(id: add_shop.shop.id) , class:"item-array__item-detail--name" %>
+      </div>
+    <% end %>
+  </div>
+</section>
+</main>

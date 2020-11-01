@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   # SHOP
   delete "/shops/:id", to: "shops#destroy", as: "destroy_shops"
   post "/shops/new", to:"shops#create", as:"create_shops"
-  resources :shops
+  resources :shops do
+    resources :add_shops, only:[:create, :destroy]
+  end
+  get "add_shops/index", to:"add_shops#index"
 
   # FOLLOW
   post "follow/:id", to: "relationships#follow", as: "follow"
@@ -25,6 +28,7 @@ Rails.application.routes.draw do
 
   # SEARCH
   get "search", to: "users#search"
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

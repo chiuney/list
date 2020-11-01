@@ -25,10 +25,8 @@ User.all.each do |user|
                     )
 end
 
-List.all.each do |list|
+100.times do |shop|
   shop_name = Faker::Restaurant.name
-  shop_comment = Faker::Restaurant.description
-  list.shops.create!(shop_name: shop_name,
-                     shop_comment: shop_comment,
-                    )
+  Shop.create!(shop_name: shop_name,
+               )
 end

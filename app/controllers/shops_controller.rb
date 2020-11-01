@@ -6,31 +6,28 @@ class ShopsController < ApplicationController
     @list = List.find(params[:id])
   end
 
-  def create
-    @shop = Shop.new(shop_params)
-    @shop.user_id = current_user.id
-    if @shop.save
-      session.delete(:list_id)
-      redirect_to shop_path(@shop.id)
-    else
-      render "shops/new"
-    end
-  end
+  # def create
+  #   @shop = Shop.new
+  #   @shop.user_id = current_user.id
+  #   redirect_to request.referer
+  # end
 
   def show
     @shop = Shop.find(params[:id])
+    @add_shop = AddShop.find_by(user_id: current_user.id, shop_id: @shop.id)
   end
 
-  def index
-    @user = User.find(params[:id])
-    @shops = Shop.preload(:list_shops).where(user_id: @user.id)
-  end
+  # def index
+  #   @user = User.find(params[:id])
+  #   @shops = Shop.preload(:list_shops).where(user_id: @user.id)
+  #   @add_shop = AddShop.find_by(user_id: current_user.id, shop_id: @shop.id)
+  # end
 
-  def destroy
-    @shop = Shop.find(params[:id])
-    @shop.destroy
-    redirect_to current_user
-  end
+  # def destroy
+  #   @shop = Shop.find(params[:id])
+  #   @shop.destroy
+  #   redirect_to current_user
+  # end
 
   def edit
     @shop = Shop.find(params[:id])
@@ -54,7 +51,7 @@ class ShopsController < ApplicationController
   end
 
   private
-    def shop_params
-      params.require(:shop).permit(:shop_name, :shop_comment, list_ids: [],photos: [])
-    end
+    # def shop_params
+    #   params.require(:shop).permit(:shop_name, :shop_comment, list_ids: [],photos: [])
+    # end
 end

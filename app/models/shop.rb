@@ -1,5 +1,10 @@
 class Shop < ApplicationRecord
-  belongs_to :user
+
+  # AddShop
+  has_many :AddShop
+  has_many :users, through: :AddShop
+
+
   has_many :list_shops, dependent: :destroy
   has_many :lists, through: :list_shops, dependent: :destroy
   accepts_nested_attributes_for :list_shops
@@ -18,4 +23,9 @@ class Shop < ApplicationRecord
         Shop.all
       end
     end
+
+    def added_shop?(user)
+      user.shops.exists?
+    end
+
 end
