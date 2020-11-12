@@ -3,10 +3,11 @@ class ListShopsController < ApplicationController
   def new
     @shop = Shop.find(params[:shop_id])
     @list_shop = ListShop.new
+
   end
 
   def create
-    @list_shop = ListShop.create(list_shop_params)
+    @list_shop = ListShop.create(shop_id: params[:id], list_id: current_user.list_id)
     session.delete(:list_id)
     redirect_to request.referer
   end
