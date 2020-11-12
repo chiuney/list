@@ -1,0 +1,36 @@
+<% provide(:title, "Favorite Shop") %>
+
+<main class="item-show">
+  <div class="item-data">
+
+  <%= render 'shared/back' %>
+  <%= render partial: 'shared/flash' %>
+
+    <div class="item-data__item-name">
+      <%= @add_shop.shop.shop_name %>
+    </div>
+
+    <div class="item-data__item-user">
+      <% @add_shop.shop.lists.each do |list|%>
+        <%= link_to "Belong to #{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
+      <% end %>
+    </div>
+
+    <div class="item-data__item-photo">
+      <% @add_shop.shop.photos.each do |p| %>
+        <%= image_tag(p,class:"item-data__item-photo--photo")%>
+      <% end %>
+    </div>
+
+    <% if current_user.added_shop? %>
+      <%= link_to "削除", shop_destroy_add_shops_path(id: @add_shop.id) , method: :delete, class:"#" %>
+    <% else %>
+      <%= link_to '追加', shop_new_add_shops_path(@add_shop) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
+    <% end %>
+  </div>
+
+  <div class="googlemaps">
+    <%= render 'shared/googlemaps' %>
+  </div>
+  
+</main>

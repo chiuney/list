@@ -42,8 +42,8 @@ class User < ApplicationRecord
   # 画像アップロード
   mount_uploader :image, ImageUploader
 
-  def added_shop?(user)
-    shops.exists?
+  def added_shop?(shop_id)
+    AddShop.where(shop_id: @shop.id).exists?
   end
-  
+
 end

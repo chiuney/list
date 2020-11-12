@@ -1,0 +1,30 @@
+<% provide(:title, "Add Shops") %>
+
+<main class="item-input">
+
+  <%= render 'shared/back' %>
+
+  <%= form_with model: @list_shop ,url:shop_list_shops_path(shop_id: @shop.id), local: true do |f| %>
+
+    <div class="item-info">
+      <div class="item-data__item-name">
+        <%= @shop.shop_name %>
+      </div>
+
+      <%= f.select :list_ids , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control',multiple: true} %>
+
+      <%= hidden_field_tag "list_shop[list_ids][]", session[:list_id] %>
+
+      <div class="item-info__item-submit">
+        <%= f.submit "店を追加",  class:"item-info__item-submit--btn" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="googlemaps">
+    <%= render 'shared/googlemaps' %>
+  </div>
+
+  <p>店の情報とか</p>
+
+</main>

@@ -14,15 +14,16 @@
     <%= render 'shared/error_shop' %>
 
     <div class="item-info">
-    <div class="item-data__item-name">
-      <%= @shop.shop_name %>
-    </div>
+      <div class="item-data__item-name">
+        <%= @shop.shop_name %>
+      </div>
 
       <div class="item-info__item-comment">
         <%= f.text_field :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
       </div>
-      
-      <%= hidden_field_tag "shop[list_ids][]", session[:list_id] %>
+
+      <%= f.select :list_id ,List.where(user_id: current_user.id).map { |l| [ l.list_name ] }, {}, {class: 'googlemaps'} %>
+    
 
       <div class="item-info__item-photo">
           <label>

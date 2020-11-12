@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../app/assets/stylesheets/add_shops.scss"
+    ],
+    "names": [],
+    "file": "add_shops.css"
+}

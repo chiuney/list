@@ -23,9 +23,4 @@ class Shop < ApplicationRecord
         Shop.all
       end
     end
-
-    def added_shop?(user)
-      user.shops.exists?
-    end
-
 end

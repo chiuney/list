@@ -14,30 +14,29 @@
       <%= @shop.shop_comment %>
     </div>
 
-    <div class="item-data__item-user">
-      <% @shop.lists.each do |list|%>
-        <%= link_to "Belong to #{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
-      <% end %>
-    </div>
-
     <div class="item-data__item-photo">
       <% @shop.photos.each do |p| %>
         <%= image_tag(p,class:"item-data__item-photo--photo")%>
       <% end %>
     </div>
 
-    <% if @add_shop %>
-      <%= link_to "削除", shop_add_shop_path(@shop) , method: :delete, class:"#" %>
+    <% if AddShop.where(shop_id: @shop.id).exists? %>
+      <%= link_to "UNLIKE", shop_add_shop_path(@shop) , method: :delete, class:"follow-item__follow-btn--unfollow" %>
     <% else %>
-      <%= link_to '追加', shop_add_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
+      <%= link_to 'LIKE', shop_add_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
     <% end %>
 
-    <% if user_signed_in? && current_user.id == @shop.user_id %>
-      <div class="item-data__item-edit">
-        <%= link_to '編集', edit_shop_path(@shop), class:"item-data__item-edit--form" %>
-        <%= link_to '削除', destroy_shops_path(@shop), class:"item-data__item-edit--form", method: :delete, data: { confirm: '削除しますか？' } %>
-      </div>
+    <div class="item-data__item-user">
+    <% @shop.lists.each do |list|%>
+      <%= link_to "Belong to #{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
     <% end %>
+  </div>
+
+  <% if ListShop.where(shop_id: @shop.id).exists? %>
+    <%= link_to "リストから削除", shop_destroy_list_shops_path(@shop) , method: :delete, class:"follow-item__follow-btn--unfollow" %>
+  <% else %>
+    <%= link_to 'リストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
+  <% end %>
   </div>
 
   <div class="googlemaps">
