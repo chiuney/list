@@ -31,9 +31,23 @@
     <p class="mypage-content__mypage-comment"><%= @user.user_comment %></p>
     
     <div class="mypage-content__maypage-follow" >
-      <%= link_to "フォロー数: #{@user.follower.count}",   following_path(id: @user.id),class:"mypage-content__maypage-follow--link" %>
-      <%= link_to "フォロワー数: #{@user.followed.count}", followers_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
-      <%= link_to "お気に入りショップ数: #{@add_shops.count}", add_shops_index_path, class:"mypage-content__maypage-follow--link" %>
+      <% if @user.follower.size === 0 %>
+        <span class="mypage-content__maypage-follow--link"><%= "フォロー数: #{@user.follower.size}" %></span>
+      <% else %>
+        <%= link_to "フォロー数: #{@user.follower.size}",   following_path(id: @user.id),class:"mypage-content__maypage-follow--link" %>
+      <% end %>
+
+      <% if @user.followed.size === 0 %>
+        <span class="mypage-content__maypage-follow--link"><%= "フォロワー数: #{@user.followed.size}" %></span>
+      <% else %>
+        <%= link_to "フォロワー数: #{@user.followed.size}", followers_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
+      <% end %>
+
+      <% if @add_shops.size === 0 %>
+        <span class="mypage-content__maypage-follow--link"><%= "お気に入りショップ数: #{@add_shops.size}" %></span>
+      <% else %>
+        <%= link_to "お気に入りショップ数: #{@add_shops.count}", add_shops_index_path, class:"mypage-content__maypage-follow--link" %>
+      <% end %>
     </div>
   </section>
   
