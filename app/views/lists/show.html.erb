@@ -28,11 +28,20 @@
       <%= link_to "リスト削除", destroy_lists_path(current_user), class:"item-data__item-edit--form",
                                 method: :delete, data: { confirm: '削除しますか？' } %>
     </div>
+
   <% end %>
-  </div>
 
   <div class="googlemaps">
     <%= render 'shared/googlemaps' %>
+  </div>
+
+  <div>
+  <%= form_with url:search_path, local: true, method: :get do |f| %>
+    <div class="logedin-header__header-search">
+      <%= f.select(:option, options_for_select([["ショップ","3"]]),{}, class:"logedin-header__header-search--select") %>
+      <%= f.text_field :search, class:"logedin-header__header-search--form", autocomplete: 'off', placeholder: "ユーザー・リスト・ショップ検索" %>
+    </div>
+  <% end %>
   </div>
 
   <sction class="item-display">

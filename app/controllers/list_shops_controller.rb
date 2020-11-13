@@ -7,9 +7,14 @@ class ListShopsController < ApplicationController
   end
 
   def create
-    @list_shop = ListShop.create(shop_id: params[:id], list_id: current_user.list_id)
-    session.delete(:list_id)
-    redirect_to request.referer
+    @list_shop = ListShop.new
+    @list_shop.shop_id = (params[:shop_id])
+    @list_shop.list_id = session[:list_id]
+    if @list_shop.save
+        flash[:success] = "リストに追加しました。"
+        session.delete(:list_id)
+        redirect_to shop_path(@list_shop.shop_id)
+    end
   end
 
   def destroy

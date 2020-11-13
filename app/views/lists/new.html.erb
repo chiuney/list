@@ -12,12 +12,13 @@
         <%= f.text_field :list_name, autofocus: true, placeholder: "リストネーム", class:"item-info__item-name--form" %>
       </div>   
       <div class="item-info__item-comment">
-        <%= f.text_field :list_comment, placeholder: "リストコメント", class:"item-info__item-comment--form" %>
+        <%= f.text_area :list_comment, placeholder: "リストコメント", class:"item-info__item-comment--form" %>
       </div>
       <div class="item-info__item-submit">
         <%= f.submit "リストを追加", class:"item-info__item-submit--btn" %>
       </div>
     </div>
+
   <% end %>
 
   <div class="googlemaps">

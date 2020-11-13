@@ -11,9 +11,9 @@
         <%= @shop.shop_name %>
       </div>
 
-      <%= f.select :list_ids , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control',multiple: true} %>
+      <%= f.select :list_ids , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control'} %>
 
-      <%= hidden_field_tag "list_shop[list_ids][]", session[:list_id] %>
+      <%= hidden_field_tag :list_shop, session[:list_id] %>
 
       <div class="item-info__item-submit">
         <%= f.submit "店を追加",  class:"item-info__item-submit--btn" %>
