@@ -45,18 +45,20 @@
   </div>
 
   <sction class="item-display">
-    <div class="item-array">
-      <% @list.shops.each do |shops| %>
-        <div class="item-array__item-detail">
-          <% if shops.photos.present? %>
-            <%= link_to image_tag(shops.photos[0], class:"item-array__item-detail--img"), shop_path(shops.id) %>
-          <% else %>
-            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(shops.id) %>
-          <% end %>
-          <%= link_to shops.shop_name, shop_path(shops.id) , class:"item-array__item-detail--name" %>
+  <div class="item-array">
+    <% @list.shops.each do |shops| %>
+      <div class="item-array__item-detail">
+        <% if shops.photos.present? %>
+          <%= link_to image_tag(shops.photos[0], class:"item-array__item-detail--img"), shop_path(shops.id) %>
+        <% else %>
+          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(shops.id) %>
+        <% end %>
+        <%= link_to shops.shop_name, shop_path(shops.id) , class:"item-array__item-detail--name" %>
+        <%= link_to "削除", shop_destroy_list_shops_path(shops.id),
+        method: :delete, data: { confirm: '削除しますか？' }  %>
 
-        </div>
-      <% end %>
-    </div>
-  </section>
+      </div>
+    <% end %>
+  </div>
+
 </main>

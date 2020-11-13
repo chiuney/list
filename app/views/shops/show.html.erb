@@ -33,6 +33,7 @@
   </div>
 
   <% if ListShop.where(shop_id: @shop.id).exists? %>
+    <%= link_to '別のリストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
     <%= link_to "リストから削除", shop_destroy_list_shops_path(@shop) , method: :delete, class:"follow-item__follow-btn--unfollow" %>
   <% else %>
     <%= link_to 'リストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
