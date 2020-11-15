@@ -14,6 +14,8 @@ class ListShopsController < ApplicationController
         flash[:success] = "リストに追加しました。"
         session.delete(:list_id)
         redirect_to shop_path(@list_shop.shop_id)
+    else
+      redirect_to request.referer
     end
   end
 

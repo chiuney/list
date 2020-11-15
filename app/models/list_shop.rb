@@ -1,4 +1,6 @@
 class ListShop < ApplicationRecord
-  belongs_to :list, optional: true
-  belongs_to :shop, optional: true
+  belongs_to :list
+  belongs_to :shop
+  
+  validates :shop_id, uniqueness: true
 end
