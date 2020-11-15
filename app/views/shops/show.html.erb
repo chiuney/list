@@ -3,41 +3,45 @@
 <main class="item-show">
   <div class="item-data">
 
-  <%= render 'shared/back' %>
-  <%= render partial: 'shared/flash' %>
+    <%= render 'shared/back' %>
+    <%= render partial: 'shared/flash' %>
 
-    <div class="item-data__item-name">
-      <%= @shop.shop_name %>
-    </div>
+      <div class="item-data__item-name">
+        <%= @shop.shop_name %>
+      </div>
 
-    <div class="item-data__item-comment">
-      <%= @shop.shop_comment %>
-    </div>
+      <div class="item-data__item-comment">
+        <%= @shop.shop_comment %>
+      </div>
 
-    <div class="item-data__item-photo">
-      <% @shop.photos.each do |p| %>
-        <%= image_tag(p,class:"item-data__item-photo--photo")%>
-      <% end %>
-    </div>
+      <div class="item-data__item-photo">
+        <% @shop.photos.each do |p| %>
+          <%= image_tag(p,class:"item-data__item-photo--photo")%>
+        <% end %>
+      </div>
+
+      <div class="item-data__item-user">
+        <% @shop.lists.each do |list|%>
+          <%= link_to "Belong to #{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
+        <% end %>
+      </div>
+
+    <% if ListShop.where(shop_id: @shop.id).exists? %>
+      <%= link_to '別のリストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--list" %>
+      <%= link_to "リストから削除", shop_destroy_list_shops_path(@shop) , method: :delete, class:"follow-item__follow-btn--list" %>
+    <% else %>
+      <%= link_to 'リストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--list" %>
+    <% end %>
 
     <% if AddShop.where(shop_id: @shop.id).exists? %>
-      <%= link_to "UNLIKE", shop_add_shop_path(@shop) , method: :delete, class:"follow-item__follow-btn--unfollow" %>
+      <%= link_to shop_add_shop_path(@shop) , method: :delete do %>
+        <i class="fas fa-heart follow-item__follow-btn--unfollow"></i>
+      <% end %>
     <% else %>
-      <%= link_to 'LIKE', shop_add_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
+      <%= link_to shop_add_shops_path(shop_id: @shop.id) , method: :POST do %>
+        <i class="far fa-heart follow-item__follow-btn--following"></i>
+      <% end %>
     <% end %>
-
-    <div class="item-data__item-user">
-    <% @shop.lists.each do |list|%>
-      <%= link_to "Belong to #{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
-    <% end %>
-  </div>
-
-  <% if ListShop.where(shop_id: @shop.id).exists? %>
-    <%= link_to '別のリストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
-    <%= link_to "リストから削除", shop_destroy_list_shops_path(@shop) , method: :delete, class:"follow-item__follow-btn--unfollow" %>
-  <% else %>
-    <%= link_to 'リストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--unfollow" %>
-  <% end %>
   </div>
 
   <div class="googlemaps">

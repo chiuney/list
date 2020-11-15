@@ -49,11 +49,16 @@
 
     &--unfollow {
       width: 120px;
-      color: black;
+      color: red;
     }
 
     &--following {
       width: 98px;
+      color: #999;
+    }
+
+    &--list {
+      width: 120px;
       color: black;
     }
 
