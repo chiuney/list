@@ -36,13 +36,13 @@
     <%= render 'shared/googlemaps' %>
   </div>
 
-  <div>
-  <%= form_with url:search_path, local: true, method: :get do |f| %>
-    <div class="logedin-header__header-search">
-      <%= f.select(:option, options_for_select([["ショップ","3"]]),{}, class:"logedin-header__header-search--select") %>
-      <%= f.text_field :search, class:"logedin-header__header-search--form", autocomplete: 'off', placeholder: "ユーザー・リスト・ショップ検索" %>
-    </div>
-  <% end %>
+  <div class="search_box">
+    <%= form_with url:search_path, local: true, method: :get do |f| %>
+      <div class="search_box__list-search">
+        <%= f.select(:option, options_for_select([["ショップ","3"]]),{}, class:"search_box__list-search--select") %>
+        <%= f.text_field :search, class:"search_box__list-search--form", autocomplete: 'off', placeholder: "ショップ検索" %>
+      </div>
+    <% end %>
   </div>
 
   <sction class="item-display">
