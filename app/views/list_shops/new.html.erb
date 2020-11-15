@@ -11,16 +11,13 @@
         <%= @shop.shop_name %>
       </div>
 
-      <% if @shop.list_id.present?%>
+      <% @shop.lists.each do |list| %>
+        <%= "Belong to #{list.list_name}" %>
+      <% end %>
 
-      <%= @shop.list_id %>
-
-      <% else %>
       <%= f.select :list_id , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control'} %>
 
       <%= hidden_field_tag "list_ids[]", session[:list_id] %>
-
-      <% end %>
 
       <div class="item-info__item-submit">
         <%= f.submit "店を追加", class:"item-info__item-submit--btn" %>

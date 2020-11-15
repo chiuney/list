@@ -22,7 +22,7 @@
 
       <div class="item-data__item-user">
         <% @shop.lists.each do |list|%>
-          <%= link_to "Belong to #{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
+          <span>Belong to <%= link_to "#{list.list_name}", list_path(list), class:"item-data__item-user--link" %></span>
         <% end %>
       </div>
 
