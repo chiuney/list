@@ -1,6 +1,7 @@
 // list,shop_show の _name, _comment の部分
 
 @import '../mixin/btn';
+@import '../mixin/icon';
 
 .item-show {
   height: 100vh;
@@ -36,6 +37,10 @@
   &__item-user {
     font-size: 12px;
     margin: 10px auto 20px;
+
+    &--image {
+      @include icon;
+    }
 
     &--link {
       color: black;
