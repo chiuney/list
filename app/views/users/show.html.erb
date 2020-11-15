@@ -32,21 +32,21 @@
     
     <div class="mypage-content__maypage-follow" >
       <% if @user.follower.size === 0 %>
-        <span class="mypage-content__maypage-follow--link"><%= "フォロー数: #{@user.follower.size}" %></span>
+        <span class="mypage-content__maypage-follow--link"><%= "#{@user.follower.size} Following" %></span>
       <% else %>
-        <%= link_to "フォロー数: #{@user.follower.size}",   following_path(id: @user.id),class:"mypage-content__maypage-follow--link" %>
+        <%= link_to "#{@user.follower.size} Following",   following_path(id: @user.id),class:"mypage-content__maypage-follow--link" %>
       <% end %>
 
       <% if @user.followed.size === 0 %>
-        <span class="mypage-content__maypage-follow--link"><%= "フォロワー数: #{@user.followed.size}" %></span>
+        <span class="mypage-content__maypage-follow--link"><%= "#{@user.followed.size} Followers" %></span>
       <% else %>
-        <%= link_to "フォロワー数: #{@user.followed.size}", followers_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
+        <%= link_to "#{@user.followed.size} Followers", followers_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
       <% end %>
 
       <% if @add_shops.size === 0 %>
-        <span class="mypage-content__maypage-follow--link"><%= "お気に入りショップ数: #{@add_shops.size}" %></span>
+        <span class="mypage-content__maypage-follow--link"><%= "#{@add_shops.size} Likes" %></span>
       <% else %>
-        <%= link_to "お気に入りショップ数: #{@add_shops.count}", add_shops_index_path, class:"mypage-content__maypage-follow--link" %>
+        <%= link_to "#{@add_shops.count} Likes", add_shops_index_path, class:"mypage-content__maypage-follow--link" %>
       <% end %>
     </div>
   </section>

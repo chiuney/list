@@ -254,6 +254,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mini_magick
+  nokogiri
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
