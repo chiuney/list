@@ -44,22 +44,26 @@
     }
   }
 
-  &__follow-btn {
+  &__unfollow-btn {
     @include btn ;
+    border-color: #354e59;
+    background-color: #eeeae4;
 
     &--unfollow {
-      width: 120px;
-      color: red;
+      width: 100px;
+      color: #354e59;
+      text-align: center;
     }
+  }
+  
+  &__follow-btn {
+    @include btn ;
+    border-color: #999;
 
     &--following {
-      width: 98px;
+      width: 100px;
       color: #999;
-    }
-
-    &--list {
-      width: 120px;
-      color: black;
+      text-align: center;
     }
 
   }
