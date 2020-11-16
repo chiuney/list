@@ -15,9 +15,9 @@
         <%= "Belong to #{list.list_name}" %>
       <% end %>
 
-      <%= f.select :list_id , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control'} %>
+      <%= f.select :list_ids , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control',multiple: true} %>
 
-      <%= hidden_field_tag "list_ids[]", session[:list_id] %>
+      <%= hidden_field_tag "list_shop[list_ids][]", session[:list_id] %>
 
       <div class="item-info__item-submit">
         <%= f.submit "店を追加", class:"item-info__item-submit--btn" %>
