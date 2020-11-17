@@ -25,8 +25,12 @@ User.all.each do |user|
                     )
 end
 
-100.times do |shop|
-  shop_name = Faker::Restaurant.name
-  Shop.create!(shop_name: shop_name,
-               )
+require "csv"
+
+CSV.foreach('db/shop_saitama.csv', headers: true) do |row|
+  Shop.create(
+    shop_name: row['shop_name'],
+    shop_address: row['shop_address'],
+    shop_official: row['shop_official']
+  )
 end

@@ -14,6 +14,10 @@
         <%= @shop.shop_comment %>
       </div>
 
+      <div class="item-data__item-comment">
+      <%= @shop.shop_address %>
+    </div>
+
       <div class="item-data__item-photo">
         <% @shop.photos.each do |p| %>
           <%= image_tag(p,class:"item-data__item-photo--photo")%>
