@@ -27,10 +27,9 @@ end
 
 require "csv"
 
-CSV.foreach('db/shop_saitama.csv', headers: true) do |row|
+CSV.foreach('db/shop_tokyo.csv', headers: true) do |row|
   Shop.create(
     shop_name: row['shop_name'],
-    shop_address: row['shop_address'],
-    shop_official: row['shop_official']
+    shop_address: row['shop_address']
   )
 end

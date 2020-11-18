@@ -1,4 +1,6 @@
 class Shop < ApplicationRecord
+  # googlemaps表示 
+  geocoded_by :shop_address
 
   # AddShop
   has_many :AddShop

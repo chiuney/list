@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
+# Geocoding
+gem 'geocoder'
 # エラーメッセージの日本語化
 gem 'rails-i18n'
 # 環境変数を読み取り
