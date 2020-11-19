@@ -1,0 +1,43 @@
+find_executable: checking for brew... -------------------- yes
+
+--------------------
+
+assert_minimum_ruby_version!: checking for Ruby version >= 2.3.0... -------------------- yes
+
+--------------------
+
+find_executable: checking for pkg-config... -------------------- yes
+
+--------------------
+
+determine_imagemagick_package: checking for forced use of ImageMagick 6... -------------------- no
+
+--------------------
+
+assert_has_dev_libs!: checking for outdated ImageMagick version (<= 6.7.7)... -------------------- no
+
+Detected ImageMagick version: 7.0.10
+--------------------
+
+find_executable: checking for xcrun... -------------------- yes
+
+--------------------
+
+"xcrun clang -o conftest -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/universal-darwin19 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/backward -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0 -I.  -Xpreprocessor -fopenmp -DMAGICKCORE_HDRI_ENABLE=1 -DMAGICKCORE_QUANTUM_DEPTH=16 -I/usr/local/Cellar/imagemagick/7.0.10-39/include/ImageMagick-7  -Xpreprocessor -fopenmp -DMAGICKCORE_HDRI_ENABLE=1 -DMAGICKCORE_QUANTUM_DEPTH=16 -I/usr/local/Cellar/imagemagick/7.0.10-39/include/ImageMagick-7 conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib  -L/usr/local/Cellar/imagemagick/7.0.10-39/lib -lMagickCore-7.Q16HDRI  -arch x86_64  -L/usr/local/Cellar/imagemagick/7.0.10-39/lib -lMagickCore-7.Q16HDRI  -lruby.2.6   "
+In file included from conftest.c:1:
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby.h:33:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:24:10: fatal error: 'ruby/config.h' file not found
+#include "ruby/config.h"
+         ^~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:24:10: note: did not find header 'config.h' in framework 'ruby' (loaded from '/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks')
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+

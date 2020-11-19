@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+# jquery
+gem 'jquery-rails'
 # Geocoding
 gem 'geocoder'
 # エラーメッセージの日本語化
@@ -9,10 +11,6 @@ gem 'rails-i18n'
 # 環境変数を読み取り
 gem 'dotenv'
 gem 'dotenv-rails'
-# 画像アップロード機能
-gem 'carrierwave'
-#画像のリサイズ
-gem 'mini_magick'
 # seedsにuserデータ挿入
 gem 'faker'
 #アプリ名変更
@@ -41,7 +39,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'pry-rails'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+# Active Storage リサイズ
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

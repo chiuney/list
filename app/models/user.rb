@@ -39,11 +39,22 @@ class User < ApplicationRecord
     end
   end
 
-  # 画像アップロード
-  mount_uploader :image, ImageUploader
-
   def added_shop?(shop_id)
     AddShop.where(shop_id: @shop.id).exists?
   end
 
+
+  # Active Storage 1つの画像を投稿
+  has_one_attached :image
+
+  # Active Storage バリデーション
+  validate :image_type
+
+  private
+
+  def image_type
+    if !image.content_type.in?(%('image/jpeg image/jpg image/png'))
+      errors.add(:image,'にはjpeg,jpg,pngファイルを使用してください')
+    end
+  end
 end

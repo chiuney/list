@@ -2,6 +2,12 @@
 @import '../mixin/btn';
 @import '../mixin/icon';
 
+#image_preview {
+  height: 200px;
+  width: 200px;
+  border: solid;
+}
+
 .useredit-container {
   width: 100vw;
   height: 100vh;
