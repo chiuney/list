@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+# ページネーション
+gem 'kaminari'
 # Geocoding
 gem 'geocoder'
 # エラーメッセージの日本語化

@@ -34,6 +34,8 @@
       </section>
     <% end %>
 
+    <span class="serach-paginate"><%= paginate @users %></span>
+
   <% elsif @user_or_list_or_shop == "2" %>
   <div class="item-array">
       <% @lists.each do |list| %>
@@ -49,6 +51,8 @@
       <% end %>
       </div>
 
+      <div class="serach-paginate"><%= paginate @lists %></div>
+
     <% else %>
     <div class="item-array">
         <% @shops.each do |shop| %>
@@ -62,6 +66,9 @@
         </section>
       <% end %>
       </div>
+
+      <div class="serach-paginate"><%= paginate @shops %></div>
+
   <% end %>
 
 </mian>
