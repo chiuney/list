@@ -40,6 +40,7 @@
 
     &--image {
       @include icon;
+      border: 1px solid black;
     }
 
     &--link {
