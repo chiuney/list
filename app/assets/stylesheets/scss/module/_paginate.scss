@@ -1,7 +1,42 @@
-.serach-paginate {
-  color: black;
+.serach-pagination {
+  width: 100vw;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 5px auto;
+
+  &__nav-pagination {
+    width: 360px;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    // border: 1px solid #999;
+  }
 }
 
-.first {
-  color: black;
+.pagination-link {
+  color: #444;
+  background: #F2F2F2;
+  width: 40px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__pagination-page {
+    color: #999;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // リンクを親要素に拡張
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+      background: #F2F2F2;
+    }
+  }
 }

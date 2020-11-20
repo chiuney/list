@@ -34,7 +34,7 @@
       </section>
     <% end %>
 
-    <span class="serach-paginate"><%= paginate @users %></span>
+  <div class="serach-pagination"><%= paginate @users %></div>
 
   <% elsif @user_or_list_or_shop == "2" %>
   <div class="item-array">
@@ -51,7 +51,7 @@
       <% end %>
       </div>
 
-      <div class="serach-paginate"><%= paginate @lists %></div>
+      <div><%= paginate @lists %></div>
 
     <% else %>
     <div class="item-array">
