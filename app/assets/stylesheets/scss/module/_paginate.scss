@@ -6,19 +6,16 @@
   margin: 5px auto;
 
   &__nav-pagination {
-    width: 360px;
-    min-width: 200px;
+    min-width: 300px;
     display: flex;
     justify-content: center;
-    // align-items: center;
-    // border: 1px solid #999;
   }
 }
 
 .pagination-link {
   color: #444;
   background: #F2F2F2;
-  width: 40px;
+  width : calc(100% / 9) ;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -27,9 +24,10 @@
   &__pagination-page {
     color: #999;
     background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    line-height: 50px;
     // リンクを親要素に拡張
     display: block;
     width: 100%;
