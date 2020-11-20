@@ -1,28 +1,16 @@
+$(function () {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 
-$(document).on("turbolinks:load", function () {
-  $("#user_image").on("change", function (e) {
-    var files = e.target.files;
-    var d = new $.Deferred().resolve();
-    $.each(files, function (i, file) {
-      d = d.then(function () {
-        return previewImage(file);
-      });
-    });
+  $('.img_field').change(function () {
+    readURL(this);
   });
- 
-  var previewImage = function (imageFile) {
-    var reader = new FileReader();
-    var img = new Image();
-    var def = $.Deferred();
-    reader.onload = function (e) {
-      // 画像を表示
-      $("#image_preview").empty();
-      $("#image_preview").append(img);
-      img.src = e.target.result;
-      def.resolve(img);
-    };
-    reader.readAsDataURL(imageFile);
-   return def.promise();
-};
-  console.log("hogehoge") 
+  console.log("hogehoge");
 });

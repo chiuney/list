@@ -15,18 +15,18 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       
-      <div class="useredit-form__useredit-item" id="image_preview">
+      <div class="useredit-form__useredit-item">
         <% if @user.image.attached? %>
           <label>
-            <%= image_tag @user.image, class:"useredit-form__useredit-item--image" %>
+            <%= image_tag @user.image, class:"useredit-form__useredit-item--image img_prev",onClick: "$('.img_field').click()" %>
             <i class="far fa-edit useredit-form__useredit-item--mark"></i>
-            <%= f.file_field :image , class:"useredit-form__useredit-item--select" %>
+            <%= f.file_field :image , class:"useredit-form__useredit-item--select img_field" %>
           </label>
         <% else %>
           <label>
-            <%= image_tag 'no-image.png', class:"useredit-form__useredit-item--image" %>
+            <%= image_tag 'no-image.png', class:"useredit-form__useredit-item--image img_prev",onClick: "$('.img_field').click()" %>
             <i class="far fa-edit useredit-form__useredit-item--mark"></i>
-            <%= f.file_field :image , class:"useredit-form__useredit-item--select" %>
+            <%= f.file_field :image , class:"useredit-form__useredit-item--select img_field" %>
           </label>
         <% end %>
       </div>

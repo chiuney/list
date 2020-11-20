@@ -2,12 +2,6 @@
 @import '../mixin/btn';
 @import '../mixin/icon';
 
-#image_preview {
-  height: 200px;
-  width: 200px;
-  border: solid;
-}
-
 .useredit-container {
   width: 100vw;
   height: 100vh;
@@ -40,9 +34,9 @@
     }
 
     &--image {
-      @include icon($height:100px,$width:100px);
+      @include icon($height:160px,$width:160px);
       margin: 0 auto;
-      opacity: 0.7;
+      opacity: 0.9;
     }
 
     // 画像選択
@@ -132,4 +126,10 @@
       font-size: 12px;
     }
   }
+}
+
+.img_prev:hover {
+  cursor: pointer; 
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
 }
