@@ -15,7 +15,9 @@
         <%= "Belong to #{list.list_name}" %>
       <% end %>
 
+      <% if @shop.lists.present? %>
       <%= f.select :list_ids , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control',multiple: true} %>
+      <% end %>
 
       <%= hidden_field_tag "list_shop[list_ids][]", session[:list_id] %>
 
