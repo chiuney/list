@@ -15,15 +15,17 @@
         <%= "Belong to #{list.list_name}" %>
       <% end %>
 
-      <% if @shop.lists.present? %>
-      <%= f.select :list_ids , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control',multiple: true} %>
+      <% if @shop.lists.nil? %>
+        <%= f.select :list_ids , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control',multiple: true} %>
+        
+        <%= hidden_field_tag "list_shop[list_ids][]", session[:list_id] %>
+
+        <div class="item-info__item-submit">
+          <%= f.submit "店を追加", class:"item-info__item-submit--btn" %>
+        </div>
+      <% else %>
+        <%= link_to "リンクを作成してください", new_list_path, class:"dropdown-list__dropdown-item--link" %>
       <% end %>
-
-      <%= hidden_field_tag "list_shop[list_ids][]", session[:list_id] %>
-
-      <div class="item-info__item-submit">
-        <%= f.submit "店を追加", class:"item-info__item-submit--btn" %>
-      </div>
     </div>
   <% end %>
 
