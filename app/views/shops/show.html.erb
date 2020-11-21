@@ -22,20 +22,43 @@
           <% end %>
         <% end %>
       </div>
-    </div>
+
+        <% if ListShop.where(shop_id: @shop.id).exists? %>
+          <%= link_to '別のリストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"#" %>
+          <%= link_to "リストから削除", shop_destroy_list_shops_path(@shop) , method: :delete, class:"#" %>
+        <% else %>
+          <%= link_to 'リストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"#" %>
+        <% end %>
+      </div>
 
       <div class="item-data__item-comment">
         <%= @shop.shop_comment %>
       </div>
 
-      <div class="item-data__item-comment">
-        <span id='#'><%= @shop.shop_address %></span>
-      </div>
+      <section class="item-data__item-info" >
+        <div class="item-address">
+          <span id='#'><%= @shop.shop_address %></span>
+        </div>
+
+        <div class="item-tell">
+          <p>電話番号:000-0000-0000</p>
+        </div>
+
+        <div class="item-official">
+          <p>公式サイト</p>
+        </div>
+      </section>
 
       <div class="item-data__item-photo">
-        <% @shop.photos.each do |p| %>
-          <%= image_tag(p,class:"item-data__item-photo--photo")%>
+        <% @shop.photos.each do |photo| %>
+          <%= image_tag(photo,class:"item-data__item-photo--photo")%>
         <% end %>
+      </div>
+
+      <div>
+      <%= image_tag "kaisen.jpeg",class:"item-data__item-photo--photo" %>
+      <%= image_tag "ramen.jpeg",class:"item-data__item-photo--photo" %>
+      <%= image_tag "ramen.jpeg",class:"item-data__item-photo--photo" %>
       </div>
 
       <div class="item-data__item-user">
@@ -44,18 +67,36 @@
         <% end %>
       </div>
 
-
-      <% if ListShop.where(shop_id: @shop.id).exists? %>
-        <%= link_to '別のリストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--list" %>
-        <%= link_to "リストから削除", shop_destroy_list_shops_path(@shop) , method: :delete, class:"follow-item__follow-btn--list" %>
-      <% else %>
-        <%= link_to 'リストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--list" %>
-      <% end %>
-
   </div>
 
-  <div class="googlemaps">
+  <div class="item-others">
+    <div>
     <%= render 'shared/googlemaps' %>
+    </div>
+    <div class="item-others__item-info">
+      <h3 class="item-others__item-info--title">関連情報</h3>
+      <dl class="item-detail">
+        <div class="item-detail__item-table">
+          <dt class="item-detail__item-table--title">価格帯</dt>
+          <dd class="item-detail__item-table--content">¥3000~5000</dd>
+        </div>
+
+        <div class="item-detail__item-table">
+          <dt class="item-detail__item-table--title">駐車場</dt>
+          <dd class="item-detail__item-table--content">なし　近隣にコインパーキングあり</dd>
+        </div>
+
+        <div class="item-detail__item-table">
+          <dt class="item-detail__item-table--title">アクセス</dt>
+          <dd class="item-detail__item-table--content">最寄駅から徒歩7分</dd>
+        </div>
+
+        <div class="item-detail__item-table">
+          <dt class="item-detail__item-table--title">外部URL</dt>
+          <dd class="item-detail__item-table--content">食べログURL</dd>
+        </div>
+      </dl>
+    </div>
   </div>
   
 </main>
