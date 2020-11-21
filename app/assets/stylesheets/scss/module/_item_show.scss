@@ -74,3 +74,28 @@
     }
   }
 }
+
+.likes-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  &__like-haert {
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__like {
+      color: #999;
+      font-size: 24px;
+      margin: 20px auto 10px;
+    }
+
+    &__unlike {
+      color: #354e59;
+      font-size: 24px;
+      margin: 20px auto 10px;
+    }
+  }
+}

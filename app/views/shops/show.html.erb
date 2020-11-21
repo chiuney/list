@@ -6,9 +6,23 @@
     <%= render 'shared/back' %>
     <%= render partial: 'shared/flash' %>
 
+    <div class="likes-title">
       <div class="item-data__item-name">
         <%= @shop.shop_name %>
       </div>
+
+      <div class="likes-title__like-haert">
+        <% if AddShop.where(shop_id: @shop.id).exists? %>
+          <%= link_to shop_add_shop_path(@shop) , method: :delete do %>
+            <i class="fas fa-heart likes-title__like-haert__unlike"></i>
+          <% end %>
+        <% else %>
+          <%= link_to shop_add_shops_path(shop_id: @shop.id) , method: :POST do %>
+            <i class="far fa-heart likes-title__like-haert__like"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
       <div class="item-data__item-comment">
         <%= @shop.shop_comment %>
@@ -38,16 +52,6 @@
         <%= link_to 'リストに追加', shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, class:"follow-item__follow-btn--list" %>
       <% end %>
 
-
-    <% if AddShop.where(shop_id: @shop.id).exists? %>
-      <%= link_to shop_add_shop_path(@shop) , method: :delete do %>
-        <i class="fas fa-heart follow-item__follow-btn--unfollow"></i>
-      <% end %>
-    <% else %>
-      <%= link_to shop_add_shops_path(shop_id: @shop.id) , method: :POST do %>
-        <i class="far fa-heart follow-item__follow-btn--following"></i>
-      <% end %>
-    <% end %>
   </div>
 
   <div class="googlemaps">
