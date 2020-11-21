@@ -4,7 +4,7 @@
 
   <%= render 'shared/back' %>
 
-  <%= form_with model: @list_shop ,url:shop_list_shops_path(shop_id: @shop.id), local: true do |f| %>
+  <%= form_with model: @list_shops ,url:shop_list_shops_path(shop_id: @shop.id), local: true do |form| %>
 
     <div class="item-info">
       <div class="item-data__item-name">
@@ -12,24 +12,29 @@
       </div>
       
       <div class="item-info__item-comment">
-        <%= f.text_area :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
+        <%= form.text_area :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
       </div>
 
-      <% @shop.lists.each do |list| %>
-        <%= "Belong to #{list.list_name}" %>
-      <% end %>
+      <%#Belong toはいらないかな?保留 %>
+      <%# @shop.lists.each do |list| %>
+        <%# "Belong to #{list.list_name}" %>
+      <%# end %>
 
-      <% if !@shop.lists.nil? %>
-        <%= f.select :list_ids , List.where(user_id: current_user.id).map { |list| [ list.list_name ] }, {include_hidden: false}, {class: 'form-control',multiple: true} %>
-
-        <%= hidden_field_tag "list_shop[list_ids][]", session[:list_id] %>
-
-        <div class="item-info__item-submit">
-          <%= f.submit "店を追加", class:"item-info__item-submit--btn" %>
-        </div>
-      <% else %>
+      <%# checkedできない?%>
+      <% if current_user.lists.empty? %>
         <%= link_to "リストを作成してください", new_list_path, class:"dropdown-list__dropdown-item--link" %>
+      <% else %>
+        <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @lists do |check| %>
+          <%= check.label { check.check_box + check.text } %>
+        <% end %>
       <% end %>
+
+      <%= hidden_field_tag "list_shop[list_ids][]", session[:list_id] %>
+
+      <div class="item-info__item-submit">
+        <%= form.submit "店を追加", class:"item-info__item-submit--btn" %>
+      </div>
+
     </div>
   <% end %>
 

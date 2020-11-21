@@ -23,7 +23,6 @@
       </div>
 
       <%= f.select :list_id ,List.where(user_id: current_user.id).map { |l| [ l.list_name ] }, {}, {class: 'googlemaps'} %>
-    
 
       <div class="item-info__item-photo">
           <label>

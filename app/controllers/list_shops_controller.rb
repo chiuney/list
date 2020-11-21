@@ -2,6 +2,7 @@ class ListShopsController < ApplicationController
 
   def new
     @shop = Shop.find(params[:shop_id])
+    @lists = List.where(@shop.user_id)
     @list_shop = ListShop.new
 
   end
@@ -10,6 +11,7 @@ class ListShopsController < ApplicationController
     @list_shop = ListShop.new
     @list_shop.shop_id = (params[:shop_id])
     @list_shop.list_id = session[:list_id]
+    byebug
     if @list_shop.save
         flash[:success] = "リストに追加しました。"
         session.delete(:list_id)
