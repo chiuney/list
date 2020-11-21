@@ -117,6 +117,19 @@
       margin: 20px auto 10px;
     }
   }
+
+  &__add-list {
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--link {
+      color: #999;
+      font-size: 24px;
+      margin: 20px auto 10px;
+    }
+  }
 }
 
 .item-others {
