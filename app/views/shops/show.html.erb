@@ -1,9 +1,8 @@
 <% provide(:title, "Shop") %>
 
 <main class="item-show">
+<%= render 'shared/back' %>
   <div class="item-data">
-
-    <%= render 'shared/back' %>
     <%= render partial: 'shared/flash' %>
 
     <div class="likes-title">
@@ -69,7 +68,7 @@
 
       <div class="item-data__item-user">
         <% @shop.lists.each do |list|%>
-          <span>リスト:<%= link_to "#{list.list_name}", list_path(list), class:"item-data__item-user--link" %></span>
+          <%# link_to "リスト:#{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
         <% end %>
       </div>
 
