@@ -1,4 +1,4 @@
 <div id='map' class="googlemaps"></div>
 
 <%= javascript_pack_tag "googlemaps/application" %>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLEMAPS_API_KEY"]%>&callback=initAutocomplete&libraries=places&v=weekly" async defer ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLEMAPS_API_KEY"]%>&callback=initMap&libraries=places&v=weekly" async defer ></script>
