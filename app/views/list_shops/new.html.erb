@@ -15,16 +15,11 @@
         <%= form.text_area :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
       </div>
 
-      <%#Belong toはいらないかな?保留 %>
-      <%# @shop.lists.each do |list| %>
-        <%# "Belong to #{list.list_name}" %>
-      <%# end %>
-
       <%# checkedできない?%>
       <% if current_user.lists.empty? %>
         <%= link_to "リストを作成してください", new_list_path, class:"dropdown-list__dropdown-item--link" %>
       <% else %>
-        <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @lists do |check| %>
+        <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false,checked: @shop.list_ids do |check| %>
           <%= check.label { check.check_box + check.text } %>
         <% end %>
       <% end %>
