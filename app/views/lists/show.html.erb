@@ -61,7 +61,7 @@
         <div class="display-text">
           <%= link_to shops.shop_name, shop_path(shops.id) , class:"item-array__item-detail--name" %>
           <%= link_to shop_destroy_list_shops_path(shops.id),
-          method: :delete, data: { confirm: '削除しますか？' },class:"item-array__item-detail--delete" do %>
+          method: :delete,class:"item-array__item-detail--delete" do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
         </div>

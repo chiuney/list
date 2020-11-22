@@ -24,6 +24,13 @@
         <% end %>
       <% end %>
 
+      <div class="item-info__item-photo">
+        <label>
+          <i class="far fa-images item-info__item-photo--mark"></i>
+          <%= form.file_field :photos, multiple: true,class:"item-info__item-photo--select" %>
+        </label>
+      </div>
+
       <div class="item-info__item-submit">
         <%= form.submit "店を追加", class:"item-info__item-submit--btn" %>
       </div>
