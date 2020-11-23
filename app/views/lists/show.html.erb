@@ -28,23 +28,22 @@
     </div>
 
     <% if user_signed_in? && current_user.id == @list.user_id %>
-    <div class="item-data__item-edit">
-      <%= link_to "編集", edit_list_path(id: @list.id),     class:"item-data__item-edit--form" %>
-      <%= link_to "削除", destroy_lists_path(current_user), class:"item-data__item-edit--form",
-                                method: :delete, data: { confirm: '削除しますか？' } %>
-    </div>
-
-  <% end %>
+      <div class="item-data__item-edit">
+        <%= link_to "編集", edit_list_path(id: @list.id),     class:"item-data__item-edit--form" %>
+        <%= link_to "削除", destroy_lists_path(current_user), class:"item-data__item-edit--form",
+                                  method: :delete, data: { confirm: '削除しますか？' } %>
+      </div>
+    <% end %>
 
   <div class="googlemaps">
     <%= render 'shared/googlemaps' %>
   </div>
 
   <div class="search_box">
-    <%= form_with url:search_path, local: true, method: :get do |f| %>
+    <%= form_with url:search_path, local: true, method: :get do |form| %>
       <div class="search_box__list-search">
-        <%= f.select(:option, options_for_select([["ショップ","3"]]),{}, class:"search_box__list-search--select") %>
-        <%= f.text_field :search, class:"search_box__list-search--form", autocomplete: 'off', placeholder: "ショップ検索" %>
+        <%= form.select(:option, options_for_select([["ショップ","3"]]),{}, class:"search_box__list-search--select") %>
+        <%= form.text_field :search, class:"search_box__list-search--form", autocomplete: 'off', placeholder: "ショップ検索" %>
       </div>
     <% end %>
   </div>
@@ -65,7 +64,6 @@
             <i class="far fa-trash-alt"></i>
           <% end %>
         </div>
-
       </div>
     <% end %>
   </div>
