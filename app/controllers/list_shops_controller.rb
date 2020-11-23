@@ -5,20 +5,6 @@ class ListShopsController < ApplicationController
     @lists = List.where(@shop.user_id)
   end
 
-  # def create
-  #   @list_shop = ListShop.new
-  #   @list_shop.shop_id = (params[:shop_id])
-  #   @list_shops = params[:list_ids].each do |list_id|
-  #     list_shop = ListShop.find(list_id)
-  #     if list_shop.save
-  #       flash[:success] = "リストに追加しました。"
-  #       redirect_to shop_path(@list_shop.shop_id)
-  #     else
-  #       redirect_to request.referer
-  #     end
-  #   end
-  # end
-
   def create
     params[:list_ids].each do |list_id|
       ListShop.create!(shop_id: params[:shop_id], list_id: list_id)
