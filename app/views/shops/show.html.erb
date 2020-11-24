@@ -23,55 +23,47 @@
       </div>
 
       <div class="likes-title__add-list">
-        <% if ListShop.where(shop_id: @shop.id).exists? %>
-          <%= link_to shop_new_list_shops_path(shop_id: @shop.id) , method: :POST do %>
+        <%= link_to shop_new_list_shops_path(shop_id: @shop.id) , method: :POST do %>
             <i class="fas fa-plus likes-title__add-list--link"></i>
-          <% end %>
-          <%# link_to "リストから削除", shop_destroy_list_shops_path(@shop) , method: :delete, class:"#" %>
-        <% else %>
-          <%= link_to shop_new_list_shops_path(shop_id: @shop.id) , method: :POST do %>
-            <i class="fas fa-plus likes-title__add-list--link"></i>
-          <% end %>
         <% end %>
-        </div>
       </div>
+    </div>
           
-      <div class="item-data__item-comment">
-        <%= @shop.shop_comment %>
+    <div class="item-data__item-comment">
+      <%= @shop.shop_comment %>
+    </div>
+
+    <section class="item-data__item-info" >
+      <div class="item-address">
+        <span id='mapAddress'><%= @shop.shop_address %></span>
       </div>
 
-      <section class="item-data__item-info" >
-        <div class="item-address">
-          <span id='mapAddress'><%= @shop.shop_address %></span>
-        </div>
-
-        <div class="item-tell">
-          <p>電話番号:000-0000-0000</p>
-        </div>
-
-        <div class="item-official">
-          <p>公式サイト</p>
-        </div>
-      </section>
-
-      <div class="item-data__item-photo">
-        <% @shop.list_shops.each do |list_shop| %>
-          <%= image_tag(list_shop.photos[0],class:"item-data__item-photo--photo") if list_shop.photos[0].present? %>
-        <% end %>
+      <div class="item-tell">
+        <p>電話番号:000-0000-0000</p>
       </div>
 
-      <div>
+      <div class="item-official">
+        <p>公式サイト</p>
+      </div>
+    </section>
+
+    <div class="item-data__item-photo">
+      <% @shop.list_shops.each do |list_shop| %>
+        <%= image_tag(list_shop.photos[0],class:"item-data__item-photo--photo") if list_shop.photos[0].present? %>
+      <% end %>
+    </div>
+
+    <div>
       <%= image_tag "kaisen.jpeg",class:"item-data__item-photo--photo" %>
       <%= image_tag "ramen.jpeg",class:"item-data__item-photo--photo" %>
       <%= image_tag "ramen.jpeg",class:"item-data__item-photo--photo" %>
-      </div>
+    </div>
 
-      <div class="item-data__item-user">
-        <% @shop.lists.each do |list|%>
-          <%# link_to "リスト:#{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
-        <% end %>
-      </div>
-
+    <div class="item-data__item-user">
+      <% @shop.lists.each do |list|%>
+        <%# link_to "リスト:#{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
+      <% end %>
+    </div>
   </div>
 
   <div class="item-others">
