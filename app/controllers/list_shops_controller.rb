@@ -24,11 +24,11 @@ class ListShopsController < ApplicationController
     redirect_to request.referer
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
   # private
   #   def list_shop_params
