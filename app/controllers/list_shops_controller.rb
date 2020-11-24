@@ -7,8 +7,9 @@ class ListShopsController < ApplicationController
 
   def create
     params[:list_ids].each do |list_id|
-      ListShop.create!(shop_id: params[:shop_id], list_id: list_id, photos: params[:photos])
+      ListShop.create!(shop_id: params[:shop_id], list_id: list_id)
     end
+      Shop.create!(id: params[:shop_id], photos: params[:photos])
       flash[:success] = "リストに追加しました。"
       redirect_to user_path(current_user.id)
     rescue => e
