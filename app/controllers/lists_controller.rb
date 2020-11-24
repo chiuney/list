@@ -17,7 +17,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    session[:list_id] = @list.id
+    @list_shop = ListShop.where(list_id: @list.id)
   end
 
   def edit

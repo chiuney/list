@@ -14,9 +14,6 @@ class Shop < ApplicationRecord
   validates :shop_name,    length: { maximum: 50 }, presence: true
   validates :shop_comment, length: { maximum: 500 }
 
-  # mount_uploader :photo, ImageUploader
-  has_many_attached :photos, dependent: :destroy
-
     # ショップ検索（曖昧）
     def Shop.search(search, user_or_list_or_shop)
       if user_or_list_or_shop == "3"
@@ -25,4 +22,7 @@ class Shop < ApplicationRecord
         Shop.all
       end
     end
+
+  # Active Storage 複数画像を投稿
+  has_many_attached :photos
 end

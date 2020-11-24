@@ -7,13 +7,13 @@ class ListShopsController < ApplicationController
 
   def create
     params[:list_ids].each do |list_id|
-      ListShop.create!(shop_id: params[:shop_id], list_id: list_id)
+      ListShop.create!(shop_id: params[:shop_id], list_id: list_id, photos: params[:photos])
     end
-    flash[:success] = "リストに追加しました。"
-    redirect_to user_path(current_user.id)
-  rescue => e
-    flash[:alert] = e.message
-    redirect_to request.referer
+      flash[:success] = "リストに追加しました。"
+      redirect_to user_path(current_user.id)
+    rescue => e
+      flash[:alert] = e.message
+      redirect_to request.referer
   end
 
   def destroy
@@ -23,8 +23,8 @@ class ListShopsController < ApplicationController
     redirect_to request.referer
   end
 
-  private
-    def list_shop_params
-      params.permit(:shop_name, list_ids: [])
-    end
+  # private
+  #   def list_shop_params
+  #     params.permit(list_ids: [], photos: [])
+  #   end
 end

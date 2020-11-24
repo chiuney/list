@@ -55,8 +55,9 @@
       </section>
 
       <div class="item-data__item-photo">
-        <% @shop.photos.each do |photo| %>
-          <%= image_tag(photo,class:"item-data__item-photo--photo")%>
+        <% @shop.list_shops.each do |list_shop| %>
+          <%= image_tag(list_shop.photos[0],class:"item-data__item-photo--photo")%>
+          <%= image_tag(list_shop.photos[1],class:"item-data__item-photo--photo")%>
         <% end %>
       </div>
 
