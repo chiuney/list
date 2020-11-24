@@ -56,8 +56,7 @@
 
       <div class="item-data__item-photo">
         <% @shop.list_shops.each do |list_shop| %>
-          <%= image_tag(list_shop.photos[0],class:"item-data__item-photo--photo")%>
-          <%= image_tag(list_shop.photos[1],class:"item-data__item-photo--photo")%>
+          <%= image_tag(list_shop.photos[0],class:"item-data__item-photo--photo") if list_shop.photos[0].present? %>
         <% end %>
       </div>
 
