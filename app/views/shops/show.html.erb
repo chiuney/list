@@ -27,6 +27,12 @@
           <i class="fas fa-plus likes-title__add-list--link"></i>
         <% end %>
       </div>
+
+      <div class="likes-title__add-list">
+        <%= link_to edit_shop_list_shop_path(shop_id: @shop.id) do %>
+          <i class="far fa-edit likes-title__add-list--link"></i>
+        <% end %>
+      </div>
     </div>
           
     <div class="item-data__item-comment">

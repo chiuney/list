@@ -22,7 +22,7 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
-    @photos = Shop.where(list_id: @list.id)
+    @list_shop = ListShop.where(list_id: @list.id)
   end
 
   def update

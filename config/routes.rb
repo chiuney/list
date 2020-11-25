@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     # Create list_shop
     delete "/list_shops/:id", to: "list_shops#destroy", as:"destroy_list_shops"
     post "list_shops/new" ,to: "list_shops#new", as:"new_list_shops"
+    patch "list_shops/:id", to: "list_shops#update", as:"update_list_shops"
     resources :list_shops, only:[:create, :destroy, :new, :show, :edit, :update]
   end
   get "add_shops/index", to:"add_shops#index"

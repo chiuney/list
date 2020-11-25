@@ -33,6 +33,10 @@ class ShopsController < ApplicationController
     redirect_to current_user
   end
 
+  def edit 
+    @shop = Shop.find(params[:id])
+  end
+
   private
     def shop_params
       params.require(:shop).permit(:shop_name, :shop_comment, list_ids: [],photos: [])
