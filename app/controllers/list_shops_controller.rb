@@ -26,20 +26,27 @@ class ListShopsController < ApplicationController
   def update
     ActiveRecord::Base.transaction do
       shop = Shop.find(params[:shop_id])
-      # photosの削除メソッド(photosが登録済みの場合)
-      if params[:photos_ids] 
+      # photosの削除メソッド
+      if params[:photos_ids] # (photosが登録済みの場合)
         params[:photos_ids].each do |photos_id|
           photos = shop.photos.find(photos_id)
           photos.purge
         end
       end
       # eachでshopをlist毎にupdate
-      params[:list_ids].each do |list_id|
+      params[:list_ids].each do |list_id| 
         list_shop = ListShop.find_by(shop_id: params[:shop_id])
         list_shop.update!(shop_id: params[:shop_id], list_id: list_id)
       end
       # photosの追加登録
-      shop.update!(photos: params[:photos], shop_comment: params[:shop_comment])
+      new_photos = params[:photos].map do |photo|
+        ActiveStorage::Blob.create_after_upload! \
+                  io: photo.open,
+                  filename: photo.original_filename,
+                  content_type: photo.content_type
+      end
+      shop.photos.attach(new_photos)
+      shop.update!(shop_comment: params[:shop_comment])
     end
       flash[:success] = "変更しました"
       redirect_to shop_path
