@@ -25,4 +25,15 @@ class Shop < ApplicationRecord
 
   # Active Storage 複数画像を投稿
   has_many_attached :photos
+
+    # # Active Storage バリデーション
+    # validate :photos_type
+
+    # private
+  
+    # def photos_type
+    #   if !photos.content_type.in?(%('photos/jpeg photos/jpg photos/png'))
+    #     errors.add(:photos,'にはjpeg,jpg,pngファイルを使用してください')
+    #   end
+    # end
 end
