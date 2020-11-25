@@ -48,12 +48,11 @@
     </section>
 
     <div class="item-data__item-photo">
-      <% @shop.list_shops.each do |list_shop| %>
-        <%= image_tag(list_shop.photos[0],class:"item-data__item-photo--photo") if list_shop.photos[0].present? %>
+      <% if @shop.photos.attached? %>
+        <% @shop.photos.each do |photos| %>
+          <%= image_tag(photos,class:"item-data__item-photo--photo") %>
+        <% end %>
       <% end %>
-    </div>
-
-    <div>
       <%= image_tag "kaisen.jpeg",class:"item-data__item-photo--photo" %>
       <%= image_tag "ramen.jpeg",class:"item-data__item-photo--photo" %>
       <%= image_tag "ramen.jpeg",class:"item-data__item-photo--photo" %>

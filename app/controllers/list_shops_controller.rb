@@ -6,10 +6,16 @@ class ListShopsController < ApplicationController
   end
 
   def create
-    params[:list_ids].each do |list_id|
-      ListShop.create!(shop_id: params[:shop_id], list_id: list_id)
+    # transaction処理
+    ActiveRecord::Base.transaction do
+      # eachでshopをlist毎にcreate
+      params[:list_ids].each do |list_id|
+        ListShop.create!(shop_id: params[:shop_id], list_id: list_id)
+      end
+        # photosはShopに保存
+        shop = Shop.find(params[:shop_id])
+        shop.update!(photos: params[:photos])
     end
-      Shop.create!(id: params[:shop_id], photos: params[:photos])
       flash[:success] = "リストに追加しました。"
       redirect_to user_path(current_user.id)
     rescue => e
@@ -24,14 +30,4 @@ class ListShopsController < ApplicationController
     redirect_to request.referer
   end
 
-  # def edit
-  # end
-
-  # def update
-  # end
-
-  # private
-  #   def list_shop_params
-  #     params.permit(list_ids: [], photos: [])
-  #   end
 end
