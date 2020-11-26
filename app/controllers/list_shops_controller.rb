@@ -29,16 +29,16 @@ class ListShopsController < ApplicationController
     ActiveRecord::Base.transaction do
       shop = Shop.find(params[:shop_id])
       
-      add_list_shop = params[:list_ids].each do |list_id|
-        list_shop = ListShop.find_by(shop_id: params[:shop_id])
+      # photosの追加登録
+      params[:list_ids].each do |list_id|
+        shop_list = ListShop.find_by(shop_id: params[:shop_id]).update!(shop_id: params[:shop_id],list_id: list_id)
       end
-      add_list_shop.save!(shop_id: params[:shop_id], list_id: params[:list_id])
 
       # photosの削除メソッド
       if params[:photos_ids] # photosが登録済みの場合
         params[:photos_ids].each do |photos_id|
           photos = ActiveStorage::Attachment.find(photos_id)
-          # purge_later(非同期削除)(purgeだと処理が遅くなる)
+          # purge_later(非同期削除)(purge = 同期削除 だと処理が遅くなる)
           photos.purge_later
         end
       end
