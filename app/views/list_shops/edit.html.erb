@@ -24,14 +24,10 @@
           <p>公式サイト</p>
         </div>
       </section>
-      
-      <div class="item-info__item-comment">
-        <%= form.text_area :shop_comment, placeholder: "店コメント", class:"item-info__item-comment--form" %>
-      </div>
 
-        <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false,checked: @shop.list_ids do |check| %>
-          <%= check.label { check.check_box + check.text } %>
-        <% end %>
+      <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
+        <%= check.label { check.check_box + check.text } %>
+      <% end %>
 
       <div class="item-info__item-photo">
         <label>

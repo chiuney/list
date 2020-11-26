@@ -53,7 +53,7 @@ class User < ApplicationRecord
   private
 
   def image_type
-    if !image.content_type.in?(%('image/jpeg image/jpg image/png'))
+    if image.present? && !image.content_type.in?(%('image/jpeg image/jpg image/png'))
       errors.add(:image,'にはjpeg,jpg,pngファイルを使用してください')
     end
   end
