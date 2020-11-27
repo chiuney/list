@@ -27,11 +27,38 @@ class ListShopsController < ApplicationController
 
   def update
     ActiveRecord::Base.transaction do
-      shop = Shop.find(params[:shop_id])
+      # shop = Shop.find(params[:shop_id])
       
       # photosの追加登録
-      params[:list_ids].each do |list_id|
-        shop_list = ListShop.find_by(shop_id: params[:shop_id]).update!(shop_id: params[:shop_id],list_id: list_id)
+      # params[:list_ids].each do |list_id|
+      #   list_shop = ListShop.find_by(shop_id: params[:shop_id], list_id: list_id)
+      #   list_shop.delete!
+      #   list_shop = ListShop.create!(shop_id: params[:shop_id], list_id: list_id)
+      # end
+
+      @shop = Shop.find(params[:id])
+      old_lists = @shop.lists.pluck(:list_id)
+      if @shop.update(shop_params)
+        # 
+        if shop_params[:list_ids].nil?
+          lists = ListShop.where(shop_id: @shop.id)
+          lists.destroy_all
+        else
+          # listの削除
+          destroy_lists = old_lists - shop_params[:list_ids].map(&:to_i)
+          destroy_lists.each do | destroy_list |
+            list = ListShop.find_by(shop_id: @shop.id)
+            list.destroy
+          end
+          lists = @shop.lists.pluck(:list_id)
+          shop_params[:list_ids].each do | list_id |
+            unless lists.include?(list_id.to_i)
+              list = ListShop.new(list_id: list_id)
+              list.shop_id = @shop.id
+              list.save
+            end
+          end
+        end
       end
 
       # photosの削除メソッド
@@ -52,8 +79,8 @@ class ListShopsController < ApplicationController
                     filename: photo.original_filename,
                     content_type: photo.content_type
         end
-        shop.photos.attach(new_photos)
-        shop.update!(id: params[:shop_id])
+        @shop.photos.attach(new_photos)
+        @shop.update!(id: params[:shop_id])
       end
     end
       flash[:success] = "変更しました"
@@ -74,8 +101,12 @@ class ListShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 
-  # private
-  #   def list_shop_params
-  #     params.require(:list_shop).permit(photos: params[:photos], shop_comment: params[:shop_comment] )
-  #   end
+  private
+    def shop_params
+      params.permit(:photos, :shop, list_ids: [] )
+    end
+
+    # def shop_params
+    #   params.require(:shop).permit(:name, genre_ids: [])
+    # end
 end
