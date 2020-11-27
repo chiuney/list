@@ -19,6 +19,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @list_shop = ListShop.find_by(shop_id: params[:shop_id], list_id: params[:list_id])
     @add_shop = AddShop.where(user_id: current_user.id)
   end
 

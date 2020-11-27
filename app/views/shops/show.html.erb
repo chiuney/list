@@ -22,6 +22,7 @@
         <% end %>
       </div>
 
+      <%# shopをlistに追加%>
       <% if !@shop.list_shops.present? %>
       <div class="likes-title__add-list">
         <%= link_to shop_new_list_shops_path(shop_id: @shop.id) , method: :POST do %>
@@ -30,6 +31,7 @@
       </div>
       <% end %>
 
+      <%# listに追加済みのshopを編集%>
       <% if !@shop.list_shops.empty? %>
       <div class="likes-title__add-list">
         <%= link_to edit_shop_list_shop_path(shop_id: @shop.id) do %>
