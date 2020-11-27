@@ -27,19 +27,10 @@ class ListShopsController < ApplicationController
 
   def update
     ActiveRecord::Base.transaction do
-      # shop = Shop.find(params[:shop_id])
-      
-      # photosの追加登録
-      # params[:list_ids].each do |list_id|
-      #   list_shop = ListShop.find_by(shop_id: params[:shop_id], list_id: list_id)
-      #   list_shop.delete!
-      #   list_shop = ListShop.create!(shop_id: params[:shop_id], list_id: list_id)
-      # end
-
       @shop = Shop.find(params[:id])
+      # listの追加登録、削除
       old_lists = @shop.lists.pluck(:list_id)
       if @shop.update(shop_params)
-        # 
         if shop_params[:list_ids].nil?
           lists = ListShop.where(shop_id: @shop.id)
           lists.destroy_all
@@ -50,6 +41,7 @@ class ListShopsController < ApplicationController
             list = ListShop.find_by(shop_id: @shop.id)
             list.destroy
           end
+          # listの追加
           lists = @shop.lists.pluck(:list_id)
           shop_params[:list_ids].each do | list_id |
             unless lists.include?(list_id.to_i)
@@ -61,7 +53,7 @@ class ListShopsController < ApplicationController
         end
       end
 
-      # photosの削除メソッド
+      # photosの削除
       if params[:photos_ids] # photosが登録済みの場合
         params[:photos_ids].each do |photos_id|
           photos = ActiveStorage::Attachment.find(photos_id)
