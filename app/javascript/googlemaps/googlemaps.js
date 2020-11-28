@@ -46,8 +46,8 @@ function initMap() {
     
             //「result[i].geometry.location;」で緯度経度データを取得
             let latlng = result[i].geometry.location;
-            //指定の座標で中心位置を指定(複数ピンの場合➡︎？)
-            // my_google_map.setCenter(latlng);
+            //指定の座標で中心位置を指定
+            my_google_map.setCenter(latlng[i]);
     
             //マーカーを立てる場所の指定
             let marker = new google.maps.Marker({position:latlng[i], map:my_google_map, title:latlng[i].toString(), draggable:true});
