@@ -39,15 +39,6 @@
     <%= render 'shared/googlemaps' %>
   </div>
 
-  <div class="search_box">
-    <%= form_with url:search_path, local: true, method: :get do |form| %>
-      <div class="search_box__list-search">
-        <%= form.select(:option, options_for_select([["ショップ","3"]]),{}, class:"search_box__list-search--select") %>
-        <%= form.text_field :search, class:"search_box__list-search--form", autocomplete: 'off', placeholder: "ショップ検索" %>
-      </div>
-    <% end %>
-  </div>
-
   <sction class="item-display">
   <div class="item-array">
     <% @list.shops.each do |shops| %>
@@ -59,6 +50,7 @@
         <% end %>
         <div class="display-text">
           <%= link_to shops.shop_name, shop_path(shops.id) , class:"item-array__item-detail--name" %>
+          <span id="mapAddress" class="mapAddress" style="display:none;"><%= shops.shop_address %></span>
           <%= link_to shop_destroy_list_shops_path(shops.id),
           method: :delete,class:"item-array__item-detail--delete" do %>
             <i class="far fa-trash-alt"></i>
