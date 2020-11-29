@@ -6,6 +6,8 @@ window.onload = function() {
   // 参考 : https://blog.sushi.money/entry/2017/04/19/114028
   const addresses = [...document.querySelectorAll(".mapAddress")].map((node) => node.textContent);
   const googleMapElement = document.getElementById('map');
+
+  const infowindow = new google.maps.InfoWindow();
   // 住所が存在するか判定してマップを表示
   if (addresses.length > 0) {
     window.initMap = mappingPinToGoogleMap(addresses, googleMapElement)
@@ -40,11 +42,16 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
           // draggable: true
         });
 
-        // 地図表示領域をマーカー位置に合わせて拡大
-        bounds.extend(marker.position);
-        
-        // 引数に指定した領域を地図に収める
-        googleMap.fitBounds(bounds,10);
+        // マーカーの数によって地図の表示を変更
+        if (addresses.length > 1) {
+          // 地図表示領域をマーカー位置に合わせて拡大
+          bounds.extend(marker.position);
+          // 引数に指定した領域を地図に収める
+          googleMap.fitBounds(bounds,10);
+        } else {
+          //指定の座標で中心位置を指定
+          googleMap.setCenter(latlng);
+        }
 
         // 以下保留
         //「マーカー」の「ドラッグ操作が終わった時(dragend)」に関数を実行
