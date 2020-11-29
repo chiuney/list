@@ -11,6 +11,8 @@ window.onload = function() {
     window.initMap = mappingPinToGoogleMap(addresses, googleMapElement)
   }
 
+  let bounds = new google.maps.LatLngBounds();
+
   // 住所が取得できているか確認
   // console.log(addresses);
 }
@@ -28,20 +30,30 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
     geocoder.geocode({ 'address': address, 'region': 'jp' }, (result, status) => {
       // ステータスがOKの場合
       if(status == google.maps.GeocoderStatus.OK) {
-        // わからない　ここから
-        //緯度経度データを取得
+
+        //緯度経度データを取得(lat,lng)
         const latlng = result[0].geometry.location;
+
+        // わからない　ここから
+        
         //指定の座標で中心位置を指定(複数ピンの場合➡︎？)
         googleMap.setCenter(latlng);
+        
         // わからない　ここまで
 
         //マーカーを立てる場所の指定
         const marker = new google.maps.Marker({
-          position: latlng,
+          position: new google.maps.LatLng(latlng),
           map: googleMap,
           title: latlng.toString(),
           draggable: true
         });
+        
+          // 地図表示領域をマーカー位置に合わせて拡大
+          // bounds.extend (marker.position);
+
+          // 引数に指定した矩形領域を地図に収める
+          // map.fitBounds (bounds);
 
         //「マーカー」の「ドラッグ操作が終わった時(dragend)」に関数を実行
         google.maps.event.addListener(marker, 'dragend', (event) => {
