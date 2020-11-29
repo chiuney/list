@@ -6,23 +6,19 @@ window.onload = function() {
   // 参考 : https://blog.sushi.money/entry/2017/04/19/114028
   const addresses = [...document.querySelectorAll(".mapAddress")].map((node) => node.textContent);
   const googleMapElement = document.getElementById('map');
-  // googlemapが存在するか判定してマップを表示
+  // 住所が存在するか判定してマップを表示
   if (addresses.length > 0) {
     window.initMap = mappingPinToGoogleMap(addresses, googleMapElement)
   }
-
-  let bounds = new google.maps.LatLngBounds();
-
-  // 住所が取得できているか確認
-  // console.log(addresses);
 }
 
 function mappingPinToGoogleMap(addresses, googleMapElement) {
   const googleMap = new google.maps.Map(googleMapElement, {
     zoom: 16,
-    // center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
+
+  let bounds = new google.maps.LatLngBounds();
 
   addresses.forEach((address) => {
     //ジオコードオブジェクト
@@ -31,29 +27,27 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
       // ステータスがOKの場合
       if(status == google.maps.GeocoderStatus.OK) {
 
-        //緯度経度データを取得(lat,lng)
-        const latlng = result[0].geometry.location;
+        //緯度経度データを取得
+        let lat = result[0].geometry.location.lat();
+        let lng = result[0].geometry.location.lng();
+        let latlng = {lat,lng};
 
-        // わからない　ここから
-        
-        //指定の座標で中心位置を指定(複数ピンの場合➡︎？)
+        //指定の座標で中心位置を指定
         googleMap.setCenter(latlng);
-        
-        // わからない　ここまで
 
         //マーカーを立てる場所の指定
-        const marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
           position: new google.maps.LatLng(latlng),
           map: googleMap,
-          title: latlng.toString(),
+          // title: latlng.toString(),
           draggable: true
         });
-        
-          // 地図表示領域をマーカー位置に合わせて拡大
-          // bounds.extend (marker.position);
 
-          // 引数に指定した矩形領域を地図に収める
-          // map.fitBounds (bounds);
+        // marker.setMap(googleMap);
+
+        // let bounds = new google.maps.LatLngBounds();
+        // 地図表示領域をマーカー位置に合わせて拡大
+        bounds.extend(marker.position);
 
         //「マーカー」の「ドラッグ操作が終わった時(dragend)」に関数を実行
         google.maps.event.addListener(marker, 'dragend', (event) => {
@@ -63,4 +57,6 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
       }
     })
   })
+          // 引数に指定した領域を地図に収める
+          map.fitBounds(bounds);
 }

@@ -50,7 +50,7 @@
         <% end %>
         <div class="display-text">
           <%= link_to shops.shop_name, shop_path(shops.id) , class:"item-array__item-detail--name" %>
-          <span id="mapAddress" class="mapAddress" style="display:none;"><%= shops.shop_address %></span>
+          <span id="mapAddress" class="mapAddress" ><%= shops.shop_address %></span>
           <%= link_to shop_destroy_list_shops_path(shops.id),
           method: :delete,class:"item-array__item-detail--delete" do %>
             <i class="far fa-trash-alt"></i>
