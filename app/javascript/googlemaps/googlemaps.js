@@ -32,30 +32,25 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
         let lng = result[0].geometry.location.lng();
         let latlng = {lat,lng};
 
-        //指定の座標で中心位置を指定
-        googleMap.setCenter(latlng);
-
         //マーカーを立てる場所の指定
         let marker = new google.maps.Marker({
           position: new google.maps.LatLng(latlng),
           map: googleMap,
-          // title: latlng.toString(),
-          draggable: true
+          title: "hoge",
+          // draggable: true
         });
 
-        // marker.setMap(googleMap);
-
-        // let bounds = new google.maps.LatLngBounds();
         // 地図表示領域をマーカー位置に合わせて拡大
         bounds.extend(marker.position);
-
+        
         // 引数に指定した領域を地図に収める
-        // map.fitBounds(bounds);
+        googleMap.fitBounds(bounds,10);
 
+        // 以下保留
         //「マーカー」の「ドラッグ操作が終わった時(dragend)」に関数を実行
         google.maps.event.addListener(marker, 'dragend', (event) => {
           //マーカーにポインターをホバーした時に、文字列に変換された緯度経度が書かれたツールチップ(吹き出し)を表示
-          marker.setTitle(event.latlng.toString());
+          marker.setTitle("hoge");
         });
       }
     })
