@@ -2,14 +2,15 @@
 window.initMap = () => {}
 
 window.onload = function() {
-  // オブジェクトで取得=>mapオブジェクトで文字列に変換
+  // オブジェクトで取得=>mapメソッドで文字列に変換
   // 参考 : https://blog.sushi.money/entry/2017/04/19/114028
   const addresses = [...document.querySelectorAll(".mapAddress")].map((node) => node.textContent);
   const googleMapElement = document.getElementById('map');
   // googlemapが存在するか判定してマップを表示
-  // if (googleMapElement.length > 0) {
+  if (addresses.length > 0) {
     window.initMap = mappingPinToGoogleMap(addresses, googleMapElement)
-  // }
+  }
+
   // 住所が取得できているか確認
   // console.log(addresses);
 }
@@ -17,7 +18,7 @@ window.onload = function() {
 function mappingPinToGoogleMap(addresses, googleMapElement) {
   const googleMap = new google.maps.Map(googleMapElement, {
     zoom: 16,
-
+    // center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
@@ -27,10 +28,12 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
     geocoder.geocode({ 'address': address, 'region': 'jp' }, (result, status) => {
       // ステータスがOKの場合
       if(status == google.maps.GeocoderStatus.OK) {
-        //「result[0].geometry.location;」で緯度経度データを取得
+        // わからない　ここから
+        //緯度経度データを取得
         const latlng = result[0].geometry.location;
         //指定の座標で中心位置を指定(複数ピンの場合➡︎？)
-        // googleMap.setCenter(latlng);
+        googleMap.setCenter(latlng);
+        // わからない　ここまで
 
         //マーカーを立てる場所の指定
         const marker = new google.maps.Marker({
