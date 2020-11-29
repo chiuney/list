@@ -49,6 +49,9 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
         // 地図表示領域をマーカー位置に合わせて拡大
         bounds.extend(marker.position);
 
+        // 引数に指定した領域を地図に収める
+        // map.fitBounds(bounds);
+
         //「マーカー」の「ドラッグ操作が終わった時(dragend)」に関数を実行
         google.maps.event.addListener(marker, 'dragend', (event) => {
           //マーカーにポインターをホバーした時に、文字列に変換された緯度経度が書かれたツールチップ(吹き出し)を表示
@@ -57,6 +60,4 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
       }
     })
   })
-          // 引数に指定した領域を地図に収める
-          map.fitBounds(bounds);
 }
