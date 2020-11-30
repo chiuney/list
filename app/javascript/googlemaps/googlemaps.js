@@ -2,12 +2,12 @@
 window.initMap = () => {}
 
 window.onload = function() {
-  // オブジェクトで取得=>mapメソッドで文字列に変換
+  // 住所をオブジェクトで取得 => 配列に変換してmap
   // 参考 : https://blog.sushi.money/entry/2017/04/19/114028
-  const addresses = [...document.querySelectorAll(".mapAddress")].map((node) => node.textContent);
+  const addresses = [...document.querySelectorAll("#mapAddress")].map((node) => node.textContent);
   const googleMapElement = document.getElementById('map');
-
   const infowindow = new google.maps.InfoWindow();
+
   // 住所が存在するか判定してマップを表示
   if (addresses.length > 0) {
     window.initMap = mappingPinToGoogleMap(addresses, googleMapElement)
@@ -20,48 +20,49 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
-  let bounds = new google.maps.LatLngBounds();
+  // bounds(地図の境界)を定義
+  const bounds = new google.maps.LatLngBounds();
+
+  // 店名を取得 => 文字列に変換
+  const shopName = [...document.querySelectorAll("#shop_name_js")].map((node) => node.textContent).toString();
 
   addresses.forEach((address) => {
     //ジオコードオブジェクト
-    let geocoder = new google.maps.Geocoder();
+    const geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address, 'region': 'jp' }, (result, status) => {
       // ステータスがOKの場合
       if(status == google.maps.GeocoderStatus.OK) {
 
         //緯度経度データを取得
-        let lat = result[0].geometry.location.lat();
-        let lng = result[0].geometry.location.lng();
-        let latlng = {lat,lng};
+        const lat = result[0].geometry.location.lat();
+        const lng = result[0].geometry.location.lng();
+        const latlng = {lat,lng};
 
         //マーカーを立てる場所の指定
-        let marker = new google.maps.Marker({
+        const marker = new google.maps.Marker({
           position: new google.maps.LatLng(latlng),
           map: googleMap,
-          // draggable: true
         });
 
         // マーカーの数によって地図の表示を変更
+        // マーカーが複数の場合
         if (addresses.length > 1) {
           // 地図表示領域をマーカー位置に合わせて拡大
           bounds.extend(marker.position);
           // 引数に指定した領域を地図に収める
-          googleMap.fitBounds(bounds,10);
+          googleMap.fitBounds(bounds,20);
+          // 吹き出し(InfoWindow)の設定
+          const infowindow = new google.maps.InfoWindow({
+            content: shopName,
+          });
+          // マーカーをクリックすると吹き出しを表示
+          marker.addListener("click", () => {
+            infowindow.open(googleMap, marker);
+          });
         } else {
           //指定の座標で中心位置を指定
           googleMap.setCenter(latlng);
         }
-
-        // 吹き出し(InfoWindow)の設定
-        const infowindow = new google.maps.InfoWindow({
-          content: "hoge",
-        });
-
-        // マーカーをクリックすると吹き出しを表示
-        marker.addListener("click", () => {
-          infowindow.open(googleMap, marker);
-        });
-
       }
     })
   })
