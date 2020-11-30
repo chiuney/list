@@ -15,6 +15,7 @@ window.onload = function() {
 }
 
 function mappingPinToGoogleMap(addresses, googleMapElement) {
+  // 初期位置設定
   const googleMap = new google.maps.Map(googleMapElement, {
     zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP
