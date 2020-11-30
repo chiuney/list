@@ -25,24 +25,22 @@
         </div>
       </section>
 
-      <div class="#">
       <% if current_user.lists.empty? %>
         <%= link_to "リストを作成してください", new_list_path, class:"dropdown-list__dropdown-item--link" %>
       <% else %>
         <div class="checkbox_continer">
           <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
-            <%= check.label class:"checkbox_continer__checkbox-btn" do%>
+            <%= check.label class:"checkbox_continer__checkbox-btn" do %>
               <%= check.check_box %>
               <%= check.text %>
             <% end %>
           <% end %>
         </div>
       <% end %>
-      </div>
 
-      <div class="item-info__item-photo">
+      <div class="item-info__new-photo">
         <label>
-          <i class="far fa-images item-info__item-photo--mark"></i>
+          < class="far fa-images item-data__new-photo--photo"></i>
           <%= form.file_field :photos, multiple: true, class:"item-info__item-photo--select" %>
         </label>
       </div>
@@ -56,7 +54,7 @@
 
   <div class="item-others">
     <div>
-    <%= render 'shared/googlemaps' %>
+      <%= render 'shared/googlemaps' %>
     </div>
     <div class="item-others__item-info">
       <h3 class="item-others__item-info--title">関連情報</h3>

@@ -25,23 +25,32 @@
         </div>
       </section>
 
-      <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
-        <%= check.label { check.check_box + check.text } %>
-      <% end %>
+      <div class="checkbox_continer">
+        <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
+          <%= check.label class:"checkbox_continer__checkbox-btn" do %>
+            <%= check.check_box %>
+            <%= check.text %>
+          <% end %>
+        <% end %>
+      </div>
 
-      <div class="item-info__item-photo">
+      <div class="item-info__new-photo">
         <label>
-          <i class="far fa-images item-data__item-photo--photo"></i>
+          <p class="item-data__new-photo--link">写真を追加</p>
           <%= form.file_field :photos, multiple: true, class:"item-info__item-photo--select" %>
         </label>
       </div>
       
       <% if @shop.photos.present? %>
         <p>現在登録されている画像（削除するものはチェックしてください）</p>
+        <div class="item-info__item-photo">
         <% @shop.photos.each do |photos| %>
-          <%= form.check_box :photos_ids, {multiple: true}, photos.id, false %>
-          <%= image_tag photos, class:"item-data__item-photo--photo" %> <br>
+          <div class="testes">
+            <%= form.check_box :photos_ids, {multiple: true, class:"item-info__item-photo--checkbox"}, photos.id, false %>
+            <%= image_tag photos, class:"item-data__item-photo--photo" %>
+          </div>
         <% end %>
+        </div>
       <% end %>
 
       <div class="item-info__item-submit">
@@ -53,7 +62,7 @@
 
   <div class="item-others">
     <div>
-    <%= render 'shared/googlemaps' %>
+      <%= render 'shared/googlemaps' %>
     </div>
     <div class="item-others__item-info">
       <h3 class="item-others__item-info--title">関連情報</h3>
