@@ -38,7 +38,6 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
         let marker = new google.maps.Marker({
           position: new google.maps.LatLng(latlng),
           map: googleMap,
-          title: "hoge",
           // draggable: true
         });
 
@@ -53,12 +52,16 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
           googleMap.setCenter(latlng);
         }
 
-        // 以下保留
-        //「マーカー」の「ドラッグ操作が終わった時(dragend)」に関数を実行
-        google.maps.event.addListener(marker, 'dragend', (event) => {
-          //マーカーにポインターをホバーした時に、文字列に変換された緯度経度が書かれたツールチップ(吹き出し)を表示
-          marker.setTitle("hoge");
+        // 吹き出し(InfoWindow)の設定
+        const infowindow = new google.maps.InfoWindow({
+          content: "hoge",
         });
+
+        // マーカーをクリックすると吹き出しを表示
+        marker.addListener("click", () => {
+          infowindow.open(googleMap, marker);
+        });
+
       }
     })
   })
