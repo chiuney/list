@@ -26,7 +26,7 @@
       <% if !@shop.list_shops.present? %>
       <div class="likes-title__add-list">
         <%= link_to shop_new_list_shops_path(shop_id: @shop.id) , method: :POST do %>
-          <i class="fas fa-plus likes-title__add-list--link"></i>
+          <i class="far fa-clipboard likes-title__add-list--link"></i>
         <% end %>
       </div>
       <% end %>
@@ -35,7 +35,7 @@
       <% if !@shop.list_shops.empty? %>
       <div class="likes-title__add-list">
         <%= link_to edit_shop_list_shop_path(shop_id: @shop.id) do %>
-          <i class="far fa-edit likes-title__add-list--link"></i>
+          <i class="far fa-clipboard likes-title__add-list--link"></i>
         <% end %>
       </div>
       <% end %>
