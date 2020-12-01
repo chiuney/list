@@ -15,6 +15,10 @@ window.onload = function() {
     }
   })
 
+  // console.log(shopNames);
+  // console.log(addresses);
+  // console.log(data);
+
   const googleMapElement = document.getElementById('map');
   const infowindow = new google.maps.InfoWindow();
 
@@ -54,7 +58,7 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
 
         // マーカーの数によって地図の表示を変更
         // マーカーが複数の場合
-        if (data.length > 1) {
+        if (addresses.length > 1) {
           // 地図表示領域をマーカー位置に合わせて拡大
           bounds.extend(marker.position);
           // 引数に指定した領域を地図に収める
