@@ -6,6 +6,8 @@
 <ul class="top-ul">
   <li class="top-ul__top-list"><%= link_to '新規登録', new_user_registration_path, class:"top-ul__top-list--link" %></li>
   <li class="top-ul__top-list"><%= link_to 'ログイン', new_user_session_path, class:"top-ul__top-list--link" %></li>
-  <li class="#"><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
 </ul>
+<div class="top-container__top-gest">
+  <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"top-container__top-gest--link" %>
+</div>
 </main>

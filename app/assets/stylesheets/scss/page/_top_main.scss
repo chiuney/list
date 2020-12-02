@@ -21,6 +21,19 @@
     line-height: 1.6;
     padding: 8%;
   }
+
+  &__top-gest {
+    @include btn($background:#ece5db,$height:40px,$width:160px);
+
+    &:hover{
+      opacity: 0.9 ;
+    }
+
+    &--link {
+      color: 	#333300;
+      padding: 16px;
+    }
+  }
 }
 
 .top-ul {
