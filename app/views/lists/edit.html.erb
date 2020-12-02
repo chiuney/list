@@ -5,30 +5,28 @@
   <%= render 'shared/back' %>
   <%= render 'shared/error_list' %>
 
-  <%= form_with model: @list ,method: :patch, local: true do |f| %>
-    <div class="item-info">
-      <div class="item-info__item-name">
-        <%= f.text_field :list_name, autofocus: true, class:"item-info__item-name--form" %>
+  <%= form_with model: @list ,method: :patch, local: true do |form| %>
+    <dl class="item-input__item-info">
+      <div class="item-content">
+        <dt class="item-content__definition-term">
+          <%= form.label :リストネーム, class:"item-content__definition-term--name" %>
+        </dt>
+        <dd class="item-content__name-definition">
+          <%= form.text_field :list_name, autofocus: true, placeholder: "リストネームを入力してください", class:"item-content__name-definition--form" %>
+        </dd>
       </div>
-
-      <div class="item-info__item-comment">
-        <%= f.text_field :list_comment ,class:"item-info__item-comment--form" %>
+      <div class="item-content">
+        <dt class="item-content__definition-term">
+          <%= form.label :リストコメント, class:"item-content__definition-term--comment" %>
+        </dt>
+        <dd class="item-content__comment-description">
+          <%= form.text_area :list_comment, placeholder: "リストコメントを入力してください", class:"item-content__comment-description--form" %>
+        </dd>
       </div>
-
-
-      <% if @photos.present? %>
-        <% @photos.each do |p| %>
-          <%= f.check_box :photo_ids, {multiple: true}, p.id, false %>
-          <%= image_tag p, size:"100x100" %> <br>
-        <% end %>
-      <% else %>
-      <%= image_tag("no-image.png", class:"item-array__item-detail--img") %>
-    <% end %>
-
-      <div class="item-info__item-submit">
-        <%= f.submit "更新する", class:"item-info__item-submit--btn" %>
+      <div class="item-content__item-submit">
+        <%= form.submit "リストを追加", class:"item-content__item-submit--btn" %>
       </div>
-    </div>
+    </dl>
   <% end %>
 
   <div class="googlemaps">

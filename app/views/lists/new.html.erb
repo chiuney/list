@@ -4,27 +4,35 @@
 
   <%= render 'shared/back' %>
 
-  <%= form_with model: @list ,local: true do |f| %>
+  <%= form_with model: @list ,local: true do |form| %>
     <%= render 'shared/error_list' %>
 
-    <div class="item-info">
-      <div class="item-info__item-name">
-        <%= f.text_field :list_name, autofocus: true, placeholder: "リストネーム", class:"item-info__item-name--form" %>
-      </div>   
-      <div class="item-info__item-comment">
-        <%= f.text_area :list_comment, placeholder: "リストコメント", class:"item-info__item-comment--form" %>
+    <dl class="item-input__item-info">
+      <div class="item-content">
+        <dt class="item-content__definition-term">
+          <%= form.label :リストネーム, class:"item-content__definition-term--name" %>
+        </dt>
+        <dd class="item-content__name-definition">
+          <%= form.text_field :list_name, autofocus: true, placeholder: "リストネームを入力してください", class:"item-content__name-definition--form" %>
+        </dd>
       </div>
-      <div class="item-info__item-submit">
-        <%= f.submit "リストを追加", class:"item-info__item-submit--btn" %>
+      <div class="item-content">
+        <dt class="item-content__definition-term">
+          <%= form.label :リストコメント, class:"item-content__definition-term--comment" %>
+        </dt>
+        <dd class="item-content__comment-description">
+          <%= form.text_area :list_comment, placeholder: "リストコメントを入力してください", class:"item-content__comment-description--form" %>
+        </dd>
       </div>
-    </div>
+      <div class="item-content__item-submit">
+        <%= form.submit "リストを追加", class:"item-content__item-submit--btn" %>
+      </div>
+    </dl>
 
   <% end %>
 
   <div class="googlemaps">
     <%= render 'shared/googlemaps' %>
   </div>
-
-<p>店の情報とか</p>
 
 </main>

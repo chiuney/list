@@ -8,41 +8,70 @@
   height: 14vh;
   width: 100vw;
 
+  &__item-info {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
   &__item-search {
     display: flex;
   }
 }
 
-.item-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.item-content {
   width: 70%;
-  margin: 0 auto;
-  text-align: center;
+  // min-width: 280px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
-  &__item-name {
-    font-size: 24px;
-    margin: 20px auto 10px;
+  // リスト登録のラベル(dt)
+  &__definition-term {
+    // font-size: 24px;
+    // margin: 20px auto 10px;
+    width: 150px;
+    // border: solid;
+    &--name {
 
-    &--form {
-      @include sign($width:300px);
     }
   }
 
-  &__item-comment {
+  // リストネームのフォーム(dd)
+  &__name-definition{
+    // border: solid;
     font-size: 16px;
-    margin: 10px auto 20px;
-    width: 100%;
-    min-width: 280px;
+    // margin: 20px auto 10px;
+    // width: 300px;
     margin: 0 auto;
 
     &--form {
-      @include sign($width:80%);
-      height: 30px;
+      @include sign($width:400px);
       font-size: 16px;
-      margin: 0 auto;
+      border: none;
+      border-bottom: 1px solid #999;
+      border-radius: 0;
+    }
+  }
+
+  // リストコメントのフォーム(dd)
+  &__comment-description {
+    // border: solid;
+    // margin: 10px auto 20px;
+    margin: 10px auto;
+
+    &--form {
+      // border: solid;
+      @include sign($width:400px);
+      height: 100px;
+      font-size: 16px;
+      border: none;
+      border: 1px solid #999;
+      border-radius: 0;
     }
   }
 
