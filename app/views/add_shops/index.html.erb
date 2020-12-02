@@ -12,7 +12,7 @@
       <div class="item-array__item-detail">
 
         <% if add_shop.shop.photos.present? %>
-          <%= link_to image_tag(add_shop.photos[0],class:"item-array__item-detail--img"), shop_path(add_shop.shop) %>
+          <%= link_to image_tag(add_shop.shop.photos[0],class:"item-array__item-detail--img"), shop_path(add_shop.shop) %>
         <% else %>
           <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(add_shop.shop) %>
         <% end %>
