@@ -43,6 +43,13 @@ class User < ApplicationRecord
     AddShop.where(shop_id: @shop.id).exists?
   end
 
+  # ゲストユーザー
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
 
   # Active Storage 1つの画像を投稿
   has_one_attached :image

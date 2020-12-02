@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: "home#index"
-  devise_for :users, controllers: {
-    registrations: "users/registrations",
-  }
+  # devise_for :users, controllers: {
+  #   registrations: "users/registrations",
+  # }
   resources :users
   delete '/users/:id', to: 'users#destroy', as: 'destroy_user_account'
 
@@ -34,6 +34,16 @@ Rails.application.routes.draw do
 
   # SEARCH
   get "search", to: "users#search"
+
+  # ゲストログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+
+  # ゲストユーザー => 削除不可
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
 
 
