@@ -60,6 +60,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # RSpec テスト用
   gem 'rspec-rails', '~> 4.0.1'
+  # テスト環境の立ち上げ速度アップ
+  gem 'spring-commands-rspec'
 end
 
 group :test do
