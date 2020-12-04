@@ -16,10 +16,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable
 
   # バリデーション
-  validates :user_name,            presence: true
-  validates :email,                presence: true
-  validates :password,             presence: true
-  validates :password_confimation, presence: true
+  validates :user_name,             presence: true,
+                                    length: { maximum: 20 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email,                 presence: true,
+                                    format: { with: VALID_EMAIL_REGEX }
+  validates :password,              presence: true,
+                                    length: { minimum: 6 }
+  validates :password_confirmation, presence: true,
+                                    length: { minimum: 6 }
 
   # ユーザーをフォローする
   def follow(user_id)

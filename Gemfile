@@ -62,6 +62,8 @@ group :development do
   gem 'rspec-rails', '~> 4.0.1'
   # テスト環境の立ち上げ速度アップ
   gem 'spring-commands-rspec'
+  # テスト用データ作成
+  gem 'factory_bot_rails'
 end
 
 group :test do
