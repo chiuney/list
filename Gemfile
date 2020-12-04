@@ -49,6 +49,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # RSpec テスト用
+  gem 'rspec-rails', '~> 4.0.1'
+  # テスト環境の立ち上げ速度アップ
+  gem 'spring-commands-rspec'
+  # テスト用データ作成
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -58,12 +64,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # RSpec テスト用
-  gem 'rspec-rails', '~> 4.0.1'
-  # テスト環境の立ち上げ速度アップ
-  gem 'spring-commands-rspec'
-  # テスト用データ作成
-  gem 'factory_bot_rails'
 end
 
 group :test do
@@ -72,6 +72,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  # テスト用データ作成
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
