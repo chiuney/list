@@ -3,12 +3,7 @@ require 'rails_helper'
 RSpec.describe List, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
   before do
-    @user = User.create(
-      user_name: "tarou",
-      email: "tarou@example.com",
-      password: "password",
-      password_confirmation: "password",
-    )
+    @user = create(:user)
   end
 
   it "リストネームとuser_idがある場合 => 有効" do
@@ -28,8 +23,8 @@ RSpec.describe List, type: :model do
     expect(list.errors.of_kind?(:list_name, :blank)).to be_truthy
   end
 
-  # Factory_bot
   # it "user_idがない場合 => 有効" do
+  #   @user = build(:user)
   #   list = List.new(
   #     list_name: "list_name",
   #     user_id: nil,
