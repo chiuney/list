@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
 
   it "ユーザー名、メアド、パスワード、確認用パスワードがある場合 => 有効" do
     expect(build(:user)).to be_valid

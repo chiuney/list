@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe List, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
+
   before do
     @user = create(:user)
   end
@@ -23,15 +23,14 @@ RSpec.describe List, type: :model do
     expect(list.errors.of_kind?(:list_name, :blank)).to be_truthy
   end
 
-  # it "user_idがない場合 => 有効" do
-  #   @user = build(:user)
-  #   list = List.new(
-  #     list_name: "list_name",
-  #     user_id: nil,
-  #   )
-  #   list.valid?
-  #   expect(list.errors.of_kind?(:user_id, :blank)).to be_truthy
-  # end
+  it "user_idがない場合 => 有効" do
+    list = List.new(
+      list_name: "list_name",
+      user_id: nil,
+    )
+    list.valid?
+    expect(list.errors.of_kind?(:user_id, :blank)).to be_truthy
+  end
 
   it "リストネームが50字の場合 => 有効" do
     list = List.new(
