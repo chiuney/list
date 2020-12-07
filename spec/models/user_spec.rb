@@ -75,5 +75,29 @@ RSpec.describe User, type: :model do
   # it "メアドが重複する場合 => 無効" do
   # end
 
+  # # ユーザー検索
+  # describe '#search' do
+  #     before do
+  #       @user = build(:user)
+  #       @other_user = build(:user, user_name:"jirou",
+  #                                  email:"jirou@example.com",
+  #       )
+  #     end
+
+  #     context "tarouで検索した場合" do
+  #       it "tarou(@user)を返す" do
+  #         expect(User.search("tarou")).to include(@user)
+  #       end
+
+  #       it "jirou(@other_user)と返さない" do
+  #         expect(User.search("jirou")).to_not include(@other_user)
+  #       end
+
+  #     end
+
+  #     # context "tomで検索した場合 全てのユーザーを返す" do
+  #     #   expect(User.search("tom")).to include()
+  #     # end
+  # end
 
 end
