@@ -3,5 +3,6 @@ FactoryBot.define do
     list_name {"list_name"}
 
     association :user
+    association :shop
   end
 end
