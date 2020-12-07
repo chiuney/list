@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  # googlemaps表示 
+  # googlemaps表示
   geocoded_by :shop_address
 
   # AddShop
@@ -11,7 +11,6 @@ class Shop < ApplicationRecord
   accepts_nested_attributes_for :list_shops
 
   validates :shop_name,    length: { maximum: 50 }, presence: true
-  validates :shop_comment, length: { maximum: 500 }
 
     # ショップ検索（曖昧）
     def Shop.search(search, user_or_list_or_shop)
@@ -29,7 +28,7 @@ class Shop < ApplicationRecord
     # validate :photos_type
 
     # private
-  
+
     # def photos_type
     #   if !photos.content_type.in?(%('photos/jpeg photos/jpg photos/png'))
     #     errors.add(:photos,'にはjpeg,jpg,pngファイルを使用してください')
