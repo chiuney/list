@@ -72,4 +72,8 @@ RSpec.describe User, type: :model do
   # it "メアドが正規表現でない場合 => 無効" do
   # end
 
+  # it "メアドが重複する場合 => 無効" do
+  # end
+
+
 end
