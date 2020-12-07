@@ -96,7 +96,7 @@ RSpec.describe User, type: :model do
   #     end
 
   #     # context "tomで検索した場合 全てのユーザーを返す" do
-  #     #   expect(User.search("tom")).to include()
+  #     #   expect(User.search("tom")).to include(@user,@other_user)
   #     # end
   # end
 
