@@ -4,7 +4,8 @@ class List < ApplicationRecord
   has_many :shops, dependent: :destroy, through: :list_shops
 
   validates :list_name,    length: { maximum: 50 }, presence: true
-  validates :list_comment, length: { maximum: 500 } 
+  validates :list_comment, length: { maximum: 500 }
+  # validates :user_id,      presence: true
 
   has_many_attached :photos
 
