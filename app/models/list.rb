@@ -5,7 +5,7 @@ class List < ApplicationRecord
 
   validates :list_name,    length: { maximum: 50 }, presence: true
   validates :list_comment, length: { maximum: 500 }
-  # validates :user_id,      presence: true
+  validates :user_id,      presence: true
 
   has_many_attached :photos
 

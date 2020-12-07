@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe List, type: :model do
 
   it "リストネームとuser_idがある場合 => 有効" do
-    expect(build(:list)).to be_valid
+    expect(create(:list)).to be_valid
   end
 
   it "リストネームがない場合 => 有効" do
@@ -12,14 +12,14 @@ RSpec.describe List, type: :model do
     expect(list.errors.of_kind?(:list_name, :blank)).to be_truthy
   end
 
-  # it "user_idがない場合 => 無効" do
-  #   list = build(:list, user_id:nil)
-  #   list.valid?
-  #   expect(list.errors.of_kind?(:user_id, :blank)).to be_truthy
-  # end
+  it "user_idがない場合 => 無効" do
+    list = build(:list, user_id:nil)
+    list.valid?
+    expect(list.errors.of_kind?(:user_id, :blank)).to be_truthy
+  end
 
   it "リストネームが50字の場合 => 有効" do
-    list = build(:list, list_name:"a" * 50)
+    list = create(:list, list_name:"a" * 50)
     expect(list).to be_valid
   end
 
@@ -30,7 +30,7 @@ RSpec.describe List, type: :model do
   end
 
   it "リストコメントが500字の場合 => 有効" do
-    list = build(:list, list_comment: "a" * 500)
+    list = create(:list, list_comment: "a" * 500)
     expect(list).to be_valid
   end
 
