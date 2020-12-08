@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  
+
   resources :users
   delete '/users/:id', to: 'users#destroy', as: 'destroy_user_account'
 
