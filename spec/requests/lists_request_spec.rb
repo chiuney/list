@@ -104,18 +104,18 @@ RSpec.describe "Lists", type: :request do
 
       context 'パラメータが妥当な場合' do
         it 'リクエストが成功すること' do
-          put list_url @pre_list, params: { list: attributes_for(:updated_list) }
+          patch list_url @pre_list, params: { list: attributes_for(:updated_list) }
           expect(response).to have_http_status(302)
         end
 
         # it 'ユーザー名が更新されること' do
         #   expect do
-        #     put list_url @pre_list, params: { list: attributes_for(:updated_list) }
+        #     patch list_url @pre_list, params: { list: attributes_for(:updated_list) }
         #   end.to change { List.find(@pre_list.id).name }.from('pre_list').to('updated_list')
         # end
 
         it 'リダイレクトすること' do
-          put list_url @pre_list, params: { list: attributes_for(:updated_list) }
+          patch list_url @pre_list, params: { list: attributes_for(:updated_list) }
           expect(response).to redirect_to List.last
         end
       end
@@ -148,7 +148,7 @@ RSpec.describe "Lists", type: :request do
 
       it "リクエストが成功すること" do
         delete list_url @list
-        expect(response.status).to eq 302
+        expect(response).to have_http_status(302)
       end
 
       it "リストが削除される" do
