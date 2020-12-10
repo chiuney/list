@@ -75,54 +75,58 @@ RSpec.describe "Users", type: :request do
         end.to_not change(User, :count)
       end
 
-      # it 'エラーが表示されること' do
-      #   post users_url, params: { user: attributes_for(:user, :invalid) }
-      #   expect(user.errors.of_kind?(:user_name, :blank)).to be_truthy
-      # end
+      it 'エラーが表示されること' do
+        post users_url, params: { user: attributes_for(:user, :invalid) }
+        expect(response.body).to include '保存されませんでした'
+        # 以下のような、言語非依存の形式に変えたい
+        # expect(user.errors.of_kind?(:user_name, :blank)).to be_truthy
+      end
     end
   end
 
-  describe 'PUT #update' do
+  describe 'PATCH #update' do
+
     before do
-      @jirou = create(:jirou)
-      @saburou = create(:saburou)
-      sign_in @jirou
+      @user = create(:user)
+      sign_in @user
     end
 
     context 'パラメータが妥当な場合' do
       it 'リクエストが成功すること' do
-        patch user_registration_url, params: { user: attributes_for(:saburou) }
+        put user_registration_url, params: { user: attributes_for(:jirou) }
         expect(response).to have_http_status(200)
       end
 
+      # エラー
       # it 'ユーザー名が更新されること' do
       #   expect do
-      #     put user_registration_url, params: { user: attributes_for(:saburou) }
-      #   end.to change { User.find(@jirou.id).name }.from('jirou').to('saburou')
+      #     put user_registration_url, params: { user: attributes_for(:jirou) }
+      #   end.to change(User.find(@user.id), :user_name).from('tarou').to('jirou')
       # end
 
+      # エラー
       # it 'リダイレクトすること' do
-      #   patch user_registration_url, params: { user: attributes_for(:saburou) }
-      #   expect(response).to redirect_to User.last
+      #   put user_registration_url, params: { user: attributes_for(:jirou) }
+      #   expect(response).to redirect_to "users/1"
       # end
     end
 
     context 'パラメータが不正な場合' do
       it 'リクエストが成功すること' do
-        patch user_registration_url, params: { user: attributes_for(:user, :invalid) }
+        put user_registration_url, params: { user: attributes_for(:user, :invalid) }
         expect(response).to have_http_status(200)
       end
 
-      # it 'ユーザー名が変更されないこと' do
-      #   expect do
-      #     put user_url @jirou, params: { user: attributes_for(:user, :invalid) }
-      #   end.to_not change(User.find(@jirou.id), :name)
-      # end
+      it 'ユーザー名が変更されないこと' do
+        expect do
+          put user_registration_url, params: { user: attributes_for(:user, :invalid) }
+        end.to_not change(User.find(@user.id), :user_name)
+      end
 
-      # it 'エラーが表示されること' do
-      #   put user_url @jirou, params: { user: attributes_for(:user, :invalid) }
-      #   expect(response.body).to include 'prohibited this user from being saved'
-      # end
+      it 'エラーが表示されること' do
+        put user_registration_url, params: { user: attributes_for(:user, :invalid) }
+        expect(response.body).to include '保存されませんでした'
+      end
     end
   end
 
