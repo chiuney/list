@@ -3,14 +3,14 @@ class AddShopsController < ApplicationController
   def create
     @shop = Shop.find(params[:shop_id])
     @add_shop = AddShop.create(user_id: current_user.id, shop_id: @shop.id)
-    redirect_to request.referer
+    redirect_to @shop
   end
 
   def destroy
     @shop = Shop.find(params[:shop_id])
     @add_shop = AddShop.find_by(user_id: current_user.id, shop_id: @shop.id)
     @add_shop.destroy
-    redirect_to request.referer
+    redirect_to @shop
   end
 
   def index
