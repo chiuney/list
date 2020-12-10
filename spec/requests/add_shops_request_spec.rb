@@ -8,22 +8,30 @@ RSpec.describe "AddShops", type: :request do
       sign_in @user
     end
 
+    # it 'リクエストが成功すること' do
+    #   # get user_url takashi.id
+    #   expect { post shop_add_shops_url(shop_id: @shop.id), params: { shop_id: @shop.id} }.to have_http_status(200)
+    # end
+
     it 'いいねされたshopが表示されていること' do
-      expect { post shop_add_shops_url(shop_id: @shop.id), params: { shop_id: @shop.id} }.to change{ AddShop.count }.by(1)
+      expect do
+        post shop_add_shops_url(shop_id: @shop.id), params: { shop_id: @shop.id}
+      end.to change{ AddShop.count }.by(1)
     end
   end
 
   describe 'DELETE #destroy' do
-  before do
-    @user = create(:user)
-    @shop = create(:shop)
-    @add_shop = create(:add_shop, user_id: @user.id, shop_id: @shop.id)
-    sign_in @user
-  end
+    before do
+      @user = create(:user)
+      @shop = create(:shop)
+      @add_shop = create(:add_shop, user_id: @user.id, shop_id: @shop.id)
+      sign_in @user
+    end
 
-  it 'ユーザーが削除されること' do
-    expect { delete shop_add_shop_url(id: @add_shop.id, shop_id: @shop.id), params: { shop_id: @shop.id, id: @add_shop.id } }.to change{ AddShop.count }.by(-1)
+    it 'ユーザーが削除されること' do
+      expect do
+        delete shop_add_shop_url(id: @add_shop.id, shop_id: @shop.id), params: { shop_id: @shop.id, id: @add_shop.id }
+      end.to change{ AddShop.count }.by(-1)
+    end
   end
-
-end
 end
