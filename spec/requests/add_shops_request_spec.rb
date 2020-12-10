@@ -8,11 +8,6 @@ RSpec.describe "AddShops", type: :request do
       sign_in @user
     end
 
-    # it 'リクエストが成功すること' do
-    #   # get user_url takashi.id
-    #   expect { post shop_add_shops_url(shop_id: @shop.id), params: { shop_id: @shop.id} }.to have_http_status(200)
-    # end
-
     it 'いいねされたshopが表示されていること' do
       expect do
         post shop_add_shops_url(shop_id: @shop.id), params: { shop_id: @shop.id}

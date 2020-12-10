@@ -54,7 +54,7 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
         const marker = new google.maps.Marker({
           position: new google.maps.LatLng(latlng),
           map: googleMap,
-        });   
+        });
 
         // マーカーの数によって地図の表示を変更
         // マーカーが複数の場合
