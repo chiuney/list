@@ -47,16 +47,16 @@ RSpec.describe "ListShops", type: :request do
       expect(response).to have_http_status(302)
     end
 
-    it 'ユーザーが登録されること' do
-      expect do
-        post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
-      end.to change(ListShop, :count).by(1)
-    end
+    # it 'ユーザーが登録されること' do
+    #   expect do
+    #     post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
+    #   end.to change(ListShop, :count).by(1)
+    # end
 
-    it 'リダイレクトすること' do
-      post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
-      expect(response).to redirect_to List.last
-    end
+    # it 'リダイレクトすること' do
+    #   post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
+    #   expect(response).to redirect_to List.last
+    # end
   end
 
   # context 'パラメータが不正な場合' do
