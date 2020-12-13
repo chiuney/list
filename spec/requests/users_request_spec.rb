@@ -101,15 +101,14 @@ RSpec.describe "Users", type: :request do
       it 'ユーザー名が更新されること' do
         expect do
           put user_registration_url, params: { user: attributes_for(:user) }
-          byebug
         end.to change { User.find(@user.id).user_name }.from('tarou').to('jirou')
       end
 
-      # # エラー
-      # it 'リダイレクトすること' do
-      #   put user_registration_url, params: { user: attributes_for(:jirou) }
-      #   expect(response).to redirect_to "users/1"
-      # end
+      # エラー
+      it 'リダイレクトすること' do
+        put user_registration_url, params: { user: attributes_for(:jirou) }
+        expect(response).to redirect_to User.last
+      end
     end
 
     context 'パラメータが不正な場合' do
