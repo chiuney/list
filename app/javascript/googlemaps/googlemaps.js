@@ -15,10 +15,6 @@ window.onload = function() {
     }
   })
 
-  // console.log(shopNames);
-  // console.log(addresses);
-  // console.log(data);
-
   const googleMapElement = document.getElementById('map');
   const infowindow = new google.maps.InfoWindow();
 
@@ -26,6 +22,7 @@ window.onload = function() {
   if (addresses.length > 0) {
     window.initMap = mappingPinToGoogleMap(addresses, googleMapElement)
   }
+
 
 
 function mappingPinToGoogleMap(addresses, googleMapElement) {
@@ -39,6 +36,7 @@ function mappingPinToGoogleMap(addresses, googleMapElement) {
   const bounds = new google.maps.LatLngBounds();
 
   data.forEach((data) => {
+
     //ジオコードオブジェクト
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': data.address, 'region': 'jp' }, (result, status) => {

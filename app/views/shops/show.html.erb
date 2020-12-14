@@ -7,7 +7,7 @@
 
     <div class="likes-title">
       <div class="item-data__item-name">
-        <%= @shop.shop_name %>
+        <span id="shop_name_js"><%= @shop.shop_name %><span>
       </div>
 
       <div class="likes-title__like-haert">
@@ -43,7 +43,7 @@
 
     <section class="item-data__item-info" >
       <div class="item-address">
-        <span id="mapAddress" class="mapAddress" ><%= @shop.shop_address %></span>
+        <span id="mapAddress" ><%= @shop.shop_address %></span>
       </div>
 
       <div class="item-tell">
@@ -72,8 +72,9 @@
 
   <div class="item-others">
     <div>
-    <%= render 'shared/googlemaps' %>
+      <%= render 'shared/googlemaps' %>
     </div>
+
     <div class="item-others__item-info">
       <h3 class="item-others__item-info--title">関連情報</h3>
       <dl class="item-detail">
@@ -99,5 +100,5 @@
       </dl>
     </div>
   </div>
-  
+
 </main>
