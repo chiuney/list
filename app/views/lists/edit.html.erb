@@ -2,7 +2,6 @@
 
 <main class="item-input">
 
-  <%= render 'shared/back' %>
   <%= render 'shared/error_list' %>
 
   <%= form_with model: @list ,method: :patch, local: true do |form| %>
@@ -29,9 +28,8 @@
     </dl>
   <% end %>
 
-  <div class="googlemaps">
-    <%= render 'shared/googlemaps' %>
-  </div>
+  <%= link_to "削除", destroy_lists_path(current_user), class:"item-data__item-edit--form",
+  method: :delete, data: { confirm: '削除しますか？' } %>
 
 </section>
 

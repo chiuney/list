@@ -5,6 +5,7 @@
 
     <%= render partial: 'shared/flash' %>
 
+    <%# アイコン%>
     <div class="mypage-content__mypage-icon">
       <% if @user.image.attached? %>
         <%= image_tag @user.image, class:"mypage-content__mypage-icon--image" %>
@@ -12,7 +13,8 @@
         <%= image_tag 'no-image.png',class:"mypage-content__mypage-icon--image" %>
       <% end %>
     </div>
-    
+
+    <%# ユーザーネーム、フォローボタン%>
     <div class="test">
       <p class="mypage-content__mypage-name"><%= @user.user_name %></p>
       <div class="mypage-content__mypage-info">
@@ -28,13 +30,15 @@
       </div>
     </div>
 
+    <%#ユーザーコメント%>
     <p class="mypage-content__mypage-comment"><%= @user.user_comment %></p>
-    
+
+    <%# フォロー、フォロワー、いいね%>
     <div class="mypage-content__maypage-follow" >
       <% if @user.follower.size === 0 %>
         <span class="mypage-content__maypage-follow--link"><%= "#{@user.follower.size} Following" %></span>
       <% else %>
-        <%= link_to "#{@user.follower.size} Following",   following_path(id: @user.id),class:"mypage-content__maypage-follow--link" %>
+        <%= link_to "#{@user.follower.size} Following", following_path(id: @user.id), class:"mypage-content__maypage-follow--link" %>
       <% end %>
 
       <% if @user.followed.size === 0 %>
@@ -50,7 +54,8 @@
       <% end %>
     </div>
   </section>
-  
+
+  <%# アイコン%>
   <section class="item-display">
     <div class="item-array" >
       <% @lists.each do |l| %>

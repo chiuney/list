@@ -8,39 +8,51 @@
   width: 100vw;
 }
 
+.list-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__list-edit {
+    margin-left: 10px;
+  }
+}
+
 .item-data {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 10px auto 0;
-  // width: 70%;
+  margin: 20px auto 10px;
 
   &__back-page {
     @include back;
   }
 
   &__item-name {
+    margin: 0;
     font-size: 28px;
-    margin: 20px auto 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__item-comment {
     font-size: 14px;
-    margin: 10px auto 0px;
+    // margin: 10px auto 0px;
   }
 
   &__item-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 5px auto;
+    // margin: 5px auto;
   }
 
   &__item-user {
     font-size: 12px;
-    margin: 10px auto 20px;
+    // margin: 10px auto 20px;
 
     &--image {
       @include icon;
@@ -62,20 +74,17 @@
       border-radius: 10px;
       // 外接リサイズ
       object-fit: cover;
-  
+
       margin: 5px auto;
     }
   }
 
   &__item-edit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
     &--form {
       text-align: center;
       color: black;
-      font-size: 12px;
+      font-size: 20px;
+      color: #354e59;
     }
   }
 }
@@ -98,7 +107,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   &__like-haert {
     margin-left: 20px;
     display: flex;
