@@ -26,10 +26,6 @@
   flex-direction: column;
   margin: 20px auto 10px;
 
-  &__back-page {
-    @include back;
-  }
-
   &__item-name {
     margin: 0;
     font-size: 28px;

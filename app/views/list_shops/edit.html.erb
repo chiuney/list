@@ -2,8 +2,6 @@
 
 <main class="item-input">
 
-  <%= render 'shared/back' %>
-
   <%= form_with model: @list_shops, url: shop_update_list_shops_path(shop_id: @shop.id), method: :patch, local: true do |form| %>
 
     <div class="item-info">
@@ -40,7 +38,7 @@
           <%= form.file_field :photos, multiple: true, class:"item-info__item-photo--select" %>
         </label>
       </div>
-      
+
       <% if @shop.photos.present? %>
         <p>現在登録されている画像（削除するものはチェックしてください）</p>
         <div class="item-info__item-photo">

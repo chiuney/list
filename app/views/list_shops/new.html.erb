@@ -2,8 +2,6 @@
 
 <main class="item-input">
 
-  <%= render 'shared/back' %>
-
   <%= form_with model: @list_shops ,url: shop_list_shops_path(shop_id: @shop.id), local: true do |form| %>
 
     <div class="item-info">
