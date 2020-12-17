@@ -36,19 +36,16 @@
 
   &__item-comment {
     font-size: 14px;
-    // margin: 10px auto 0px;
   }
 
   &__item-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // margin: 5px auto;
   }
 
   &__item-user {
     font-size: 12px;
-    // margin: 10px auto 20px;
 
     &--image {
       @include icon;
@@ -140,7 +137,6 @@
 .item-others {
   display: flex;
   justify-content: center;
-  // align-items: center;
   background: #f2f2f2;
   min-height: 500px;
 
@@ -160,7 +156,6 @@
 
   &__item-table {
     display: flex;
-    // justify-content: center;
     align-items: center;
     margin: 10px 0px;
 
