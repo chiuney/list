@@ -1,150 +1,132 @@
 // list,shop_show の _name, _comment の部分
+// item_arrayはitem_displayにあります
 
 @import '../mixin/btn';
 @import '../mixin/icon';
 
+// ページ全体
 .item-show {
   height: 100vh;
   width: 100vw;
-}
 
-.list-show {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // _name,_commentなどgooglemapより上全体
+  &__item-data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto 10px;
 
-  &__list-edit {
-    margin-left: 10px;
   }
 }
 
-.item-data {
+// list_name, shop_name,list_edit linkの親要素(flex対応)
+.show-info {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin: 20px auto 10px;
+  margin: 10px auto;
 
+  // list_name, shop_name
   &__item-name {
-    margin: 0;
     font-size: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  &__item-comment {
-    font-size: 14px;
+  // list_edit link
+  &__list-edit {
+    margin-left: 20px;
+
+    &--link {
+      color: #999;
+      font-size: 24px;
+    }
   }
 
-  &__item-info {
+  // list_shop_edit, like
+  &__shop-edit {
+    margin-left: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-  }
 
-  &__item-user {
-    font-size: 12px;
+   &--like {
+    color: #999;
+    font-size: 24px;
+   }
 
-    &--image {
-      @include icon;
-      border: 1px solid black;
+   &--unlike {
+    color: #354e59;
+    font-size: 24px;
     }
 
     &--link {
-      color: black;
+      color: #999;
+      font-size: 24px;
     }
+  }
+
+  // shop_nameの下 住所、電話番号、公式URL
+  &__item-address {
+    padding: 0 5px;
+  }
+
+  &__item-tell {
+     padding: 0 5px;
+     border-left: 1px solid #999;
+  }
+
+  &__item-official {
+     padding: 0 5px;
+     border-left: 1px solid #999;
   }
 
   &__item-photo {
+    width: 200px;
+    height: 140px;
+    // ないと他のが適用されちゃう？後で確認
+    border: none;
+    border-radius: 10px;
+    // 外接リサイズ
+    object-fit: cover;
 
-    &--photo {
-      width: 200px;
-      height: 140px;
-      // ないと他のが適用されちゃう？後で確認
-      border: none;
-      border-radius: 10px;
-      // 外接リサイズ
-      object-fit: cover;
-
-      margin: 5px auto;
-    }
-  }
-
-  &__item-edit {
-    &--form {
-      text-align: center;
-      color: black;
-      font-size: 20px;
-      color: #354e59;
-    }
+    margin: 5px auto;
   }
 }
 
-.item-address {
- padding: 0 5px;
-}
+// listを作成したユーザー
+.show-user {
+  font-size: 12px;
+  margin: 10px;
 
-.item-tell {
-  padding: 0 5px;
-  border-left: 1px solid #999;
-}
-
-.item-official {
-  padding: 0 5px;
-  border-left: 1px solid #999;
-}
-
-.likes-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &__like-haert {
-    margin-left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &__like {
-      color: #999;
-      font-size: 24px;
-      margin: 20px auto 10px;
-    }
-
-    &__unlike {
-      color: #354e59;
-      font-size: 24px;
-      margin: 20px auto 10px;
-    }
+  &__user-image {
+    @include icon;
+    border: 1px solid black;
   }
 
-  &__add-list {
-    margin-left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &--link {
-      color: #999;
-      font-size: 24px;
-      margin: 20px auto 10px;
-    }
+  &__user-name {
+    color: black;
   }
 }
 
-.item-others {
+// 以下shopの関連情報欄
+.others-info {
   display: flex;
   justify-content: center;
   background: #f2f2f2;
   min-height: 500px;
 
-  &__item-info {
+  padding-top: 20px;
+
+  &__related-info {
     height: 300px;
     width: 300px;
-    padding: 10px;
+    padding: 20px;
 
+    // 「関連情報」
     &--title  {
       font-size: 20px;
       margin:0px 0px 20px;
@@ -152,17 +134,22 @@
   }
 }
 
+// 関連情報　詳細
+// dl
 .item-detail {
 
+  // div => dt + dd
   &__item-table {
     display: flex;
     align-items: center;
     margin: 10px 0px;
 
+    // dt
     &--title {
       width: 100px;
     }
 
+    // dd
     &--content {
       width: 180px;
     }

@@ -1,46 +1,40 @@
 <% provide(:title, "List") %>
 
 <main class="item-show">
-  <div class="item-data">
+  <div class="item-show__item-data">
 
     <%= render partial: 'shared/flash' %>
 
-    <div class="list-show">
-      <div class="item-data__item-name">
-        <span class="item-data__item-name--form">
+    <div class="show-info">
+      <div class="show-info__item-name">
+        <span class="#">
         <%= @list.list_name %>
         </span>
       </div>
 
-      <% if user_signed_in? && current_user.id == @list.user_id %>
-      <div class="list-show__list-edit">
-        <%= link_to edit_list_path(id: @list.id), class:"item-data__item-edit--form" do %>
-          <i class="fas fa-ellipsis-h"></i>
+      <div class="show-info__list-edit">
+        <% if user_signed_in? && current_user.id == @list.user_id %>
+            <%= link_to edit_list_path(id: @list.id), class:"show-info__list-edit--link" do %>
+              <i class="fas fa-ellipsis-h"></i>
+            <% end %>
         <% end %>
       </div>
-      <% end %>
     </div>
 
-    <div class="item-data__item-comment">
-      <span class="item-data__item-comment--form" >
-        <%= @list.list_comment %>
-      </span>
-    </div>
-
-    <div class="item-data__item-user">
+    <div class="show-user">
       <% if @list.user.image? %>
-        <%= link_to image_tag( @list.user.image.thumb.url, class:"item-data__item-user--image"), user_path(@list.user) %>
+        <%= link_to image_tag( @list.user.image.thumb.url, class:"show-user__user-image"), user_path(@list.user) %>
       <% else %>
-        <%= image_tag 'no-image.png',class:"item-data__item-user--image" %>
+        <%= image_tag 'no-image.png',class:"show-user__user-image" %>
       <% end %>
-      <%= link_to "#{@list.user.user_name} さん", user_path(@list.user), class:"item-data__item-user--link" %>
+      <%= link_to "#{@list.user.user_name} さん", user_path(@list.user), class:"show-user__user-name" %>
     </div>
+  </div>
 
   <div>
     <%= render 'shared/googlemaps' %>
   </div>
 
-  <sction class="item-display">
   <div class="item-array">
     <% @list.shops.each do |shops| %>
       <div class="item-array__item-detail">
@@ -54,6 +48,4 @@
       </div>
     <% end %>
   </div>
-
-
 </main>

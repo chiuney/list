@@ -2,81 +2,75 @@
 
 <main class="item-show">
 
-  <div class="item-data">
+  <div class="item-show__item-data">
     <%= render partial: 'shared/flash' %>
 
-    <div class="likes-title">
-      <div class="item-data__item-name">
+    <div class="show-info">
+      <div class="show-info__item-name">
         <span id="shop_name_js"><%= @shop.shop_name %><span>
       </div>
 
-      <div class="likes-title__like-haert">
+      <div class="show-info__shop-edit">
         <% if AddShop.where(shop_id: @shop.id).exists? %>
           <%= link_to shop_add_shop_path(@shop) , method: :delete do %>
-            <i class="fas fa-heart likes-title__like-haert__unlike"></i>
+            <i class="fas fa-heart show-info__shop-edit--unlike"></i>
           <% end %>
         <% else %>
           <%= link_to shop_add_shops_path(shop_id: @shop.id) , method: :POST do %>
-            <i class="far fa-heart likes-title__like-haert__like"></i>
+            <i class="far fa-heart show-info__shop-edit--like"></i>
           <% end %>
         <% end %>
       </div>
 
       <%# shopをlistに追加%>
       <% if !@shop.list_shops.present? %>
-      <div class="likes-title__add-list">
+      <div class="show-info__shop-edit">
         <%= link_to shop_new_list_shops_path(shop_id: @shop.id) , method: :POST do %>
-          <i class="far fa-clipboard likes-title__add-list--link"></i>
+          <i class="far fa-clipboard show-info__shop-edit--link"></i>
         <% end %>
       </div>
       <% end %>
 
       <%# listに追加済みのshopを編集%>
       <% if !@shop.list_shops.empty? %>
-      <div class="likes-title__add-list">
+      <div class="show-info__shop-edit">
         <%= link_to edit_shop_list_shop_path(shop_id: @shop.id) do %>
-          <i class="far fa-clipboard likes-title__add-list--link"></i>
+          <i class="far fa-clipboard show-info__shop-edit--link"></i>
         <% end %>
       </div>
       <% end %>
     </div>
 
-    <section class="item-data__item-info" >
-      <div class="item-address">
+    <section class="show-info" >
+      <div class="show-info__item-address">
         <span id="mapAddress" ><%= @shop.shop_address %></span>
       </div>
 
-      <div class="item-tell">
+      <div class="show-info__item-tell">
         <p>電話番号:000-0000-0000</p>
       </div>
 
-      <div class="item-official">
+      <div class="show-info__item-official">
         <p>公式サイト</p>
       </div>
     </section>
 
-    <div class="item-data__item-photo">
+    <div class="show-info">
       <% if @shop.photos.attached? %>
         <% @shop.photos.each do |photos| %>
-          <%= image_tag(photos,class:"item-data__item-photo--photo") %>
+          <%= image_tag(photos,class:"show-info__item-photo") %>
         <% end %>
-      <% end %>
-    </div>
-
-    <div class="item-data__item-user">
-      <% @shop.lists.each do |list|%>
-        <%# link_to "リスト:#{list.list_name}", list_path(list), class:"item-data__item-user--link" %>
       <% end %>
     </div>
   </div>
 
-  <div class="item-others">
+  <div class="others-info">
     <div>
       <%= render 'shared/googlemaps' %>
     </div>
 
-    <div class="item-others__item-info">
-      <h3 class="item-others__item-info--title">関連情報</h3>
+    <div class="others-info__related-info">
+      <h3 class="others-info__related-info--title">関連情報</h3>
       <dl class="item-detail">
         <div class="item-detail__item-table">
           <dt class="item-detail__item-table--title">価格帯</dt>
