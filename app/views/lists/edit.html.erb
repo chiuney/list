@@ -1,3 +1,4 @@
+
 <% provide(:title, "Edit List") %>
 
 <main class="item-input">
@@ -22,12 +23,12 @@
           <%= form.text_area :list_comment, placeholder: "リストコメントを入力してください", class:"item-content__comment-description--form" %>
         </dd>
       </div>
-      <div class="list-edit">
+      <div class="item-content">
         <div class="item-content__item-submit">
           <%= form.submit "変更を保存", class:"item-content__item-submit--btn" %>
         </div>
-        <div class="list-edit__destroy-btn">
-          <%= link_to "削除", destroy_lists_path(current_user), class:"list-edit__destroy-btn--link",
+        <div class="item-content__item-submit">
+          <%= link_to "削除", destroy_lists_path(current_user), class:"item-content__item-submit--destroy",
         method: :delete, data: { confirm: '削除しますか？' } %>
         </div>
       </div>

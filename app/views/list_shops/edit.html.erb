@@ -4,9 +4,9 @@
 
   <%= form_with model: @list_shops, url: shop_update_list_shops_path(shop_id: @shop.id), method: :patch, local: true do |form| %>
 
-    <div class="item-info">
+    <div class="item-input__item-info">
       <div class="item-data__item-name">
-        <%= @shop.shop_name %>
+        <span id="shop_name_js"><%= @shop.shop_name %></span>
       </div>
 
       <section class="item-data__item-info" >
@@ -23,6 +23,7 @@
         </div>
       </section>
 
+      <%# list選択%>
       <div class="checkbox_continer">
         <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
           <%= check.label class:"checkbox_continer__checkbox-btn" do %>
@@ -32,27 +33,27 @@
         <% end %>
       </div>
 
-      <div class="item-info__new-photo">
+      <div class="item-content__item-photo">
         <label>
-          <p class="item-data__new-photo--link">写真を追加</p>
-          <%= form.file_field :photos, multiple: true, class:"item-info__item-photo--select" %>
+          <p class="item-content__item-photo--link">写真を追加</p>
+          <%= form.file_field :photos, multiple: true, class:"item-content__item-photo--select" %>
         </label>
       </div>
 
+      <div class="item-content__item-photo">
       <% if @shop.photos.present? %>
         <p>現在登録されている画像（削除するものはチェックしてください）</p>
-        <div class="item-info__item-photo">
         <% @shop.photos.each do |photos| %>
-          <div class="testes">
+          <div class="uploded-photo">
             <%= form.check_box :photos_ids, {multiple: true, class:"item-info__item-photo--checkbox"}, photos.id, false %>
-            <%= image_tag photos, class:"item-data__item-photo--photo" %>
+            <%= image_tag photos, class:"uploded-photo__photo-select" %>
           </div>
         <% end %>
-        </div>
       <% end %>
+      </div>
 
-      <div class="item-info__item-submit">
-        <%= form.submit "変更を保存", class:"item-info__item-submit--btn" %>
+      <div class="item-content__item-submit">
+        <%= form.submit "変更を保存", class:"item-content__item-submit--btn" %>
       </div>
 
     </div>

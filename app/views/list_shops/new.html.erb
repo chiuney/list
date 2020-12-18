@@ -4,9 +4,9 @@
 
   <%= form_with model: @list_shops ,url: shop_list_shops_path(shop_id: @shop.id), local: true do |form| %>
 
-    <div class="item-info">
+    <div class="item-input__item-info">
       <div class="item-data__item-name">
-        <%= @shop.shop_name %>
+        <span id="shop_name_js"><%= @shop.shop_name %></span>
       </div>
 
       <section class="item-data__item-info" >
@@ -23,6 +23,7 @@
         </div>
       </section>
 
+      <%# list選択%>
       <% if current_user.lists.empty? %>
         <%= link_to "リストを作成してください", new_list_path, class:"dropdown-list__dropdown-item--link" %>
       <% else %>
@@ -36,15 +37,15 @@
         </div>
       <% end %>
 
-      <div class="item-info__new-photo">
+      <div class="item-content__item-photo">
         <label>
-        <p class="item-data__new-photo--link">写真を追加</p>
-          <%= form.file_field :photos, multiple: true, class:"item-info__item-photo--select" %>
+          <p class="item-content__item-photo--link">写真を追加</p>
+          <%= form.file_field :photos, multiple: true, class:"item-content__item-photo--select" %>
         </label>
       </div>
 
-      <div class="item-info__item-submit">
-        <%= form.submit "店を追加", class:"item-info__item-submit--btn" %>
+      <div class="item-content__item-submit">
+        <%= form.submit "店を追加", class:"item-content__item-submit--btn" %>
       </div>
 
     </div>
