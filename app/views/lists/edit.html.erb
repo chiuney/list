@@ -22,14 +22,17 @@
           <%= form.text_area :list_comment, placeholder: "リストコメントを入力してください", class:"item-content__comment-description--form" %>
         </dd>
       </div>
-      <div class="item-content__item-submit">
-        <%= form.submit "リストを追加", class:"item-content__item-submit--btn" %>
+      <div class="list-edit">
+        <div class="item-content__item-submit">
+          <%= form.submit "変更を保存", class:"item-content__item-submit--btn" %>
+        </div>
+        <div class="list-edit__destroy-btn">
+          <%= link_to "削除", destroy_lists_path(current_user), class:"list-edit__destroy-btn--link",
+        method: :delete, data: { confirm: '削除しますか？' } %>
+        </div>
       </div>
     </dl>
   <% end %>
-
-  <%= link_to "削除", destroy_lists_path(current_user), class:"item-data__item-edit--form",
-  method: :delete, data: { confirm: '削除しますか？' } %>
 
 </section>
 

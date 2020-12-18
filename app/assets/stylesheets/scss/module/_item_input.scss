@@ -25,17 +25,13 @@
 
 .item-content {
   width: 70%;
-  // min-width: 280px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 
   // リスト登録のラベル(dt)
   &__definition-term {
-    // font-size: 24px;
-    // margin: 20px auto 10px;
     width: 150px;
-    // border: solid;
     &--name {
 
     }
@@ -43,10 +39,7 @@
 
   // リストネームのフォーム(dd)
   &__name-definition{
-    // border: solid;
     font-size: 16px;
-    // margin: 20px auto 10px;
-    // width: 300px;
     margin: 0 auto;
 
     &--form {
@@ -60,14 +53,11 @@
 
   // リストコメントのフォーム(dd)
   &__comment-description {
-    // border: solid;
-    // margin: 10px auto 20px;
     margin: 10px auto;
 
     &--form {
-      // border: solid;
       @include sign($width:400px);
-      height: 100px;
+      height: 300px;
       font-size: 16px;
       border: none;
       border: 1px solid #999;
@@ -81,7 +71,6 @@
     align-items: center;
     flex-wrap: wrap;
     width: 70vw;
-    // border: 5px solid black;
 
     &--photo {
       width: 200px;
@@ -113,15 +102,12 @@
     margin: 20px;
 
     &--link {
-      // font-size: 50px;
-      // background: chocolate;
     }
   }
 
   &__item-submit {
-    display: flex;
-    align-items: center;
     min-width: 70px;
+    // margin-left:auto;
 
     &--btn {
       @include btn($background:#fff,$height:30px,$width:auto);
@@ -136,4 +122,20 @@
   justify-content: center;
   align-items: center;
   margin: 5px;
+}
+
+.list-edit {
+  display: flex;
+  width: 50%;
+
+  &__destroy-btn {
+    margin-left:auto;
+
+    &--link {
+      @include btn($background:#fff,$height:30px,$width:auto);
+      color: crimson;
+      border-color: crimson;
+      margin: 10px 5px;
+    }
+  }
 }
