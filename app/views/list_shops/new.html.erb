@@ -9,16 +9,16 @@
         <span id="shop_name_js"><%= @shop.shop_name %></span>
       </div>
 
-      <section class="item-data__item-info" >
-        <div class="item-address">
+      <section class="show-info" >
+        <div class="show-info__item-address">
           <span id='mapAddress'><%= @shop.shop_address %></span>
         </div>
 
-        <div class="item-tell">
+        <div class="show-info__item-tell">
           <p>電話番号:000-0000-0000</p>
         </div>
 
-        <div class="item-official">
+        <div class="show-info__item-official">
           <p>公式サイト</p>
         </div>
       </section>
@@ -51,12 +51,13 @@
     </div>
   <% end %>
 
-  <div class="item-others">
+  <div class="others-info">
     <div>
       <%= render 'shared/googlemaps' %>
     </div>
-    <div class="item-others__item-info">
-      <h3 class="item-others__item-info--title">関連情報</h3>
+
+    <div class="others-info__related-info">
+      <h3 class="others-info__related-info--title">関連情報</h3>
       <dl class="item-detail">
         <div class="item-detail__item-table">
           <dt class="item-detail__item-table--title">価格帯</dt>
