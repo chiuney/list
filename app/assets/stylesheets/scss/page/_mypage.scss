@@ -1,11 +1,13 @@
 @import '../mixin/icon';
 
+// ページ全体
 .mypage-container {
   width: 100vw;
   height: 100vh;
   padding-top: 20px;
 }
 
+// ユーザー情報(ユーザーネーム、フォロー数など)
 .mypage-content {
   display: flex;
   text-align: center;
@@ -18,14 +20,15 @@
     }
   }
 
+  //
   &__mypage-info {
-    margin: 20px 0 10px 20px;
-  }
-
-  &__mypage-name {
-    font-size: 30px;
-    font-weight: 600;
-    margin: 20px auto 10px;
+    display: flex;
+    // margin: 20px 0 10px 20px;
+    &--name {
+      font-size: 30px;
+      font-weight: 600;
+      margin: 20px auto 10px;
+    }
   }
 
   &__mypage-comment {
@@ -36,7 +39,7 @@
     display: flex;
     color: 	#333300;
     margin: 5px auto;
-  
+
     &--link {
       color: 	#333300;
       width: 110px;
@@ -44,8 +47,4 @@
       line-height: 30px;
     }
   }
-}
-
-.test {
-  display: flex;
 }

@@ -15,19 +15,17 @@
     </div>
 
     <%# ユーザーネーム、フォローボタン%>
-    <div class="test">
-      <p class="mypage-content__mypage-name"><%= @user.user_name %></p>
-      <div class="mypage-content__mypage-info">
-        <% unless @user == current_user %>
-          <div class="follow-item__follow-btn">
-            <% if current_user.following?(@user) %>
-              <%= link_to 'フォローをやめる', unfollow_path(@user.id), method: :POST, class:"follow-item__follow-btn--unfollow" %>
-            <% else %>
-              <%= link_to 'フォローする', follow_path(@user.id), method: :POST,class:"follow-item__follow-btn--following" %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+    <div class="mypage-content__mypage-info">
+      <p class="mypage-content__mypage-info--name"><%= @user.user_name %></p>
+      <% unless @user == current_user %>
+        <div class="follow-item__follow-btn">
+          <% if current_user.following?(@user) %>
+            <%= link_to 'フォローをやめる', unfollow_path(@user.id), method: :POST, class:"follow-item__follow-btn--unfollow" %>
+          <% else %>
+            <%= link_to 'フォローする', follow_path(@user.id), method: :POST,class:"follow-item__follow-btn--following" %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
     <%#ユーザーコメント%>
@@ -55,7 +53,7 @@
     </div>
   </section>
 
-  <%# アイコン%>
+  <%# リスト一覧%>
   <section class="item-display">
     <div class="item-array" >
       <% @lists.each do |l| %>
