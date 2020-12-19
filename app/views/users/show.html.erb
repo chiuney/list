@@ -55,24 +55,21 @@
 
   <%# リスト一覧%>
   <section class="item-display">
-    <div class="item-array" >
-      <% @lists.each do |l| %>
-        <div class="item-array__item-detail">
-          <% if l.shops.present? %>
-            <% if l.shops[0].photos[0].present? %>
-              <%= link_to image_tag(l.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(l.id),data: {"turbolinks"=>false} %>
-              <% else %>
-              <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(l.id),data: {"turbolinks"=>false} %>
-            <% end %>
+    <% @lists.each do |list| %>
+      <div class="item-display__item-detail">
+        <% if list.shops.present? %>
+          <% if list.shops[0].photos[0].present? %>
+            <%= link_to image_tag(list.shops[0].photos[0],class:"item-display__item-detail--img"), list_path(list.id),data: {"turbolinks"=>false} %>
           <% else %>
-            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(l.id),data: {"turbolinks"=>false} %>
+            <%= link_to image_tag("no-image.png", class:"item-display__item-detail--img"), list_path(list.id),data: {"turbolinks"=>false} %>
           <% end %>
-
-          <%= link_to l.list_name, list_path(l.id), class:"item-array__item-detail--name",data: {"turbolinks"=>false} %>
-          <%= link_to "店舗 : #{l.shops.size}件", list_path(l.id), class:"item-array__item-detail--size",data: {"turbolinks"=>false} %>
-        </div>
-      <% end %>
-    </div>
+        <% else %>
+          <%= link_to image_tag("no-image.png", class:"item-display__item-detail--img"), list_path(list.id),data: {"turbolinks"=>false} %>
+        <% end %>
+        <%= link_to list.list_name, list_path(list.id), class:"item-display__item-detail--name",data: {"turbolinks"=>false} %>
+        <%= link_to "店舗 : #{list.shops.size}件", list_path(list.id), class:"item-array__item-detail--size",data: {"turbolinks"=>false} %>
+      </div>
+    <% end %>
   </section>
 
   <li style="list-style: none;"><%# link_to 'ログアウト', users_guest_sign_out_path %></li>

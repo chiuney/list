@@ -7,19 +7,15 @@
   <h2 class="shopall-title">登録済み店一覧</h2>
 
   <sction class="item-display">
-  <div class="item-array">
     <% @add_shops.each do |add_shop| %>
-      <div class="item-array__item-detail">
-
+      <div class="item-display__item-detail">
         <% if add_shop.shop.photos.present? %>
-          <%= link_to image_tag(add_shop.shop.photos[0],class:"item-array__item-detail--img"), shop_path(add_shop.shop) %>
+          <%= link_to image_tag(add_shop.shop.photos[0],class:"item-display__item-detail--img"), shop_path(add_shop.shop) %>
         <% else %>
-          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(add_shop.shop) %>
+          <%= link_to image_tag("no-image.png", class:"item-display__item-detail--img"), shop_path(add_shop.shop) %>
         <% end %>
-
-        <%= link_to add_shop.shop.shop_name, shop_path(add_shop.shop) , class:"item-array__item-detail--name" %>
+        <%= link_to add_shop.shop.shop_name, shop_path(add_shop.shop) , class:"item-display__item-detail--name" %>
       </div>
     <% end %>
-  </div>
-</section>
+  </section>
 </main>

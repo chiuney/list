@@ -35,15 +35,15 @@
     <%= render 'shared/googlemaps' %>
   </div>
 
-  <div class="item-array">
+  <div class="item-display">
     <% @list.shops.each do |shops| %>
-      <div class="item-array__item-detail">
+      <div class="item-display__item-detail">
         <% if shops.photos[0].present? %>
-          <%= link_to image_tag(shops.photos[0], class:"item-array__item-detail--img"), shop_path(shops.id),data: {"turbolinks"=>false}%>
+          <%= link_to image_tag(shops.photos[0], class:"item-display__item-detail--img"), shop_path(shops.id),data: {"turbolinks"=>false} %>
         <% else %>
-          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(shops.id),data: {"turbolinks"=>false} %>
+          <%= link_to image_tag("no-image.png", class:"item-display__item-detail--img"), shop_path(shops.id),data: {"turbolinks"=>false} %>
         <% end %>
-          <%= link_to shops.shop_name, shop_path(shops.id) , class:"item-array__item-detail--name", id:"shop_name_js",data: {"turbolinks"=>false}%>
+          <%= link_to shops.shop_name, shop_path(shops.id) , class:"item-display__item-detail--name", id:"shop_name_js",data: {"turbolinks"=>false}%>
           <span id="mapAddress" style="display:none"><%= shops.shop_address %></span>
       </div>
     <% end %>
