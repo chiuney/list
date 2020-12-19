@@ -8,7 +8,7 @@
       <div class="item-data__item-name">
         <span id="shop_name_js"><%= @shop.shop_name %></span>
       </div>
-      
+
       <section class="show-info" >
         <div class="show-info__item-address">
           <span id='mapAddress'><%= @shop.shop_address %></span>
@@ -42,13 +42,15 @@
 
       <div class="item-content__item-photo">
       <% if @shop.photos.present? %>
-        <p>現在登録されている画像（削除するものはチェックしてください）</p>
-        <% @shop.photos.each do |photos| %>
-          <div class="uploded-photo">
-            <%= form.check_box :photos_ids, {multiple: true, class:"item-info__item-photo--checkbox"}, photos.id, false %>
-            <%= image_tag photos, class:"uploded-photo__photo-select" %>
-          </div>
-        <% end %>
+        <div class="uploded-photo">
+          <p>現在登録されている画像（削除するものはチェックしてください）</p>
+          <% @shop.photos.each do |photos| %>
+            <div class="uploded-photo__photo-select">
+              <%= form.check_box :photos_ids, {multiple: true, class:"item-info__item-photo--checkbox"}, photos.id, false %>
+              <%= image_tag photos, class:"uploded-photo__photo-select--checkbox" %>
+            </div>
+          <% end %>
+        <div>
       <% end %>
       </div>
 
