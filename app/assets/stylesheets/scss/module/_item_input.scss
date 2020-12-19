@@ -29,7 +29,7 @@
 .item-content {
   width: 70%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 
   // リスト登録のラベル(dt)
@@ -73,6 +73,7 @@
     align-items: center;
     flex-wrap: wrap;
     width: 70vw;
+
     &--select {
       margin: 10px auto 0px;
       display: none;
@@ -85,14 +86,14 @@
 
     &--btn {
       @include btn($background: $color-white, $height:30px, $width:auto);
-      margin: 10px 5px;
+      margin: 10px 30px;
     }
 
     &--destroy {
       @include btn($background: $color-white, $height:30px, $width:auto);
       color: $color-red;
       border-color: $color-red;
-      margin: 10px 5px;
+      margin: 10px 30px;
     }
   }
 }
