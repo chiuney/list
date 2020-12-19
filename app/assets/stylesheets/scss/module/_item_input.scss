@@ -8,7 +8,7 @@
 
 // ページ全体
 .item-input {
-  height: 14vh;
+  height: 100vh;
   width: 100vw;
 
   // 入力フォーム
@@ -72,7 +72,6 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 70vw;
 
     &--select {
       margin: 10px auto 0px;

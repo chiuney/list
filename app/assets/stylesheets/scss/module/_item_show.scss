@@ -87,7 +87,6 @@
 
   &__item-photo {
     width: 200px;
-    height: 140px;
     // ないと他のが適用されちゃう？後で確認
     border: none;
     border-radius: 10px;
@@ -119,6 +118,7 @@
   justify-content: center;
   background: $background-color-white;
   min-height: 500px;
+  width: 100vw;
 
   padding-top: 20px;
 
