@@ -59,15 +59,15 @@
       <div class="item-display__item-detail">
         <% if list.shops.present? %>
           <% if list.shops[0].photos[0].present? %>
-            <%= link_to image_tag(list.shops[0].photos[0],class:"item-display__item-detail--img"), list_path(list.id),data: {"turbolinks"=>false} %>
+            <%= link_to image_tag(list.shops[0].photos[0],class:"item-display__item-detail--img"), list_path(list.id), data: {"turbolinks"=>false} %>
           <% else %>
-            <%= link_to image_tag("no-image.png", class:"item-display__item-detail--img"), list_path(list.id),data: {"turbolinks"=>false} %>
+            <%= link_to image_tag("no-image.png", class:"item-display__item-detail--img"), list_path(list.id), data: {"turbolinks"=>false} %>
           <% end %>
         <% else %>
-          <%= link_to image_tag("no-image.png", class:"item-display__item-detail--img"), list_path(list.id),data: {"turbolinks"=>false} %>
+          <%= link_to image_tag("no-image.png", class:"item-display__item-detail--img"), list_path(list.id), data: {"turbolinks"=>false} %>
         <% end %>
-        <%= link_to list.list_name, list_path(list.id), class:"item-display__item-detail--name",data: {"turbolinks"=>false} %>
-        <%= link_to "店舗 : #{list.shops.size}件", list_path(list.id), class:"item-array__item-detail--size",data: {"turbolinks"=>false} %>
+        <%= link_to list.list_name, list_path(list.id), class:"item-display__item-detail--name", data: {"turbolinks"=>false} %>
+        <%= link_to "店舗 : #{list.shops.size}件", list_path(list.id), class:"item-array__item-detail--size", data: {"turbolinks"=>false} %>
       </div>
     <% end %>
   </section>

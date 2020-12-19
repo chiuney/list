@@ -12,11 +12,11 @@
 
       <div class="show-info__shop-edit">
         <% if AddShop.where(shop_id: @shop.id).exists? %>
-          <%= link_to shop_add_shop_path(@shop) , method: :delete do %>
+          <%= link_to shop_add_shop_path(@shop), method: :delete do %>
             <i class="fas fa-heart show-info__shop-edit--unlike"></i>
           <% end %>
         <% else %>
-          <%= link_to shop_add_shops_path(shop_id: @shop.id) , method: :POST do %>
+          <%= link_to shop_add_shops_path(shop_id: @shop.id), method: :POST do %>
             <i class="far fa-heart show-info__shop-edit--like"></i>
           <% end %>
         <% end %>
@@ -25,7 +25,7 @@
       <%# shopをlistに追加%>
       <% if !@shop.list_shops.present? %>
       <div class="show-info__shop-edit">
-        <%= link_to shop_new_list_shops_path(shop_id: @shop.id) , method: :POST do %>
+        <%= link_to shop_new_list_shops_path(shop_id: @shop.id) , method: :POST, data: {"turbolinks"=>false} do %>
           <i class="far fa-clipboard show-info__shop-edit--link"></i>
         <% end %>
       </div>
@@ -34,7 +34,7 @@
       <%# listに追加済みのshopを編集%>
       <% if !@shop.list_shops.empty? %>
       <div class="show-info__shop-edit">
-        <%= link_to edit_shop_list_shop_path(shop_id: @shop.id) do %>
+        <%= link_to edit_shop_list_shop_path(shop_id: @shop.id), data: {"turbolinks"=>false} do %>
           <i class="far fa-clipboard show-info__shop-edit--link"></i>
         <% end %>
       </div>
