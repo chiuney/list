@@ -1,10 +1,12 @@
+@import '../mixin/color';
+
 // ログイン・新規登録ボタン新規登録ボタン
-@mixin btn($background:#fff,$height:30px,$width:auto) {
+@mixin btn($background:$background-color-white,$height:30px,$width:auto) {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border: 1px solid black;
+  border: 1px solid $color-black;
   border-radius: 20px;
 
   margin: 0.2% 1%;
@@ -23,5 +25,5 @@
   position: absolute;
   top: 30px;
   left: 15%;
-  color: black;
+  color: $color-black;
 }

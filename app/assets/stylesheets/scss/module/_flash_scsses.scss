@@ -1,15 +1,15 @@
+@import '../mixin/color';
+
 .flash-container {
   margin: 0 auto;
   text-align: center;
-  width: 25%;
-  min-width: 300px;
+  width: 100vw;
   border-radius: 4px;
-  background:	#99CCFF;
+  background:	$background-color-white;
   padding: 10px 0px;
-  margin: 10px;
 
   &__flash-success {
-    color: #fff;
+    color: $color-charcoal-grey;
     font-weight: 600;
   }
 }

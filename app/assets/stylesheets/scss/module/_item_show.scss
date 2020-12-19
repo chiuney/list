@@ -3,6 +3,7 @@
 
 @import '../mixin/btn';
 @import '../mixin/icon';
+@import '../mixin/color';
 
 // ページ全体
 .item-show {
@@ -41,7 +42,7 @@
     margin-left: 20px;
 
     &--link {
-      color: #999;
+      color: $color-gray;
       font-size: 24px;
     }
   }
@@ -54,17 +55,17 @@
     align-items: center;
 
    &--like {
-    color: #999;
+    color: $color-gray;
     font-size: 24px;
    }
 
    &--unlike {
-    color: #354e59;
+    color: $color-navy;
     font-size: 24px;
     }
 
     &--link {
-      color: #999;
+      color: $color-gray;
       font-size: 24px;
     }
   }
@@ -76,12 +77,12 @@
 
   &__item-tell {
      padding: 0 5px;
-     border-left: 1px solid #999;
+     border-left: 1px solid $color-gray;
   }
 
   &__item-official {
      padding: 0 5px;
-     border-left: 1px solid #999;
+     border-left: 1px solid $color-gray;
   }
 
   &__item-photo {
@@ -104,11 +105,11 @@
 
   &__user-image {
     @include icon;
-    border: 1px solid black;
+    border: 1px solid $color-black;
   }
 
   &__user-name {
-    color: black;
+    color:$color-black;
   }
 }
 
@@ -116,7 +117,7 @@
 .others-info {
   display: flex;
   justify-content: center;
-  background: #f2f2f2;
+  background: $background-color-white;
   min-height: 500px;
 
   padding-top: 20px;

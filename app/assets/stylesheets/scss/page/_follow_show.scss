@@ -1,5 +1,6 @@
 @import '../mixin/btn';
 @import '../mixin/icon';
+@import '../mixin/color';
 
 .follow-container {
   width: 100vw;
@@ -22,7 +23,7 @@
 
     &--icon {
       @include  icon;
-      border: 1px solid black;
+      border: 1px solid $color-black;
     }
   }
 
@@ -31,38 +32,38 @@
     margin-right: auto;
 
     &--link {
-      color: black;
+      color: $color-black;
     }
   }
 
   &__follow-comment {
     margin: 0 auto;
-    
+
     &--profile {
       font-size: 16px;
-      color: #999;
+      color:$color-gray;
     }
   }
 
   &__unfollow-btn {
     @include btn ;
-    border-color: #354e59;
-    background-color: #eeeae4;
+    border-color: $color-navy;
+    background-color: $background-color-white;
 
     &--unfollow {
       width: 100px;
-      color: #354e59;
+      color: $color-navy;
       text-align: center;
     }
   }
-  
+
   &__follow-btn {
     @include btn ;
-    border-color: #999;
+    border-color: $color-gray;
 
     &--following {
       width: 100px;
-      color: #999;
+      color: $color-gray;
       text-align: center;
     }
 

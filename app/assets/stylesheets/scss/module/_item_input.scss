@@ -4,6 +4,7 @@
 
 @import '../mixin/btn';
 @import '../mixin/form';
+@import '../mixin/color';
 
 // ページ全体
 .item-input {
@@ -45,7 +46,7 @@
       @include sign($width:400px);
       font-size: 16px;
       border: none;
-      border-bottom: 1px solid #999;
+      border-bottom: 1px solid $color-gray;
       border-radius: 0;
     }
   }
@@ -59,7 +60,7 @@
       height: 300px;
       font-size: 16px;
       border: none;
-      border: 1px solid #999;
+      border: 1px solid $color-gray;
       border-radius: 0;
     }
   }
@@ -83,14 +84,14 @@
     min-width: 70px;
 
     &--btn {
-      @include btn($background:#fff,$height:30px,$width:auto);
+      @include btn($background: $color-white, $height:30px, $width:auto);
       margin: 10px 5px;
     }
 
     &--destroy {
-      @include btn($background:#fff,$height:30px,$width:auto);
-      color: crimson;
-      border-color: crimson;
+      @include btn($background: $color-white, $height:30px, $width:auto);
+      color: $color-red;
+      border-color: $color-red;
       margin: 10px 5px;
     }
   }

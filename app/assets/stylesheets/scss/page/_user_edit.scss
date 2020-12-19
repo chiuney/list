@@ -1,13 +1,11 @@
 @import '../mixin/form';
 @import '../mixin/btn';
 @import '../mixin/icon';
+@import '../mixin/color';
 
 .useredit-container {
   width: 100vw;
   height: 100vh;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
 
   &__useredit-title {
     font-size: 30px;
@@ -47,7 +45,7 @@
 
     // プロフィール更新
     &--submit {
-      @include btn($background:#ffebcd,$height:32px,$width:120px);
+      @include btn($background: $background-color-white, $height:32px, $width:120px);
       margin: 0 auto;
     }
   }
@@ -61,17 +59,17 @@
 
   &__useredit-title {
     width: 200px;
-    
-  
+
+
     &--name {
       font-size: 20px;
-    } 
+    }
   }
-  
+
   &__useredit-input {
     margin: 10px;
     width: 70%;
-  
+
     // user_name,emal
     &--form {
       @include sign;
@@ -83,7 +81,6 @@
       @include sign;
       height: 70px;
       width: 300px;
-      // font-weight: normal;
     }
   }
 }
@@ -101,9 +98,9 @@
   &__useredit-subtitle{
     font-size: 18px;
     margin: 10px;
-    
+
   }
-  
+
   &__useredit-confirm {
     font-size: 14px;
     width: 100%;
@@ -111,14 +108,14 @@
     margin: 10px;
 
     &--deletebtn {
-      @include btn($background:#ffebcd,$height:16px,$width:78px);
+      @include btn($background: $background-color-white, $height:16px, $width:78px);
       margin: 0 auto;
     }
 
   }
 
   &__useredit-btn {
-    @include btn($background:#fff,$height:26px,$width:40px);
+    @include btn($background:$background-color-white, $height:26px, $width:40px);
     margin: 10px;
     padding: 5px;
 
@@ -129,7 +126,7 @@
 }
 
 .img_prev:hover {
-  cursor: pointer; 
+  cursor: pointer;
   opacity: 0.7;
   transform: scale(1.01, 1.01);
 }

@@ -1,4 +1,5 @@
 @import '../mixin/icon';
+@import '../mixin/color';
 
 .logedin-header {
   height: 60px;
@@ -7,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2%;
-  background: #fff;
+  background: $color-white;
   border: none;
 
 
@@ -18,13 +19,13 @@
     height: 2.3em;
     min-width: 200px;
     width: 50vw;
-    background:#f2f2f2;
+    background:$background-color-white;
 
     &--select {
       height: 2.3em;
-      background:#f2f2f2;
+      background:$background-color-white;
       border: none;
-      border-right: 1px solid #999;
+      border-right: 1px solid $color-gray;
       width: 75px;
 
       &:focus {
@@ -35,7 +36,7 @@
     &--form {
       border: none;
       height: 2.0em;
-      background:#f2f2f2;
+      background:$background-color-white;
       width: 75%;
       padding-left: 1% ;
 
@@ -52,23 +53,23 @@
     display: flex;
 
     &--title {
-      color: black;
+      color: $color-black;
       font-size: 20px;
     }
 
     &--mypage {
       @include  icon;
-      border: 1px solid black;
+      border: 1px solid $color-black;
     }
 
     &--btn {
-      color: black;
+      color: $color-black;
       font-size: 20px;
     }
 
     &--plus {
       display: inline-block;
-      color: black;
+      color: $color-black;
       font-size: 30px;
       line-height: 60px;
     }

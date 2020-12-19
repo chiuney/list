@@ -1,5 +1,7 @@
 // mypage下部のリスト一覧、list下部のショップ一覧、shop-all
 
+@import '../mixin/color';
+
 .shopall-container {
   height: 100vh;
   width: 100vw;
@@ -28,7 +30,7 @@
     margin: 10px;
 
     &--img {
-      border: 1px solid black;
+      border: 1px solid $color-black;
       width: 230px;
       height: 150px;
       border-radius: 20px;
@@ -42,17 +44,13 @@
       font-size: 20px;
       font-weight: 500;
       line-height: 1.1;
-      color: black;
+      color: $color-black;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
   }
 }
-
-
-
-
 
 .item-array {
 
@@ -63,7 +61,7 @@
       text-align: center;
       font-size: 14px;
       line-height: 1.5;
-      color: gray;
+      color: $color-gray;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -74,45 +72,7 @@
       text-align: center;
       font-size: 14px;
       line-height: 1.5;
-      color: gray;
+      color: $color-gray;
     }
   }
 }
-
-// 検索ボックス
-// .search_box {
-
-
-//   &__list-search {
-//     padding: 3px 10px;
-//     border-radius: 20px;
-//     height: 2em;
-//     min-width: 200px;
-//     width: 30vw;
-//     border: 1px solid #999;
-//     background:#fff;
-
-//     &--select {
-//       height: 1.8em;
-//       border: none;
-//       border-right: 1px solid #999;
-//       width: 75px;
-
-//       &:focus {
-//         outline: 0;
-//       }
-//     }
-
-//     &--form {
-//       border: none;
-//       height: 1.8em;
-//       width: 75%;
-//       padding-left: 1% ;
-
-//       &:focus {
-//         outline: 0;
-//       }
-//     }
-
-//   }
-// }

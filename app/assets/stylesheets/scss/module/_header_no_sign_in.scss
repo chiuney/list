@@ -1,16 +1,18 @@
+@import '../mixin/color';
+
 .header-container {
   display:flex;
   align-items: center;
   justify-content: center;
   padding: 0 2%;
   height: 50px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $color-black;
 
   &__header-title {
     font-size: 24px;
 
     &--link {
-      color: black;
+      color: $color-black;
     }
   }
 
@@ -29,7 +31,7 @@
     }
 
     &--link {
-      color: 	#333300;
+      color: 	$color-black;
     }
   }
 }

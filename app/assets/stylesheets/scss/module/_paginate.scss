@@ -1,3 +1,5 @@
+@import '../mixin/color';
+
 .serach-pagination {
   width: 100vw;
   display: flex;
@@ -13,8 +15,7 @@
 }
 
 .pagination-link {
-  color: #444;
-  background: #F2F2F2;
+  color: $color-charcoal-grey;
   width : calc(100% / 9) ;
   height: 50px;
   display: flex;
@@ -22,8 +23,7 @@
   align-items: center;
 
   &__pagination-page {
-    color: #999;
-    background: #fff;
+    color: $color-gray;
     line-height: 50px;
     // リンクを親要素に拡張
     display: block;
@@ -31,7 +31,7 @@
     height: 100%;
 
     &:hover {
-      background: #F2F2F2;
+      background: $background-color-white;
     }
   }
 }

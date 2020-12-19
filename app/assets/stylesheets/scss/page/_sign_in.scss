@@ -1,5 +1,6 @@
 @import '../mixin/btn';
 @import '../mixin/form';
+@import '../mixin/color';
 
 .signin-container {
   width: 100vw;
@@ -23,15 +24,14 @@
     margin-bottom: 20px;
   }
 
-  &__move-signup {
+  // &__move-signup {
 
-  }
+  // }
 }
 
 .signin-form {
   width: 30%;
   min-width: 250px;
-  // max-width: 300px;
 
   &__signin-item {
     width: 80%;
@@ -43,8 +43,7 @@
     }
 
     &--submit {
-      @include btn($background:#ffebcd,$height:40px,$width:80%);
-
+      @include btn($background: $background-color-white, $height:40px, $width:80%);
       margin: 0 auto;
     }
   }
@@ -52,22 +51,22 @@
   &__signin-condition {
     text-align: center;
 
-    &--check {
+    // &--check {
 
-    }
+    // }
 
-    &--remember {
+    // &--remember {
 
-    }
+    // }
 
   }
 
   &__forget-password {
     text-align: center;
     margin: 5px;
-    
-    &--link{
 
-    }
+    // &--link{
+
+    // }
   }
 }

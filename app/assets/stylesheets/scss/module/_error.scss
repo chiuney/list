@@ -1,3 +1,5 @@
+@import '../mixin/color';
+
 .error-container {
   margin: 0 auto;
   text-align: center;
@@ -8,13 +10,10 @@
   padding: 10px 0px;
 
   &__error-count {
-    // border: 1px solid red;
-    // border-radius: 4px;
-    // background:	#FFCC33;
 
     &--title {
       font-size: 20px;
-      color: 	#CC0066;
+      color: 	$color-red;
       font-weight: 600;
     }
   }

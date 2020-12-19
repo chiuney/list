@@ -1,3 +1,4 @@
+@import '../mixin/color';
 
 .checkbox_continer {
   display: flex;
@@ -6,7 +7,7 @@
 
   &__checkbox-btn {
    font-size: 16px;
-   border-right: 1px solid #999;
+   border-right: 1px solid $color-gray;
    padding: 0px 10px;
   }
 }
