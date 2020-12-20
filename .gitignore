@@ -42,3 +42,6 @@ yarn-debug.log*
 
 # Ignore API keys
 .env
+
+# Ignore vender/bundle
+/vender
