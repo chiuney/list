@@ -37,58 +37,25 @@ class ListShopsController < ApplicationController
   end
 
   def update
-    ActiveRecord::Base.transaction do
-      @shop = Shop.find(params[:id])
-      # listの追加登録、削除
-      old_lists = @shop.lists.pluck(:list_id)
-      if @shop.update(shop_params)
-        if shop_params[:list_ids].nil?
-          lists = ListShop.where(shop_id: @shop.id)
-          lists.destroy_all
-        else
-          # listの削除
-          destroy_lists = old_lists - shop_params[:list_ids].map(&:to_i)
-          destroy_lists.each do | destroy_list |
-            list = ListShop.find_by(shop_id: @shop.id)
-            list.destroy
-          end
-          # listの追加
-          lists = @shop.lists.pluck(:list_id)
-          shop_params[:list_ids].each do | list_id |
-            unless lists.include?(list_id.to_i)
-              list = ListShop.new(list_id: list_id)
-              list.shop_id = @shop.id
-              list.save
-            end
-          end
-        end
-      end
+    @shop= Shop.find(params[:id])
+    # 写真の追加
+    @shop.photos.attach(params[:photos]) if params[:photos].present?
 
-      # photosの削除
-      if params[:photos_ids] # photosが登録済みの場合
-        params[:photos_ids].each do |photos_id|
-          photos = ActiveStorage::Attachment.find(photos_id)
-          photos.purge_later # purge_later(非同期削除)(purge = 同期削除 だと処理が遅くなる)
-        end
-      end
-
-      # photosの追加登録
-      if params[:photos].present? #エラー回避(.map for nil:NilClass)
-        new_photos = params[:photos].map do |photo|
-          ActiveStorage::Blob.create_and_upload! \
-                    io: photo.open,
-                    filename: photo.original_filename,
-                    content_type: photo.content_type
-        end
-        @shop.photos.attach(new_photos)
-        @shop.update!(id: params[:shop_id])
+    # photosの削除
+    if params[:photos_ids] # photosが登録済みの場合
+      params[:photos_ids].each do |photos_id|
+        photos = ActiveStorage::Attachment.find(photos_id)
+        photos.purge_later # purge_later(非同期削除)(purge = 同期削除 だと処理が遅くなる)
       end
     end
+
+    if @shop.update(shop_params)
       flash[:success] = "変更しました"
       redirect_to shop_path
-    rescue => e
-      flash[:alert] = e.message
-      redirect_to request.referer
+      return
+    end
+    flash[:alert] = e.message
+    redirect_to request.referer
   end
 
   def destroy
@@ -105,6 +72,6 @@ class ListShopsController < ApplicationController
 
   private
     def shop_params
-      params.permit(:photos, :shop, list_ids: [] )
+      params.permit(:shop, list_ids: [])
     end
 end
