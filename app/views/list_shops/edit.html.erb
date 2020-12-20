@@ -25,7 +25,7 @@
 
       <%# list選択%>
       <div class="checkbox_continer">
-        <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
+        <%= form.collection_check_boxes :list_ids, @list, :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
           <%= check.label class:"checkbox_continer__checkbox-btn" do %>
             <%= check.check_box %>
             <%= check.text %>

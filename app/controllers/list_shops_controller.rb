@@ -2,7 +2,8 @@ class ListShopsController < ApplicationController
 
   def new
     @shop = Shop.find(params[:shop_id])
-    @lists = List.where(@shop.user_id)
+    #@lists = List.where(@shop.user_id)
+    @list = List.where(user_id: current_user.id)
   end
 
   def create
@@ -99,14 +100,11 @@ class ListShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
+    @list = List.where(user_id: current_user.id)
   end
 
   private
     def shop_params
       params.permit(:photos, :shop, list_ids: [] )
     end
-
-    # def shop_params
-    #   params.require(:shop).permit(:name, genre_ids: [])
-    # end
 end

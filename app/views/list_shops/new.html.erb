@@ -28,7 +28,7 @@
         <%= link_to "リストを作成してください", new_list_path, class:"dropdown-list__dropdown-item--link" %>
       <% else %>
         <div class="checkbox_continer">
-          <%= form.collection_check_boxes :list_ids, List.where(user_id: current_user.id), :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
+          <%= form.collection_check_boxes :list_ids, @list, :id, :list_name, include_hidden: false, checked: @shop.list_ids do |check| %>
             <%= check.label class:"checkbox_continer__checkbox-btn" do %>
               <%= check.check_box %>
               <%= check.text %>
