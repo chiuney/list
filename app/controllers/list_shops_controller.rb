@@ -36,6 +36,11 @@ class ListShopsController < ApplicationController
       redirect_to shop_new_list_shops_path
   end
 
+  def edit
+    @shop = Shop.find(params[:id])
+    @list = List.where(user_id: current_user.id)
+  end
+
   def update
     @shop= Shop.find(params[:id])
     # 写真の追加
@@ -63,11 +68,6 @@ class ListShopsController < ApplicationController
     @list_shop = ListShop.find_by(shop_id: @shop.id)
     @list_shop.destroy
     redirect_to request.referer
-  end
-
-  def edit
-    @shop = Shop.find(params[:id])
-    @list = List.where(user_id: current_user.id)
   end
 
   private
