@@ -41,12 +41,12 @@
       <% @lists.each do |list| %>
         <section class="item-array__item-detail">
         <% if list.photos.present?%>
-          <%= link_to image_tag(list.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(list.id) %>
+          <%= link_to image_tag(list.shops[0].photos[0],class:"item-array__item-detail--img"), list_path(list.id), data: {"turbolinks"=>false} %>
         <% else %>
-          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(list.id) %>
+          <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), list_path(list.id), data: {"turbolinks"=>false} %>
         <% end %>
           <%= link_to list.list_name, list_path(list.id),  class:"item-array__item-detail--name" %>
-          <%= link_to "Listed by : #{list.user.user_name}", user_path(list.user_id),class:"item-array__item-detail--user" %>
+          <%= link_to "Listed by : #{list.user.user_name}", user_path(list.user_id), class:"item-array__item-detail--user", data: {"turbolinks"=>false} %>
         </section>
       <% end %>
       </div>
@@ -58,11 +58,11 @@
         <% @shops.each do |shop| %>
           <section class="item-array__item-detail">
           <% if shop.photos.present?%>
-            <%= link_to image_tag(shop.photos[0], class:"item-array__item-detail--img"), shop_path(shop.id) %>
+            <%= link_to image_tag(shop.photos[0], class:"item-array__item-detail--img"), shop_path(shop.id), data: {"turbolinks"=>false} %>
           <% else %>
-            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(shop.id) %>
+            <%= link_to image_tag("no-image.png", class:"item-array__item-detail--img"), shop_path(shop.id), data: {"turbolinks"=>false} %>
           <% end %>
-        <%= link_to shop.shop_name, shop_path(shop.id) , class:"item-array__item-detail--name" %>
+        <%= link_to shop.shop_name, shop_path(shop.id) , class:"item-array__item-detail--name", data: {"turbolinks"=>false} %>
         </section>
       <% end %>
       </div>
