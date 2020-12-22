@@ -27,3 +27,13 @@ Documentation:
 # モジュール名::クラス名の定義を許可
 ClassAndModuleChildren:
   Enabled: false
+
+# AbcSizeを30まで許可
+# 数値は要検討
+Metrics/AbcSize:
+  Max: 30
+
+# メソッドの長さを20行まで許可
+# 数値は要検討
+Metrics/MethodLength:
+  Max: 20
