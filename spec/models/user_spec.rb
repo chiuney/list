@@ -1,31 +1,32 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
-  it "ユーザー名、メアド、パスワード、確認用パスワードがある場合 => 有効" do
+  it 'ユーザー名、メアド、パスワード、確認用パスワードがある場合 => 有効' do
     expect(build(:user)).to be_valid
   end
 
-  it "ユーザー名がない場合 => 無効" do
-    user = build(:user, user_name:nil)
+  it 'ユーザー名がない場合 => 無効' do
+    user = build(:user, user_name: nil)
     user.valid?
     expect(user.errors.of_kind?(:user_name, :blank)).to be_truthy
   end
 
-  it "メアドがない場合 => 無効" do
-    user = build(:user, email:nil)
+  it 'メアドがない場合 => 無効' do
+    user = build(:user, email: nil)
     user.valid?
     expect(user.errors.of_kind?(:email, :blank)).to be_truthy
   end
 
-  it "パスワードがない場合 => 無効" do
-    user = build(:user, password:nil)
+  it 'パスワードがない場合 => 無効' do
+    user = build(:user, password: nil)
     user.valid?
     expect(user.errors.of_kind?(:password, :blank)).to be_truthy
   end
 
-  it "確認用パスワードがない場合 => 無効" do
-    user = build(:user, password_confirmation:nil)
+  it '確認用パスワードがない場合 => 無効' do
+    user = build(:user, password_confirmation: nil)
     user.valid?
     expect(user.errors.of_kind?(:password_confirmation, :blank)).to be_truthy
   end
@@ -33,36 +34,36 @@ RSpec.describe User, type: :model do
   # it "パスワードと確認用パスワードが一致しない場合 => 無効" do
   # end
 
-  it "ユーザーネームが20字の場合 => 有効" do
-    user = build(:user, user_name: "a" * 20)
+  it 'ユーザーネームが20字の場合 => 有効' do
+    user = build(:user, user_name: 'a' * 20)
     expect(user).to be_valid
   end
 
-  it "ユーザーネームが21字の場合 => 無効" do
-    user = build(:user, user_name: "a" * 21)
+  it 'ユーザーネームが21字の場合 => 無効' do
+    user = build(:user, user_name: 'a' * 21)
     user.valid?
     expect(user.errors.of_kind?(:user_name, :too_long)).to be_truthy
   end
 
-  it "パスワードが5字の場合 => 無効" do
-    user = build(:user, password: "a" * 5)
+  it 'パスワードが5字の場合 => 無効' do
+    user = build(:user, password: 'a' * 5)
     user.valid?
     expect(user.errors.of_kind?(:password, :too_short)).to be_truthy
   end
 
-  it "パスワードが6字の場合 => 有効" do
-    user = build(:user, password: "a" * 6)
+  it 'パスワードが6字の場合 => 有効' do
+    user = build(:user, password: 'a' * 6)
     expect(user).to be_valid
   end
 
-  it "確認用パスワードが5字の場合 => 無効" do
-    user = build(:user, password_confirmation: "a" * 5)
+  it '確認用パスワードが5字の場合 => 無効' do
+    user = build(:user, password_confirmation: 'a' * 5)
     user.valid?
     expect(user.errors.of_kind?(:password_confirmation, :too_short)).to be_truthy
   end
 
-  it "確認用パスワードが6字の場合 => 有効" do
-    user = build(:user, password_confirmation: "a" * 6)
+  it '確認用パスワードが6字の場合 => 有効' do
+    user = build(:user, password_confirmation: 'a' * 6)
     expect(user).to be_valid
   end
 
@@ -99,5 +100,4 @@ RSpec.describe User, type: :model do
   #     #   expect(User.search("tom")).to include(@user,@other_user)
   #     # end
   # end
-
 end

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
+RSpec.describe 'Users', type: :request do
   context 'ユーザーが存在する場合' do
-
     before do
       @user = create(:user)
       sign_in @user
@@ -20,7 +21,6 @@ RSpec.describe "Users", type: :request do
   end
 
   describe 'GET #new' do
-
     it 'リクエストが成功すること' do
       get new_user_registration_path
       expect(response).to have_http_status(200)
@@ -85,7 +85,6 @@ RSpec.describe "Users", type: :request do
   end
 
   describe 'PATCH #update' do
-
     before do
       @user = create(:user)
       sign_in @user

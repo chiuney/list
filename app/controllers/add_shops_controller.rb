@@ -1,5 +1,6 @@
-class AddShopsController < ApplicationController
+# frozen_string_literal: true
 
+class AddShopsController < ApplicationController
   def create
     @shop = Shop.find(params[:shop_id])
     @add_shop = AddShop.create(user_id: current_user.id, shop_id: @shop.id)

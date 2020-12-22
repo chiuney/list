@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "ListShops", type: :request do
-
+RSpec.describe 'ListShops', type: :request do
   describe 'GET #new' do
     before do
       @user = create(:user)
@@ -35,46 +36,46 @@ RSpec.describe "ListShops", type: :request do
   end
 
   describe 'POST #create' do
-  context 'パラメータが妥当な場合' do
-    before do
-      @user = create(:user)
-      @shop = create(:shop)
-      sign_in @user
+    context 'パラメータが妥当な場合' do
+      before do
+        @user = create(:user)
+        @shop = create(:shop)
+        sign_in @user
+      end
+
+      it 'リクエストが成功すること' do
+        post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
+        expect(response).to have_http_status(302)
+      end
+
+      # it 'ユーザーが登録されること' do
+      #   expect do
+      #     post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
+      #   end.to change(ListShop, :count).by(1)
+      # end
+
+      # it 'リダイレクトすること' do
+      #   post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
+      #   expect(response).to redirect_to List.last
+      # end
     end
 
-    it 'リクエストが成功すること' do
-      post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
-      expect(response).to have_http_status(302)
-    end
+    # context 'パラメータが不正な場合' do
+    #   it 'リクエストが成功すること' do
+    #     post users_url, params: { user: FactoryBot.attributes_for(:user, :invalid) }
+    #     expect(response.status).to eq 200
+    #   end
 
-    # it 'ユーザーが登録されること' do
-    #   expect do
-    #     post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
-    #   end.to change(ListShop, :count).by(1)
-    # end
+    #   it 'ユーザーが登録されないこと' do
+    #     expect do
+    #       post users_url, params: { user: FactoryBot.attributes_for(:user, :invalid) }
+    #     end.to_not change(User, :count)
+    #   end
 
-    # it 'リダイレクトすること' do
-    #   post shop_list_shops_url(shop_id: @shop.id), params: { list_shop: attributes_for(:list_shop) }
-    #   expect(response).to redirect_to List.last
+    #   it 'エラーが表示されること' do
+    #     post users_url, params: { user: FactoryBot.attributes_for(:user, :invalid) }
+    #     expect(response.body).to include 'prohibited this user from being saved'
+    #   end
     # end
   end
-
-  # context 'パラメータが不正な場合' do
-  #   it 'リクエストが成功すること' do
-  #     post users_url, params: { user: FactoryBot.attributes_for(:user, :invalid) }
-  #     expect(response.status).to eq 200
-  #   end
-
-  #   it 'ユーザーが登録されないこと' do
-  #     expect do
-  #       post users_url, params: { user: FactoryBot.attributes_for(:user, :invalid) }
-  #     end.to_not change(User, :count)
-  #   end
-
-  #   it 'エラーが表示されること' do
-  #     post users_url, params: { user: FactoryBot.attributes_for(:user, :invalid) }
-  #     expect(response.body).to include 'prohibited this user from being saved'
-  #   end
-  # end
-end
 end

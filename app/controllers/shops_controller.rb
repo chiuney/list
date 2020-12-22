@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ShopsController < ApplicationController
   before_action :authenticate_user!
 
@@ -13,7 +15,7 @@ class ShopsController < ApplicationController
       session.delete(:list_id)
       redirect_to shop_path(@shop.id)
     else
-      render "shops/new"
+      render 'shops/new'
     end
   end
 
@@ -34,12 +36,13 @@ class ShopsController < ApplicationController
     redirect_to current_user
   end
 
-  def edit 
+  def edit
     @shop = Shop.find(params[:id])
   end
 
   private
-    def shop_params
-      params.require(:shop).permit(:shop_name, :shop_comment, list_ids: [],photos: [])
-    end
+
+  def shop_params
+    params.require(:shop).permit(:shop_name, :shop_comment, list_ids: [], photos: [])
+  end
 end

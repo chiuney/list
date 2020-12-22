@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ListShop < ApplicationRecord
   belongs_to :list
   belongs_to :shop

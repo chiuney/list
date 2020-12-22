@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ListsController < ApplicationController
   before_action :authenticate_user!
 
@@ -9,7 +11,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      flash[:success] = "リストを追加しました。"
+      flash[:success] = 'リストを追加しました。'
       redirect_to list_path(@list.id)
     else
       render new_list_path
@@ -42,7 +44,8 @@ class ListsController < ApplicationController
   end
 
   private
-    def list_params
-      params.require(:list).permit(:list_name, :list_comment )
-    end
+
+  def list_params
+    params.require(:list).permit(:list_name, :list_comment)
+  end
 end

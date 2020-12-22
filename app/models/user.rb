@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :lists, dependent: :destroy
 
@@ -6,8 +8,8 @@ class User < ApplicationRecord
   has_many :shops, through: :AddShop
 
   # following
-  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followed, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
 
@@ -18,10 +20,10 @@ class User < ApplicationRecord
   # バリデーション
   validates :user_name,             presence: true,
                                     length: { maximum: 20 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :email,                 presence: true,
                                     format: { with: VALID_EMAIL_REGEX }
-  #user_edit のバリデーションに引っかかるので削除
+  # user_edit のバリデーションに引っかかるので削除
   # validates :password,              presence: true,
   #                                   length: { minimum: 6 }
   # validates :password_confirmation, presence: true,
@@ -43,15 +45,15 @@ class User < ApplicationRecord
   end
 
   # ユーザー検索
-  def User.search(search, user_or_list_or_shop)
-    if user_or_list_or_shop == "1"
-       User.where(['user_name LIKE ?', "%#{search}%"])
+  def self.search(search, user_or_list_or_shop)
+    if user_or_list_or_shop == '1'
+      User.where(['user_name LIKE ?', "%#{search}%"])
     else
-       User.all
+      User.all
     end
   end
 
-  def added_shop?(shop_id)
+  def added_shop?(_shop_id)
     AddShop.where(shop_id: @shop.id).exists?
   end
 
@@ -73,7 +75,7 @@ class User < ApplicationRecord
 
   def image_type
     if image.present? && !image.content_type.in?(%('image/jpeg image/jpg image/png'))
-      errors.add(:image,'にはjpeg,jpg,pngファイルを使用してください')
+      errors.add(:image, 'にはjpeg,jpg,pngファイルを使用してください')
     end
   end
 end

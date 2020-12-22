@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -10,17 +12,17 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = 'User deleted'
     redirect_to root_path
   end
 
   def index
-    @user  = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def following
     @user = User.find(params[:id])
-    render "following"
+    render 'following'
   end
 
   def followers
@@ -30,9 +32,10 @@ class UsersController < ApplicationController
 
   def search
     @user_or_list_or_shop = params[:option]
-    if @user_or_list_or_shop == "1"
+    case @user_or_list_or_shop
+    when '1'
       @users = User.search(params[:search], @user_or_list_or_shop).page(params[:page])
-    elsif @user_or_list_or_shop == "2"
+    when '2'
       @lists = List.search(params[:search], @user_or_list_or_shop).page(params[:page])
 
     else

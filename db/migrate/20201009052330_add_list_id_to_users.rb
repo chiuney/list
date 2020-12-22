@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddListIdToUsers < ActiveRecord::Migration[6.0]
   def change
     add_column :users, :list_id, :integer

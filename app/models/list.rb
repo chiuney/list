@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class List < ApplicationRecord
   belongs_to :user
   has_many :list_shops, dependent: :destroy
@@ -10,8 +12,8 @@ class List < ApplicationRecord
   has_many_attached :photos
 
   # リスト検索（曖昧）
-  def List.search(search, user_or_list_or_shop)
-    if user_or_list_or_shop == "2"
+  def self.search(search, user_or_list_or_shop)
+    if user_or_list_or_shop == '2'
       List.where(['list_name LIKE ?', "%#{search}%"])
     else
       List.all
