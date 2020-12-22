@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
 class ListShopsController < ApplicationController
+  before_action :shop_find
+
   def new
-    @shop = Shop.find(params[:shop_id])
-    # @lists = List.where(@shop.user_id)
     @list = List.where(user_id: current_user.id)
   end
 
   def create
-    @shop = Shop.find(params[:shop_id])
     # transaction処理
     ActiveRecord::Base.transaction do
       # eachでshopをlist毎にcreate
@@ -63,7 +62,6 @@ class ListShopsController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.find(params[:shop_id])
     @list_shop = ListShop.find_by(shop_id: @shop.id)
     @list_shop.destroy
     redirect_to request.referer
@@ -73,5 +71,9 @@ class ListShopsController < ApplicationController
 
   def shop_params
     params.permit(:shop, list_ids: [])
+  end
+
+  def shop_find
+    @shop = Shop.find(params[:shop_id])
   end
 end

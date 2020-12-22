@@ -3,8 +3,8 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   TargetRubyVersion: 2.6.3
   Exclude:
-    - vendor/**/*
-    - vender/**/*
+    - 'vendor/**/*'
+    - 'vender/**/*'
     - 'config.ru'
     - 'bin/**'
     - 'lib/**'
@@ -12,6 +12,9 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
+    - 'node_modules/**/*'
+    # rspecは未完成なので一旦除外。完成したら外すこと。
+    - 'spec/**/*'
 
 # 日本語でのコメントを許可
 AsciiComments:
