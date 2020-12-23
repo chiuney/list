@@ -36,12 +36,10 @@ class ListShopsController < ApplicationController
   end
 
   def edit
-    @shop = Shop.find(params[:id])
     @list = List.where(user_id: current_user.id)
   end
 
   def update
-    @shop = Shop.find(params[:id])
     # 写真の追加
     @shop.photos.attach(params[:photos]) if params[:photos].present?
 
