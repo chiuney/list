@@ -24,9 +24,9 @@ class ListShopsController < ApplicationController
             filename: photo.original_filename,
             content_type: photo.content_type
         end
-        @shop.photos.attach(new_photos)
-        @shop.update!(id: params[:shop_id])
       end
+      @shop.photos.attach(new_photos)
+      @shop.update!(id: params[:shop_id])
     end
     flash[:success] = 'リストに追加しました。'
     redirect_to shop_path(id: @shop.id)
