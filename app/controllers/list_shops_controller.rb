@@ -15,18 +15,8 @@ class ListShopsController < ApplicationController
         ListShop.create!(shop_id: params[:shop_id], list_id: list_id)
       end
 
-      # photosの登録
-      # 詳細→https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-c-generate_unique_secure_token
-      if params[:photos].present? # エラー回避(.map for nil:NilClass)
-        new_photos = params[:photos].map do |photo|
-          ActiveStorage::Blob.create_and_upload! \
-            io: photo.open,
-            filename: photo.original_filename,
-            content_type: photo.content_type
-        end
-      end
-      @shop.photos.attach(new_photos)
-      @shop.update!(id: params[:shop_id])
+      # @shopの写真を追加
+      @shop.upload_photos(params[:photos]) if params[:photos].present?
     end
     flash[:success] = 'リストに追加しました。'
     redirect_to shop_path(id: @shop.id)
