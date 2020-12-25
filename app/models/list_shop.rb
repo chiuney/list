@@ -9,18 +9,16 @@ class ListShop < ApplicationRecord
 
 
   def upload_photos
-      # photosの登録
-      # 詳細→https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-c-generate_unique_secure_token
-      if params[:photos].present? # エラー回避(.map for nil:NilClass)
-        new_photos = params[:photos].map do |photo|
-          ActiveStorage::Blob.create_and_upload! \
-            io: photo.open,
-            filename: photo.original_filename,
-            content_type: photo.content_type
-        end
-      end
-
-      self.photos.attach(new_photos)
+    # photosの登録
+    # 詳細→https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-c-generate_unique_secure_token
+    new_photos = params[:photos].map do |photo|
+      ActiveStorage::Blob.create_and_upload! \
+        io: photo.open,
+        filename: photo.original_filename,
+        content_type: photo.content_type
+    end
+    photos.attach(new_photos)
+    update!(id: params[:shop_id])
   end
 
 

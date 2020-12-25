@@ -23,6 +23,19 @@ class Shop < ApplicationRecord
     end
   end
 
+  # photosの登録 list_shops_controller
+  def upload_photos(photos_params)
+    # 詳細→https://api.rubyonrails.org/classes/ActiveStorage/Blob.html#method-c-generate_unique_secure_token
+    new_photos = photos_params.map do |photo|
+      ActiveStorage::Blob.create_and_upload! \
+        io: photo.open,
+        filename: photo.original_filename,
+        content_type: photo.content_type
+    end
+    photos.attach(new_photos)
+    update!(id: self.id)
+  end
+
   # Active Storage 複数画像を投稿
   has_many_attached :photos
 
