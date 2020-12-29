@@ -18,5 +18,5 @@ test:
 production:
   <<: *default
   database: listing_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
+  username: chiuney6
   password: <%= ENV['DATABASE_PASSWORD'] %>
