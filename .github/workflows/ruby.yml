@@ -44,7 +44,7 @@ jobs:
         bundle exec rails db:create
         bundle exec rails db:migrate
       env:
-        RAILS_ENV: <%= ENV['DATABASE_USERNAME'] %>
+        RAILS_ENV: main
         MYSQL_ROOT_PASSWORD: <%= ENV['DATABASE_PASSWORD'] %>
     - name: Run tests
       run: |
