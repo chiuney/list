@@ -33,19 +33,25 @@ jobs:
         brew info openssl
         sudo gem install mysql2 -v '0.5.3' --source 'https://rubygems.org/' -- --with-cppflags=-I/usr/local/opt/openssl/include --with-ldflags=-L/usr/local/opt/openssl/lib
         bundle install
+        
     - name: Start MySQL
       run: |
         mysql.server start
-        mysql -u root -p   
+        mysql -u root -p
+        
+    - name: yarn install
+      run: yarn install  
+       
     - name: db migrate
       run: |
-        yarn upgrade
-        yarn install --check-files
         bundle exec rails db:create
         bundle exec rails db:migrate
       env:
         RAILS_ENV: main
         MYSQL_ROOT_PASSWORD: Rails.application.credentials.db[:database_password]
-    - name: Run tests
+    - name: Run Rspec(test)
       run: |
         bundle exec rspec
+    - name: Run Rubocop(grammar check)
+      run: |
+        bundle exec rubocop
