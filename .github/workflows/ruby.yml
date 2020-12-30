@@ -46,10 +46,6 @@ jobs:
       run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
-      env:
-        RAILS_ENV: test
-        DATABASE_USERNAME: Rails.application.credentials.db[:database_username]
-        DATABASE_PASSWORD: Rails.application.credentials.db[:database_password]
     - name: Run Rspec(test)
       run: |
         bundle exec rspec
