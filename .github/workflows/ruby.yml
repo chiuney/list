@@ -48,7 +48,7 @@ jobs:
         bundle exec rails db:migrate
       env:
         RAILS_ENV: main
-        MYSQL_ROOT_PASSWORD: Rails.application.credentials.db[:database_password]
+        DATABASE_PASSWORD: Rails.application.credentials.db[:database_password]
     - name: Run Rspec(test)
       run: |
         bundle exec rspec
