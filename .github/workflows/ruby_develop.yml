@@ -55,7 +55,7 @@ jobs:
     # RubocopでRubyの静的コード解析
     - name: Run Rubocop(grammar check)
       run: |
-        bundle exec rubocop:  
+        bundle exec rubocop
 
     # RSpecでテストを実行
     - name: Run Rspec(test)
