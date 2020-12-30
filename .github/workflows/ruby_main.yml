@@ -34,23 +34,23 @@ jobs:
         sudo gem install mysql2 -v '0.5.3' --source 'https://rubygems.org/' -- --with-cppflags=-I/usr/local/opt/openssl/include --with-ldflags=-L/usr/local/opt/openssl/lib
         bundle install
         
+    # MySQLを起動、ログイン
     - name: Start MySQL
       run: |
         mysql.server start
         mysql -u root -p
         
+    # yarnをインストール
     - name: yarn install
       run: yarn install  
-       
+    
+    # DB
     - name: db migrate
       run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
       env:
         RAILS_ENV: test
-    - name: Run Rspec(test)
-      run: |
-        bundle exec rspec
-    - name: Run Rubocop(grammar check)
-      run: |
-        bundle exec rubocop
+        
+    # Herokuにデプロイ 
+
