@@ -1,0 +1,63 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: Ruby
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  test:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+    # change this to (see https://github.com/ruby/setup-ruby#versioning):
+    # uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
+      with:
+        ruby-version: 2.6.3
+    - name: Install dependencies
+      run: |
+        brew install mysql
+        brew info openssl
+        sudo gem install mysql2 -v '0.5.3' --source 'https://rubygems.org/' -- --with-cppflags=-I/usr/local/opt/openssl/include --with-ldflags=-L/usr/local/opt/openssl/lib
+        bundle install
+        
+    # MySQLを起動、ログイン
+    - name: Start MySQL
+      run: |
+        mysql.server start
+        mysql -u root -p
+        
+    # yarnをインストール
+    - name: yarn install
+      run: yarn install  
+    
+    # DB
+    - name: db migrate
+      run: |
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+      env:
+        RAILS_ENV: test
+
+    # RubocopでRubyの静的コード解析
+    - name: Run Rubocop(grammar check)
+      run: |
+        bundle exec rubocop:  
+
+    # RSpecでテストを実行
+    - name: Run Rspec(test)
+      run: |
+        bundle exec rspec
