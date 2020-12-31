@@ -14,7 +14,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  build:
 
     runs-on: macos-latest
 
@@ -44,8 +44,8 @@ jobs:
     - name: yarn install
       run: yarn install  
     
-    # DB
-    - name: db migrate
+    # DBセットアップ
+    - name: Setup Database
       run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
@@ -53,4 +53,13 @@ jobs:
         RAILS_ENV: test
         
     # Herokuにデプロイ 
-
+  deploy:
+    needs: build
+    runs-on: macos-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
+          with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: 'app-to-list-shops-you-like'
+            heroku_email: 'yokota.chiune@gmail.com'
