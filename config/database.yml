@@ -3,7 +3,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: 
+  password:
   host: localhost
   socket: /tmp/mysql.sock
 
@@ -18,6 +18,4 @@ test:
 production:
   <<: *default
   database: listing_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
