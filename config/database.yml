@@ -20,4 +20,4 @@ production:
   database: listing_production
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['JAWSDB_URL'] %>
