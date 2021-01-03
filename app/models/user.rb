@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   # バリデーション
   validates :user_name,             presence: true,
-                                    length: { maximum: 20 }
+                                    length: { maximum: 30 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :email,                 presence: true,
                                     format: { with: VALID_EMAIL_REGEX }

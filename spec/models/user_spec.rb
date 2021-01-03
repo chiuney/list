@@ -36,13 +36,13 @@ RSpec.describe User, type: :model do
   # it "パスワードと確認用パスワードが一致しない場合 => 無効" do
   # end
 
-  it 'ユーザーネームが20字の場合 => 有効' do
-    user = build(:user, user_name: 'a' * 20)
+  it 'ユーザーネームが30字の場合 => 有効' do
+    user = build(:user, user_name: 'a' * 30)
     expect(user).to be_valid
   end
 
-  it 'ユーザーネームが21字の場合 => 無効' do
-    user = build(:user, user_name: 'a' * 21)
+  it 'ユーザーネームが31字の場合 => 無効' do
+    user = build(:user, user_name: 'a' * 31)
     user.valid?
     expect(user.errors.of_kind?(:user_name, :too_long)).to be_truthy
   end

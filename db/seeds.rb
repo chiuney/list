@@ -9,7 +9,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 100.times do |_n|
-  name = Faker::Movies::HarryPotter.character
+  name = Faker::Name.first_name
   email = Faker::Internet.email
   password = 'password'
   User.create!(user_name: name,
@@ -30,6 +30,7 @@ require 'csv'
 CSV.foreach('db/shop_tokyo.csv', headers: true) do |row|
   Shop.create(
     shop_name: row['shop_name'],
+    shop_comment: ""
     shop_address: row['shop_address']
   )
 end
