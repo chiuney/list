@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_024618) do
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "shop_name", default: "", null: false
-    t.text "shop_comment", null: false
+    t.text "shop_comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
