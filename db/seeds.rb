@@ -9,7 +9,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 100.times do |user|
-  name = Faker::Name.first_name
+  # first_name = Faker::Name.first_name[0..19]
+  name = Faker::Name.first_name[0..19]
   email = Faker::Internet.email
   password = 'password'
   User.create!(user_name: name,
