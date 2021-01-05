@@ -26,6 +26,8 @@
 * Ruby 2.6.3
 * Ruby on Rails 6.0.3.3
 * MySQL
+* Active Strage
+* SCSS ( BEM )
 * Google Maps Platform
   - Geocoding API
   - Maps JavaScript API
@@ -48,8 +50,11 @@
 
 # 機能一覧
 * ユーザー登録、ログイン機能(devise)
-* リスト作成、編集機能
-* ショップ登録、編集機能
+* リスト
+  - 作成、編集機能
+* ショップ
+  - 登録、編集機能
+  - 写真投稿機能(Active Strage)
 * いいね機能
 * フォロー機能
 * ページネーション機能(kaminari)
