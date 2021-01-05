@@ -30,6 +30,5 @@ require 'csv'
 
 CSV.foreach('db/shop_tokyo.csv', headers: true) do |row|
   Shop.create(  shop_name: row['shop_name'],
-                shop_address: row['shop_address']
-                shop_comment: row['shop_comment'] )
+                shop_address: row['shop_address'] )
 end
