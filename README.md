@@ -2,7 +2,7 @@
 
 お気に入りのお店をリストにまとめて管理することができます。
 
-[List App](xxx)
+[List App](https://app-to-list-shops-you-like.herokuapp.com/)
 
 # DEMO
 
@@ -15,13 +15,29 @@
 # 使用技術
 * Ruby 2.6.3
 * Ruby on Rails 6.0.3.3
-<!-- * MySQL  -->
-* Heroku
-* Rspec
-* Rubocop
+* MySQL
 * Google Maps Platform
   - Geocoding API
   - Maps JavaScript API
+* Github Actions で自動化
+  - main
+    - Heroku でデプロイ
+  - develop
+    - Rspec でテスト
+    - Rubocop でコーディングチェック
+
+# 技術アイコン
+
+<img src="https://img.shields.io/badge/-HTML5-333.svg?logo=html5&style=flat">
+<img src="https://img.shields.io/badge/-CSS3-1572B6.svg?logo=css3&style=flat">
+<img src="https://img.shields.io/badge/Javascript-276DC3.svg?logo=javascript&style=flat">
+<img src="https://img.shields.io/badge/Ruby-CC342D.svg?logo=php&style=flat">
+<img src="https://img.shields.io/badge/-Rails-CC0000.svg?logo=rails&style=flat">
+<img src="https://img.shields.io/badge/-Xcode-EEE.svg?logo=xcode&style=flat">
+<img src="https://img.shields.io/badge/-MySQL-4479A1.svg?logo=postgresql&style=flat">
+<img src="https://img.shields.io/badge/-GitHub-181717.svg?logo=github&style=flat">
+<img src="https://img.shields.io/badge/-GithubActions-2088FF.svg?logo=githubactions&style=flat">
+<img src="https://img.shields.io/badge/-Heroku-430098.svg?logo=heroku&style=flat">
 
 # 機能一覧
 * ユーザー登録、ログイン機能(devise)
