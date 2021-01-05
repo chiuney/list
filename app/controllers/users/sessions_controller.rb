@@ -4,17 +4,17 @@ module Users
   class SessionsController < Devise::SessionsController
     # before_action :configure_sign_in_params, only: [:create]
 
-    def new_guest
-      user = User.guest
-      sign_in user
-      redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。'
-    end
+    # def new_guest
+    #   user = User.guest
+    #   sign_in user
+    #   redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。'
+    # end
 
-    def delete_guest
-      user = User.guest
-      sign_out user
-      redirect_to root, notice: 'ログアウトしました。'
-    end
+    # def delete_guest
+    #   user = User.guest
+    #   sign_out user
+    #   redirect_to root, notice: 'ログアウトしました。'
+    # end
 
     # GET /resource/sign_in
     # def new

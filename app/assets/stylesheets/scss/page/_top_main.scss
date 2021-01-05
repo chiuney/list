@@ -22,19 +22,6 @@
     line-height: 1.6;
     padding: 8%;
   }
-
-  &__top-gest {
-    @include btn($background:$background-color-white,$height:40px,$width:160px);
-
-    &:hover{
-      opacity: 0.9 ;
-    }
-
-    &--link {
-      color: 	$color-black;
-      padding: 16px;
-    }
-  }
 }
 
 .top-ul {
