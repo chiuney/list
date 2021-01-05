@@ -15,8 +15,6 @@
 
 [List App](https://app-to-list-shops-you-like.herokuapp.com/)
 
-# DEMO
-
 * 魅力が直感的に伝えわるデモ動画や図解を載せる
 
 # Features
@@ -24,18 +22,29 @@
 * セールスポイントや差別化などを説明
 
 # 使用技術
+
 * Ruby 2.6.3
 * Ruby on Rails 6.0.3.3
 * MySQL
 * Google Maps Platform
   - Geocoding API
   - Maps JavaScript API
-* Github Actions で自動化
-  - main
-    - Heroku でデプロイ
-  - develop
-    - Rspec でテスト
-    - Rubocop でコーディングチェック
+* Github Actions
+  - Rspec
+  - Rubocop
+  - Heroku
+
+## Github Actions
+
+* developブランチにpushするとRspecとRubocopが自動で実行されます。
+* masterブランチにpushすると、Herokuへの自動デプロイが実行されます。
+
+## テスト
+
+* Rspec
+  - 単体テスト(model)
+  - 機能テスト(request)
+  - 統合テスト(feature)
 
 # 機能一覧
 * ユーザー登録、ログイン機能(devise)
@@ -49,19 +58,7 @@
   - ショップ詳細の単体マーカー
   - リスト毎の複数マーカー
 
-# テスト
-
-* Rspec
-  - 単体テスト(model)
-  - 機能テスト(request)
-  - 統合テスト(feature)
-
-# Note
-
-注意点などがあれば書く
-
 # Author
 
-* 名前(name)
-* < xxx@gmail.com >
+* Chiuney
 * [Qiita](https://qiita.com/chiuney)
