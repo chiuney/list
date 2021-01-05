@@ -6,7 +6,5 @@ FactoryBot.define do
     # shop_comment { 'shop_comment' }
     # shop_address {"東京都千代田区丸の内１丁目"} # 東京駅の住所
     # shop_official {"https://www.tokyoeki-1bangai.co.jp/"}
-
-    # association :list
   end
 end
