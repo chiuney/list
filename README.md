@@ -18,10 +18,10 @@
 
 * 直感的に伝えわるデモ動画や図解を載せる
 <section style="display:flex;">
-  <img src="https://github.com/chiuney/list/blob/develop/app/assets/images/user_show.png?raw=true" width="400px" alt="ユーザー/マイページ(user_shopw)">
-  <img src="https://github.com/chiuney/list/blob/develop/app/assets/images/user_show_half.png?raw=true" width="400px" alt="ユーザー/マイページ(user_shopw)">
-  <img src="https://github.com/chiuney/list/blob/develop/app/assets/images/list_show.png?raw=true" width="400px" alt="リスト詳細(list_show)">
-  <img src="https://github.com/chiuney/list/blob/develop/app/assets/images/shop_show.png?raw=true" width="400px" alt="ショップ詳細(shop_show)">
+  <div><img src="https://github.com/chiuney/list/blob/develop/app/assets/images/user_show.png?raw=true" width="400px" alt="ユーザー/マイページ(user_shopw)"></div>
+  <!-- <img src="https://github.com/chiuney/list/blob/develop/app/assets/images/user_show_half.png?raw=true" width="400px" alt="ユーザー/マイページ(user_shopw)"> -->
+  <div><img src="https://github.com/chiuney/list/blob/develop/app/assets/images/list_show.png?raw=true" width="400px" alt="リスト詳細(list_show)"></div>
+  <div><img src="https://github.com/chiuney/list/blob/develop/app/assets/images/shop_show.png?raw=true" width="400px" alt="ショップ詳細(shop_show)"></div>
 </section>
 
 <!-- # Features -->
