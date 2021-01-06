@@ -24,12 +24,11 @@ RSpec.describe User, type: :model do
         user = build(:user, password_confirmation: 'a' * 6)
         expect(user).to be_valid
       end
-      # エラー
-      # it "メアドが正規表現の場合 => 有効" do
-      #   user = build(:user)
-      #   VALID_EMAIL_REGEX = //\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i/
-      #   expect(user).to match(VALID_EMAIL_REGEX)
-      # end
+
+      it "メアドが正規表現の場合 => 有効" do
+        user = build(:user, email: 'tarou@example.com')
+        expect(user).to be_valid
+      end
     end
 
     context '[異常]ユーザー登録できない場合' do
@@ -81,14 +80,17 @@ RSpec.describe User, type: :model do
         expect(user.errors.of_kind?(:password_confirmation, :too_short)).to be_truthy
       end
 
-      #  エラー
-      # it "メアドが正規表現でない場合 => 無効" do
-      #   user = build(:user)
-      #   VALID_EMAIL_REGEX = //\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i/
-      #   expect(user).to_not match(VALID_EMAIL_REGEX)
-      # end
+      it 'メアドに @ がない場合 => 無効' do
+        user = build(:user, email: 'tarouexample.com')
+        expect(user.email).to_not match(/^(?=.*@).*$/)
+      end
 
-      it "メアドが重複する場合 => 無効" do
+      it 'メアドに全角文字がある場合 => 無効' do
+        user = build(:user, email: 'tarou＠example.com')
+        expect(user.email).to_not match(/^[0-9a-zA-Z]*$/)
+      end
+
+      it 'メアドが重複する場合 => 無効' do
         user = create(:user, email: 'tarou@example.com')
         user2 = build(:user, email: 'tarou@example.com')
         user2.valid?
@@ -98,18 +100,56 @@ RSpec.describe User, type: :model do
   end
 
   context 'ユーザー編集の場合' do
-    context '[正常]ユーザー情報を更新できる場合' do
+    context '[正常]ユーザー情報を更新できる場合 => 有効' do
+      let!(:user) { create(:user) }
+
+      # it 'ユーザー名とメールアドレスがある場合' do
+      #   # byebug
+      #   expect do
+      #   user_params = attributes_for(:user, user_name: 'jirou', email: 'jirou@example.com')
+      #   patch user_registration_path, params: user_params
+      #   end.to change{User.find(user.id)}.from(:user).to(user[:user_params])
+      # end
+
+      it 'ユーザーネームが20字の場合 => 有効' do
+      end
+
+      it "メアドが正規表現の場合 => 有効" do
+      end
+
+      # it '' do
+      # end
 
     end
 
     context '[異常]ユーザー情報を更新できない場合' do
+      it 'ユーザー名がない場合 => 無効' do
+      end
 
+      it 'メアドがない場合 => 無効' do
+      end
+
+      it 'ユーザーネームが21字の場合 => 無効' do
+      end
+
+      it "メアドが正規表現でない場合 => 無効" do
+      end
+
+      it 'メアドに @ がない場合 => 無効' do
+      end
+
+      it 'メアドに全角文字がある場合 => 無効' do
+      end
+
+      it "メアドが重複する場合 => 無効" do
+      end
     end
   end
 
   context 'ユーザー削除の場合' do
     context '[正常]ユーザーを削除できる場合' do
-
+      it "正常に削除できる場合 => 有効" do
+      end
     end
 
     context '[異常]ユーザーを削除できない場合' do
