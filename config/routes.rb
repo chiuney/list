@@ -12,9 +12,8 @@ Rails.application.routes.draw do
   #   delete 'users/guest_sign_out', to: 'users/sessions#delete_guest'
   # end
 
-  # ゲストユーザー => 削除不可
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: "users/registrations",
   }
 
   resources :users

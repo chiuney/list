@@ -19,15 +19,17 @@ class User < ApplicationRecord
 
   # バリデーション
   validates :user_name,             presence: true,
-                                    length: { maximum: 30 }
+                                    length: { maximum: 20 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
-  validates :email,                 presence: true,
+  validates :email,                 uniqueness: true,
+                                    presence: true,
                                     format: { with: VALID_EMAIL_REGEX }
-  # user_edit のバリデーションに引っかかるので削除
-  # validates :password,              presence: true,
-  #                                   length: { minimum: 6 }
-  # validates :password_confirmation, presence: true,
-  #                                   length: { minimum: 6 }
+  validates :password,              on: :create,
+                                    presence: true,
+                                    length: { minimum: 6 }
+  validates :password_confirmation, on: :create,
+                                    presence: true,
+                                    length: { minimum: 6 }
 
   # ユーザーをフォローする
   def follow(user_id)
