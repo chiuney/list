@@ -17,6 +17,10 @@
 * ログイン情報[ユーザーネーム: sample, パスワード: sample]
 
 <!-- * 直感的に伝えわるデモ動画や図解を載せる -->
+![](user_show.png "ユーザー/マイページ(user_shopw)")
+![](user_show_half.png "ユーザー/マイページ(user_show)")
+![](list_show.png "リスト詳細(list_show)")
+![](shop_show.png "ショップ詳細(shop_show)")
 
 <!-- # Features -->
 
