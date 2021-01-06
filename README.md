@@ -18,7 +18,7 @@
 
 <!-- * 直感的に伝えわるデモ動画や図解を載せる -->
 
-# Features
+<!-- # Features -->
 
 <!-- * セールスポイントや差別化などを説明 -->
 
@@ -29,6 +29,7 @@
 * MySQL
 * Active Strage
 * SCSS ( BEM )
+* S3
 * Google Maps Platform
   - Geocoding API
   - Maps JavaScript API
