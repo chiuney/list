@@ -16,7 +16,7 @@
 [List App](https://app-to-list-shops-you-like.herokuapp.com/)
 * ログイン情報[ユーザーネーム: sample, パスワード: sample]
 
-<!-- * 直感的に伝えわるデモ動画や図解を載せる -->
+* 直感的に伝えわるデモ動画や図解を載せる
 ![](user_show.png "ユーザー/マイページ(user_shopw)")
 ![](user_show_half.png "ユーザー/マイページ(user_show)")
 ![](list_show.png "リスト詳細(list_show)")
