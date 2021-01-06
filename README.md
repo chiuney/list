@@ -16,8 +16,11 @@
 [List App](https://app-to-list-shops-you-like.herokuapp.com/)
 * ログイン情報[ユーザーネーム: sample, パスワード: sample]
 
+* ユーザー/マイページ(user_shopw)
 <img src="https://github.com/chiuney/list/blob/develop/app/assets/images/user_show.png?raw=true" width="600px" alt="ユーザー/マイページ(user_shopw)">
+* リスト詳細(list_show)
 <img src="https://github.com/chiuney/list/blob/develop/app/assets/images/list_show.png?raw=true" width="600px" alt="リスト詳細(list_show)">
+*ショップ詳細(shop_show)
 <img src="https://github.com/chiuney/list/blob/develop/app/assets/images/shop_show.png?raw=true" width="600px" alt="ショップ詳細(shop_show)">
 
 <!-- # Features -->
