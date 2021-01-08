@@ -7,7 +7,6 @@ RSpec.describe User, type: :model do
   describe 'バリデーション' do
 
     # バリデーション => 有効
-    subject { user.valid? }
     context 'ユーザー名、メアド、パスワード、確認用パスワードがある場合' do
       let(:user) { build(:user) }
       it 'valid' do
@@ -45,8 +44,9 @@ RSpec.describe User, type: :model do
 
     # バリデーション => 無効
     context 'ユーザー名がない場合' do
-      let(:user) { build(:user) }
+      let(:user) { build(:user, user_name: nil) }
       it 'invalid' do
+        user.valid?
         expect(user.errors.of_kind?(:user_name, :blank)).to be_truthy
       end
     end
@@ -54,6 +54,7 @@ RSpec.describe User, type: :model do
     context 'メアドがない場合' do
       let(:user) { build(:user, email: nil) }
       it 'invalid' do
+        user.valid?
         expect(user.errors.of_kind?(:email, :blank)).to be_truthy
       end
     end
@@ -61,6 +62,7 @@ RSpec.describe User, type: :model do
     context 'パスワードがない場合' do
       let(:user) { build(:user, password: nil) }
       it 'invalid' do
+        user.valid?
         expect(user.errors.of_kind?(:password, :blank)).to be_truthy
       end
     end
@@ -68,6 +70,7 @@ RSpec.describe User, type: :model do
     context '確認用パスワードがない場合' do
       let(:user) { build(:user, password_confirmation: nil) }
       it 'invalid' do
+        user.valid?
         expect(user.errors.of_kind?(:password_confirmation, :blank)).to be_truthy
       end
     end
@@ -75,6 +78,7 @@ RSpec.describe User, type: :model do
     context 'パスワードと確認用パスワードが一致しない場合' do
       let(:user) { build(:user, password: 'password', password_confirmation: 'other_password') }
       it 'invalid' do
+        user.valid?
         expect(user.errors.of_kind?(:password_confirmation, :equal_to)).to_not be_truthy
       end
     end
@@ -82,6 +86,7 @@ RSpec.describe User, type: :model do
     context 'ユーザーネームが21字の場合' do
       let(:user) { build(:user, user_name: 'a' * 21) }
       it 'invalid' do
+        user.valid?
         expect(user.errors.of_kind?(:user_name, :too_long)).to be_truthy
       end
     end
@@ -89,6 +94,7 @@ RSpec.describe User, type: :model do
     context 'パスワードが5字の場合' do
       let(:user) { build(:user, password: 'a' * 5) }
       it 'invalid' do
+        user.valid?
         expect(user.errors.of_kind?(:password, :too_short)).to be_truthy
       end
     end
@@ -96,6 +102,7 @@ RSpec.describe User, type: :model do
     context '確認用パスワードが5字の場合' do
       let(:user) { build(:user, password_confirmation: 'a' * 5) }
       it 'invalid' do
+        user.valid?
         expect(user.errors.of_kind?(:password_confirmation, :too_short)).to be_truthy
       end
     end
@@ -103,6 +110,7 @@ RSpec.describe User, type: :model do
     context 'メアドに @ がない場合' do
       let(:user) { build(:user, email: 'tarouexample.com') }
       it 'invalid' do
+        user.valid?
         expect(user.email).to_not match(/^(?=.*@).*$/)
       end
     end
@@ -110,16 +118,25 @@ RSpec.describe User, type: :model do
     context 'メアドに全角文字がある場合' do
       let(:user) { build(:user, email: 'tarou＠example.com') }
       it 'invalid' do
+        user.valid?
         expect(user.email).to_not match(/^[0-9a-zA-Z]*$/)
       end
     end
 
-    context 'メアドが重複する場合' do
-      let(:user) { create(:user, email: 'tarou@example.com') }
-      let(:user2) { build(:user, email: 'tarou@example.com') }
-      it 'invalid' do
-        expect(user2.errors.of_kind?(:email, :taken)).to be_truthy
-      end
+    # context 'メアドが重複する場合' do
+    #   let(:user) { create(:user, email: 'tarou@example.com') }
+    #   let(:user2) { build(:user, email: 'tarou@example.com') }
+    #   it 'invalid' do
+    #     user2.valid?
+    #     expect(user2.errors.of_kind?(:email, :taken)).to be_truthy
+    #   end
+    # end
+
+    it 'メアドが重複する場合 => 無効' do
+      user = create(:user, email: 'tarou@example.com')
+      user2 = build(:user, email: 'tarou@example.com')
+      user2.valid?
+      expect(user2.errors.of_kind?(:email, :taken)).to be_truthy
     end
   end
 end
