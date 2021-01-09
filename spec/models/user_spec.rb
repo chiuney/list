@@ -6,7 +6,6 @@ RSpec.describe User, type: :model do
 
   describe 'バリデーション' do
 
-    # バリデーション => 有効
     context 'ユーザー名、メアド、パスワード、確認用パスワードがある場合' do
       let(:user) { build(:user) }
       it 'valid' do
@@ -123,6 +122,8 @@ RSpec.describe User, type: :model do
       end
     end
 
+    # エラーになるのでコメントアウト中
+    # 元々の書き方を下に書いてテスト自体は通してる
     # context 'メアドが重複する場合' do
     #   let(:user) { create(:user, email: 'tarou@example.com') }
     #   let(:user2) { build(:user, email: 'tarou@example.com') }
