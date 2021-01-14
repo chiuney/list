@@ -19,4 +19,9 @@ FactoryBot.define do
     list_name { 'updated_list' }
     association :user
   end
+
+  factory :un_update_list, class: List do
+    list_name { 'un_update_list' }
+    association :jirou
+  end
 end
