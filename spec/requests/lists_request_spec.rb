@@ -99,6 +99,19 @@ RSpec.describe 'Lists', type: :request do
       end
     end
 
+    # 別のユーザーのリストをnewできない
+    describe 'GET #new' do
+      let(:user) { create(:user) }
+      before do
+        sign_in user
+      end
+
+      it 'invalid' do
+        # get new_list_path
+        # expect(response).to have_http_status(200)
+      end
+    end
+
     # 別のユーザーのリストをcreateできない
     describe 'POST #create' do
       let(:user) { create(:user) }
@@ -110,10 +123,24 @@ RSpec.describe 'Lists', type: :request do
       end
 
       it 'invalid' do
-        post create_lists_path, params: { list: attributes_for(:list) }
-        expect(response).to have_http_status(302)
+        # post create_lists_path, params: { list: attributes_for(:un_update_list) }
+        # expect(response).to have_http_status(302)
       end
 
+    end
+
+    # 別のユーザーが作成したリストはeditできない
+    describe 'GET #edit' do
+    let(:user) { create(:user) }
+    let(:list) { create(:list) }
+    before do
+      sign_in jirou
+    end
+
+      it 'invalid' do
+        # get edit_list_path list
+        # expect(response).to have_http_status(200)
+      end
     end
 
     # 別のユーザーが作成したリストはupdateできない
