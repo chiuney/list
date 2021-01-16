@@ -158,5 +158,21 @@ RSpec.describe 'Lists', type: :request do
         # expect(response).to have_http_status(401)
       end
     end
+
+    # 別のユーザーが作成したリストはdestroyできない
+    describe 'DELETE #destroy' do
+    let(:user) { create(:user) }
+    let(:list) { create(:list) }
+
+    let(:jirou) { create(:jirou) }
+    before do
+      sign_in jirou
+    end
+
+      it 'valid' do
+        # delete list_path list
+        # expect(response).to have_http_status()
+      end
+    end
   end
 end
