@@ -79,7 +79,6 @@ RSpec.describe 'Lists', type: :request do
           expect(response).to have_http_status(302)
         end
       end
-
     end
   end
 
@@ -133,6 +132,7 @@ RSpec.describe 'Lists', type: :request do
     describe 'GET #edit' do
     let(:user) { create(:user) }
     let(:list) { create(:list) }
+    let(:jirou) { create(:jirou) }
     before do
       sign_in jirou
     end
