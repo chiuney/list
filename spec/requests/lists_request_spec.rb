@@ -82,7 +82,7 @@ RSpec.describe 'Lists', type: :request do
     end
   end
 
-  context '別のログイン済みユーザーの場合' do
+  describe '別のログイン済みユーザーの場合' do
     # 別のユーザーが作成したリストを見ることができる
     describe 'GET #show' do
       let(:user) { create(:user) }
