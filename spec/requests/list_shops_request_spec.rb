@@ -39,11 +39,25 @@ RSpec.describe 'ListShops', type: :request do
         sign_in user
       end
 
-        it 'リクエストが成功すること' do
-          post shop_list_shops_url(shop_id: shop.id), params: { list_shop: attributes_for(:list_shop) }
-          expect(response).to have_http_status(302)
-        end
+      it 'valid' do
+        post shop_list_shops_url(shop_id: shop.id), params: { list_shop: attributes_for(:list_shop) }
+        expect(response).to have_http_status(302)
       end
+    end
+
+    # describe 'PATCH #update' do
+    #   let(:user) { create(:user) }
+    #   let(:shop) { create(:shop) }
+    #   let(:list_shop) { create(:list_shop) }
+    #   before do
+    #     sign_in user
+    #   end
+
+    #   it 'valid' do
+    #     post shop_update_list_shops(shop_id: shop.id, id: list_shop.id), params: { list_shop: attributes_for(:list_shop) }
+    #     expect(response).to have_http_status(302)
+    #   end
+    end
 
   end
 
