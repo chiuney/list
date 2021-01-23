@@ -3,32 +3,33 @@
 require 'rails_helper'
 
 RSpec.describe 'AddShops', type: :request do
-  describe 'GET #create' do
-    before do
-      @user = create(:user)
-      @shop = create(:shop)
-      sign_in @user
+  describe 'バリデーション' do
+    context 'GET #create' do
+    let(:user) { create(:user) }
+    let(:shop) { create(:shop) }
+      before do
+        sign_in user
+      end
+
+      it 'valid' do
+        post shop_add_shops_path(shop_id: shop.id)
+        expect(response).to have_http_status(302)
+      end
     end
 
-    it 'いいねされたshopが表示されていること' do
-      expect do
-        post shop_add_shops_url(shop_id: @shop.id), params: { shop_id: @shop.id }
-      end.to change { AddShop.count }.by(1)
+    context 'DELETE #destroy' do
+      let(:user) { create(:user) }
+      let(:shop) { create(:shop) }
+      let(:add_shop) { create(:add_shop, user_id: user.id, shop_id: shop.id) }
+      before do
+        sign_in user
+      end
+
+      it 'valid' do
+        delete shop_add_shop_path(shop_id: shop.id, id: add_shop.id)
+        expect(response).to have_http_status(302)
+      end
     end
   end
 
-  describe 'DELETE #destroy' do
-    before do
-      @user = create(:user)
-      @shop = create(:shop)
-      @add_shop = create(:add_shop, user_id: @user.id, shop_id: @shop.id)
-      sign_in @user
-    end
-
-    it 'ユーザーが削除されること' do
-      expect do
-        delete shop_add_shop_url(id: @add_shop.id, shop_id: @shop.id), params: { shop_id: @shop.id, id: @add_shop.id }
-      end.to change { AddShop.count }.by(-1)
-    end
-  end
 end

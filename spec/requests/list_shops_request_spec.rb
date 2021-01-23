@@ -57,7 +57,7 @@ RSpec.describe 'ListShops', type: :request do
     #     post shop_update_list_shops(shop_id: shop.id, id: list_shop.id), params: { list_shop: attributes_for(:list_shop) }
     #     expect(response).to have_http_status(302)
     #   end
-    end
+    # end
 
   end
 
