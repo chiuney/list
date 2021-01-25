@@ -105,17 +105,22 @@
 
   &__photo-select {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5px;
+  }
+}
+.photo-checkbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
 
-    &--checkbox {
-      width: 200px;
-      height: 140px;
-      border-radius: 20px;
-      // 外接リサイズ
-      object-fit: cover;
-    }
+  &__delete {
+    width: 200px;
+    height: 140px;
+    border-radius: 20px;
+    // 外接リサイズ
+    object-fit: cover;
   }
 }

@@ -44,12 +44,14 @@
       <% if @shop.photos.present? %>
         <div class="uploded-photo">
           <p>現在登録されている画像（削除するものはチェックしてください）</p>
-          <% @shop.photos.each do |photos| %>
-            <div class="uploded-photo__photo-select">
-              <%= form.check_box :photos_ids, {multiple: true, class:"item-info__item-photo--checkbox"}, photos.id, false %>
-              <%= image_tag photos, class:"uploded-photo__photo-select--checkbox" %>
-            </div>
-          <% end %>
+          <div class="uploded-photo__photo-select">
+            <% @shop.photos.each do |photos| %>
+              <div class="photo-checkbox">
+                <%= form.check_box :photos_ids, {multiple: true, class:"item-info__item-photo--checkbox"}, photos.id, false %>
+                <%= image_tag photos, class:"photo-checkbox__delete" %>
+              </div>
+            <% end %>
+          </div>
         <div>
       <% end %>
       </div>
