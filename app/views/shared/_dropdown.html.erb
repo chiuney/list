@@ -11,7 +11,7 @@
         <%= link_to 'プロフィールを編集', edit_user_registration_path, class:"dropdown-list__dropdown-item--link" %>
       </li>
       <li class="dropdown-list__dropdown-item">
-        <%= link_to 'ログアウト', destroy_user_session_path, class:"dropdown-list__dropdown-item--link" ,method: :delete %>
+        <%= link_to 'ログアウト', destroy_user_session_path, class:"dropdown-list__dropdown-item--link" ,method: :delete,data: { confirm: "ログアウトしてもよろしいですか？"} %>
       </li>
     </ul>
   </div>
