@@ -60,6 +60,7 @@
     &--mypage {
       @include  icon;
       border: 1px solid $color-black;
+      margin-right: 10px;
     }
 
     &--btn {
