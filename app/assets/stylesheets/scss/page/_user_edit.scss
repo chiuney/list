@@ -33,7 +33,6 @@
 
     &--image {
       @include icon($height:160px,$width:160px);
-      // @include icon($height:120px,$width:120px);
       border: 2px solid $color-black;
       margin: 0 auto;
       opacity: 0.8;
