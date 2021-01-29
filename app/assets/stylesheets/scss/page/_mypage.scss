@@ -19,6 +19,7 @@
   &__mypage-icon {
     &--image {
       @include icon($height:120px,$width:120px);
+      border: 2px solid $color-black;
     }
   }
 
