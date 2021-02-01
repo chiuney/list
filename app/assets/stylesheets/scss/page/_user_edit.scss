@@ -107,6 +107,7 @@
 
     &--deletebtn {
       @include btn($background: $background-color-white, $height:16px, $width:78px);
+      padding: 10px;
       margin: 0 auto;
     }
 
