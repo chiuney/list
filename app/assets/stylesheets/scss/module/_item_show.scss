@@ -131,7 +131,9 @@
     // 「関連情報」
     &--title  {
       font-size: 20px;
-      margin:0px 0px 20px;
+      // margin:0px 0px 20px;
+      // margin: 0 auto;
+      text-align:center
     }
   }
 }
@@ -153,7 +155,7 @@
 
     // dd
     &--content {
-      
+
     }
   }
 }
