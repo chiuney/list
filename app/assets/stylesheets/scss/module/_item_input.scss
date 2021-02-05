@@ -74,6 +74,11 @@
     align-items: center;
     flex-wrap: wrap;
 
+    &--link {
+      margin: 0 auto;
+      padding: 10px 5px;
+    }
+
     &--select {
       margin: 10px auto 0px;
       display: none;
