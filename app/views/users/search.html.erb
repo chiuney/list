@@ -18,18 +18,20 @@
           <span class="follow-item__follow-comment--profile"><%= user.user_comment %></span>
         </div>
 
-          <% unless user == current_user %>
-
-              <% if current_user.following?(user) %>
+          <% if user == current_user %>
+            <div class="follow-item__follow-btn">
+              <%= link_to 'マイページへ', user_path(user.id), method: :GET, class:"follow-item__follow-btn--following" %>
+            </div>
+          <% elsif %>
+            <% if current_user.following?(user) %>
               <div class="follow-item__unfollow-btn">
                 <%= link_to 'フォロー中', unfollow_path(user.id), method: :POST,  class:"follow-item__unfollow-btn--unfollow" %>
               <div>
               <% else %>
               <div class="follow-item__follow-btn">
                 <%= link_to 'フォローする', follow_path(user.id), method: :POST,class:"follow-item__follow-btn--following" %>
-              <% end %>
               </div>
-
+            <% end %>
           <% end %>
       </section>
     <% end %>
