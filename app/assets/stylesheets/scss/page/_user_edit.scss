@@ -73,12 +73,14 @@
     // user_name,emal
     &--form {
       @include sign;
+      border-radius: 0;
       width: 300px;
     }
 
     // user_coment(profile)
     &--profile {
       @include sign;
+      border-radius: 0;
       height: 70px;
       width: 300px;
     }
